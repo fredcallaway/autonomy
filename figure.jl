@@ -1,7 +1,9 @@
 using Plots
 using Dates
 mkpath("fighist")
+mkpath("figs")
 gr(label="", dpi=200, size=(400,300))
+ENV["GKSwstype"] = "nul"
 
 function figure(f, name="tmp"; kws...)
     plot(;kws...)
