@@ -3,61 +3,15 @@ using ProgressMeter
 using AxisKeys
 
 @everywhere include("model.jl")
+include("utils.jl")
 include("figure.jl")
 mkpath("tmp")
-
-# %% --------
-@everywhere begin
-    Problem = Tuple{Vector{Float64}, Vector{Float64}}
-    struct Objective
-        env::Env
-        problems::Vector{Problem}
-        true_vals::Vector{Float64}
-    end
-
-    function Objective(env, n_problem=1000)
-        problems = map(1:n_problem) do i
-            sample_problem(env)
-        end
-        true_vals = pmap(problems) do (u, p)
-            monte_carlo(10000) do
-                objective_value(u, p, env.k)
-            end
-        end
-        Objective(env, problems, true_vals)
-    end
-
-    function (f::Objective)(sw::SampleWeighter, map=map)
-        choice_probs = map(f.problems) do (u, p)
-            monte_carlo(1000) do 
-                subjective_value(sw, env.s, u, p) > 0
-            end
-        end
-        mean(choice_probs .* f.true_vals)
-    end
-
-    function Base.show(io::IO, f::Objective) 
-        print(io, "Objective")
-    end
-end
 
 # %% ==================== scratch ====================
 env = Env(k=1, n=10)
 f = Objective(env)
 f(Softmax(1,0), pmap)
 
-
-# %% ==================== modulate β_p and β_u ====================
-
-env = Env(loc= -0.56)
-objective = Objective(env)
-@everywhere objective = $objective
-
-G = grid(β_p=0:0.5:20, β_u=0:0.5:20)
-
-O = @showprogress pmap(G) do x
-    objective(Softmax(x...))
-end
 
 # %% ==================== modulate k and β_u ====================
 
@@ -68,9 +22,7 @@ objectives = @showprogress map(ks) do k
     Objective(env, 10000)
 end;
 
-
 # %% --------
-
 β_us = keyed(:β_u, -1:0.05:10)
 X = @showprogress pmap(Iterators.product(objectives, β_us)) do (objective, β_u)
     objective(Softmax(1, β_u))
@@ -91,11 +43,48 @@ figure("k-β_u") do
     )
 end
 
+# %% ==================== k and β_u and β_p ====================
+objectives = @showprogress map(keyed(:k, 2 .^ (0:2))) do k
+    env = Env(;k)
+    env = mutate(env, loc=-expected_value(env))
+    Objective(env, 10000)
+end;
+
+G = Iterators.product(keyed(:β_u, 0:0.5:10), keyed(:β_p, 0:0.5:10), objectives)
+X = @showprogress pmap(G) do (β_u, β_p, objective)
+    objective(Softmax(β_p, β_u))
+end
+serialize("tmp/full_grid", X)
+
+# %% --------
+function Plots.heatmap(X::KeyedArray{<:Real,2}; kws...)
+    ylabel, xlabel = dimnames(X)
+    heatmap(reverse(axiskeys(X))..., X; xlabel, ylabel, kws...)
+end
+
+figure() do
+    heatmap(X)
+    # heatmap(axiskeys(x, 2), axiskeys(x, 1), x, xlabel=)
+end
 
 
+# %% --------
+using Plots.Measures
+X = deserialize("tmp/full_grid")
+figure("full_grid") do
+    ps = map(axiskeys(X, :k)) do k
+        heatmap(X(k=k), clim=(0, .05), cbar=false, title="k = $k")
+    end
+    plot(ps..., size=(900,300), layout=(1,3), bottom_margin=4mm)
+end
 
-
-
+# %% --------
+function foo(objective)
+    pmap(-1:0.1:1) do β_u
+        objective(Softmax(1, β_u))
+    end
+end
+y = foo(objectives[1])
 
 
 # %% ==================== Optimization ====================

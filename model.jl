@@ -28,7 +28,9 @@ end
     s::Int = 10
 end
 
-function sample_problem(env::Env)
+Problem = Tuple{Vector{Float64}, Vector{Float64}}
+
+function sample_problem(env::Env)::Problem
     @unpack loc, signal, noise, dispersion, n = env
     u = loc + signal * randn() .+ noise .* randn(n)
     p = rand(Dirichlet(dispersion .* ones(n)))
@@ -41,11 +43,9 @@ function expected_value(env::Env)
 end
 
 function monte_carlo(f, N=10000)
-    acc = 0.
-    for i in 1:N
-        acc += f()
+    N \ mapreduce(+, 1:N) do i
+        f()
     end
-    acc / N
 end
 
 "Expected maximum of N samples from a Normal distribution"
@@ -66,6 +66,8 @@ end
 #     prob .* val
 # end
 
+# %% ==================== Sampling strategies ====================
+
 
 struct Multiplicative <: SampleWeighter
     β_p::Real
@@ -83,4 +85,37 @@ end
 
 function score(sw::Softmax, u, p)
     @. p ^ sw.β_p * exp(u * sw.β_u)
+end
+
+# %% ==================== Objective ====================
+
+struct Objective
+    env::Env
+    problems::Vector{Problem}
+    true_vals::Vector{Float64}
+end
+
+function Objective(env, n_problem=1000)
+    problems = map(1:n_problem) do i
+        sample_problem(env)
+    end
+    true_vals = pmap(problems) do (u, p)
+        monte_carlo(10000) do
+            objective_value(u, p, env.k)
+        end
+    end
+    Objective(env, problems, true_vals)
+end
+
+function (f::Objective)(sw::SampleWeighter, map=map)
+    choice_probs = map(f.problems) do (u, p)
+        monte_carlo(1000) do 
+            subjective_value(sw, f.env.s, u, p) > 0
+        end
+    end
+    mean(choice_probs .* f.true_vals)
+end
+
+function Base.show(io::IO, f::Objective) 
+    print(io, "Objective")
 end
