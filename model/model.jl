@@ -87,6 +87,15 @@ function score(sw::Softmax, u, p)
     @. p ^ sw.β_p * exp(u * sw.β_u)
 end
 
+struct AbsExp <: SampleWeighter
+    β_abs::Real
+    β_exp::Real
+end
+
+function score(sw::AbsExp, u, p)
+    @. p * (sw.β_abs * abs(u) + sw.β_exp * exp(u))
+end
+
 # %% ==================== Objective ====================
 
 struct Objective

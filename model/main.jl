@@ -8,9 +8,60 @@ include("figure.jl")
 mkpath("tmp")
 
 # %% ==================== scratch ====================
-env = Env(k=1, n=10)
+env = Env(k=1, dispersion=1e10)
 f = Objective(env)
-f(Softmax(1,0), pmap)
+
+f(AbsExp(1, 0), pmap)
+f(AbsExp(0, 1), pmap)
+
+f(Multiplicative(0, 0), pmap)
+# %% ==================== abs exp ====================
+
+ks = keyed(:k, 2 .^ (0:3))
+objectives = @showprogress map(ks) do k
+    env = Env(;k)
+    env = mutate(env, loc=-expected_value(env))
+    Objective(env, 10000)
+end;
+β_exps = keyed(:β_exp, 0:0.1:1)
+
+X = @showprogress pmap(Iterators.product(objectives, β_exps)) do (f, β_exp)
+    f(AbsExp(1 - β_exp, β_exp))
+end
+
+serialize("tmp/abs_exp", X)
+
+# %% --------
+
+X = deserialize("tmp/abs_exp")
+# %% --------
+figure() do
+    plot(axiskeys(X, 2), X', 
+        label=reshape(["k=$k" for k in axiskeys(X, 1)], 1, :),
+        # palette=collect(cgrad(:blues, 6, rev=true, categorical=true)),
+        xlabel="β_u", ylabel="Reward", legend=:topleft, 
+    )
+end
+
+# %% ==================== abs exp full ====================
+
+
+ks = keyed(:k, 2 .^ (0:2))
+objectives = @showprogress map(ks) do k
+    env = Env(;k)
+    env = mutate(env, loc=-expected_value(env))
+    Objective(env, 10000)
+end;
+G = Iterators.product(objectives, keyed(:β_exp, 0:0.2:2), keyed(:β_exp, 0:0.2:2))
+
+X = @showprogress pmap(G) do (f, β_exp)
+    f(AbsExp(1 - β_exp, β_exp))
+end
+
+serialize("tmp/abs_exp_full", X)
+
+
+
 
 
 # %% ==================== modulate k and β_u ====================
