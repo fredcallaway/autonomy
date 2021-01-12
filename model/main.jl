@@ -15,6 +15,8 @@ f(AbsExp(1, 0), pmap)
 f(AbsExp(0, 1), pmap)
 
 f(Multiplicative(0, 0), pmap)
+
+
 # %% ==================== abs exp ====================
 
 ks = keyed(:k, 2 .^ (0:3))
@@ -32,9 +34,7 @@ end
 serialize("tmp/abs_exp", X)
 
 # %% --------
-
 X = deserialize("tmp/abs_exp")
-# %% --------
 figure() do
     plot(axiskeys(X, 2), X', 
         label=reshape(["k=$k" for k in axiskeys(X, 1)], 1, :),
@@ -52,14 +52,22 @@ objectives = @showprogress map(ks) do k
     env = mutate(env, loc=-expected_value(env))
     Objective(env, 10000)
 end;
-G = Iterators.product(objectives, keyed(:β_exp, 0:0.2:2), keyed(:β_exp, 0:0.2:2))
-
-X = @showprogress pmap(G) do (f, β_exp)
-    f(AbsExp(1 - β_exp, β_exp))
+G = Iterators.product(objectives, keyed(:β_abs, 0:0.2:2), keyed(:β_exp, 0:0.2:2))
+X = @showprogress pmap(G) do (f, β_abs, β_exp)
+    f(AbsExp(β_abs, β_exp))
 end
 
 serialize("tmp/abs_exp_full", X)
+# %% --------
+X = deserialize("tmp/abs_exp_full")
 
+figure("abs_exp_grids") do
+    clim = (0, maximum(X))
+    ps = map(axiskeys(X, :k)) do k
+        heatmap(X(k=k); clim, cbar=false, title="k = $k")
+    end
+    plot(ps..., size=(900,300), layout=(1,3), bottom_margin=4mm)
+end
 
 
 

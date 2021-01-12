@@ -7,7 +7,14 @@ abstract type SampleWeighter end
 
 function weight(sw::SampleWeighter, u, p)
     x = score(sw, u, p)
-    x /= sum(x)
+    for i in eachindex(x)
+        if x[i] < -.0001
+            error("Negative weight!")
+        else
+            x[i] = max(0., x[i])
+        end
+    end
+    x ./= sum(x)
     x
 end
 
@@ -93,7 +100,11 @@ struct AbsExp <: SampleWeighter
 end
 
 function score(sw::AbsExp, u, p)
-    @. p * (sw.β_abs * abs(u) + sw.β_exp * exp(u))
+    if sw.β_abs == sw.β_exp == 0
+        return p
+    else
+        @. p * (sw.β_abs * abs(u) + sw.β_exp * exp(u))
+    end
 end
 
 # %% ==================== Objective ====================
