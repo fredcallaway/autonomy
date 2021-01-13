@@ -1,2 +1,4 @@
 fighist/
 tmp/
+model/scratch.jl
+model/tests.jl
