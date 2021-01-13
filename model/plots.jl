@@ -1,8 +1,7 @@
-using Serialization
-using AxisKeys
 using Plots.Measures
 
 include("figure.jl")
+include("utils.jl")
 
 function Plots.heatmap(X::KeyedArray{<:Real,2}; kws...)
     ylabel, xlabel = dimnames(X)
@@ -15,24 +14,26 @@ end
 
 
 # %% --------
+
+X = deserialize("tmp/abs_exp_importance")
+figure("abs_exp_importance") do
+    clim = (0, maximum(X))
+    ps = map(Iterators.product(axiskeys(X, :k), axiskeys(X, :s))) do (k, s)
+        x = X(;k,s)
+        clim = (0, maximum(x))
+        heatmap(x'; title="k=$k, s=$s", clim, cbar=false)
+    end
+    plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
+end
+
+
+# %% --------
 X = deserialize("tmp/abs_exp_sk")
-Y = X
-# %% --------
-Xs = map(Iterators.product(axiskeys(Y, :k), axiskeys(Y, :s))) do (k, s)
-    Y(;k,s)
-end
-# %% --------
-
-
-figure() do
-    plot(first(Xs))
-end
-# %% --------
 
 figure("abs_exp_sk") do
     clim = (0, maximum(X))
     ps = map(Iterators.product(axiskeys(X, :k), axiskeys(X, :s))) do (k, s)
-        plot(X(;k,s), title="k=$k, s=$s")
+        plot(X(;k,s)', title="k=$k, s=$s")
     end
     plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
 end
