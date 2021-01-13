@@ -43,6 +43,21 @@ figure() do
     )
 end
 
+# %% ==================== abs exp with n ====================
+
+objectives = @showprogress map(keyed(:s, 5 .^ (0:2))) do s
+    env = Env(;s, k=2)
+    env = mutate(env, loc=-expected_value(env))
+    Objective(env, 10000)
+end;
+G = Iterators.product(objectives, keyed(:β_abs, 0:0.2:2))
+X = @showprogress pmap(G) do (f, β_exp)
+    f(AbsExp(1-β_exp, β_exp))
+end
+
+serialize("tmp/abs_exp_s", X)
+
+
 # %% ==================== abs exp full ====================
 
 

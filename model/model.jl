@@ -2,6 +2,7 @@ using StatsBase
 using Distributions
 using QuadGK
 using Parameters
+using Serialization
 
 abstract type SampleWeighter end
 
@@ -9,6 +10,7 @@ function weight(sw::SampleWeighter, u, p)
     x = score(sw, u, p)
     for i in eachindex(x)
         if x[i] < -.0001
+            serialize("tmp/bad", (sw, u, p))
             error("Negative weight!")
         else
             x[i] = max(0., x[i])
