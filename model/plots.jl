@@ -1,18 +1,49 @@
+using Serialization
+using AxisKeys
+using Plots.Measures
+
+include("figure.jl")
 
 function Plots.heatmap(X::KeyedArray{<:Real,2}; kws...)
     ylabel, xlabel = dimnames(X)
     heatmap(reverse(axiskeys(X))..., X; xlabel, ylabel, kws...)
 end
-using Plots.Measures
 
+function Plots.plot(x::KeyedArray{<:Real,1}; kws...)
+    plot(axiskeys(x, 1), collect(x); xlabel=string(dimnames(x, 1)), kws...)
+end
+
+
+# %% --------
+X = deserialize("tmp/abs_exp_sk")
+Y = X
+# %% --------
+Xs = map(Iterators.product(axiskeys(Y, :k), axiskeys(Y, :s))) do (k, s)
+    Y(;k,s)
+end
+# %% --------
+
+
+figure() do
+    plot(first(Xs))
+end
+# %% --------
+
+figure("abs_exp_sk") do
+    clim = (0, maximum(X))
+    ps = map(Iterators.product(axiskeys(X, :k), axiskeys(X, :s))) do (k, s)
+        plot(X(;k,s), title="k=$k, s=$s")
+    end
+    plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
+end
 
 # %% --------
 X = deserialize("tmp/abs_exp")
 figure() do
     plot(axiskeys(X, 2), X', 
         label=reshape(["k=$k" for k in axiskeys(X, 1)], 1, :),
-        # palette=collect(cgrad(:blues, 6, rev=true, categorical=true)),
-        xlabel="β_u", ylabel="Reward", legend=:topleft, 
+        palette=collect(cgrad(:viridis, size(X, 1), categorical = true)),
+        lw=2, xlabel="Weight on Value", ylabel="Reward", legend=:topleft,
     )
 end
 
