@@ -2,3 +2,4 @@ fighist/
 tmp/
 model/scratch.jl
 model/tests.jl
+model/bak/
