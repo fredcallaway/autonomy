@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 filename="${1%.*}"
-mv $filename.pdf out/$filename-`date +"%y-%m-%d"`.pdf
+newpath=out/$filename-`date +"%y-%m-%d"`.pdf
+# mv $filename.pdf $newpath
+git add $newpath
+git add ../model
+git commit -m "writeup $newpath"

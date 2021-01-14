@@ -26,3 +26,8 @@ function monte_carlo(f, N=10000)
         f()
     end
 end
+
+linscale(x, low, high) = low + x * (high-low)
+logscale(x, low, high) = exp(log(low) + x * (log(high) - log(low)))
+unlinscale(x, low, high) = (x - low) / (high-low)
+unlogscale(x, low, high) = (log(x) - log(low)) / (log(high) - log(low))

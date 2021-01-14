@@ -75,6 +75,16 @@ function score(sampler::AbsExp, u, p)
     end
 end
 
+struct AbsExpD <: Sampler
+    β::Real
+    d::Real
+end
+
+function score(sampler::AbsExpD, u, p)    
+    @unpack β, d = sampler
+    @. p * ((1 - β) * abs(u) + β * exp(u)) ^ d
+end
+
 
 # %% ==================== Evaluation ====================
 
