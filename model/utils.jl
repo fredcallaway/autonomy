@@ -12,7 +12,7 @@ end
 
 function grid(;kws...)
     X = map(Iterators.product(values(kws)...)) do x
-        (; Dict(zip(keys(kws), x))...)
+        (; zip(keys(kws), x)...)
     end
     KeyedArray(X; kws...)
 end
@@ -20,6 +20,9 @@ end
 function keyed(name, xs)
     KeyedArray(xs; Dict(name => xs)...)
 end
+
+keymax(X::KeyedArray) = (; (d=>x[i] for (d, x, i) in zip(dimnames(X), axiskeys(X), argmax(X).I))...)
+
 
 function monte_carlo(f, N=10000)
     N \ mapreduce(+, 1:N) do i

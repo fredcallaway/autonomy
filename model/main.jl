@@ -34,9 +34,40 @@ objectives = make_objectives(10000, k=[1,2,3], s=[1,5,25], dispersion=[1e10])
 evaluate("abs_exp_importance_equalprob", evaluators, objectives)
 
 # %% ==================== abs vs exp with determinism ====================
-
-evaluators = map(grid(β=0:0.1:1, α=[0, 1], d=2. .^ (-1:0.2:1))) do (β, α, d)
+evaluators = map(grid(β=0:0.1:1, α=[0.], d=1:.3:4)) do (β, α, d)
     Evaluator(AbsExpD(β, d), α)
 end
-objectives = make_objectives(10000, k=[1,2,3], s=[1,5,25], dispersion=[1e10])
+objectives = make_objectives(1000, k=[1,2,3], s=[1,5,25], dispersion=[1e10])
 evaluate("abs_exp_det", evaluators, objectives)
+
+# %% ==================== abs vs exp with determinism ====================
+
+evaluators = map(grid(β=0:0.1:1, α=[0.], d=1:1:10)) do (β, α, d)
+    Evaluator(AbsExpDp(β, d, d), α)
+end
+objectives = make_objectives(1000, k=[1,2,3], s=[1,5,25], dispersion=[1e10])
+evaluate("abs_exp_detp2", evaluators, objectives)
+
+# %% ==================== scratch ====================
+X = deserialize("tmp/abs_exp_det");
+x = X(k=2, s=1, α=0, dispersion=1e10)
+
+f = objectives(k=2, s=1) |> only
+@unpack β, d = keymax(x)
+
+map(0:.2:1) do x
+    f(Evaluator(AbsExpD(β, d+x), 0.), bmap)
+end
+
+
+
+
+
+# %% --------
+f = make_objectives(1000; k=[2], s=[5], dispersion=[1e10])[1]
+
+bmap(f, xs) = pmap(f, xs; batch_size=10)
+f(Evaluator(AbsExpD(0.5, 1), 0.), bmap)
+
+# %% --------
+

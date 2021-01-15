@@ -23,6 +23,30 @@ end
 
 # %% ==================== Abs vs exp ====================
 
+X = deserialize("tmp/abs_exp_det")(dispersion=1e10, α=0)
+figure("abs_exp_det") do
+    clim = (0, maximum(X))
+    ps = map(Iterators.product(axiskeys(X, :k), axiskeys(X, :s))) do (k, s)
+        x = X(;k,s)
+        clim = (0, maximum(x))
+        heatmap(x'; title="k=$k, s=$s", clim, cbar=false)
+    end
+    plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
+end
+# %% --------
+X = deserialize("tmp/abs_exp_detp")(dispersion=1e10, α=0)
+figure("abs_exp_detp") do
+    clim = (0, maximum(X))
+    ps = map(Iterators.product(axiskeys(X, :k), axiskeys(X, :s))) do (k, s)
+        x = X(;k,s)
+        clim = (0, maximum(x))
+        heatmap(x'; title="k=$k, s=$s", clim, cbar=false)
+    end
+    plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
+end
+
+# %% --------
+
 X = deserialize("tmp/abs_exp_importance_equalprob")(dispersion=1e10, importance=0)
 figure("abs_exp_equalprob") do
     ps = map(Iterators.product(axiskeys(X, :k), axiskeys(X, :s))) do (k, s)
@@ -43,7 +67,6 @@ figure("abs_exp_importance_equalprob_grids") do
     end
     plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
 end
-
 
 
 # %% --------
