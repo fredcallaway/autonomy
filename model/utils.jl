@@ -23,7 +23,6 @@ end
 
 keymax(X::KeyedArray) = (; (d=>x[i] for (d, x, i) in zip(dimnames(X), axiskeys(X), argmax(X).I))...)
 
-
 function monte_carlo(f, N=10000)
     N \ mapreduce(+, 1:N) do i
         f()

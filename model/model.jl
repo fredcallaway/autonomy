@@ -1,3 +1,4 @@
+using Distributed
 using StatsBase
 using Distributions
 using QuadGK
@@ -13,7 +14,6 @@ include("utils.jl")
     dispersion::Float64 = 1.
     k::Int = 2
     n::Int = 100
-    s::Int = 10
 end
 
 Problem = Tuple{Vector{Float64}, Vector{Float64}}
@@ -44,7 +44,7 @@ end
 
 abstract type Sampler end
 
-struct Multiplicative <: Sampler
+@with_kw struct Multiplicative <: Sampler
     β_p::Real
     β_u::Real
 end
@@ -53,7 +53,7 @@ function score(sampler::Multiplicative, u, p)
     @. u ^ sampler.β_u * p ^ sampler.β_p
 end
 
-struct Softmax <: Sampler
+@with_kw struct Softmax <: Sampler
     β_p::Real
     β_u::Real
 end
@@ -62,7 +62,7 @@ function score(sampler::Softmax, u, p)
     @. p ^ sampler.β_p * exp(u * sampler.β_u)
 end
 
-struct AbsExp <: Sampler
+@with_kw struct AbsExp <: Sampler
     β_abs::Real
     β_exp::Real
 end
@@ -75,7 +75,7 @@ function score(sampler::AbsExp, u, p)
     end
 end
 
-struct AbsExpD <: Sampler
+@with_kw struct AbsExpD <: Sampler
     β::Real
     d::Real
 end
@@ -85,7 +85,7 @@ function score(sampler::AbsExpD, u, p)
     @. p * ((1 - β) * abs(u) + β * exp(u)) ^ d
 end
 
-struct AbsExpDp <: Sampler
+@with_kw struct AbsExpDp <: Sampler
     β::Real
     d::Real
     dp::Real
@@ -99,37 +99,39 @@ end
 
 # %% ==================== Evaluation ====================
 
-struct Evaluator{S<:Sampler}
-    sampler::S
-    importance::Float64
+abstract type Evaluator end
+
+@with_kw struct MonteCarloEvaluator <: Evaluator
+    s::Int
 end
 
-function subjective_value(evaluator::Evaluator, s, u, p)
+@everywhere function subjective_value(evaluator::MonteCarloEvaluator, env::Env, u, p)
+    mean(sample_objective_value(u, p, env.k) for i in 1:evaluator.s)
+end
+
+
+@with_kw struct SampleEvaluator{S<:Sampler} <: Evaluator
+    s::Int
+    α::Real
+    sampler::S
+end
+
+function subjective_value(evaluator::SampleEvaluator, env::Env, u, p)
     w = weight(evaluator.sampler, u, p)
-    samples = if evaluator.importance > 0  # reweighting
-        idx = sample(eachindex(u), Weights(w), s; replace=false)
-        @. u[idx] * (p[idx] / w[idx]) ^ evaluator.importance
+    samples = if evaluator.α > 0  # reweighting
+        idx = sample(eachindex(u), Weights(w), evaluator.s; replace=false)
+        @. u[idx] * (p[idx] / w[idx]) ^ evaluator.α
     else
-        sample(u, Weights(w), s; replace=false)
+        sample(u, Weights(w), evaluator.s; replace=false)
     end
     mean(samples)
 end
 
 function weight(sampler::Sampler, u, p)
     x = score(sampler, u, p)
-    # x .= max.(0., x)
-    # for i in eachindex(x)
-    #     if x[i] < -.0001
-    #         serialize("tmp/bad", (sampler, u, p))
-    #         error("Negative weight!")
-    #     else
-    #         x[i] = max(0., x[i])
-    #     end
-    # end
     x ./= sum(x)
     x
 end
-
 
 # %% ==================== Objective ====================
 
@@ -154,7 +156,7 @@ end
 function (f::Objective)(evaluator::Evaluator, map=map)
     choice_probs = map(f.problems) do (u, p)
         monte_carlo(1000) do 
-            subjective_value(evaluator, f.env.s, u, p) > 0
+            subjective_value(evaluator, f.env, u, p) > 0
         end
     end
     mean(choice_probs .* f.true_vals)
