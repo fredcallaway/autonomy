@@ -13,9 +13,10 @@ function Plots.plot(x::KeyedArray{<:Real,1}; kws...)
 end
 
 function Plots.plot(X::KeyedArray{<:Real,2}; kws...)
+    k = dimnames(X, 2)
     plot(axiskeys(X, 1), collect(X);
         xlabel=dimnames(X, 1),
-        label=reshape(["k=$k" for k in axiskeys(X, 2)], 1, :),
+        label=reshape(["$k=$v" for v in axiskeys(X, 2)], 1, :),
         palette=collect(cgrad(:viridis, size(X, 2), categorical = true)),
         kws...
     )
@@ -23,56 +24,14 @@ end
 
 # %% ==================== Abs vs exp ====================
 
-X = deserialize("tmp/abs_exp_det")(dispersion=1e10, α=0)
-figure("abs_exp_det") do
-    clim = (0, maximum(X))
+function plot_ks_grid(f, X)
     ps = map(Iterators.product(axiskeys(X, :k), axiskeys(X, :s))) do (k, s)
-        x = X(;k,s)
-        clim = (0, maximum(x))
-        heatmap(x'; title="k=$k, s=$s", clim, cbar=false)
-    end
-    plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
-end
-# %% --------
-X = deserialize("tmp/abs_exp_detp")(dispersion=1e10, α=0)
-figure("abs_exp_detp") do
-    clim = (0, maximum(X))
-    ps = map(Iterators.product(axiskeys(X, :k), axiskeys(X, :s))) do (k, s)
-        x = X(;k,s)
-        clim = (0, maximum(x))
-        heatmap(x'; title="k=$k, s=$s", clim, cbar=false)
+        title!(f(X(;k, s)), "k=$k, s=$s")
     end
     plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
 end
 
-# %% --------
-
-X = deserialize("tmp/abs_exp_importance_equalprob")(dispersion=1e10, importance=0)
-figure("abs_exp_equalprob") do
-    ps = map(Iterators.product(axiskeys(X, :k), axiskeys(X, :s))) do (k, s)
-        x = X(;k,s)
-        plot(x; title="k=$k, s=$s", xlabel="β", ylabel="Reward")
-    end
-    plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
-end
-
-# %% --------
-X = deserialize("tmp/abs_exp_importance_equalprob")(dispersion=1e10)
-figure("abs_exp_importance_equalprob_grids") do
-    clim = (0, maximum(X))
-    ps = map(Iterators.product(axiskeys(X, :k), axiskeys(X, :s))) do (k, s)
-        x = X(;k,s)
-        clim = (0, maximum(x))
-        heatmap(x'; title="k=$k, s=$s", clim, cbar=false, xlabel="β", ylabel="α")
-    end
-    plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
-end
-
-
-# %% --------
-
-X = deserialize("tmp/abs_exp_importance")
-figure("abs_exp_importance") do
+function ks_heat(X)
     clim = (0, maximum(X))
     ps = map(Iterators.product(axiskeys(X, :k), axiskeys(X, :s))) do (k, s)
         x = X(;k,s)
@@ -82,71 +41,62 @@ figure("abs_exp_importance") do
     plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
 end
 
+X = deserialize("tmp/abs_exp_full")(dispersion=1e10)
 
-# %% --------
-X = deserialize("tmp/abs_exp_sk")
-
-figure("abs_exp_sk") do
-    clim = (0, maximum(X))
-    ps = map(Iterators.product(axiskeys(X, :k), axiskeys(X, :s))) do (k, s)
-        plot(X(;k,s)', title="k=$k, s=$s")
+figure("abs_exp_optimized") do
+    plot_ks_grid(X) do x
+        plot(maximum(x; dims=(:d, :α)) |> dropdims((:d, :α)))
     end
-    plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
 end
 
-# %% --------
-X = deserialize("tmp/abs_exp")
-figure() do
-    plot(axiskeys(X, 2), X', 
-        label=reshape(["k=$k" for k in axiskeys(X, 1)], 1, :),
-        palette=collect(cgrad(:viridis, size(X, 1), categorical = true)),
-        lw=2, xlabel="Weight on Value", ylabel="Reward", legend=:topleft,
-    )
+figure("abs_exp_β") do
+    X = deserialize("tmp/abs_exp_β")(dispersion=1e10, α=0, d=4)
+    plot_ks_grid(X) do x
+        plot(x)
+    end
 end
 
 
-# %% --------
-X = deserialize("tmp/abs_exp_full")
+figure("abs_exp_αd") do
+    plot_ks_grid(X) do x
+        clim = (0, maximum(x))
+        heatmap(maximum(x, dims=:β) |> dropdims(:β); clim, cbar=false)
+    end
+end
 
-figure("abs_exp_grids") do
-    clim = (0, maximum(X))
-    ps = map(axiskeys(X, :k)) do k
-        heatmap(X(k=k); clim, cbar=false, title="k = $k")
+figure("abs_exp_βd") do
+    ks_heat(X(α=0))
+end
+
+figure("abs_exp_βα") do
+    ks_heat(X(d=4))
+end
+
+# %% --------
+X = deserialize("tmp/abs_exp_β_many")(dispersion=1e10, α=0, d=4)
+
+# Y = map(Iterators.product(axiskeys(X, :k), axiskeys(X, :s))) do (k, s)
+figure("opt_β_grid") do
+    ps = map(axiskeys(X, :s)) do s
+        x = X(; s)
+        clim = (0, maximum(x))
+        heatmap(x; clim, cbar=false)
     end
     plot(ps..., size=(900,300), layout=(1,3), bottom_margin=4mm)
 end
 
 
-# %% --------
-X = deserialize("tmp/full_grid")
-figure("full_grid") do
-    ps = map(axiskeys(X, :k)) do k
-        heatmap(X(k=k), clim=(0, .05), cbar=false, title="k = $k")
-    end
-    plot(ps..., size=(900,300), layout=(1,3), bottom_margin=4mm)
-end
+# figure("optimize_β") do
+#     plot(Y)
+# end
 
 
 # %% --------
-X = deserialize("tmp/k-β_u-0")
-figure("k-β_u") do
-    plot(axiskeys(X, 2), X', 
-        label=reshape(["k=$k" for k in axiskeys(X, 1)], 1, :),
-        palette=collect(cgrad(:blues, 6, rev=true, categorical=true)),
-        xlabel="β_u", ylabel="Reward", legend=:topleft, 
-    )
+
+opt_βs = deserialize("tmp/opt_βs")(dispersion=1e10)
+opt_βs[.≈(opt_βs, .381966; atol=.001)] .= NaN
+figure("abs_exp_opt_β") do
+    plot(opt_βs, ylabel="Optimal β")
 end
 
-# %% --------
-K = deserialize("tmp/K")
-baseline = deserialize("tmp/baseline")
 
-figure() do
-    pp = map(eachcol(K), [1, 2, 4, 8]) do kk, s
-        plot(0:0.1:1, kk, 
-            # title="$s samples", 
-            xlabel="α", ylabel="Utility",
-            label=["k=1" "k=2" "k=3"], legend=:bottomright)
-    end
-    plot(pp[1])
-end

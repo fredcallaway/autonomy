@@ -25,28 +25,54 @@ function evaluate(name::String, strategies::KeyedArray{<:Evaluator}, objectives:
     X
 end
 
-# %% ==================== abs vs exp with importance ====================
 
-evaluators = map(grid(β_exp=0:0.1:1, importance=0:0.1:1)) do (β_exp, importance)
-    Evaluator(AbsExp(1 - β_exp, β_exp), importance)
-end
-objectives = make_objectives(10000, k=[1,2,3], s=[1,5,25], dispersion=[1e10])
-evaluate("abs_exp_importance_equalprob", evaluators, objectives)
+# %% ==================== abs vs exp ====================
 
-# %% ==================== abs vs exp with determinism ====================
-evaluators = map(grid(β=0:0.1:1, α=[0.], d=1:.3:4)) do (β, α, d)
-    Evaluator(AbsExpD(β, d), α)
-end
-objectives = make_objectives(1000, k=[1,2,3], s=[1,5,25], dispersion=[1e10])
-evaluate("abs_exp_det", evaluators, objectives)
-
-# %% ==================== abs vs exp with determinism ====================
-
-evaluators = map(grid(β=0:0.1:1, α=[0.], d=1:1:10)) do (β, α, d)
+evaluators = map(grid(β=0:0.1:1, α=0:.1:1, d=1:.3:4)) do (β, α, d)
     Evaluator(AbsExpDp(β, d, d), α)
 end
 objectives = make_objectives(1000, k=[1,2,3], s=[1,5,25], dispersion=[1e10])
-evaluate("abs_exp_detp2", evaluators, objectives)
+evaluate("abs_exp_full", evaluators, objectives)
+
+# %% --------
+
+evaluators = map(grid(β=0:0.05:1, α=[0.], d=[4.])) do (β, α, d)
+    Evaluator(AbsExpDp(β, d, d), α)
+end
+
+objectives = make_objectives(1000, k=1:20, s=[1,5,25], dispersion=[1e10])
+evaluate("abs_exp_β_many", evaluators, objectives)
+
+# %% --------
+@everywhere using Optim
+@everywhere function optimal_β(f; d, α)
+    res = optimize(0, 1; abs_tol=.01) do β
+        -f(Evaluator(AbsExpDp(β, d, d), α))
+    end
+    res.minimizer
+end
+
+objectives = make_objectives(1000, k=1:20, s=[1,5,25], dispersion=[1e10])
+opt_βs = @showprogress pmap(objectives) do f
+    optimal_β(f; d=4, α=0.)
+end
+serialize("tmp/opt_βs", opt_βs)
+
+# %% --------
+
+function optimal_β_local(f; d, α)
+    res = optimize(0, 1; abs_tol=.01) do β
+        y = f(Evaluator(AbsExpDp(β, d, d), α), bmap)
+        println(β => y)
+        -y
+    end
+    res.minimizer
+end
+
+f = objectives(s=25)[end]
+optimal_β_local(f, d=4, α=0.)
+
+
 
 # %% ==================== scratch ====================
 X = deserialize("tmp/abs_exp_det");
