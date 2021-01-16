@@ -1,4 +1,5 @@
 using Plots
+using Plots.Measures
 using Dates
 mkpath("fighist")
 mkpath("figs")

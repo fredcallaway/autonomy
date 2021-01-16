@@ -1,5 +1,6 @@
 using Serialization
 using AxisKeys
+import Base.Iterators: product
 
 function mutate(x::T; kws...) where T
     for field in keys(kws)
@@ -22,6 +23,9 @@ function keyed(name, xs)
 end
 
 keymax(X::KeyedArray) = (; (d=>x[i] for (d, x, i) in zip(dimnames(X), axiskeys(X), argmax(X).I))...)
+keymax(x::KeyedArray{<:Real, 1}) = axiskeys(x, 1)[argmax(x)]
+
+Base.dropdims(idx::Union{Symbol,Int}...) = X -> dropdims(X, dims=idx)
 
 function monte_carlo(f, N=10000)
     N \ mapreduce(+, 1:N) do i

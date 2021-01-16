@@ -11,7 +11,7 @@ include("utils.jl")
     loc::Float64 = 0.
     signal::Float64 = 0
     noise::Float64 = 1.
-    dispersion::Float64 = 1.
+    dispersion::Float64 = 1e10
     k::Int = 2
     n::Int = 100
 end
@@ -42,57 +42,63 @@ end
 
 # %% ==================== Sampling strategies ====================
 
-abstract type Sampler end
+abstract type Weighter end
 
-@with_kw struct Multiplicative <: Sampler
+function weight(weighter::Weighter, u, p)
+    x = score(weighter, u, p)
+    x ./= sum(x)
+    x
+end
+
+@with_kw struct Multiplicative <: Weighter
     β_p::Real
     β_u::Real
 end
 
-function score(sampler::Multiplicative, u, p)
-    @. u ^ sampler.β_u * p ^ sampler.β_p
+function score(weighter::Multiplicative, u, p)
+    @. u ^ weighter.β_u * p ^ weighter.β_p
 end
 
-@with_kw struct Softmax <: Sampler
+@with_kw struct Softmax <: Weighter
     β_p::Real
     β_u::Real
 end
 
-function score(sampler::Softmax, u, p)
-    @. p ^ sampler.β_p * exp(u * sampler.β_u)
+function score(weighter::Softmax, u, p)
+    @. p ^ weighter.β_p * exp(u * weighter.β_u)
 end
 
-@with_kw struct AbsExp <: Sampler
+@with_kw struct AbsExp <: Weighter
     β_abs::Real
     β_exp::Real
 end
 
-function score(sampler::AbsExp, u, p)
-    if sampler.β_abs == sampler.β_exp == 0
+function score(weighter::AbsExp, u, p)
+    if weighter.β_abs == weighter.β_exp == 0
         return p
     else
-        @. p * (sampler.β_abs * abs(u) + sampler.β_exp * exp(u))
+        @. p * (weighter.β_abs * abs(u) + weighter.β_exp * exp(u))
     end
 end
 
-@with_kw struct AbsExpD <: Sampler
+@with_kw struct AbsExpD <: Weighter
     β::Real
     d::Real
 end
 
-function score(sampler::AbsExpD, u, p)    
-    @unpack β, d = sampler
+function score(weighter::AbsExpD, u, p)    
+    @unpack β, d = weighter
     @. p * ((1 - β) * abs(u) + β * exp(u)) ^ d
 end
 
-@with_kw struct AbsExpDp <: Sampler
+@with_kw struct AbsExpDp <: Weighter
     β::Real
     d::Real
     dp::Real
 end
 
-function score(sampler::AbsExpDp, u, p)    
-    @unpack β, d, dp = sampler
+function score(weighter::AbsExpDp, u, p)    
+    @unpack β, d, dp = weighter
     @. p^dp * ((1 - β) * abs(u) + β * exp(u)) ^ d
 end
 
@@ -105,33 +111,29 @@ abstract type Evaluator end
     s::Int
 end
 
-@everywhere function subjective_value(evaluator::MonteCarloEvaluator, env::Env, u, p)
-    mean(sample_objective_value(u, p, env.k) for i in 1:evaluator.s)
+function subjective_value(evaluator::MonteCarloEvaluator, env::Env, u, p; N=1)
+    [mean(sample_objective_value(u, p, env.k) for i in 1:evaluator.s) for i in 1:N]
 end
 
-
-@with_kw struct SampleEvaluator{S<:Sampler} <: Evaluator
+@with_kw struct SampleEvaluator{W<:Weighter} <: Evaluator
     s::Int
     α::Real
-    sampler::S
+    weighter::W
 end
 
-function subjective_value(evaluator::SampleEvaluator, env::Env, u, p)
-    w = weight(evaluator.sampler, u, p)
-    samples = if evaluator.α > 0  # reweighting
-        idx = sample(eachindex(u), Weights(w), evaluator.s; replace=false)
-        @. u[idx] * (p[idx] / w[idx]) ^ evaluator.α
-    else
-        sample(u, Weights(w), evaluator.s; replace=false)
+function subjective_value(evaluator::SampleEvaluator, env::Env, u, p; N=1)
+    w = weight(evaluator.weighter, u, p)
+    map(1:N) do i
+        samples = if evaluator.α > 0  # reweighting
+            idx = sample(eachindex(u), Weights(w), evaluator.s; replace=true)
+            @. u[idx] * (p[idx] / w[idx]) ^ evaluator.α
+        else
+            sample(u, Weights(w), evaluator.s; replace=true)
+        end
+        mean(samples)
     end
-    mean(samples)
 end
 
-function weight(sampler::Sampler, u, p)
-    x = score(sampler, u, p)
-    x ./= sum(x)
-    x
-end
 
 # %% ==================== Objective ====================
 
@@ -155,9 +157,7 @@ end
 
 function (f::Objective)(evaluator::Evaluator, map=map)
     choice_probs = map(f.problems) do (u, p)
-        monte_carlo(1000) do 
-            subjective_value(evaluator, f.env, u, p) > 0
-        end
+        mean(subjective_value(evaluator, f.env, u, p; N=100) .> 0)
     end
     mean(choice_probs .* f.true_vals)
 end

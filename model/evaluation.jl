@@ -25,8 +25,17 @@ function evaluate(name::String, strategies::KeyedArray{<:Evaluator}, objectives:
     X
 end
 
+# %% ==================== monte carlo ====================
+objectives = make_objectives(1000, k=1:20)
+evaluators = map(keyed(:s, [1,5,25])) do s
+    MonteCarloEvaluator(s)
+end
+evaluate("monte_carlo", evaluators, objectives)
+
 
 # %% ==================== abs vs exp ====================
+
+# ALL BELOW IS BROKEN
 
 evaluators = map(grid(β=0:0.1:1, α=0:.1:1, d=1:.3:4)) do (β, α, d)
     Evaluator(AbsExpDp(β, d, d), α)
