@@ -1,6 +1,5 @@
-include("figure.jl")
 include("utils.jl")
-
+include("figure.jl")
 # %% ==================== Behavior ====================
 
 S, baseline = deserialize("tmp/behavior");
@@ -42,12 +41,7 @@ figure("accept_comparison_simplified") do
     plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
 end
 
-# %% ==================== Monte carlo value comparison ====================
-
-mc = deserialize("tmp/monte_carlo")
-full = deserialize("tmp/abs_exp_full")(dispersion=1e10)
-X = maximum(full, dims=(:β, :α)) |> dropdims(:β, :α)
-
+# %% --------
 
 function plot_grid(f; kws...)
     rn, cn = keys(kws)
@@ -60,7 +54,22 @@ function plot_grid(f; kws...)
     plot(ps..., size=300 .* (nr, nc), layout=(nc,nr), bottom_margin=4mm)
 end
 
-figure() do
+function plot_ks_grid(f, X)
+    plot_grid(k=axiskeys(X, :k), s=axiskeys(X, :s)) do r, c
+        f(X(;k=r, s=c))
+    end
+end
+
+
+
+
+# %% ==================== Monte carlo value comparison ====================
+
+mc = deserialize("tmp/monte_carlo")
+full = deserialize("tmp/abs_exp_full")(dispersion=1e10)
+X = maximum(full, dims=(:β, :α)) |> dropdims(:β, :α)
+
+figure("compare_mc_value") do
     ylim = (0, maximum(X))
     p = plot_grid(;k=1:3, s=[1, 5, 25]) do k, s
         plot(X(;k, s); ylim, ylabel="Reward", label="AbsExp")
@@ -69,16 +78,63 @@ figure() do
     plot!(p[1], legend=:topleft)
 end
 
+# %% --------
+bmc = deserialize("tmp/biased_monte_carlo")
+
+figure("biased_mc_value") do
+    plot_ks_grid(bmc(α=0, d=4)) do X
+        plot(X)
+        hline!([mc(;k, s)], line=(:gray, :dot))
+    end
+end
+
+# %% --------
+bmc_vs_simple = deserialize("tmp/bmc_vs_simple")(α = 0)
+
+squeeze_max(dims...) = X -> dropdims(maximum(X, dims=dims); dims=dims)
+
+figure("bmc_vs_simple") do
+    p = plot_ks_grid(bmc_vs_simple) do X
+        bmc = getfield.(X, :bmc) |> squeeze_max(:β)
+        simple = getfield.(X, :simple) |> squeeze_max(:β)
+
+        plot(simple; ylabel="Reward", label="Simple Mean")
+        plot!(bmc; label="Monte Carlo", line=(:gray, :dot), legend=false)
+        # hline!([mc(;k, s)], line=(:gray, :dot), label="Monte Carlo", legend=false)
+    end
+    plot!(p[1], legend=:topleft)
+end
+# %% --------
+figure("bmc_vs_simple_β") do
+    p = plot_ks_grid(bmc_vs_simple) do X
+        bmc = getfield.(X(d=1), :bmc)
+        simple = getfield.(X(d=1), :simple)
+
+        plot(simple; ylabel="Reward", label="Simple Mean")
+        plot!(axiskeys(bmc, 1), bmc; label="Monte Carlo", line=(:gray, :dot), legend=false)
+        # hline!([mc(;k, s)], line=(:gray, :dot), label="Monte Carlo", legend=false)
+    end
+    plot!(p[1], legend=:topleft)
+end
+# %% --------
+bmc_vs_simple = deserialize("tmp/bmc_vs_simple_large_s")(α = 0)
+
+figure("bmc_vs_simple_large_s") do
+    p = plot_ks_grid(bmc_vs_simple) do X
+        bmc = getfield.(X, :bmc) |> squeeze_max(:β)
+        simple = getfield.(X, :simple) |> squeeze_max(:β)
+
+        plot(simple; ylabel="Reward", label="Simple Mean")
+        plot!(axiskeys(bmc, 1), bmc; label="Monte Carlo", line=(:gray, :dot), legend=false)
+        # hline!([mc(;k, s)], line=(:gray, :dot), label="Monte Carlo", legend=false)
+    end
+    plot!(p[1], legend=:topleft)
+end
+
 
 
 # %% ==================== Abs vs exp ====================
 
-function plot_ks_grid(f, X)
-    ps = map(Iterators.product(axiskeys(X, :k), axiskeys(X, :s))) do (k, s)
-        title!(f(X(;k, s)), "k=$k, s=$s")
-    end
-    plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
-end
 
 function ks_heat(X)
     clim = (0, maximum(X))

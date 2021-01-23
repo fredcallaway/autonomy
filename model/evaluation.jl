@@ -24,6 +24,20 @@ function evaluate(name::String, strategies::KeyedArray{<:Evaluator}, objectives:
     serialize("tmp/$name", X)
     X
 end
+bmap(f, xs) = pmap(f, xs; batch_size=10)
+
+# %% ==================== logistic vs softmax ====================
+
+
+f = make_objectives(1000, k=[2]) |> only
+
+f(SampleEvaluator(5, 0., Softmax(1., 1.2)), bmap)
+f(SampleEvaluator(5, 0., fit(Logistic, f.env)), bmap)
+f(SampleEvaluator(5, 0., AbsExpDp(0.3, 3, 3)), bmap)
+
+
+X = getfield.(deserialize("tmp/bmc_vs_simple"), :simple)
+keymax(X(;k=2,s=5,α=0))
 
 # %% ==================== monte carlo ====================
 objectives = make_objectives(1000, k=1:20)
@@ -31,6 +45,37 @@ evaluators = map(keyed(:s, [1,5,25])) do s
     MonteCarloEvaluator(s)
 end
 evaluate("monte_carlo", evaluators, objectives)
+
+# %% ==================== biased monte carlo ====================
+objectives = make_objectives(1000, k=1:20)
+evaluators = map(grid(s=[1,5,25], α=[0], β=0:.1:1, d=1:4)) do (s, α, β, d)
+    BiasedMonteCarloEvaluator(s, α, AbsExpDp(β, d, d))
+end
+evaluate("biased_monte_carlo", evaluators, objectives)
+
+# %% ==================== comparison ====================
+
+objectives = make_objectives(1000, k=[1,2,4,8])
+
+
+bmc_vs_simple = @showprogress pmap(Iterators.product(objectives, grid(s=[1,5,25], α=[0], β=0:.1:1, d=1:4))) do (f, (s, α, β, d))
+    bmc = f(BiasedMonteCarloEvaluator(s, α, AbsExpDp(β, d, d)))
+    simple = f(SampleEvaluator(s*f.env.k, α, AbsExpDp(β, d, d)))
+    (;bmc, simple)
+end
+
+serialize("tmp/bmc_vs_simple", bmc_vs_simple)
+# %% --------
+
+objectives = make_objectives(1000, k=[1,2,4,8])
+
+bmc_vs_simple = @showprogress pmap(Iterators.product(objectives, grid(s=[1000], α=[0], β=0:.1:1, d=0:0.2:2))) do (f, (s, α, β, d))
+    bmc = f(BiasedMonteCarloEvaluator(s, α, AbsExpDp(β, d, d)))
+    simple = f(SampleEvaluator(s*f.env.k, α, AbsExpDp(β, d, d)))
+    (;bmc, simple)
+end
+
+serialize("tmp/bmc_vs_simple_large_s", bmc_vs_simple)
 
 
 # %% ==================== abs vs exp ====================
