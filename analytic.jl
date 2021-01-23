@@ -46,7 +46,6 @@ function plot_comparison(weighter)
     p = pdf.(Normal(0, 1), u)
     p ./= sum(p)
     k = weighter.k
-    w_ana = weight(weighter, u, p)
     B = fit_bear(k, weighter)
     p1 = let
         plot(xlabel="Value", ylabel="P(Sample)", legend=:topleft)
@@ -55,10 +54,14 @@ function plot_comparison(weighter)
         plot!(u, weight(B, u, p), label="Softmax", color=2)
     end
     p2 = let
-        plot(xlabel="Value", ylabel="P(Sample) / P(Occur)", legend=false)
+        pp = plot(xlabel="Value", ylabel="P(Sample) / P(Occur)", legend=false)
         plot!(u, ones(length(u)), color=colorant"#aaa", alpha=0.5, label="Default")
         plot!(u, weight(weighter, u, p) ./ p, label="Analytic", color=1)
         plot!(u, weight(B, u, p) ./ p, label="Softmax", color=2)
+        if weighter == Analytic(1)
+            plot!(ylim=(0,2))
+        end
+        pp
     end
     plot(p1, p2, size=(700, 300))
 end
@@ -70,6 +73,64 @@ end
 figure("analytic_vs_softmax_uws") do
     plot_comparison(AnalyticUWS(2))
 end
+# %% --------
+function plot_comparison_multik(W)
+    ks = [1, 2, 4, 8]
+    plots = map(ks) do k
+        p = plot_comparison(W(k))
+        plot!(p, title="k=$k")
+    end
+    plot(plots..., size=(800, 300length(ks)), layout=(length(ks), 1), left_margin=4mm)
+end
+
+figure("analytic_vs_softmax_multik") do
+    plot_comparison_multik(Analytic)
+end
+figure("analytic_vs_softmax_multik_uws") do
+    plot_comparison_multik(AnalyticUWS)
+end
+
+# %% --------
+k = 2
+u = -10:.01:10
+p = pdf.(Normal(0, 1), u)
+p ./= sum(p)
+
+figure("abs_vs_signed_uws") do
+    y = map(1:30) do k
+        sum(u .* weight(Analytic(k), u, p))
+    end
+    plot(y, xlabel="k", ylabel="Average Sampled Value", label="Signed", legend=:topleft)
+    y = map(1:30) do k
+        sum(abs.(u) .* weight(Analytic(k), u, p))
+    end
+    plot!(y, label="Absolute")
+    # plot(y, xlabel="k", ylabel="Average Sampled Value")
+end
+# %% --------
+using SplitApplyCombine
+figure("pos_vs_neg_uws") do
+    neg, pos = map(1:20) do k
+        wu = weight(Analytic(k), u, p) .* u
+        sum(wu[u .< 0]), sum(wu[u .> 0])
+    end |> invert
+    plot(xlabel="k", ylabel="Expected Absolute Sample Value", legend=:topleft)
+    plot!(abs.(pos), label="Positive")
+    plot!(abs.(neg), label="Negative")
+    # plot(y, xlabel="k", ylabel="Average Sampled Value")
+end
+# %% --------
+figure() do
+    neg, pos = map(1:20) do k
+        w = weight(Analytic(k), u, p)
+        sum(w[u .< 0]), sum(w[u .> 0])
+    end |> invert
+    plot(xlabel="k", ylabel="Sample Probability", legend=:topleft)
+    plot!(abs.(pos), label="Positive Value")
+    # plot(y, xlabel="k", ylabel="Average Sampled Value")
+end
+
+# w_ana = weight(weighter, u, p)
 
 # %% ==================== Finite sets ====================
 using Combinatorics
@@ -116,44 +177,6 @@ figure() do
     plot(plots..., size=(600,600))
 end
 
-# %% --------
-u = randn(10)
-figure() do
-    x = -10:.1:10
-    y = map(x) do x
-        u[1] = x
-        n .* weight(W, u, p)[1]
-    end
-    plot(x, y)
-end
-
-
-
-# %% --------
-figure() do
-    x = -4:.01:1
-    plot(x, exp.(x))
-end
-
-# %% --------
-figure() do
-    plot()
-    for i in 1:10
-        scatter!(u, weight(A, u, p), color=1)
-        scatter!(u, weight(B, u, p), color=2)
-    end
-end
-# %% --------
-figure("analytic_finite") do
-    plot(legend=:topleft,  xflip=true, xlabel="Rank", ylabel="P(Max) / P(Occur)",)
-    foreach(1:4) do k
-        maxs = map(maximum, combinations(u, k))
-        pmax = counts(maxs, u) ./ length(maxs)
-        plot!(reverse(u), pmax ./ p, color=k, label="k=$k")
-        plot!(reverse(u), k .* F.^(k-1), color=k, ls=:dot)
-    end
-end
-# %% --------
 
 
 
@@ -171,23 +194,6 @@ end
 
 
 
-
-
-# %% --------
-figure("analytic_vs_softmax_multik") do
-    # u = sort!(rand.(Normal(0, 1), 1000))
-    # p = pdf.(Normal(0, 1), u)
-    # p ./= sum(p)
-    plots = map(bears, 1:4) do B, k
-        plot(xlabel="Value", ylabel="P(Sample) / P(Occur)", legend=false)
-        plot!(u, weight(Analytic(k), u, p) ./ p, label="Analytic")
-        plot!(u, weight(B, u, p) ./ p, label="Softmax")
-    end
-    plot!(plots[1], legend=:topleft)
-    plot(plots..., size=(600,600), layout=(2, 2))
-    # B2 = mutate(B1, C=3)
-    # plot!(u, weight(B2, u, p), label="Softmax alt")
-end
 
 
 
