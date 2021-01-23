@@ -353,7 +353,7 @@ html,body,#wrapper{font-size:10pt!important}
 
 
   </head>
-<body class="normal firstload">
+<body class="normal">
   <div id="wrapper">
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -382,7 +382,7 @@ V &amp;\sim \max_{i \in 1 \dots k} u_i
 \end{aligned}\]</span></span>
 </p>
 <p><span class="math inline"><span class="math inline">\(V\)</span></span> is the value of the gamble. So our goal is to estimate whether <span class="math inline"><span class="math inline">\(\mathop{\mathrm{E}}[V] &gt; 0\)</span></span>. We will do this by sampling. The simplest approach is Monte Carlo. Generate a set of <span class="math inline"><span class="math inline">\(k\)</span></span> samples, take the maximum, and we have one sample of <span class="math inline"><span class="math inline">\(V\)</span></span>. However, this is inefficient. We can only draw <span class="math inline"><span class="math inline">\(s\)</span></span> balls, so we get <span class="math inline"><span class="math inline">\(s/k\)</span></span> samples.</p>
-What if we could instead sample directly from <span class="math inline"><span class="math inline">\(p_V\)</span></span>, that is from the distribution of the maximum of <span class="math inline"><span class="math inline">\(k\)</span></span> samples? It turns out that this distribution has the following PDF:
+<p>What if we could instead sample directly from <span class="math inline"><span class="math inline">\(p_V\)</span></span>, that is from the distribution of the maximum of <span class="math inline"><span class="math inline">\(k\)</span></span> samples? It turns out that this distribution has the following PDF:</p>
 <p>
 <span class="math display"><span class="math display">\[p_V(x) = k p_U(x) \cdot F_U(x)^{k-1}\]</span></span>
 </p>
