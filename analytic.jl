@@ -6,8 +6,8 @@ includet("figure.jl")
 using StatsFuns
 using Optim
 
-# %% --------
 d = Normal(0, 1)
+# %% --------
 
 figure("pdf_max_vs_mean") do
     x = -4:.001:4
@@ -66,13 +66,13 @@ function plot_comparison(weighter)
     plot(p1, p2, size=(700, 300))
 end
 
-figure("analytic_vs_softmax") do
-    plot_comparison(Analytic(2))
-end
+# figure("analytic_vs_softmax") do
+#     plot_comparison(Analytic(2))
+# end
 
-figure("analytic_vs_softmax_uws") do
-    plot_comparison(AnalyticUWS(2))
-end
+# figure("analytic_vs_softmax_uws") do
+#     plot_comparison(AnalyticUWS(2))
+# end
 # %% --------
 function plot_comparison_multik(W)
     ks = [1, 2, 4, 8]
