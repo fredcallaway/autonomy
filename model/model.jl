@@ -30,7 +30,7 @@ end
 sample_objective_value(u, p, k) = maximum(sample(u, Weights(p), k; replace=false))
 
 "Expected maximum of N samples from a Normal distribution"
-@memoize function expected_maximum(N::Int, d::Normal)
+@memoize function expected_maximum(N::Real, d::Normal)
     mcdf(x) = cdf(d, x)^N
     lo = d.μ - 10d.σ; hi = d.μ + 10d.σ
     - quadgk(mcdf, lo, 0, atol=1e-5)[1] + quadgk(x->1-mcdf(x), 0, hi, atol=1e-5)[1]
@@ -43,6 +43,8 @@ end
 
 
 # %% ==================== Sampling strategies ====================
+using FieldMetadata
+@metadata bounds (-Inf, Inf) Tuple
 
 abstract type Weighter end
 score(weighter::Weighter, u, p) = error("Not Implemented")
@@ -53,90 +55,49 @@ function weight(weighter::Weighter, u, p)
     x
 end
 
-
-@with_kw struct Multiplicative <: Weighter
-    β_p::Real
+@bounds @with_kw struct Softmax <: Weighter
     β_u::Real
-end
-
-function score(weighter::Multiplicative, u, p)
-    @. u ^ weighter.β_u * p ^ weighter.β_p
-end
-
-
-@with_kw struct Softmax <: Weighter
-    β_p::Real
-    β_u::Real
+    β_p::Real = 1 | (0, Inf)   # default value and bounds
+    C::Real = 0 | (0, Inf)
 end
 
 function score(weighter::Softmax, u, p)
-    @. p ^ weighter.β_p * exp(u * weighter.β_u)
+    @unpack β_p, β_u, C = weighter
+    @. p ^ β_p * exp(u * β_u) + C
 end
 
 
-@with_kw struct Bear2020 <: Weighter
-    β::Real
-    C::Real
+@bounds @with_kw struct AbsExp <: Weighter
+    β::Real | (0, 1)
+    d::Real | (-Inf, Inf)
+    dp::Real = 1 | (-Inf, Inf)
+    C::Real = 0 | (0, Inf)
 end
 
-function score(weighter::Bear2020, u, p)
-    @unpack β, C = weighter
-    @. p * exp(u * β) + C
-end
-
-
-@with_kw struct AbsExp <: Weighter
-    β_abs::Real
-    β_exp::Real
-end
-
-function score(weighter::AbsExp, u, p)
-    @unpack β_abs, β_exp = weighter
-    if β_abs == β_exp == 0
-        return p
-    else
-        @. p * (β_abs * abs(u) + β_exp * exp(u))
-    end
+function score(weighter::AbsExp, u, p)    
+    @unpack β, d, dp, C = weighter
+    @. p^dp * ((1 - β) * abs(u) + β * exp(u)) ^ d + C
 end
 
 
-@with_kw struct AbsExpD <: Weighter
-    β::Real
-    d::Real
+@bounds @with_kw struct Analytic <: Weighter
+    k::Real | (0, Inf)
+    μ::Real = 0 | (-Inf, Inf)
+    σ::Real = 1 | (0, Inf)
+    C::Real = 0 | (0, Inf)
 end
-
-function score(weighter::AbsExpD, u, p)    
-    @unpack β, d = weighter
-    @. p * ((1 - β) * abs(u) + β * exp(u)) ^ d
-end
-
-
-@with_kw struct AbsExpDp <: Weighter
-    β::Real
-    d::Real
-    dp::Real
-end
-
-function score(weighter::AbsExpDp, u, p)    
-    @unpack β, d, dp = weighter
-    @. p^dp * ((1 - β) * abs(u) + β * exp(u)) ^ d
-end
-
-
-@with_kw struct Analytic <: Weighter
-    k::Real
-end
+Analytic(k::Real) = Analytic(;k)
 
 function score(weighter::Analytic, u, p)
-    @unpack k = weighter
-    @. p * cdf(Normal(0, 1), u)^(k-1)
+    @unpack k, μ, σ, C = weighter
+    @. p * cdf(Normal(μ, σ), u)^(k-1) + C
 end
-
 
 @with_kw struct AnalyticUWS <: Weighter
     k::Real
     μ::Real = 0
     σ::Real = 1
+    C::Real = 0
 end
 AnalyticUWS(k::Real) = AnalyticUWS(;k)
 
@@ -147,28 +108,29 @@ function score(weighter::AnalyticUWS, u, p)
 end
 
 
-@with_kw struct Logistic <: Weighter
-    L::Float64
-    k::Float64
-    x0::Float64
-end
+# @bounds @with_kw struct Logistic <: Weighter
+#     L::Float64 | (0, Inf)
+#     k::Float64
+#     x0::Float64
+#     C::Real = 0 | (0, Inf)
+# end
 
-@. logistic(x, (L, k, x0)) = L / (1 + exp(-k * (x - x0)))
+# @. logistic(x, (L, k, x0)) = L / (1 + exp(-k * (x - x0)))
 
-function score(weighter::Logistic, u, p)
-    @unpack L, k, x0 = weighter
-    p .* logistic(u, (L, k, x0))
-end
+# function score(weighter::Logistic, u, p)
+#     @unpack L, k, x0, C = weighter
+#     p .* logistic(u, (L, k, x0)) + C
+# end
 
-function Distributions.fit(::Type{Logistic}, env::Env)
-    d = Normal(env.loc, env.noise)
-    x = -6:.001:6
-    cdf_max = @. cdf(d, x) ^ env.k
-    pdf_max = diff(cdf_max) .* 1000
-    pdf_sample = pdf.(d, x[2:end])
-    fit = curve_fit(logistic, x[2:end], pdf_max ./ pdf_sample, [env.k, 2.5, 1])
-    Logistic(fit.param...)
-end
+# function Distributions.fit(::Type{Logistic}, env::Env)
+#     d = Normal(env.loc, env.noise)
+#     x = -6:.001:6
+#     cdf_max = @. cdf(d, x) ^ env.k
+#     pdf_max = diff(cdf_max) .* 1000
+#     pdf_sample = pdf.(d, x[2:end])
+#     fit = curve_fit(logistic, x[2:end], pdf_max ./ pdf_sample, [env.k, 2.5, 1])
+#     Logistic(fit.param...)
+# end
 
 
 # %% ==================== Evaluation ====================

@@ -43,16 +43,6 @@ end
 
 # %% --------
 
-function plot_grid(f; kws...)
-    rn, cn = keys(kws)
-    rows, cols = values(kws)
-    @show rows cols
-    ps = map(Iterators.product(rows, cols)) do (r, c)
-        title!(f(r, c), "$rn=$r, $cn=$c")
-    end
-    nr, nc = map(length, (rows, cols))
-    plot(ps..., size=300 .* (nr, nc), layout=(nc,nr), bottom_margin=4mm)
-end
 
 function plot_ks_grid(f, X)
     plot_grid(k=axiskeys(X, :k), s=axiskeys(X, :s)) do r, c

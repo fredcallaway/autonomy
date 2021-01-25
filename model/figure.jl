@@ -35,3 +35,15 @@ function Plots.plot(X::KeyedArray{<:Real,2}; kws...)
         kws...
     )
 end
+
+function plot_grid(f::Function, kw=(;); rowcol...)
+    rn, cn = keys(rowcol)
+    rows, cols = values(rowcol)
+    ps = map(Iterators.product(rows, cols)) do (r, c)
+        p = f(r, c)
+        !kw.no_title && title!(p, "$rn=$r, $cn=$c")
+        p
+    end
+    nr, nc = map(length, (rows, cols))
+    plot(ps..., size=kw.size .* (nr, nc), layout=(nc,nr), bottom_margin=4mm)
+end

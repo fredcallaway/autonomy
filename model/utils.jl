@@ -37,3 +37,10 @@ linscale(x, low, high) = low + x * (high-low)
 logscale(x, low, high) = exp(log(low) + x * (log(high) - log(low)))
 unlinscale(x, low, high) = (x - low) / (high-low)
 unlogscale(x, low, high) = (log(x) - log(low)) / (log(high) - log(low))
+
+juxt(fs...) = x -> Tuple(f(x) for f in fs)
+
+nanreduce(f, x) = f(filter(!isnan, x))
+nanmean(x) = nanreduce(mean, x)
+nanstd(x) = nanreduce(std, x)
+normalize(x) = x ./ sum(x)
