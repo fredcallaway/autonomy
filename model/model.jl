@@ -49,7 +49,8 @@ function expected_value(env::Env)
 end
 
 
-# %% ==================== Sampling strategies ====================
+# %% ==================== Sample weighting ====================
+
 @metadata bounds (-Inf, Inf) Tuple
 
 abstract type Weighter end
@@ -139,92 +140,102 @@ end
 # end
 
 
-# %% ==================== Evaluation ====================
+# %% ==================== Estimation ====================
 
-abstract type Evaluator end
+abstract type Estimator end
 
-# function subjective_value(evaluator::Evaluator, env::Env, s::State; N=1)
-#     subjective_value(evaluator, env, s.u_init, s.p; N)
+# function subjective_value(est::Estimator, env::Env, s::State; N=1)
+#     subjective_value(est, env, s.u_init, s.p; N)
 # end
 
-@with_kw struct MonteCarloEvaluator <: Evaluator
+@with_kw struct MonteCarloEstimator <: Estimator
     n_sample::Int
 end
 
 
-function subjective_value(evaluator::MonteCarloEvaluator, env::Env, s::State; N=1)
-    [mean(sample_objective_value(s, env.k) for i in 1:evaluator.n_sample) for i in 1:N]
+function subjective_value(est::MonteCarloEstimator, env::Env, s::State; N=1)
+    [mean(sample_objective_value(s, env.k) for i in 1:est.n_sample) for i in 1:N]
 end
 
-@with_kw struct BiasedMonteCarloEvaluator{W<:Weighter} <: Evaluator
+@with_kw struct BiasedMonteCarloEstimator{W<:Weighter} <: Estimator
     n_sample::Int
     α::Real
     weighter::W
 end
 
-function subjective_value(evaluator::BiasedMonteCarloEvaluator, env::Env, s::State; N=1)
-    w = weight(evaluator.weighter, s.u_init, s.p)
+function subjective_value(est::BiasedMonteCarloEstimator, env::Env, s::State; N=1)
+    w = weight(est.weighter, s.u_init, s.p)
     map(1:N) do i
-        samples = if evaluator.α > 0  # reweighting
-            idx = sample(eachindex(s.u_true), w, (evaluator.n_sample, env.k); replace=true)
+        samples = if est.α > 0  # reweighting
+            idx = sample(eachindex(s.u_true), w, (est.n_sample, env.k); replace=true)
             u_max = maximum(s.u_true[idx]; dims=2)
-            reweight = prod(p[idx] ./ w[idx]; dims=2)
-            @. u_max * reweight ^ evaluator.α
+            reweight = prod(s.p[idx] ./ w.values[idx]; dims=2)
+            @. u_max * reweight ^ est.α
         else
-            maximum(sample(s.u_true, Weights(w), (evaluator.n_sample, env.k); replace=true); dims=2)
+            maximum(sample(s.u_true, Weights(w), (est.n_sample, env.k); replace=true); dims=2)
         end
         mean(samples)
     end
 end
 
-@with_kw struct SampleEvaluator{W<:Weighter} <: Evaluator
+@with_kw struct SampleEstimator{W<:Weighter} <: Estimator
     n_sample::Int
     α::Real
     weighter::W
     replace::Bool = true
 end
 
-function subjective_value(evaluator::SampleEvaluator, env::Env, s::State; N=1)
-    w = weight(evaluator.weighter, s.u_init, s.p)  # weights based on initial value estimates
+function subjective_value(est::SampleEstimator, env::Env, s::State; N=1)
+    w = weight(est.weighter, s.u_init, s.p)  # weights based on initial value estimates
     map(1:N) do i
-        samples = if evaluator.α > 0  # reweighting
-            idx = sample(eachindex(s.u_true), w, evaluator.n_sample; evaluator.replace)
-            @. s.u_true[idx] * (s.p[idx] / w[idx]) ^ evaluator.α
+        samples = if est.α > 0  # reweighting
+            idx = sample(eachindex(s.u_true), w, est.n_sample; est.replace)
+            @. s.u_true[idx] * (s.p[idx] / w.values[idx]) ^ est.α
         else
-            sample(s.u_true, Weights(w), evaluator.n_sample; evaluator.replace)
+            sample(s.u_true, Weights(w), est.n_sample; est.replace)
         end
         mean(samples)
     end
 end
 
 
-# %% ==================== Objective ====================
+# %% ==================== Evaluation ====================
 
-struct Objective
+struct Evaluator
     env::Env
-    problems::Vector{Problem}
+    states::Vector{State}
     true_vals::Vector{Float64}
 end
 
-function Objective(env, n_problem=1000)
-    problems = map(1:n_problem) do i
-        sample_problem(env)
+function Evaluator(env::Env, n_state=1000)
+    states = map(1:n_state) do i
+        State(env)
     end
-    true_vals = pmap(problems) do (u, p)
-        monte_carlo(10000) do
-            sample_objective_value(u, p, env.k)
-        end
-    end
-    Objective(env, problems, true_vals)
+    true_vals = pmap(s -> objective_value(env, s), states)
+    Evaluator(env, states, true_vals)
 end
 
-function (f::Objective)(evaluator::Evaluator, map=map)
-    choice_probs = map(f.problems) do (u, p)
-        mean(subjective_value(evaluator, f.env, u, p; N=100) .> 0)
+choice_objective(v_subj, true_val) = (v_subj > 0) * true_val
+error_objective(v_subj, true_val) = -(v_subj - true_val)^2
+
+# function Evaluator(f::Symbol, args...)
+#     objective = eval(Symbol(string(f, "_objective")))
+#     Evaluator(objective, args...)
+# end
+
+function objective_value(env::Env, s::State; N=10000)
+    monte_carlo(N) do
+        sample_objective_value(s.u_true, s.p, env.k)
     end
-    mean(choice_probs .* f.true_vals)
 end
 
-function Base.show(io::IO, f::Objective) 
-    print(io, "Objective")
+function (ev::Evaluator)(objective::Function, est::Estimator, map=map)
+    length(ev.states) \ mapreduce(+, ev.states, ev.true_vals) do s, true_val
+        v_subj = subjective_value(est, ev.env, s; N=100)
+        mean(objective.(v_subj, true_val))
+    end
+end
+
+function Base.show(io::IO, f::Evaluator) 
+    print(io, "Evaluator")
 end
