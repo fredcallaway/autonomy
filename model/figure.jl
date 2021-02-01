@@ -37,6 +37,7 @@ function Plots.plot(X::KeyedArray{<:Real,2}; kws...)
 end
 
 function plot_grid(f::Function, kw=(;); rowcol...)
+    kw = (size=(300, 300), no_title=false, kw...)
     rn, cn = keys(rowcol)
     rows, cols = values(rowcol)
     ps = map(Iterators.product(rows, cols)) do (r, c)

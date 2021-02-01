@@ -1,5 +1,29 @@
 include("utils.jl")
 include("figure.jl")
+
+
+function plot_ks_grid(f, X)
+    plot_grid(k=axiskeys(X, :k), s=axiskeys(X, :s)) do r, c
+        f(X(;k=r, s=c))
+    end
+end
+
+# %% ==================== Abs Exp vs analytic ====================
+
+abs_exp = deserialize("tmp/abs_exp_full")
+analytic = deserialize("tmp/analytic")
+analytic_uws = deserialize("tmp/analytic_uws")
+
+figure() do
+    p = plot_grid(;k=1:3, s=[1, 5, 25]) do k, s
+        plot(abs_exp(;k, s), ylabel="Reward", label="AbsExp", legend=false)
+        hline!([analytic(;k, s)], line=(:gray, :dot), label="Analytic")
+        hline!([analytic_uws(;k, s)], line=(:red, :dot), label="Analytic+UWS")
+    end
+    plot!(p[1], legend=:topleft)
+end
+
+
 # %% ==================== Behavior ====================
 
 S, baseline = deserialize("tmp/behavior");
@@ -40,16 +64,6 @@ figure("accept_comparison_simplified") do
     end
     plot(ps..., size=(900,900), layout=(3,3), bottom_margin=4mm)
 end
-
-# %% --------
-
-
-function plot_ks_grid(f, X)
-    plot_grid(k=axiskeys(X, :k), s=axiskeys(X, :s)) do r, c
-        f(X(;k=r, s=c))
-    end
-end
-
 
 
 
@@ -140,9 +154,10 @@ X = deserialize("tmp/abs_exp_full")(dispersion=1e10)
 
 figure("abs_exp_optimized") do
     plot_ks_grid(X) do x
-        plot(maximum(x; dims=(:d, :α)) |> dropdims((:d, :α))
+        plot(maximum(x; dims=(:d, :α)) |> dropdims(:d, :α))
     end
 end
+# %% --------
 
 figure("abs_exp_β") do
     X = deserialize("tmp/abs_exp_β")(dispersion=1e10, α=0, d=4)

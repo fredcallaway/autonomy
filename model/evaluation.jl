@@ -2,8 +2,8 @@ using Serialization
 using ProgressMeter
 using AxisKeys
 
+@everywhere include("utils.jl")
 @everywhere include("model.jl")
-include("utils.jl")
 mkpath("tmp")
 
 # %% ==================== boiler plate ====================
@@ -25,6 +25,23 @@ function evaluate(name::String, strategies::KeyedArray{<:Evaluator}, objectives:
     X
 end
 bmap(f, xs) = pmap(f, xs; batch_size=10)
+
+# %% ==================== Analytic ====================
+objectives = make_objectives(10000, k=1:3)
+
+analytic = @showprogress pmap(Iterators.product(objectives, grid(s=[1,5,25]))) do (f, (s,))
+    f(SampleEvaluator(5, 0, Analytic(f.env.k)))
+end
+
+serialize("tmp/analytic", analytic)
+
+analytic_uws = @showprogress pmap(Iterators.product(objectives, grid(s=[1,5,25]))) do (f, (s,))
+    f(SampleEvaluator(5, 0, AnalyticUWS(f.env.k)))
+end
+
+serialize("tmp/analytic_uws", analytic_uws)
+
+
 
 # %% ==================== logistic vs softmax ====================
 
@@ -80,24 +97,25 @@ serialize("tmp/bmc_vs_simple_large_s", bmc_vs_simple)
 
 # %% ==================== abs vs exp ====================
 
-# ALL BELOW IS BROKEN
-
-evaluators = map(grid(β=0:0.1:1, α=0:.1:1, d=1:.3:4)) do (β, α, d)
-    Evaluator(AbsExpDp(β, d, d), α)
+evaluators = map(grid(β=0:0.05:1, α=0:.1:1, d=1:.25:4, s=[1,5,25])) do (β, α, d)
+        SampleEvaluator(s, α, AbsExp(;β, d, dp=d))
 end
-objectives = make_objectives(1000, k=[1,2,3], s=[1,5,25], dispersion=[1e10])
+objectives = make_objectives(10000, k=[1,2,4,8])
+length(evaluators) * length(objectives)
 evaluate("abs_exp_full", evaluators, objectives)
 
 # %% --------
 
-evaluators = map(grid(β=0:0.05:1, α=[0.], d=[4.])) do (β, α, d)
-    Evaluator(AbsExpDp(β, d, d), α)
-end
+# objectives = make_objectives(1000, k=1:20)
+# evaluators = map(grid(β=0:0.05:1, α=[0.], d=[4.], s=[1,5,25])) do (β, α, d)
+#     SampleEvaluator(s, α, AbsExp(;β, d, dp=d))
+# end
 
-objectives = make_objectives(1000, k=1:20, s=[1,5,25], dispersion=[1e10])
-evaluate("abs_exp_β_many", evaluators, objectives)
+# evaluate("abs_exp_β", evaluators, objectives)
 
 # %% --------
+# ALL BELOW IS BROKEN
+
 @everywhere using Optim
 @everywhere function optimal_β(f; d, α)
     res = optimize(0, 1; abs_tol=.01) do β

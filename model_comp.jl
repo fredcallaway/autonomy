@@ -22,6 +22,8 @@ data = CSV.read("../data/bear2020_exp2.csv", Table) |> @mutate(
 data |> @groupby((_.ideal, _.bimodal))
 G = group(x->(x.ideal, x.bimodal), data) .|> Table
 
+@code_warntype group(mapview(x->(x.ideal, x.bimodal), data), data)
+
 # %% --------
 
 ideals = let

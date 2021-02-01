@@ -6,6 +6,7 @@ using LsqFit
 using Parameters
 using Serialization
 using Memoize
+using FieldMetadata
 # include("utils.jl")
 # %% ==================== Environment ====================
 
@@ -43,7 +44,6 @@ end
 
 
 # %% ==================== Sampling strategies ====================
-using FieldMetadata
 @metadata bounds (-Inf, Inf) Tuple
 
 abstract type Weighter end
