@@ -2,7 +2,6 @@ using Distributed
 using StatsBase
 using Distributions
 using QuadGK
-using LsqFit
 using Parameters
 using Serialization
 using Memoize
@@ -11,24 +10,31 @@ using FieldMetadata
 # %% ==================== Environment ====================
 
 @with_kw struct Env
-    loc::Float64 = 0.
+    μ_outcome::Float64 = 0.
     signal::Float64 = 0
-    noise::Float64 = 1.
+    σ_outcome::Float64 = 1.
+    σ_init::Float64 = 1.
     dispersion::Float64 = 1e10
     k::Int = 2
     n::Int = 100
 end
 
-Problem = Tuple{Vector{Float64}, Vector{Float64}}
-
-function sample_problem(env::Env)::Problem
-    @unpack loc, signal, noise, dispersion, n = env
-    u = loc + signal * randn() .+ noise .* randn(n)
-    p = rand(Dirichlet(dispersion .* ones(n)))
-    (u, p)
+struct State
+    u_true::Vector{Float64}
+    p::Vector{Float64}
+    u_init::Vector{Float64}
 end
 
 sample_objective_value(u, p, k) = maximum(sample(u, Weights(p), k; replace=false))
+sample_objective_value(s::State, k) = sample_objective_value(s.u_true, s.p, k)
+
+function State(env::Env)
+    @unpack μ_outcome, signal, σ_outcome, σ_init, dispersion, n = env
+    u_true = μ_outcome + signal * randn() .+ σ_outcome .* randn(n)
+    u_init = u_true + σ_init * randn(n)
+    p = rand(Dirichlet(dispersion .* ones(n)))
+    State(u_true, p, u_init)
+end
 
 "Expected maximum of N samples from a Normal distribution"
 @memoize function expected_maximum(N::Real, d::Normal)
@@ -38,8 +44,8 @@ sample_objective_value(u, p, k) = maximum(sample(u, Weights(p), k; replace=false
 end
 
 function expected_value(env::Env)
-    @unpack loc, noise, k = env
-    expected_maximum(k, Normal(loc, noise))
+    @unpack μ_outcome, σ_outcome, k = env
+    expected_maximum(k, Normal(μ_outcome, σ_outcome))
 end
 
 
@@ -49,10 +55,10 @@ end
 abstract type Weighter end
 score(weighter::Weighter, u, p) = error("Not Implemented")
 
-function weight(weighter::Weighter, u, p)
+function weight(weighter::Weighter, u, p)::Weights
     x = score(weighter, u, p)
     x ./= sum(x)
-    x
+    Weights(x, 1.)
 end
 
 @bounds @with_kw struct Softmax <: Weighter
@@ -107,7 +113,6 @@ function score(weighter::AnalyticUWS, u, p)
     @. p * cdf(Normal(0, 1), u)^(k-1) * abs(u - ev)
 end
 
-
 # @bounds @with_kw struct Logistic <: Weighter
 #     L::Float64 | (0, Inf)
 #     k::Float64
@@ -122,8 +127,9 @@ end
 #     p .* logistic(u, (L, k, x0)) + C
 # end
 
+# using LsqFit
 # function Distributions.fit(::Type{Logistic}, env::Env)
-#     d = Normal(env.loc, env.noise)
+#     d = Normal(env.μ_outcome, env.σ_outcome)
 #     x = -6:.001:6
 #     cdf_max = @. cdf(d, x) ^ env.k
 #     pdf_max = diff(cdf_max) .* 1000
@@ -137,49 +143,55 @@ end
 
 abstract type Evaluator end
 
+# function subjective_value(evaluator::Evaluator, env::Env, s::State; N=1)
+#     subjective_value(evaluator, env, s.u_init, s.p; N)
+# end
+
 @with_kw struct MonteCarloEvaluator <: Evaluator
-    s::Int
+    n_sample::Int
 end
 
-function subjective_value(evaluator::MonteCarloEvaluator, env::Env, u, p; N=1)
-    [mean(sample_objective_value(u, p, env.k) for i in 1:evaluator.s) for i in 1:N]
+
+function subjective_value(evaluator::MonteCarloEvaluator, env::Env, s::State; N=1)
+    [mean(sample_objective_value(s, env.k) for i in 1:evaluator.n_sample) for i in 1:N]
 end
 
 @with_kw struct BiasedMonteCarloEvaluator{W<:Weighter} <: Evaluator
-    s::Int
+    n_sample::Int
     α::Real
     weighter::W
 end
 
-function subjective_value(evaluator::BiasedMonteCarloEvaluator, env::Env, u, p; N=1)
-    w = weight(evaluator.weighter, u, p)
+function subjective_value(evaluator::BiasedMonteCarloEvaluator, env::Env, s::State; N=1)
+    w = weight(evaluator.weighter, s.u_init, s.p)
     map(1:N) do i
         samples = if evaluator.α > 0  # reweighting
-            idx = sample(eachindex(u), Weights(w), (evaluator.s, env.k); replace=true)
-            u_max = maximum(u[idx]; dims=2)
+            idx = sample(eachindex(s.u_true), w, (evaluator.n_sample, env.k); replace=true)
+            u_max = maximum(s.u_true[idx]; dims=2)
             reweight = prod(p[idx] ./ w[idx]; dims=2)
             @. u_max * reweight ^ evaluator.α
         else
-            maximum(sample(u, Weights(w), (evaluator.s, env.k); replace=true); dims=2)
+            maximum(sample(s.u_true, Weights(w), (evaluator.n_sample, env.k); replace=true); dims=2)
         end
         mean(samples)
     end
 end
 
 @with_kw struct SampleEvaluator{W<:Weighter} <: Evaluator
-    s::Int
+    n_sample::Int
     α::Real
     weighter::W
+    replace::Bool = true
 end
 
-function subjective_value(evaluator::SampleEvaluator, env::Env, u, p; N=1)
-    w = weight(evaluator.weighter, u, p)
+function subjective_value(evaluator::SampleEvaluator, env::Env, s::State; N=1)
+    w = weight(evaluator.weighter, s.u_init, s.p)  # weights based on initial value estimates
     map(1:N) do i
         samples = if evaluator.α > 0  # reweighting
-            idx = sample(eachindex(u), Weights(w), evaluator.s; replace=true)
-            @. u[idx] * (p[idx] / w[idx]) ^ evaluator.α
+            idx = sample(eachindex(s.u_true), w, evaluator.n_sample; evaluator.replace)
+            @. s.u_true[idx] * (s.p[idx] / w[idx]) ^ evaluator.α
         else
-            sample(u, Weights(w), evaluator.s; replace=true)
+            sample(s.u_true, Weights(w), evaluator.n_sample; evaluator.replace)
         end
         mean(samples)
     end
