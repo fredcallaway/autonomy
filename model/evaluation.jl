@@ -4,27 +4,99 @@ using AxisKeys
 
 @everywhere include("utils.jl")
 @everywhere include("model.jl")
+@everywhere include("gp_min.jl")
+@everywhere include("box.jl")
 mkpath("tmp")
 
 # %% ==================== boiler plate ====================
 
-function make_objectives(n_problem=1000; grid_kws...)
+function make_evaluators(n_state=1000; grid_kws...)
     G = grid(;grid_kws...)
     @showprogress map(G) do kw
         env = Env(;kw...)
-        env = mutate(env, loc=-expected_value(env))
-        Objective(env, n_problem)
+        env = mutate(env, μ_outcome=-expected_value(env))
+        Evaluator(env, n_state)
     end
 end
 
-function evaluate(name::String, strategies::KeyedArray{<:Evaluator}, objectives::KeyedArray{<:Objective})
-    X = @showprogress pmap(Iterators.product(strategies, objectives)) do (sw, f)
-        f(sw)
+function evaluate(name::String,
+                  evaluators::KeyedArray{<:Evaluator}, 
+                  objectives::KeyedArray{<:Function},
+                  estimators::KeyedArray{<:Estimator},
+                  N::Int = 100)
+    X = @showprogress pmap(Iterators.product(evaluators, objectives, estimators)) do (ev, obj, est)
+        mean_se(obj, est, N)
     end
     serialize("tmp/$name", X)
+    table(X) |> CSV.write("results/$name.csv")
     X
 end
-bmap(f, xs) = pmap(f, xs; batch_size=10)
+bmap(f, x...) = pmap(f, x...; batch_size=10)
+
+# %% ==================== Noisy weighting ====================
+
+evaluators = make_evaluators(10_000, k=[1,2,4,8], σ_init=[0, 0.5, 1, 2])
+
+objectives = map(keyed(:objective, [:choice])) do f
+    eval(Symbol(string(f, "_objective")))
+end
+
+# %% --------
+mc_basic = map(keyed(:n_sample, [1,5,25])) do s
+    MonteCarloEstimator(n_sample)
+end
+evaluate("mc_basic", evaluators, objectives, mc_basic; N=200)
+
+# %% --------
+mc_absexp = map(grid(n_sample=[1,5,25], α=[0, 0.5, 1], β=0:.1:1, d=[0.5, 1,2,4,8])) do (n_sample, α, β, d)
+    weighter = AbsExp(;β, d)
+    BiasedMonteCarloEstimator(;n_sample, α, weighter)
+end
+evaluate("mc_absexp", evaluators, objectives, mc_absexp)
+
+# %% --------
+abs_exp = map(grid(n_sample=[1,5,25], α=[0, 0.5, 1], β=0:.1:1, d=[0.5, 1,2,4,8])) do (n_sample, α, β, d)
+    weighter = AbsExp(;β, d)
+    SampleEstimator(;n_sample, α, weighter)
+end
+
+evaluate("abs_exp", evaluators, objectives, abs_exp)
+
+# %% ==================== Optimizing ====================
+
+evaluators = make_evaluators(10_000, k=[1,2,4,8], σ_init=[0, 0.5, 1, 2])
+
+objectives = map(keyed(:objective, [:choice, :error])) do f
+    eval(Symbol(string(f, "_objective")))
+end
+
+n_samples = keyed(:n_sample, [1,5,25])
+
+jobs = product(evaluators, objectives, n_samples)
+# (ev, objective, n_sample) = first(jobs)
+gp_results = @showprogress pmap(jobs) do (ev, objective, n_sample)
+    box = Box(β=(0,1), d=(0, 10), α=(0,1))
+    gp_minimize(length(box), verbose=false, iterations=300) do x
+        @unpack β, d, α = box(x)
+        weighter = AbsExp(;β, d)
+        est = BiasedMonteCarloEstimator(;n_sample, α, weighter)
+        -100ev(objective, est)
+    end
+end
+
+# %% --------
+
+# ================================= #
+# ========= NOT FIXED YET ========= #
+# ================================= #
+
+
+for name in ["mc_basic", "mc_absexp", "abs_exp"]
+    X = deserialize("tmp/$name")
+    table(X) |> CSV.write("results/$name.csv")
+end
+
+
 
 # %% ==================== Analytic ====================
 objectives = make_objectives(10000, k=1:3)
@@ -94,7 +166,6 @@ end
 
 serialize("tmp/bmc_vs_simple_large_s", bmc_vs_simple)
 
-
 # %% ==================== abs vs exp ====================
 
 evaluators = map(grid(β=0:0.05:1, α=0:.1:1, d=1:.25:4, s=[1,5,25])) do (β, α, d)
@@ -115,35 +186,6 @@ evaluate("abs_exp_full", evaluators, objectives)
 
 # %% --------
 # ALL BELOW IS BROKEN
-
-@everywhere using Optim
-@everywhere function optimal_β(f; d, α)
-    res = optimize(0, 1; abs_tol=.01) do β
-        -f(Evaluator(AbsExpDp(β, d, d), α))
-    end
-    res.minimizer
-end
-
-objectives = make_objectives(1000, k=1:20, s=[1,5,25], dispersion=[1e10])
-opt_βs = @showprogress pmap(objectives) do f
-    optimal_β(f; d=4, α=0.)
-end
-serialize("tmp/opt_βs", opt_βs)
-
-# %% --------
-
-function optimal_β_local(f; d, α)
-    res = optimize(0, 1; abs_tol=.01) do β
-        y = f(Evaluator(AbsExpDp(β, d, d), α), bmap)
-        println(β => y)
-        -y
-    end
-    res.minimizer
-end
-
-f = objectives(s=25)[end]
-optimal_β_local(f, d=4, α=0.)
-
 
 
 # %% ==================== scratch ====================

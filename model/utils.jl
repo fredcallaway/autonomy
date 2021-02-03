@@ -27,6 +27,13 @@ keymax(x::KeyedArray{<:Real, 1}) = axiskeys(x, 1)[argmax(x)]
 
 Base.dropdims(idx::Union{Symbol,Int}...) = X -> dropdims(X, dims=idx)
 
+function table(X::KeyedArray)
+    map(collect(pairs(X))) do (idx, v)
+        keyvals = (name => keys[i] for (name, keys, i) in zip(dimnames(X), axiskeys(X), idx.I))
+        (;keyvals..., value=v)
+    end[:]
+end
+
 function monte_carlo(f, N=10000)
     N \ mapreduce(+, 1:N) do i
         f()
