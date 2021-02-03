@@ -148,17 +148,14 @@ end
 
 abstract type Estimator end
 
-# function subjective_value(est::Estimator, env::Env, s::State; N=1)
-#     subjective_value(est, env, s.u_init, s.p; N)
-# end
-
 @with_kw struct MonteCarloEstimator <: Estimator
     n_sample::Int
 end
 
-
 function subjective_value(est::MonteCarloEstimator, env::Env, s::State)
-    mean(sample_objective_value(s, env.k) for i in 1:est.n_sample)
+    monte_carlo(est.n_sample) do
+        sample_objective_value(s, env.k)
+    end
 end
 
 @with_kw struct BiasedMonteCarloEstimator{W<:Weighter} <: Estimator
@@ -169,15 +166,18 @@ end
 
 function subjective_value(est::BiasedMonteCarloEstimator, env::Env, s::State)
     w = weight(est.weighter, s.u_init)
-    samples = if est.α > 0  # reweighting
-        idx = sample(eachindex(s.u_true), w, (est.n_sample, env.k); replace=true)
-        u_max = maximum(s.u_true[idx]; dims=2)
-        reweight = prod(1 ./ w.values[idx]; dims=2)
-        @. u_max * reweight ^ est.α
-    else
-        maximum(sample(s.u_true, Weights(w), (est.n_sample, env.k); replace=true); dims=2)
+    objective_prob = float(env.n) ^ -env.k
+
+    monte_carlo(est.n_sample) do
+        if est.α == 0  # no reweighting
+            maximum(sample(s.u_true, w, env.k); replace=false)
+        else
+            idx = sample(eachindex(s.u_true), w, env.k; replace=false)
+            u_max = maximum(s.u_true[idx])
+            reweight = objective_prob / prod(w.values[idx])
+            @. u_max * reweight ^ est.α
+        end
     end
-    mean(samples)
 end
 
 @with_kw struct SampleEstimator{W<:Weighter} <: Estimator
@@ -189,15 +189,16 @@ end
 
 function subjective_value(est::SampleEstimator, env::Env, s::State)
     w = weight(est.weighter, s.u_init)  # weights based on initial value estimates
-    samples = if est.α > 0  # reweighting
-        idx = sample(eachindex(s.u_true), w, est.n_sample; est.replace)
-        @. s.u_true[idx] * (1  ./ w.values[idx]) ^ est.α
-    else
+    objective_prob = 1/env.n
+
+    samples = if est.α == 0
         sample(s.u_true, Weights(w), est.n_sample; est.replace)
+    else
+        idx = sample(eachindex(s.u_true), w, est.n_sample; est.replace)
+        @. s.u_true[idx] * (objective_prob  / w.values[idx]) ^ est.α
     end
     mean(samples)
 end
-
 
 # %% ==================== Evaluation ====================
 
