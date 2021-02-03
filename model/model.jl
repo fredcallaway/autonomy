@@ -157,8 +157,8 @@ abstract type Estimator end
 end
 
 
-function subjective_value(est::MonteCarloEstimator, env::Env, s::State; N=1)
-    [mean(sample_objective_value(s, env.k) for i in 1:est.n_sample) for i in 1:N]
+function subjective_value(est::MonteCarloEstimator, env::Env, s::State)
+    mean(sample_objective_value(s, env.k) for i in 1:est.n_sample)
 end
 
 @with_kw struct BiasedMonteCarloEstimator{W<:Weighter} <: Estimator
@@ -167,19 +167,17 @@ end
     weighter::W
 end
 
-function subjective_value(est::BiasedMonteCarloEstimator, env::Env, s::State; N=1)
+function subjective_value(est::BiasedMonteCarloEstimator, env::Env, s::State)
     w = weight(est.weighter, s.u_init)
-    map(1:N) do i
-        samples = if est.α > 0  # reweighting
-            idx = sample(eachindex(s.u_true), w, (est.n_sample, env.k); replace=true)
-            u_max = maximum(s.u_true[idx]; dims=2)
-            reweight = prod(1 ./ w.values[idx]; dims=2)
-            @. u_max * reweight ^ est.α
-        else
-            maximum(sample(s.u_true, Weights(w), (est.n_sample, env.k); replace=true); dims=2)
-        end
-        mean(samples)
+    samples = if est.α > 0  # reweighting
+        idx = sample(eachindex(s.u_true), w, (est.n_sample, env.k); replace=true)
+        u_max = maximum(s.u_true[idx]; dims=2)
+        reweight = prod(1 ./ w.values[idx]; dims=2)
+        @. u_max * reweight ^ est.α
+    else
+        maximum(sample(s.u_true, Weights(w), (est.n_sample, env.k); replace=true); dims=2)
     end
+    mean(samples)
 end
 
 @with_kw struct SampleEstimator{W<:Weighter} <: Estimator
@@ -189,17 +187,15 @@ end
     replace::Bool = true
 end
 
-function subjective_value(est::SampleEstimator, env::Env, s::State; N=1)
+function subjective_value(est::SampleEstimator, env::Env, s::State)
     w = weight(est.weighter, s.u_init)  # weights based on initial value estimates
-    map(1:N) do i
-        samples = if est.α > 0  # reweighting
-            idx = sample(eachindex(s.u_true), w, est.n_sample; est.replace)
-            @. s.u_true[idx] * (1  ./ w.values[idx]) ^ est.α
-        else
-            sample(s.u_true, Weights(w), est.n_sample; est.replace)
-        end
-        mean(samples)
+    samples = if est.α > 0  # reweighting
+        idx = sample(eachindex(s.u_true), w, est.n_sample; est.replace)
+        @. s.u_true[idx] * (1  ./ w.values[idx]) ^ est.α
+    else
+        sample(s.u_true, Weights(w), est.n_sample; est.replace)
     end
+    mean(samples)
 end
 
 
@@ -215,7 +211,7 @@ function Evaluator(env::Env, n_state=1000)
     states = map(1:n_state) do i
         State(env)
     end
-    true_vals = pmap(s -> objective_value(s, s.k), states)
+    true_vals = map(s -> objective_value(s, env.k), states)
     Evaluator(env, states, true_vals)
 end
 
@@ -227,17 +223,15 @@ error_objective(v_subj, true_val) = -(v_subj - true_val)^2
 #     Evaluator(objective, args...)
 # end
 
-function (ev::Evaluator)(objective::Function, est::Estimator; N=30)
+function (ev::Evaluator)(objective::Function, est::Estimator)
     length(ev.states) \ mapreduce(+, ev.states, ev.true_vals) do s, true_val
-        v_subj = subjective_value(est, ev.env, s; N)
-        mean(objective.(v_subj, true_val))
+        objective(subjective_value(est, ev.env, s), true_val)
     end
 end
 
 function mean_se(ev::Evaluator, objective::Function, est::Estimator; N=30)
     v = map(ev.states, ev.true_vals) do s, true_val
-        v_subj = subjective_value(est, ev.env, s; N)
-        mean(objective.(v_subj, true_val))
+        objective(subjective_value(est, ev.env, s), true_val)
     end
     mean(v), sem(v)
 end
