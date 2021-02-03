@@ -6,41 +6,47 @@ using Parameters
 using Serialization
 using Memoize
 using FieldMetadata
-# include("utils.jl")
+using Combinatorics
+
+"Expected maximum of N samples from a Normal distribution"
+function expected_maximum(k::Real, d::Normal)
+    mcdf(x) = cdf(d, x)^k
+    lo = d.μ - 10d.σ; hi = d.μ + 10d.σ
+    - quadgk(mcdf, lo, 0, atol=1e-5)[1] + quadgk(x->1-mcdf(x), 0, hi, atol=1e-5)[1]
+end
+
+# https://stats.stackexchange.com/questions/303436/expected-value-of-srswor-sample-maximum
+"Expected maximum of k samples (without replacement) from a set"
+function expected_maximum_srswor(k::Real, u::Vector)
+  N = length(u)
+  u = sort(u)
+  sum(u[i] * binomial(i-1, k-1) for i in k:N) / binomial(N, k)
+end
+
 # %% ==================== Environment ====================
 
 @with_kw struct Env
     μ_outcome::Float64 = 0.
     signal::Float64 = 0
     σ_outcome::Float64 = 1.
-    σ_init::Float64 = 1.
-    dispersion::Float64 = 1e10
+    σ_init::Float64 = 0.
     k::Int = 2
     n::Int = 100
 end
 
 struct State
     u_true::Vector{Float64}
-    p::Vector{Float64}
     u_init::Vector{Float64}
 end
 
-sample_objective_value(u, p, k) = maximum(sample(u, Weights(p), k; replace=false))
-sample_objective_value(s::State, k) = sample_objective_value(s.u_true, s.p, k)
+objective_value(s::State, k) = expected_maximum_srswor(k, s.u_true)
+sample_objective_value(s::State, k) = maximum(sample(s.u_true, k; replace=false))
 
 function State(env::Env)
-    @unpack μ_outcome, signal, σ_outcome, σ_init, dispersion, n = env
+    @unpack μ_outcome, signal, σ_outcome, σ_init, n = env
     u_true = μ_outcome + signal * randn() .+ σ_outcome .* randn(n)
     u_init = u_true + σ_init * randn(n)
-    p = rand(Dirichlet(dispersion .* ones(n)))
-    State(u_true, p, u_init)
-end
-
-"Expected maximum of N samples from a Normal distribution"
-@memoize function expected_maximum(N::Real, d::Normal)
-    mcdf(x) = cdf(d, x)^N
-    lo = d.μ - 10d.σ; hi = d.μ + 10d.σ
-    - quadgk(mcdf, lo, 0, atol=1e-5)[1] + quadgk(x->1-mcdf(x), 0, hi, atol=1e-5)[1]
+    State(u_true, u_init)
 end
 
 function expected_value(env::Env)
@@ -54,36 +60,34 @@ end
 @metadata bounds (-Inf, Inf) Tuple
 
 abstract type Weighter end
-score(weighter::Weighter, u, p) = error("Not Implemented")
+score(weighter::Weighter, u) = error("Not Implemented")
 
-function weight(weighter::Weighter, u, p)::Weights
-    x = score(weighter, u, p)
+function weight(weighter::Weighter, u)::Weights
+    x = score(weighter, u)
     x ./= sum(x)
     Weights(x, 1.)
 end
 
 @bounds @with_kw struct Softmax <: Weighter
     β_u::Real
-    β_p::Real = 1 | (0, Inf)   # default value and bounds
     C::Real = 0 | (0, Inf)
 end
 
-function score(weighter::Softmax, u, p)
-    @unpack β_p, β_u, C = weighter
-    @. p ^ β_p * exp(u * β_u) + C
+function score(weighter::Softmax, u)
+    @unpack β_u, C = weighter
+    @. exp(u * β_u) + C
 end
 
 
 @bounds @with_kw struct AbsExp <: Weighter
     β::Real | (0, 1)
     d::Real | (-Inf, Inf)
-    dp::Real = 1 | (-Inf, Inf)
     C::Real = 0 | (0, Inf)
 end
 
-function score(weighter::AbsExp, u, p)    
-    @unpack β, d, dp, C = weighter
-    @. p^dp * ((1 - β) * abs(u) + β * exp(u)) ^ d + C
+function score(weighter::AbsExp, u)    
+    @unpack β, d, C = weighter
+    @. ((1 - β) * abs(u) + β * exp(u)) ^ d + C
 end
 
 
@@ -95,9 +99,9 @@ end
 end
 Analytic(k::Real) = Analytic(;k)
 
-function score(weighter::Analytic, u, p)
+function score(weighter::Analytic, u)
     @unpack k, μ, σ, C = weighter
-    @. p * cdf(Normal(μ, σ), u)^(k-1) + C
+    @. cdf(Normal(μ, σ), u)^(k-1) + C
 end
 
 @with_kw struct AnalyticUWS <: Weighter
@@ -105,13 +109,13 @@ end
     μ::Real = 0
     σ::Real = 1
     C::Real = 0
+    ev::Float64 = expected_maximum(k, Normal(μ, σ))
 end
 AnalyticUWS(k::Real) = AnalyticUWS(;k)
 
-function score(weighter::AnalyticUWS, u, p)
-    @unpack k, μ, σ = weighter
-    ev = expected_maximum(k, Normal(μ, σ))
-    @. p * cdf(Normal(0, 1), u)^(k-1) * abs(u - ev)
+function score(weighter::AnalyticUWS, u)
+    @unpack k, μ, σ, C, ev = weighter
+    @. cdf(Normal(0, 1), u)^(k-1) * abs(u - ev) + C
 end
 
 # @bounds @with_kw struct Logistic <: Weighter
@@ -123,7 +127,7 @@ end
 
 # @. logistic(x, (L, k, x0)) = L / (1 + exp(-k * (x - x0)))
 
-# function score(weighter::Logistic, u, p)
+# function score(weighter::Logistic, u)
 #     @unpack L, k, x0, C = weighter
 #     p .* logistic(u, (L, k, x0)) + C
 # end
@@ -164,12 +168,12 @@ end
 end
 
 function subjective_value(est::BiasedMonteCarloEstimator, env::Env, s::State; N=1)
-    w = weight(est.weighter, s.u_init, s.p)
+    w = weight(est.weighter, s.u_init)
     map(1:N) do i
         samples = if est.α > 0  # reweighting
             idx = sample(eachindex(s.u_true), w, (est.n_sample, env.k); replace=true)
             u_max = maximum(s.u_true[idx]; dims=2)
-            reweight = prod(s.p[idx] ./ w.values[idx]; dims=2)
+            reweight = prod(1 ./ w.values[idx]; dims=2)
             @. u_max * reweight ^ est.α
         else
             maximum(sample(s.u_true, Weights(w), (est.n_sample, env.k); replace=true); dims=2)
@@ -186,11 +190,11 @@ end
 end
 
 function subjective_value(est::SampleEstimator, env::Env, s::State; N=1)
-    w = weight(est.weighter, s.u_init, s.p)  # weights based on initial value estimates
+    w = weight(est.weighter, s.u_init)  # weights based on initial value estimates
     map(1:N) do i
         samples = if est.α > 0  # reweighting
             idx = sample(eachindex(s.u_true), w, est.n_sample; est.replace)
-            @. s.u_true[idx] * (s.p[idx] / w.values[idx]) ^ est.α
+            @. s.u_true[idx] * (1  ./ w.values[idx]) ^ est.α
         else
             sample(s.u_true, Weights(w), est.n_sample; est.replace)
         end
@@ -211,7 +215,7 @@ function Evaluator(env::Env, n_state=1000)
     states = map(1:n_state) do i
         State(env)
     end
-    true_vals = pmap(s -> objective_value(env, s), states)
+    true_vals = pmap(s -> objective_value(s, s.k), states)
     Evaluator(env, states, true_vals)
 end
 
@@ -223,17 +227,19 @@ error_objective(v_subj, true_val) = -(v_subj - true_val)^2
 #     Evaluator(objective, args...)
 # end
 
-function objective_value(env::Env, s::State; N=10000)
-    monte_carlo(N) do
-        sample_objective_value(s.u_true, s.p, env.k)
+function (ev::Evaluator)(objective::Function, est::Estimator; N=30)
+    length(ev.states) \ mapreduce(+, ev.states, ev.true_vals) do s, true_val
+        v_subj = subjective_value(est, ev.env, s; N)
+        mean(objective.(v_subj, true_val))
     end
 end
 
-function (ev::Evaluator)(objective::Function, est::Estimator, map=map)
-    length(ev.states) \ mapreduce(+, ev.states, ev.true_vals) do s, true_val
-        v_subj = subjective_value(est, ev.env, s; N=100)
+function mean_se(ev::Evaluator, objective::Function, est::Estimator; N=30)
+    v = map(ev.states, ev.true_vals) do s, true_val
+        v_subj = subjective_value(est, ev.env, s; N)
         mean(objective.(v_subj, true_val))
     end
+    mean(v), sem(v)
 end
 
 function Base.show(io::IO, f::Evaluator) 
