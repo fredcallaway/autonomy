@@ -1,12 +1,15 @@
 using Serialization
 using ProgressMeter
 using AxisKeys
+using CSV
+using TypedTables
 
 @everywhere include("utils.jl")
 @everywhere include("model.jl")
 @everywhere include("gp_min.jl")
 @everywhere include("box.jl")
 mkpath("tmp")
+mkpath("results")
 
 # %% ==================== boiler plate ====================
 
@@ -24,14 +27,23 @@ function evaluate(name::String,
                   objectives::KeyedArray{<:Function},
                   estimators::KeyedArray{<:Estimator},
                   N::Int = 100)
-    X = @showprogress pmap(Iterators.product(evaluators, objectives, estimators)) do (ev, obj, est)
-        mean_se(obj, est, N)
+    X = @showprogress pmap(product(evaluators, objectives, estimators)) do (ev, obj, est)
+        mean_se(ev, obj, est)
     end
     serialize("tmp/$name", X)
     table(X) |> CSV.write("results/$name.csv")
     X
 end
 bmap(f, x...) = pmap(f, x...; batch_size=10)
+
+# %% --------
+name = "absexp"
+X = deserialize("tmp/$name")
+map(table(X)) do x
+    (;x..., value=x.value[1], se=x.value[2])
+end |> CSV.write("results/$name.csv")
+
+
 
 # %% ==================== Noisy weighting ====================
 
@@ -45,44 +57,84 @@ end
 mc_basic = map(keyed(:n_sample, [1,5,25])) do s
     MonteCarloEstimator(n_sample)
 end
-evaluate("mc_basic", evaluators, objectives, mc_basic; N=200)
+evaluate("mc_basic", evaluators, objectives, mc_basic)
 
 # %% --------
-mc_absexp = map(grid(n_sample=[1,5,25], α=[0, 0.5, 1], β=0:.1:1, d=[0.5, 1,2,4,8])) do (n_sample, α, β, d)
+mc_absexp = map(grid(n_sample=[1,5,25], α=[0, 0.1], β=0:.1:1, d=[0.5, 1,2,4,8])) do (n_sample, α, β, d)
     weighter = AbsExp(;β, d)
     BiasedMonteCarloEstimator(;n_sample, α, weighter)
 end
 evaluate("mc_absexp", evaluators, objectives, mc_absexp)
 
 # %% --------
-abs_exp = map(grid(n_sample=[1,5,25], α=[0, 0.5, 1], β=0:.1:1, d=[0.5, 1,2,4,8])) do (n_sample, α, β, d)
+absexp = map(grid(n_sample=[1,5,25], α=[0, 0.1], β=0:.1:1, d=[0.5, 1,2,4,8])) do (n_sample, α, β, d)
     weighter = AbsExp(;β, d)
     SampleEstimator(;n_sample, α, weighter)
 end
 
-evaluate("abs_exp", evaluators, objectives, abs_exp)
+evaluate("absexp", evaluators, objectives, absexp)
 
 # %% ==================== Optimizing ====================
+evaluators = make_evaluators(50_000, k=1:10, σ_init=0:3, n=[50])
 
-evaluators = make_evaluators(10_000, k=[1,2,4,8], σ_init=[0, 0.5, 1, 2])
-
-objectives = map(keyed(:objective, [:choice, :error])) do f
+objectives = map(keyed(:objective, [:choice])) do f
     eval(Symbol(string(f, "_objective")))
 end
 
-n_samples = keyed(:n_sample, [1,5,25])
+n_samples = keyed(:n_sample, [1,5,10,50])
+repl = keyed(:replace, [false, true])
 
-jobs = product(evaluators, objectives, n_samples)
-# (ev, objective, n_sample) = first(jobs)
-gp_results = @showprogress pmap(jobs) do (ev, objective, n_sample)
+jobs = product(evaluators, objectives, n_samples, repl)
+# (ev, objective, n_sample, repl) = first(jobs)
+
+@everywhere using BlackBoxOptim
+de_results = @showprogress pmap(jobs) do (ev, objective, n_sample, repl)
     box = Box(β=(0,1), d=(0, 10), α=(0,1))
-    gp_minimize(length(box), verbose=false, iterations=300) do x
+
+    bboptimize(SearchRange = (0., 1.0), NumDimensions = length(box), TraceMode=:silent, MaxFuncEvals=300) do x
         @unpack β, d, α = box(x)
         weighter = AbsExp(;β, d)
-        est = BiasedMonteCarloEstimator(;n_sample, α, weighter)
-        -100ev(objective, est)
-    end
+        est = SampleEstimator(;n_sample, α, weighter, replace=repl)
+        # est = BiasedMonteCarloEstimator(;n_sample, α, weighter)
+        -ev(objective, est)
+    end |> best_candidate |> box
 end
+# %% --------
+table(de_results) |> CSV.write("results/optim_de_absexp.csv")
+
+
+
+
+# gp_results = @showprogress pmap(jobs) do (ev, objective, n_sample, repl)
+#     box = Box(β=(0,1), d=(0, 10), α=(0,1))
+#     res = gp_minimize(length(box), verbose=true, iterations=200) do x
+#         @unpack β, d, α = box(x)
+#         weighter = AbsExp(;β, d)
+#         est = SampleEstimator(;n_sample, α, weighter, replace=repl)
+#         # est = BiasedMonteCarloEstimator(;n_sample, α, weighter)
+#         -100ev(objective, est)
+#     end
+# end
+
+
+model = ElasticGPE(4,
+  mean = MeanConst(0.),
+  kernel = Mat32Ard(zeros(4), 5.),
+  logNoise = -2.,
+  capacity = 1000
+)
+
+
+
+
+
+
+
+
+
+
+
+
 
 # %% --------
 
@@ -91,7 +143,7 @@ end
 # ================================= #
 
 
-for name in ["mc_basic", "mc_absexp", "abs_exp"]
+for name in ["mc_basic", "mc_absexp", "absexp"]
     X = deserialize("tmp/$name")
     table(X) |> CSV.write("results/$name.csv")
 end

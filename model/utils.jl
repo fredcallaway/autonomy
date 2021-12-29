@@ -34,6 +34,13 @@ function table(X::KeyedArray)
     end[:]
 end
 
+function table(X::KeyedArray{<:NamedTuple})
+    map(collect(pairs(X))) do (idx, v)
+        keyvals = (name => keys[i] for (name, keys, i) in zip(dimnames(X), axiskeys(X), idx.I))
+        (;keyvals..., v...,)
+    end[:]
+end
+
 function monte_carlo(f, N=10000)
     N \ mapreduce(+, 1:N) do i
         f()

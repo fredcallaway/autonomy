@@ -170,7 +170,7 @@ function subjective_value(est::BiasedMonteCarloEstimator, env::Env, s::State)
 
     monte_carlo(est.n_sample) do
         if est.α == 0  # no reweighting
-            maximum(sample(s.u_true, w, env.k); replace=false)
+            maximum(sample(s.u_true, w, env.k; replace=false))
         else
             idx = sample(eachindex(s.u_true), w, env.k; replace=false)
             u_max = maximum(s.u_true[idx])
