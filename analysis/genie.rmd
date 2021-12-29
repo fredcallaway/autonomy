@@ -50,8 +50,6 @@ control_colors = scale_colour_manual(values=c(
     "#31ADF4",
     "#F5CE47"
 ), aesthetics=c("fill", "colour"), name="control")
-
-
 ```
 
 # Participants
@@ -183,6 +181,8 @@ as the IV (as I originally proposed).
 
 👉 see [Z-scoring] for these analyses with evaluations z-scored within participant.
 (This one is particulary worth checking out).
+
+👉 There is mixed evidence for learning, documented in [Order effects].
 
 
 # Value distributions
@@ -592,6 +592,56 @@ it would require lots of participants.
 
 
 # Supporting information
+
+## Order effects
+
+Do participants get better at sampling in a manner consistent with their condition
+over time?
+
+```{r}
+df %>% 
+    # filter(scenario!="FRUIT") %>% 
+    left_join(select(scenarios, wid, scenario, trial_number)) %>% 
+    mutate(last_trial = as.numeric(trial_number==3)) %>% 
+    ggplot(aes(evaluation, as.numeric(considered), color=control)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.3, 
+                     position=position_dodge(width=.5)) +
+    geom_smooth(se=F, size=0.8, linetype = "dotted", alpha=0.3) +
+    # geom_smooth(se=F, method=lm, formula=y ~ x + abs(x), alpha=0.1) +
+    geom_smooth(se=F, method=glm, 
+        formula=y ~ x + abs(x - 0),
+        method.args = list(family = "binomial"),
+        alpha=0.1) +
+    ylab("consideration probability") +
+    facet_grid(scenario ~ trial_number,  labeller = label_glue(
+        cols = "trial {trial_number}",
+        rows = "{scenario}"
+    )) +
+    control_colors
+```
+
+Note that all participants saw FRUIT first. For ZOO, it does look like
+high-control participants do a better job of ignoring low-value outcomes.
+However, VACATION gets a little worse. Given that there are two sets of 
+participants here (one that sees VACATION first and one that sees ZOO first),
+it seems likely to me that this is a coincidental alignment of individual
+differences with order. But...
+
+```{r, fig.height=3}
+consideration_model_time = df %>% 
+    left_join(select(scenarios, wid, scenario, trial_number)) %>% 
+    # mutate(trial = trial_number - 1)
+    # filter(scenario!="FRUIT") %>% 
+    # mutate(last_trial = as.numeric(trial_number==3)) %>% 
+    glm(considered ~ trial_number * control * (zscore(evaluation) + zscore(abs(evaluation))), family=binomial, data=.)
+
+summ(consideration_model_time)
+```
+
+We do see a significant third-order interaction, such that high-control
+participants attend to high- value outcomes more on later trials (second
+to last row). The more model taking into account order has a better AIC:
+`r round(consideration_model_time$aic)` vs `r round(consideration_model$aic)`.
 
 ## Alternative basic predictions
 
