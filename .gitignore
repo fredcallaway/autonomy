@@ -5,3 +5,4 @@ model/tests.jl
 model/bak/
 model/bear_analysis.m
 analysis/.fighist
+analysis/figs/tmp.png
