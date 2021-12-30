@@ -1,0 +1,8 @@
+```{r, fig.width=7.5, fig.height=4.5}
+df %>% 
+    ggplot(aes(evaluation, y=..prop..)) + 
+    geom_bar(data=filter(df, outcome != "UNK"), alpha=1, fill="gray50", position="identity") +
+    geom_bar(aes(fill=control), data=filter(df, considered), alpha=0.7, position="identity") +
+    control_colors + wrap_scenario + 
+    labs(fill="considered by", y="proportion")
+```

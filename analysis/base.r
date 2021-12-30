@@ -42,9 +42,14 @@ BLACK = "#111111"
 # theme_set(theme_classic(base_size = 14) + theme(strip.background = element_blank()))
 
 theme_set(theme_bw(base_size = 14))
+
 theme_update(
-        panel.grid.major.x = element_blank(),
-        panel.grid.minor.x = element_blank()
+    strip.background = element_blank(),
+    strip.text.x = element_text(size=14),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor.y = element_blank(),
 )
 
 update_geom_defaults("line", list(size = 1.2))
