@@ -1,0 +1,109 @@
+---
+title: Norming
+date: "`r Sys.Date()`"
+author: "fredcallaway"
+output:
+  rmdformats::robobook:
+    code_folding: hide
+    self_contained: true
+---
+
+
+```{r setup, include=FALSE}
+source("base.r")
+
+all_outcomes = "soccer, basketball, tennis, baseball, golf, volleyball, badminton, boxing, cricket, rugby, football, bowling, elephant, koala, lemur, sloth, giraffe, monkey, rhinoceros, deer, panda, peacock, tiger, lion, jaguar, zebra, gorilla, cobra, crocodile, kangaroo, english, history, french, spanish, physics, chemistry, biology, algebra, geometry, calculus, bicycle, unicycle, scooter, skateboard, car, limousine, helicopter, plane, train, bus, boat" %>% strsplit(", ")
+
+parse_outcomes = . %>% strsplit(", ") %>% unlist
+
+OUTCOMES = list(
+    SUBJECTS = parse_outcomes("english, history, french, spanish, physics, chemistry, biology, algebra, geometry, calculus"),
+    SPORTS = parse_outcomes("soccer, basketball, tennis, baseball, golf, volleyball, badminton, boxing, cricket, rugby, football, bowling"),
+    ANIMALS = parse_outcomes("elephant, koala, lemur, sloth, giraffe, monkey, rhinoceros, deer, panda, peacock, tiger, lion, jaguar, zebra, gorilla, cobra, crocodile, kangaroo"),
+    TRANSPORT = parse_outcomes("bicycle, unicycle, scooter, skateboard, car, limousine, helicopter, plane, train, bus, boat")
+)
+
+acc = read_csv('../data/acc-v1.2/accessibility.csv', col_types = cols()) %>% 
+    filter(cat_id != "EUROCITIES")
+```
+
+```{r}
+acc %>% 
+    filter(outcome == "UNK") %>% 
+    arrange(cat_id,raw_outcome) %>% 
+    with(paste(raw_outcome, collapse=", "))
+```
+
+
+motorcycle
+hippo
+dolphin
+penguin
+snake
+lacrosse
+
+
+math
+science
+social studies
+
+ship -> boat
+subway -> train
+
+```{r}
+unk_df %>% filter(considered & startsWith(scenario, "subjects")) %>% with(raw_outcome)
+
+unk_df %>% filter(considered) %>% 
+    group_by(scenario) %>% 
+    summarise(mean(outcome=="UNK"))
+
+unk_df %>% filter(considered) %>% 
+    group_by(scenario) %>% 
+    summarise(sum(outcome!="UNK"))
+
+```
+
+```{r}
+
+df %>% filter(considered & startsWith(scenario, "vehicles")) %>% with(outcome)
+
+get_counts = function(cat) {
+    acc %>% 
+        filter(cat_id == cat) %>% 
+        filter(outcome != 'UNK') %>% 
+        mutate(outcome = factor(outcome, levels=OUTCOMES[[cat]])) %>% 
+        count(outcome, .drop=F)
+}
+
+get_counts("SUBJECTS")
+get_counts("SPORTS")
+get_counts("ANIMALS")
+get_counts("TRANSPORT")
+
+
+```
+
+```{r}
+df %>% 
+    filter(considered & startsWith(scenario, "vehicles")) %>% 
+    mutate(outcome = factor(outcome, levels=TRANSPORT)) %>% 
+    count(outcome, .drop=F)
+
+```
+
+```{r}
+acc %>% 
+    filter(outcome != "UNK") %>% 
+    mutate(outcome = factor(outcome, levels=all_outcomes)) %>% 
+    count(cat_id,outcome)
+```
+
+```{r}
+df %>% 
+    filter(considered) %>% count(outcome)
+
+scenarios %>% 
+    filter(startsWith(scenario, "subjects")) %>% 
+    with(considered)
+
+```

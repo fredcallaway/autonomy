@@ -10,6 +10,7 @@ library(stickylabeller)
 library(lemon)
 library(jtools)
 library(jsonlite)
+library(patchwork)
 
 options(
     "summ-model.info"=FALSE, 
@@ -24,7 +25,7 @@ options(
 kable = knitr::kable
 glue = glue::glue
 
-knitr::opts_chunk$set(warning=FALSE, message=FALSE, fig.width=5, fig.height=4, fig.align="center")
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, fig.width=5, fig.height=4, fig.align="center",  results='asis')
 
 
 # %% ==================== Plotting ====================
@@ -117,6 +118,14 @@ pval = function(p) {
 write_tex = function(tex, file) {
     print(fmt("{file}: {tex}"))
     writeLines("{tex}\\unskip", file)
+}
+
+kprint = function(x, ...) {
+    if (isTRUE(getOption('knitr.in.progress'))) {
+        cat(knitr::knit_print(x, ...))
+    } else {
+        print(x, ...)
+    }
 }
 
 # %% ==================== Miscellanea ====================

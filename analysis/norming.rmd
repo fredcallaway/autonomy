@@ -1,0 +1,365 @@
+---
+title: Accessibility and value-based sampling studies
+date: "`r Sys.Date()`"
+author: "fredcallaway"
+output:
+  rmdformats::robobook:
+    code_folding: hide
+    self_contained: true
+---
+
+
+```{r setup, include=FALSE}
+source("base.r")
+source("norming-helpers.r")
+
+
+considered_colors = scale_colour_manual(values=c(
+    "#3DD93D",
+    "#666666"
+), aesthetics=c("fill", "colour"), name="")
+
+control_colors = scale_colour_manual(values=c(
+    "#31ADF4",
+    "#F5CE47"
+), aesthetics=c("fill", "colour"))
+
+```
+
+```{r load_data, cache=T}
+raw_acc = read_csv('../data/acc-v1.2/accessibility.csv', col_types = cols())
+
+acc = raw_acc %>% 
+    filter(outcome != "UNK") %>%
+    count(outcome) %>% 
+    mutate(accessibility = n / length(unique(raw_acc$wid))) %>% 
+    select(-n)
+
+
+add_acc = function(data) {
+    left_join(data, acc) %>% drop_na(accessibility)
+}
+
+df = load_genie(c('v1.2B', 'v1.2C')) %>% add_acc
+bw = load_bestworst('norm-v1.2') %>% add_acc
+```
+
+In our [last pilot](https://www.fredcallaway.com/reports/autonomy/genie-21-12-30.html),
+we found considerable variation in the pattern of what people considered across the 
+different scenarios. We hypothesized two possible sources for this discrepancy. 
+
+First, consideration is likely influenced by factors other than value, such as
+general salience and accessibility. This could mask or distort the effect of
+value, especially if the two are correlated.
+
+Second, people may not have access to a cached value representation that allows
+them to sample by value for each specific context. In such cases, we shouldn't
+expect to see consideration depend much on either signed or absolute value, even
+if people were trying to do the rational thing.
+
+
+# Accessibility
+
+To address the influence of accessibility on the results, we ran a pilot where
+we simply gave a category and asked participants to write down as many instances
+as they could in 15 seconds. We define the "accessibility" of an outcome as the
+proportion of participants who wrote down that outcome when presented with the
+category label. We can then define "relative consideration probability" in the 
+main task the proportion of participants who reported considering the outcome
+minus the outcome's accessibility. Here's what that looks like
+
+```{r, fig.width=8, fig.height=4, cache=T}
+check_plot2 = function(data, relative=F) {    
+    yvar = if(relative) "considered - accessibility" else "as.numeric(considered)"
+    color = if("target" %in% colnames(data)) "target" else "control"
+    smooth = if(relative)
+        geom_smooth(se=F, method=lm, formula=y ~ x + abs(x), alpha=0.1) else
+        geom_smooth(se=F, method=glm, formula=y ~ x + abs(x), method.args = list(family = "binomial"), alpha=0.1)
+    data %>% 
+        ggplot(aes_string("evaluation", yvar, color=color)) +
+        stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
+                         position=position_dodge(width=.5)) +
+        stat_smooth(geom="line", size=0.8, linetype = "dotted", alpha=0.5) +
+        smooth + 
+        ylab(if(relative) 
+            "relative consideration probability" else 
+            "consideration probability"
+        ) +
+        control_colors
+
+}
+p1 = check_plot2(df, FALSE)
+p2 = check_plot2(df, TRUE)
+p1 + p2 + plot_layout(guides = "collect")
+```
+
+I put the orginal, non-relative probability on the left for comparison. In
+aggregate, the relative version looks great. The main difference is that the
+high-control group is no longer preferentially sampling low value things
+(closer to the model prediction). If we add accessibility to the logistic
+regression model, our main effects still come out strongly (with similar
+effect sizes).
+
+It is somewhat surprising that the error bars are actually *larger* when
+we account for the confounding factor of accessibility. This makes me
+think the accessibility measure is itself very noisy, suggesting that
+we'll need a lot of participants for this to look clean. Currently, we
+have N=`r length(unique(raw_acc$wid))` accessibility participants.
+
+```{r, cache=T, fig.height=2}
+df %>% 
+    mutate(accessibility = zscore(accessibility), evaluation = zscore(evaluation)) %>% 
+    glmer(considered ~ accessibility + control * (evaluation + abs(evaluation)) + 
+        (evaluation + abs(evaluation) | wid),
+     family=binomial, data=.) %>% 
+    plot_coefs(omit.coefs=c("controlhigh", "(Intercept)"), colors="black")
+```
+
+It's potentially noteworthy that the effect of value is similar to that of
+accessibility (these are standardized coefficients). However, the effect of
+accessibility could increase if we had more participants in the accessibility
+study.
+
+## By scenario
+Breaking it down by scenarios, it still looks pretty messy.
+
+```{r, fig.width=7.5, fig.height=5, cache=T}
+wrap_scenario = list(
+    facet_wrap(~scenario, dir="v", ncol=4),
+    theme(strip.text.x = element_text(size=12), legend.position="top")
+)
+
+check_plot2(df, TRUE) + wrap_scenario
+```
+
+To understand the plot above, it's heplful to look at how accessbility itself
+relates to value in each scenario.
+
+## Accessibility by scenario and value
+
+```{r, fig.width=7.5, fig.height=4.5, cache=T}
+df %>% 
+    ggplot(aes(evaluation, accessibility)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
+                     position=position_dodge(width=.5)) +
+    stat_smooth(geom="line", size=0.8, linetype = "dotted", alpha=0.5) +
+    geom_smooth(se=F, method=lm, formula=y ~ x + abs(x), alpha=0.1, color="black") +
+    ylab("accessibility") + wrap_scenario
+```
+
+There's a lot of variability here and it's hard to map this onto the
+consideration probability. I noticed one main pattern here: In both **sports
+(silence)** and **vehicles (veto)**, negative outcomes are very accessible, 
+which allows for a big dip in relative consideration probability for the
+high-control participants in those scenarios. If we exclude those two
+cases, the plot looks less impressive, but the predicted effects still
+come out.
+
+```{r, fig.width=8, fig.height=4, cache=T}
+subdf = df %>% filter(scenario %nin% c("sports (silence)", "vehicles (veto)"))
+p1 = check_plot2(subdf, FALSE)
+p2 = check_plot2(subdf, TRUE)
+p1 + p2 + plot_layout(guides = "collect") + 
+    plot_annotation(title = 'Excluding sports (silence) and vehicles (veto)')
+```
+
+```{r, fig.height=2, cache=T}
+subdf %>% 
+    mutate(accessibility = zscore(accessibility), evaluation = zscore(evaluation)) %>% 
+    glmer(considered ~ accessibility + control * (evaluation + abs(evaluation)) + 
+        (evaluation + abs(evaluation) | wid),
+     family=binomial, data=.) %>%
+    plot_coefs(omit.coefs=c("controlhigh", "(Intercept)"), colors="black")
+
+```
+
+## Distribution of accessible values
+
+As a side bar, this data allows us to get a better handle on the baseline
+value distribution for each scenario. In the previous 
+[value distribution figure](https://www.fredcallaway.com/reports/autonomy/genie-21-12-30.html#value-distributions),
+we illustrate the baserate of values in gray. This is based on the values of
+all outcomes in the set (not just those that were considered). However, this
+treats all outcomes equally. We can now account for the accessibility of
+each outcome to get something closer to what we really want: if people just 
+thought of outcomes without any intentional strategy, what distribution
+of values would you get? 
+
+```{r, fig.width=7.5, fig.height=4.5, cache=T}
+baselines = df %>%
+    group_by(scenario, evaluation) %>% 
+    summarise(acc=sum(accessibility))  %>% 
+    group_by(scenario) %>% 
+    mutate(prop=acc/sum(acc))
+
+df %>% 
+    filter(considered) %>% 
+    count(control, scenario, evaluation) %>% 
+    group_by(control, scenario) %>% 
+    mutate(prop=n/sum(n)) %>% 
+    ggplot(aes(evaluation, prop)) + 
+        geom_bar(data=baselines, stat="identity", alpha=1, fill="gray50", position="identity") +
+        geom_bar(aes(fill=control), stat="identity", alpha=0.7, position="identity") +
+        control_colors + wrap_scenario + 
+        labs(fill="considered by", y="proportion")
+```
+
+However, it's important to note that we have to throw out items that people
+considered but aren't in our set. And there are a _lot_ of those right now.
+
+```{r}
+raw_acc %>% 
+    filter(cat_id != "EUROCITIES") %>% 
+    group_by(cat_id) %>% summarise(prop_out=mean(outcome == "UNK")) %>% kable(digits=2)
+```
+
+There are several outcomes that many people give (see [Out of set outcomes]),
+so we can reduce these numbers somewhat.
+
+## Conclusion
+
+Overall, accounting for accessibility improves the alignment between the
+model and data. It doesn't seem likely that there is any big confound that is
+driving our results. But accessibility doesn't do much work in explaining why
+we get the effect in some cases but not others.
+
+
+# Value-based sampling
+
+To investigate the extent to which people are capable of sampling outcomes
+based on their value in these scenarios, we ran a version of the main
+study where we describe the scenario and ask participants to report the best
+or worst possible outcome. Example stimulus:
+
+> Imagine you had to pass the entry level course in some subject at a community college.
+> 
+> What would be the worst academic subject to have to pass a course in?
+
+Then we ask them to list every other subject they considered before giving
+a response. In this case, sampling proportional to value (or negative value)
+is clearly the right thing to do, so if people can't do it, we can assume
+that they don't have the necessary cached representations.
+
+## Manipulation check
+
+As a sanity check, let's confirm that people report and consider worse
+outcomes when asked to give the worse options. They do!
+
+```{r,fig.width=7.5, fig.height=4}
+p1 = bw %>%
+    filter(outcome == final_outcome) %>% 
+    ggplot(aes(target, evaluation, color=scenario, group=scenario)) +
+    stat_summary(fun=mean, geom="line")
+
+p2 = bw %>%
+    # filter(outcome == final_outcome) %>% 
+    filter(considered) %>% 
+    ggplot(aes(target, evaluation, color=scenario, group=scenario)) +
+    stat_summary(fun=mean, geom="line")
+
+p1 + ggtitle("answers") + p2 + ggtitle("considered") + plot_layout(guides = "collect")
+```
+
+## Consideration probability by outcome value
+
+```{r, fig.width=8, fig.height=4, cache=T}
+p1 = check_plot2(bw, F)
+p2 = check_plot2(bw, T)
+
+p1 + p2 + plot_layout(guides = "collect")
+```
+
+It's really noisy, despite having a non-trivial number of subjects
+(N = `r length(unique(bw$wid))`). It looks like people
+generally have an easier time thinking of bad outcomes than good ones,
+which is the opposite of what we'd expect.
+
+It is informative to compare the degree to which value affects consideration
+in the original genie results vs. this norming study. This is the high control
+and best conditions only.
+
+```{r, cache=T, fig.height=2}
+m1 = df %>%
+    filter(control == "high") %>%
+    mutate(accessibility = zscore(accessibility), evaluation = zscore(evaluation)) %>% 
+    glmer(considered ~ accessibility + (evaluation + abs(evaluation)) + 
+        (evaluation + abs(evaluation) | wid),
+     family=binomial, data=.) 
+
+m2 = bw %>%
+    filter(target == "best") %>%
+    mutate(accessibility = zscore(accessibility), evaluation = zscore(evaluation)) %>% 
+    glmer(considered ~ accessibility + (evaluation + abs(evaluation)) + 
+        (evaluation + abs(evaluation) | wid),
+     family=binomial, data=.)
+
+plot_coefs(m1, m2, model.names=c("high control", "pick best"))
+```
+
+People are substantially *less* sensitive to value when literally asked
+to (although this difference is not actually itself significant). Still,
+this makes me question the approach.
+
+## By scenario
+
+Breaking it down by scenario, and looking at both relative and absolute
+consideration probability:
+
+```{r, fig.width=7.5, fig.height=9, cache=T,}
+p1 = check_plot2(bw, F) + wrap_scenario
+p2 = check_plot2(bw, F) + wrap_scenario
+(p1 / p2) & theme(legend.position='none')
+```
+
+In the raw consideration probabilities, we do see some reasonable patterns.
+
+## One plot to rule them all
+
+Now, here is all the data at once, in the hopes that we might notice some
+systematic pattern relating the best/worst data to the main data.
+
+```{r, cache=T, fig.width=15, fig.height=9}
+p1 = check_plot2(bw, F) + wrap_scenario + ggtitle("Best/worst")
+p2 = check_plot2(bw, T) + wrap_scenario
+p3 = check_plot2(df, F) + wrap_scenario + ggtitle("Genie")
+p4 = check_plot2(df, T) + wrap_scenario
+((p1 / p2) | (p3 / p4)) & theme(legend.position='none')
+```
+
+I am unable to extract much from this. We might see a hint that the scenarios
+where people do better in Best/worst are also the ones where we see the prediction
+in Genie, but not really (to my eyes).
+
+## Conclusion
+
+Either we got unlucky with our participants, or the best/worst study is
+probably not a good way to elicit people's ability to sample according to
+value. This conclusion is primarily driven by the finding that people are
+less sensitive to value here compared to in the Genie experiment.
+
+Given the proximity to the CogSci deadline and our ultimate plans to get
+around all these problems with a more controlled experiment, I don't think
+it's worth pursuing this direction more, at least for the moment.
+
+
+# Supplementary
+
+## Out of set outcomes
+
+Subjects is tricky because people respond at multiple category levels.
+Some say "math" while others say "calculus". I don't think we can
+ask people to evaluate both of those, so I think we might have to collapse
+everything down to the higher-level categories.
+
+```{r}
+raw_acc %>% 
+    filter(cat_id != "EUROCITIES") %>% 
+    filter(outcome == "UNK") %>% 
+    group_by(cat_id) %>% 
+    group_walk(function(data, grp) {
+        knitr::knit_print(glue("&nbsp;\n\n**{grp$cat_id}**"))
+        data %>% 
+            arrange(raw_outcome) %>% 
+            with(kprint(paste(raw_outcome, collapse=", ")))
+    })
+```

@@ -21,6 +21,21 @@ load_data = function(type) {
     bind_rows
 }
 
+considered_colors = scale_colour_manual(values=c(
+    "#3DD93D",
+    "#666666"
+), aesthetics=c("fill", "colour"), name="")
+
+control_colors = scale_colour_manual(values=c(
+    "#31ADF4",
+    "#F5CE47"
+), aesthetics=c("fill", "colour"))
+```
+
+
+# Exclusions
+
+```{r load_data}
 full_pdf = load_data('participants') %>% 
     filter(completed) %>% 
     # filter(wid != "w963f6eb")  %>%  # not actually completed, not sure what's going on
@@ -41,20 +56,6 @@ full_scenarios = load_data('scenarios') %>%
 
 full_slider = load_data('slider_check')
 
-considered_colors = scale_colour_manual(values=c(
-    "#3DD93D",
-    "#666666"
-), aesthetics=c("fill", "colour"), name="")
-
-control_colors = scale_colour_manual(values=c(
-    "#31ADF4",
-    "#F5CE47"
-), aesthetics=c("fill", "colour"))
-```
-
-# Exclusions
-
-```{r}
 # table(full_pdf$obligatory_check)
 pdf = full_pdf %>% 
     filter(obligatory_check == "correct") %>% 
@@ -97,6 +98,19 @@ scenarios = full_scenarios %>%
 df = left_join(df, select(scenarios, wid, scenario, scenario_evaluation, scenario_evaluation_z))
 ```
 
+```{r}
+acc = read_csv('../data/acc-v1.2/accessibility.csv', col_types = cols())
+
+acc %>% 
+    filter(cat_id != "EUROCITIES") %>%
+    filter(outcome != "UNK") %>%
+    count(outcome) %>% 
+    mutate(accessibility = n / length(unique(acc$wid))) %>% 
+    select(-n) %>% 
+    right_join(df) -> df
+
+```
+
 We exclude `r n_drop` participant(s) who answered the comprehension check
 incorrecttly (incorrect = saying that you can not take the outcome if you
 don't like it), resulting in `r nrow(pdf)` participants.
@@ -111,7 +125,7 @@ for an explanation.
 How does the probability of an item being included in the considered set
 depend on its value (measured by post-decision rating)?
 
-```{r}
+```{r, cache=T, dependson=load_data}
 # BASELINE = mean(df$evaluation)
 
 df %>% 
@@ -128,17 +142,26 @@ df %>%
     control_colors
 ```
 
+
 Reading the plot: points show binned means with 95% CI error bars. The dashed
 line shows a non-parameteric [GAM](https://en.wikipedia.org/wiki/Generalized_additive_model)
 fit. The solid line shows a logistic regression of the form
 $\text{logit}(y) = \beta_0 + \beta_1 x + \beta_2 |x|$. This is an adaptation
 of the earlier apples/oranges version of our model.
 
-Mixed-effects regression with random interecepts and slopes for signed and absolute value:
+Mixed-effects regression with random interecepts and slopes for signed and
+absolute value and random intercepts for outcomes:
 
-```{r, fig.height=2}
+
+```{r, fig.height=2, cache=T, dependson=load_data}
 consideration_model = df %>% 
-    glmer(considered ~ control * (evaluation + abs(evaluation)) + (evaluation + abs(evaluation) | wid),
+    glmer(considered ~ accessibility + control * (evaluation + abs(evaluation)) + 
+        (evaluation + abs(evaluation) | wid) + (1|outcome),
+     family=binomial, data=.)
+
+consideration_model2 = df %>% 
+    glmer(considered ~ accessibility + control * (evaluation + abs(evaluation)) + 
+        (evaluation + abs(evaluation) | wid),
      family=binomial, data=.)
 
 plot_coefs(consideration_model, omit.coefs=c("controlhigh", "(Intercept)"), colors="black") #plot
@@ -199,10 +222,10 @@ wrap_scenario = list(
 )
 
 df %>% 
-    ggplot(aes(evaluation, as.numeric(considered), color=control)) +
+    ggplot(aes(evaluation, as.numeric(considered) - accessibility, color=control)) +
     stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
                      position=position_dodge(width=.5)) +
-    geom_smooth(se=F, method=glm, 
+    geom_smooth(se=F, method=lm, 
         formula=y ~ x + abs(x - 0),
         method.args = list(family = "binomial"),
         alpha=0.1) +
@@ -212,6 +235,46 @@ df %>%
 
 Clearly some of the scenarios are doing a lot more work than others. We
 consider this breakdown further below.
+
+```{r}
+X = df %>% 
+    group_by(control,scenario,outcome) %>% 
+    summarise(rate = mean(considered))
+
+baseline = X %>%
+    group_by(outcome) %>% 
+    summarise(outcome_baseline = mean(rate))
+
+X = X %>% 
+    left_join(baseline) %>% mutate(relative_rate = rate - outcome_baseline)
+```
+
+```{r, fig.width=7.5, fig.height=5}
+
+df %>% 
+    left_join(baseline) %>% 
+    ggplot(aes(evaluation, as.numeric(considered) - outcome_baseline, color=control)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
+                     position=position_dodge(width=.5)) +
+    geom_smooth(se=F, method=lm, 
+        formula=y ~ x + abs(x - 0),
+        alpha=0.1) +
+    ylab("consideration probability") +
+    control_colors + wrap_scenario
+```
+
+```{r}
+X %>% arrange(-abs(relative_rate)) %>% 
+    rename(baseline=outcome_baseline) %>% 
+    head(10) %>% kable(digits=2)
+
+
+df %>% 
+    filter(outcome == "football") %>% 
+    group_by(control, scenario) %>% 
+    summarise(mean(evaluation))
+```
+
 
 # Value distributions
 
@@ -228,6 +291,7 @@ df %>%
     control_colors + wrap_scenario + 
     labs(fill="considered by", y="proportion")
 ```
+
 
 It's hard to know what to make of this. Ideally, there would be some
 systematic relationship between the distribution of outcome values (gray) and
