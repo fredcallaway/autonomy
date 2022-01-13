@@ -69,7 +69,7 @@ evaluate("mc_absexp", evaluators, objectives, mc_absexp)
 # %% --------
 absexp = map(grid(n_sample=[1,5,25], α=[0, 0.1], β=0:.1:1, d=[0.5, 1,2,4,8])) do (n_sample, α, β, d)
     weighter = AbsExp(;β, d)
-    SampleEstimator(;n_sample, α, weighter)
+    SampleMeanEstimator(;n_sample, α, weighter)
 end
 
 evaluate("absexp", evaluators, objectives, absexp)
@@ -94,7 +94,7 @@ de_results = @showprogress pmap(jobs) do (ev, objective, n_sample, repl)
     bboptimize(SearchRange = (0., 1.0), NumDimensions = length(box), TraceMode=:silent, MaxFuncEvals=300) do x
         @unpack β, d, α = box(x)
         weighter = AbsExp(;β, d)
-        est = SampleEstimator(;n_sample, α, weighter, replace=repl)
+        est = SampleMeanEstimator(;n_sample, α, weighter, replace=repl)
         # est = BiasedMonteCarloEstimator(;n_sample, α, weighter)
         -ev(objective, est)
     end |> best_candidate |> box
@@ -110,7 +110,7 @@ table(de_results) |> CSV.write("results/optim_de_absexp.csv")
 #     res = gp_minimize(length(box), verbose=true, iterations=200) do x
 #         @unpack β, d, α = box(x)
 #         weighter = AbsExp(;β, d)
-#         est = SampleEstimator(;n_sample, α, weighter, replace=repl)
+#         est = SampleMeanEstimator(;n_sample, α, weighter, replace=repl)
 #         # est = BiasedMonteCarloEstimator(;n_sample, α, weighter)
 #         -100ev(objective, est)
 #     end

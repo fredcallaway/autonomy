@@ -8,6 +8,8 @@ using Memoize
 using FieldMetadata
 using Combinatorics
 
+include("utils.jl")
+
 "Expected maximum of N samples from a Normal distribution"
 function expected_maximum(k::Real, d::Normal)
     mcdf(x) = cdf(d, x)^k
@@ -40,7 +42,6 @@ struct State
 end
 
 objective_value(s::State, k) = expected_maximum_srswor(k, s.u_true)
-sample_objective_value(s::State, k) = maximum(sample(s.u_true, k; replace=false))
 
 function State(env::Env)
     @unpack μ_outcome, signal, σ_outcome, σ_init, n = env
@@ -115,6 +116,7 @@ AnalyticUWS(k::Real) = AnalyticUWS(;k)
 
 function score(weighter::AnalyticUWS, u)
     @unpack k, μ, σ, C, ev = weighter
+    @warn "Assuming Normal(0, 1)"
     @. cdf(Normal(0, 1), u)^(k-1) * abs(u - ev) + C
 end
 
@@ -154,19 +156,19 @@ end
 
 function subjective_value(est::MonteCarloEstimator, env::Env, s::State)
     monte_carlo(est.n_sample) do
-        sample_objective_value(s, env.k)
+        maximum(sample(s.u_true, env.k; replace=false))
     end
 end
 
 @with_kw struct BiasedMonteCarloEstimator{W<:Weighter} <: Estimator
     n_sample::Int
-    α::Real
+    α::Real  # controls reweighting, in (0, 1)
     weighter::W
 end
 
 function subjective_value(est::BiasedMonteCarloEstimator, env::Env, s::State)
     w = weight(est.weighter, s.u_init)
-    objective_prob = float(env.n) ^ -env.k
+    objective_prob = float(1/env.n) ^ env.k
 
     monte_carlo(est.n_sample) do
         if est.α == 0  # no reweighting
@@ -180,14 +182,14 @@ function subjective_value(est::BiasedMonteCarloEstimator, env::Env, s::State)
     end
 end
 
-@with_kw struct SampleEstimator{W<:Weighter} <: Estimator
+@with_kw struct SampleMeanEstimator{W<:Weighter} <: Estimator
     n_sample::Int
     α::Real
     weighter::W
     replace::Bool = true
 end
 
-function subjective_value(est::SampleEstimator, env::Env, s::State)
+function subjective_value(est::SampleMeanEstimator, env::Env, s::State)
     w = weight(est.weighter, s.u_init)  # weights based on initial value estimates
     objective_prob = 1/env.n
 
@@ -230,7 +232,7 @@ function (ev::Evaluator)(objective::Function, est::Estimator)
     end
 end
 
-function mean_se(ev::Evaluator, objective::Function, est::Estimator; N=30)
+function mean_se(ev::Evaluator, objective::Function, est::Estimator)
     v = map(ev.states, ev.true_vals) do s, true_val
         objective(subjective_value(est, ev.env, s), true_val)
     end
