@@ -110,15 +110,15 @@ end
     μ::Real = 0
     σ::Real = 1
     C::Real = 0
-    ev::Float64 = expected_maximum(k, Normal(μ, σ))
+    ev::Float64 = 0 # expected_maximum(k, Normal(μ, σ))
 end
 AnalyticUWS(k::Real) = AnalyticUWS(;k)
 
 function score(weighter::AnalyticUWS, u)
     @unpack k, μ, σ, C, ev = weighter
-    @warn "Assuming Normal(0, 1)"
-    @. cdf(Normal(0, 1), u)^(k-1) * abs(u - ev) + C
+    @. cdf(Normal(μ, σ), u)^(k-1) * abs(u - ev) + C
 end
+
 
 # @bounds @with_kw struct Logistic <: Weighter
 #     L::Float64 | (0, Inf)
