@@ -69,6 +69,12 @@ function weight(weighter::Weighter, u)::Weights
     Weights(x, 1.)
 end
 
+struct NullWeighter <: Weighter end
+
+function score(weighter::NullWeighter, u)
+    ones(length(u))
+end
+
 @bounds @with_kw struct Softmax <: Weighter
     β_u::Real
     C::Real = 0 | (0, Inf)
@@ -117,6 +123,20 @@ AnalyticUWS(k::Real) = AnalyticUWS(;k)
 function score(weighter::AnalyticUWS, u)
     @unpack k, μ, σ, C, ev = weighter
     @. cdf(Normal(μ, σ), u)^(k-1) * abs(u - ev) + C
+end
+
+@with_kw struct SoftmaxUWS <: Weighter
+    β::Real
+    μ::Real = 0
+    σ::Real = 1
+    C::Real = 0
+    ev::Float64 = 0 # expected_maximum(k, Normal(μ, σ))
+end
+SoftmaxUWS(β::Real) = SoftmaxUWS(;β)
+
+function score(weighter::SoftmaxUWS, u)
+    @unpack β, μ, σ, C, ev = weighter
+    @. exp(u * β) * abs(u - ev) + C
 end
 
 
