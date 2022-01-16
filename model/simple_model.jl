@@ -1,7 +1,7 @@
 using FieldMetadata
 using Flatten
+import Base: @kwdef
 flatten = Flatten.flatten; reconstruct = Flatten.reconstruct
-using Parameters
 
 include("random_restarts.jl")
 
@@ -17,63 +17,56 @@ function score(model::NullWeighter, u)
     ones(length(u))
 end
 
-
-@bounds @with_kw struct Softmax{T<:Real} <: AbstractWeighter
-    β::T | (0, 0, 1, Inf)
+@bounds @kwdef struct Softmax{T} <: AbstractWeighter
+    β::T = missing | (0, 0, 1, Inf)
 end
 
 function score(model::Softmax, u)
     @. exp(u * model.β) 
 end
 
-
-@bounds @with_kw struct AbsExp{T<:Real} <: AbstractWeighter
-    w::T | (0, 0, 1, 1)
-    β::T | (0, 0, 1, Inf)
+@bounds @kwdef struct AbsExp{T,U} <: AbstractWeighter
+    w::T = missing | (0, 0, 1, 1)
+    β::U = missing | (0, 0, 1, Inf)
 end
 
 function score(model::AbsExp, u)
-    @unpack w, β = model
+    (;w, β) = model
     @. ((1 - w) * abs(u) + w * exp(u)) ^ β
 end
 
-
-@bounds @with_kw struct UWS{T<:Real} <: AbstractWeighter
+@bounds @kwdef struct UWS{T,U} <: AbstractWeighter
     ev::T = 0. | (-Inf, -10, 10, Inf)
-    β_abs::T | (-Inf, -10, 10, Inf)
+    β_abs::U = missing | (-Inf, -10, 10, Inf)
 end
 
 function score(model::UWS, u)
-    @unpack ev, β_abs = model
+    (;ev, β_abs) = model
     @. abs(u - ev) ^ β_abs
 end
 
-@bounds @with_kw struct SoftmaxUWS{T<:Real} <: AbstractWeighter
-    β::T | (0, 0, 1, Inf)
-    β_abs | (-Inf, -10, 10, Inf)
-    ev::T = 0. | (-Inf, -10, 10, Inf)
+@bounds @kwdef struct SoftmaxUWS{T,U,V} <: AbstractWeighter
+    β::T = mising | (0, 0, 1, Inf)
+    β_abs::U = missing | (-Inf, -10, 10, Inf)
+    ev::V = 0. | (-Inf, -10, 10, Inf)
 end
 
 function score(model::SoftmaxUWS, u)
-    @unpack β, β_abs, ev = model
+    (;β, β_abs, ev) = model
     @. exp(u * β) * abs(u - ev) ^ β_abs
 end
 
-
-@bounds struct Model{W<:AbstractWeighter,T<:Real}
-    weighter::W
-    ε::T | (0, 0, 1, 1)
-    β_acc::T | (0, 0, 1, Inf)  # accessibility weight    
+@bounds @kwdef struct Model{W<:AbstractWeighter,T,U}
+    weighter::W = W()
+    ε::T = missing | (0, 0, 1, 1)
+    β_acc::U = missing | (0, 0, 1, Inf)  # accessibility weight    
 end
 
-function Model{W}() where W
-    weighter = W(fill(NaN, length(fieldnames(W)))...)
-    Model(weighter, NaN, NaN)
-end
-
+Model(weighter::AbstractWeighter; kws...) = Model(;weighter, kws...)
+Model{W}(;ε=missing, β_acc=missing, kws...) where W = Model(W(;kws...); ε, β_acc)
 
 function likelihood(model::Model, trial::NamedTuple)
-    @unpack weighter, ε, β_acc = model
+    (;weighter, ε, β_acc) = model
     p = score(weighter, trial.evaluation)
     n = length(p)
     @. begin
@@ -97,22 +90,28 @@ function logp(model::Model, trials::AbstractVector{<:NamedTuple})
     end
 end
 
+function foo(model::Model{W}) where W
+    W
+end
+
 function Base.show(io::IO, model::Model{W}) where W
-    println(io, W)
-    for (k, v) in zip(fieldnameflatten(model), flatten(model))
-        println(io, lpad(k, 7), ": ", v)
+    print(io, "Model{", W.name.name, "}")
+    T = Union{Real,Missing}
+    for (k, v) in zip(fieldnameflatten(model, T), flatten(model,T))
+        print(io, "\n", lpad(k, 7), ": ", v)
     end
 end
 
-function find_mle(M::Type{<:Model}, trials; n_restart = 10)
-    base_model = M()
-
-    hard_lower, soft_lower, soft_upper, hard_upper = map(invert(metaflatten(base_model, bounds))) do x
+function get_bounds(base_model::Model)
+    bb = map(invert(metaflatten(base_model, bounds, Missing))) do x
         collect(float.(x))
     end
-    @assert all(isfinite.(soft_lower)) && all(isfinite.(soft_upper))
-    loss(x) = -logp(reconstruct(base_model, x), trials)
+    @assert all(isfinite.(bb[2])) && all(isfinite.(bb[3]))
+    bb
+end
 
-    res = random_restarts(loss, hard_lower, soft_lower, soft_upper, hard_upper, n_restart)
-    reconstruct(base_model, res.minimizer)
+function find_mle(base_model::Model, trials; n_restart = 10)
+    loss(x) = -logp(reconstruct(base_model, x, Missing), trials)
+    res = random_restarts(loss, get_bounds(base_model)..., n_restart)
+    reconstruct(base_model, res.minimizer, Missing)
 end
