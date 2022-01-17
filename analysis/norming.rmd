@@ -13,7 +13,6 @@ output:
 source("base.r")
 source("norming-helpers.r")
 
-
 considered_colors = scale_colour_manual(values=c(
     "#3DD93D",
     "#666666"
@@ -27,7 +26,7 @@ control_colors = scale_colour_manual(values=c(
 ```
 
 ```{r load_data, cache=T}
-raw_acc = read_csv('../data/acc-v1.2/accessibility.csv', col_types = cols())
+raw_acc = read_csv('../data/acc-v2.0/accessibility.csv', col_types = cols())
 
 acc = raw_acc %>% 
     filter(outcome != "UNK") %>%
@@ -35,13 +34,19 @@ acc = raw_acc %>%
     mutate(accessibility = n / length(unique(raw_acc$wid))) %>% 
     select(-n)
 
-
 add_acc = function(data) {
     left_join(data, acc) %>% drop_na(accessibility)
 }
 
 df = load_genie(c('v1.2B', 'v1.2C')) %>% add_acc
 bw = load_bestworst('norm-v1.2') %>% add_acc
+
+df %>% write_csv("../data/processed.csv")
+
+df %>% filter(scenario == "vehicles (veto)") %>% count(wid)
+df %>% filter(scenario == "vehicles (veto)" & wid == "w1a640b0")
+df %>% filter(scenario == "vehicles (veto)" & wid == "w0663715")
+
 ```
 
 In our [last pilot](https://www.fredcallaway.com/reports/autonomy/genie-21-12-30.html),

@@ -23,16 +23,50 @@ OUTCOMES = list(
     TRANSPORT = parse_outcomes("bicycle, unicycle, scooter, skateboard, car, limousine, helicopter, plane, train, bus, boat")
 )
 
-acc = read_csv('../data/acc-v1.2/accessibility.csv', col_types = cols()) %>% 
-    filter(cat_id != "EUROCITIES")
+acc = read_csv('../data/acc-v2.0/accessibility.csv', col_types = cols())
+```
+
+```{r}
+acc %>% 
+    group_by(cat_id) %>% 
+    summarise(mean(outcome == "UNK"))
 ```
 
 ```{r}
 acc %>% 
     filter(outcome == "UNK") %>% 
+    filter(cat_id == "TRANSPORT") %>% 
     arrange(cat_id,raw_outcome) %>% 
     with(paste(raw_outcome, collapse=", "))
 ```
+
+```{r}
+acc %>% 
+    filter(outcome != "UNK") %>% 
+    count(cat_id,outcome) %>% 
+    arrange(-n) %>% 
+    slice_head(n=5)
+```
+
+```{r}
+acc %>% 
+    filter(outcome != "UNK") %>% 
+    count(cat_id,outcome) %>% 
+    group_by(cat_id) %>%
+    filter(n>=3) %>% 
+    count(cat_id)
+```
+
+```{r}
+N = acc %>% with(length(unique(wid)))
+acc %>% 
+    filter(outcome != "UNK") %>% 
+    count(cat_id, outcome) %>% 
+    transmute(cat_id, outcome, prop=n/N) %>% 
+    ggplot(aes(p)) + stat_ecdf() + facet_wrap(~cat_id)
+```
+
+
 
 
 motorcycle

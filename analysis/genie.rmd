@@ -96,9 +96,6 @@ scenarios = full_scenarios %>%
     ungroup()
 
 df = left_join(df, select(scenarios, wid, scenario, scenario_evaluation, scenario_evaluation_z))
-```
-
-```{r}
 acc = read_csv('../data/acc-v1.2/accessibility.csv', col_types = cols())
 
 acc %>% 

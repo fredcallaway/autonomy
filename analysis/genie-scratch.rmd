@@ -1,3 +1,33 @@
+# Variability of scenario total value
+
+```{r}
+df %>%
+    group_by(wid,scenario) %>% 
+    summarise(x=mean(evaluation)) %>% 
+    ggplot(aes(scenario, x, group=wid)) + 
+    geom_line(size=.5) + 
+    ylab("evaluation") +
+    coord_flip()
+    # geom_quasirandom
+```
+
+```{r}
+df %>%
+    group_by(wid,scenario) %>% 
+    summarise(x=mean(evaluation_z)) %>% 
+    ggplot(aes(scenario, x, group=wid)) + 
+    ylab("z-scored evaluation") +
+    geom_quasirandom(size=.5) + 
+    coord_flip()
+```
+
+```{r}
+scenarios %>% count(n_considered)
+scenarios %>% with(mean(n_considered == 0))
+
+scenarios %>% transmute(x=map_chr(considered, 1, .default="NONE"))
+```
+
 ```{r, fig.width=7.5, fig.height=4.5}
 df %>% 
     filter(considered) %>% 
