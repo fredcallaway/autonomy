@@ -18,7 +18,7 @@ function score(model::NullWeighter, u)
 end
 
 @bounds @kwdef struct Softmax{T} <: AbstractWeighter
-    β::T = missing | (0, 0, 1, Inf)
+    β::T = missing | (0, 0.1, 1, Inf)
 end
 
 function score(model::Softmax, u)
@@ -27,17 +27,17 @@ end
 
 @bounds @kwdef struct AbsExp{T,U} <: AbstractWeighter
     w::T = missing | (0, 0, 1, 1)
-    β::U = missing | (0, 0, 1, Inf)
+    β::U = missing | (0, 0.1, 1, Inf)
 end
 
 function score(model::AbsExp, u)
     (;w, β) = model
     @. ((1 - w) * abs(u) + w * exp(u)) ^ β
-end
+end1
 
 @bounds @kwdef struct UWS{T,U} <: AbstractWeighter
-    ev::T = 0. | (-Inf, -10, 10, Inf)
-    β_abs::U = missing | (-Inf, -10, 10, Inf)
+    ev::T = 0. | (-Inf, -1, 1, Inf)
+    β_abs::U = missing | (0, .1, 1, Inf)
 end
 
 function score(model::UWS, u)
@@ -46,9 +46,9 @@ function score(model::UWS, u)
 end
 
 @bounds @kwdef struct SoftmaxUWS{T,U,V} <: AbstractWeighter
-    β::T = mising | (0, 0, 1, Inf)
-    β_abs::U = missing | (-Inf, -10, 10, Inf)
-    ev::V = 0. | (-Inf, -10, 10, Inf)
+    β::T = missing | (0, 0.1, 1, Inf)
+    β_abs::U = missing | (0, 0.1, 1, Inf)
+    ev::V = 0. | (-Inf, -1, 1, Inf)
 end
 
 function score(model::SoftmaxUWS, u)
@@ -59,7 +59,7 @@ end
 @bounds @kwdef struct Model{W<:AbstractWeighter,T,U}
     weighter::W = W()
     ε::T = missing | (0, 0, 1, 1)
-    β_acc::U = missing | (0, 0, 1, Inf)  # accessibility weight    
+    β_acc::U = missing | (0, 0.1, 1, Inf)  # accessibility weight    
 end
 
 Model(weighter::AbstractWeighter; kws...) = Model(;weighter, kws...)
@@ -90,10 +90,6 @@ function logp(model::Model, trials::AbstractVector{<:NamedTuple})
     end
 end
 
-function foo(model::Model{W}) where W
-    W
-end
-
 function Base.show(io::IO, model::Model{W}) where W
     print(io, "Model{", W.name.name, "}")
     T = Union{Real,Missing}
@@ -114,4 +110,14 @@ function find_mle(base_model::Model, trials; n_restart = 10)
     loss(x) = -logp(reconstruct(base_model, x, Missing), trials)
     res = random_restarts(loss, get_bounds(base_model)..., n_restart)
     reconstruct(base_model, res.minimizer, Missing)
+end
+
+function update(model::Model; kws...)
+    x = collect(flatten(model))
+    for (i, fn) in enumerate(fieldnameflatten(model))
+        if fn in keys(kws)
+            x[i] = kws[fn]
+        end
+    end
+    reconstruct(model, x)
 end
