@@ -11,18 +11,6 @@ output:
 
 ```{r setup, include=FALSE}
 source("base.r")
-
-all_outcomes = "soccer, basketball, tennis, baseball, golf, volleyball, badminton, boxing, cricket, rugby, football, bowling, elephant, koala, lemur, sloth, giraffe, monkey, rhinoceros, deer, panda, peacock, tiger, lion, jaguar, zebra, gorilla, cobra, crocodile, kangaroo, english, history, french, spanish, physics, chemistry, biology, algebra, geometry, calculus, bicycle, unicycle, scooter, skateboard, car, limousine, helicopter, plane, train, bus, boat" %>% strsplit(", ")
-
-parse_outcomes = . %>% strsplit(", ") %>% unlist
-
-OUTCOMES = list(
-    SUBJECTS = parse_outcomes("english, history, french, spanish, physics, chemistry, biology, algebra, geometry, calculus"),
-    SPORTS = parse_outcomes("soccer, basketball, tennis, baseball, golf, volleyball, badminton, boxing, cricket, rugby, football, bowling"),
-    ANIMALS = parse_outcomes("elephant, koala, lemur, sloth, giraffe, monkey, rhinoceros, deer, panda, peacock, tiger, lion, jaguar, zebra, gorilla, cobra, crocodile, kangaroo"),
-    TRANSPORT = parse_outcomes("bicycle, unicycle, scooter, skateboard, car, limousine, helicopter, plane, train, bus, boat")
-)
-
 acc = read_csv('../data/acc-v2.0/accessibility.csv', col_types = cols())
 ```
 
@@ -30,7 +18,29 @@ acc = read_csv('../data/acc-v2.0/accessibility.csv', col_types = cols())
 acc %>% 
     group_by(cat_id) %>% 
     summarise(mean(outcome == "UNK"))
+
+acc %>% 
+    filter(outcome != "UNK") %>% 
+    count(cat_id,outcome) %>% 
+    filter(n >= 3) %>% 
+    count(cat_id)
 ```
+
+```{r}
+
+acc %>% 
+    filter(outcome != "UNK") %>% 
+    count(cat_id,outcome) %>% 
+    filter(outcome %in% c("ape", "gorilla", "chimpanzee", "monkey"))
+```
+
+
+
+
+1 ANIMALS      
+2 SPORTS       
+3 SUBJECTS     
+4 TRANSPORT    
 
 ```{r}
 acc %>% 

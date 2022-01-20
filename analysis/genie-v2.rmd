@@ -14,7 +14,7 @@ source("base.r")
 library(moments)
 library(scales)
 
-VERSIONS = c('v2.0')
+VERSIONS = c('v1.2B', 'v1.2C')
 load_data = function(type) {
     VERSIONS %>% 
     map(~ read_csv(glue('../data/{.x}/{type}.csv'), col_types = cols())) %>% 
@@ -46,15 +46,23 @@ full_pdf = load_data('participants') %>%
         # ignored_comprehension = obligatory_check == "empty" & is.na(comp_free)
     )
 
-full_df = load_data('outcomes') %>% 
-    rename(scenario = prompt_id) %>% 
-    mutate(scenario = tolower(scenario))
-
+full_df = load_data('outcomes') %>% rename(scenario = prompt_id)
 full_scenarios = load_data('scenarios') %>% 
-    rename(scenario = prompt_id) %>% 
-    mutate(scenario = tolower(scenario))
+    mutate(
+        considered = map(considered, fromJSON),
+        n_considered = lengths(considered)
+    ) %>% rename(scenario = prompt_id)
 
-# full_slider = load_data('slider_check')
+
+full_slider = load_data('slider_check')
+
+slider = full_slider %>% 
+    mutate(prompt = word(prompt)) %>% 
+    pivot_wider(names_from=prompt, values_from=response)
+
+slider_check %>%
+    transmute(wid, p1 = Breaking < Stubbing, p2 = Free > Finding, p3=Free>Eating)
+
 
 # table(full_pdf$obligatory_check)
 pdf = full_pdf %>% 
@@ -66,29 +74,16 @@ pdf = full_pdf %>%
 
 pdf2 = select(pdf, wid, subj, control)
 
-scenarios = full_scenarios %>%
-    right_join(pdf2)  %>% 
-    filter(scenario != "PRACTICE") %>%
-    group_by(wid) %>% 
-    mutate(
-        scenario_evaluation_z = zscore(scenario_evaluation),
-        trial_number = row_number(),
-    ) %>% 
-    ungroup()
-    
 unk_df = full_df %>% 
     right_join(pdf2) %>%  # also drops excluded participants
     filter(scenario != "PRACTICE") %>%
-    left_join(select(scenarios, wid, scenario, considered)) %>% 
-    mutate(
-        considered = outcome==considered,
-        consideration = if_else(considered, "considered", "unconsidered")
-    ) %>% 
     group_by(wid) %>% 
     mutate(
+        scenario = tolower(scenario),
         evaluation_z = zscore(evaluation),
         abs_eval = abs(evaluation),
         abs_eval_z = zscore(abs_eval),
+        consideration=if_else(considered, "considered", "unconsidered")
     ) %>% 
     ungroup()
 
@@ -96,6 +91,17 @@ df = filter(unk_df, outcome != "UNK")
 n_drop = nrow(full_pdf) - nrow(pdf)
 n_drop_unk = nrow(unk_df) - nrow(df)
 n_trial = nrow(df)
+
+scenarios = full_scenarios %>%
+    right_join(pdf2)  %>% 
+    filter(scenario != "PRACTICE") %>%
+    group_by(wid) %>% 
+    mutate(
+        scenario = tolower(scenario),
+        scenario_evaluation_z = zscore(scenario_evaluation),
+        trial_number = row_number(),
+    ) %>% 
+    ungroup()
 
 df = left_join(df, select(scenarios, wid, scenario, scenario_evaluation, scenario_evaluation_z))
 acc = read_csv('../data/acc-v1.2/accessibility.csv', col_types = cols())
@@ -128,13 +134,16 @@ depend on its value (measured by post-decision rating)?
 # BASELINE = mean(df$evaluation)
 
 df %>% 
-    ggplot(aes(evaluation, considered - accessibility, color=control)) +
+    ggplot(aes(evaluation, as.numeric(considered), color=control)) +
     stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
                      position=position_dodge(width=.5)) +
     stat_smooth(geom="line", size=0.8, linetype = "dotted", alpha=0.5) +
     # geom_smooth(se=F, method=lm, formula=y ~ x + abs(x), alpha=0.1) +
-    geom_smooth(se=F, method=lm, formula=y ~ x + abs(x), alpha=0.1) +
-    ylab("relative consideration probability") +
+    geom_smooth(se=F, method=glm, 
+        formula=y ~ x + abs(x),
+        method.args = list(family = "binomial"),
+        alpha=0.1) +
+    ylab("consideration probability") +
     control_colors
 ```
 
@@ -144,10 +153,6 @@ line shows a non-parameteric [GAM](https://en.wikipedia.org/wiki/Generalized_add
 fit. The solid line shows a logistic regression of the form
 $\text{logit}(y) = \beta_0 + \beta_1 x + \beta_2 |x|$. This is an adaptation
 of the earlier apples/oranges version of our model.
-
-```{r}
-
-```
 
 Mixed-effects regression with random interecepts and slopes for signed and
 absolute value and random intercepts for outcomes:
