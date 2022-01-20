@@ -8,3 +8,5 @@ analysis/.fighist
 analysis/figs/tmp.png
 model/.fighist/
 model/tmp.bak/
+analysis/*_files/
+analysis/*_cache/
