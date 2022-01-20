@@ -1,0 +1,285 @@
+---
+title: Genie Game Results (v1.2)
+date: "`r Sys.Date()`"
+author: "fredcallaway"
+output:
+  rmdformats::robobook:
+    code_folding: hide
+    self_contained: true
+---
+
+
+```{r setup, include=FALSE}
+source("base.r")
+library(moments)
+library(scales)
+library(infer)
+
+VERSIONS = c('v1.2B', 'v1.2C')
+load_data = function(type) {
+    VERSIONS %>% 
+    map(~ read_csv(glue('../data/{.x}/{type}.csv'), col_types = cols())) %>% 
+    bind_rows
+}
+
+considered_colors = scale_colour_manual(values=c(
+    "#3DD93D",
+    "#666666"
+), aesthetics=c("fill", "colour"), name="")
+
+control_colors = scale_colour_manual(values=c(
+    "#31ADF4",
+    "#F5CE47"
+), aesthetics=c("fill", "colour"))
+```
+
+
+# Exclusions
+
+```{r load_data}
+full_pdf = load_data('participants') %>% 
+    filter(completed) %>% 
+    # filter(wid != "w963f6eb")  %>%  # not actually completed, not sure what's going on
+    select(-c(consideration_time, reflection_time, n_considered, n_unconsidered, version, bonus, completed)) %>%
+    mutate(
+        obligatory_check = factor(if_else(comp_radio, 'incorrect', 'correct', 'empty'),
+                                  levels=c('empty', 'incorrect', 'correct')),
+        # ignored_comprehension = obligatory_check == "empty" & is.na(comp_free)
+    )
+
+full_df = load_data('outcomes') %>% rename(scenario = prompt_id)
+full_scenarios = load_data('scenarios') %>% 
+    mutate(
+        considered = map(considered, fromJSON),
+        n_considered = lengths(considered)
+    ) %>% rename(scenario = prompt_id)
+
+
+# full_slider = load_data('slider_check')
+
+# slider = full_slider %>% 
+#     mutate(prompt = word(prompt)) %>% 
+#     pivot_wider(names_from=prompt, values_from=response)
+
+# slider_check %>%
+#     transmute(wid, p1 = Breaking < Stubbing, p2 = Free > Finding, p3=Free>Eating)
+
+
+# table(full_pdf$obligatory_check)
+pdf = full_pdf %>% 
+    filter(obligatory_check == "correct") %>% 
+    mutate(
+        subj = row_number(),
+        control = factor(control, levels=c("low", "high"))
+    )
+
+pdf2 = select(pdf, wid, subj, control)
+
+unk_df = full_df %>% 
+    right_join(pdf2) %>%  # also drops excluded participants
+    filter(scenario != "PRACTICE") %>%
+    group_by(wid) %>% 
+    mutate(
+        scenario = tolower(scenario),
+        evaluation_z = zscore(evaluation),
+        abs_eval = abs(evaluation),
+        abs_eval_z = zscore(abs_eval),
+        consideration=if_else(considered, "considered", "unconsidered")
+    ) %>% 
+    ungroup()
+
+df = filter(unk_df, outcome != "UNK")
+n_drop = nrow(full_pdf) - nrow(pdf)
+n_drop_unk = nrow(unk_df) - nrow(df)
+n_trial = nrow(df)
+
+scenarios = full_scenarios %>%
+    right_join(pdf2)  %>% 
+    filter(scenario != "PRACTICE") %>%
+    group_by(wid) %>% 
+    mutate(
+        scenario = tolower(scenario),
+        scenario_evaluation_z = zscore(scenario_evaluation),
+        trial_number = row_number(),
+    ) %>% 
+    ungroup()
+
+df = left_join(df, select(scenarios, wid, scenario, scenario_evaluation, scenario_evaluation_z))
+acc = read_csv('../data/acc-v2.0/accessibility.csv', col_types = cols())
+
+acc %>% 
+    filter(cat_id != "EUROCITIES") %>%
+    filter(outcome != "UNK") %>%
+    count(outcome) %>% 
+    mutate(accessibility = n / length(unique(acc$wid))) %>% 
+    select(-n) %>% 
+    right_join(df) -> df
+
+```
+
+We exclude `r n_drop` participant(s) who answered the comprehension check
+incorrecttly (incorrect = saying that you can not take the outcome if you
+don't like it), resulting in `r nrow(pdf)` participants.
+
+We exclude `r n_drop_unk` outcomes which were considered but not in the
+original set, resulting in `r nrow(df)` observations. This was not my orginal
+plan, but I think this is the correct thing to do. See [Out-of-set outcomes]
+for an explanation.
+
+# Consideration probability by outcome value
+
+How does the probability of an item being included in the considered set
+depend on its value (measured by post-decision rating)?
+
+```{r, fig.width=8, fig.height=4, cache=T, cache=T, dependson=load_data}
+# BASELINE = mean(df$evaluation)
+
+p1 = df %>% 
+    ggplot(aes(evaluation, as.numeric(considered), color=control)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
+                     position=position_dodge(width=.5)) +
+    stat_smooth(geom="line", size=0.8, linetype = "dotted", alpha=0.5) +
+    # geom_smooth(se=F, method=lm, formula=y ~ x + abs(x), alpha=0.1) +
+    geom_smooth(se=F, method=glm, 
+        formula=y ~ x + abs(x),
+        method.args = list(family = "binomial"),
+        alpha=0.1) +
+    ylab("consideration probability") +
+    control_colors
+
+p2 = df %>% 
+    ggplot(aes(evaluation, considered - accessibility, color=control)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
+                     position=position_dodge(width=.5)) +
+    stat_smooth(geom="line", size=0.8, linetype = "dotted", alpha=0.5) +
+    geom_smooth(se=F, method=lm, formula=y ~ x + abs(x), alpha=0.1) +
+    # geom_smooth(se=F, method=lm, formula=y ~ exp(0.2*x) + abs(x), alpha=0.1) +
+    ylab("relative consideration probability") +
+    control_colors
+
+p1 + p2 + plot_layout(guides = "collect")
+```
+
+
+Reading the plot: points show binned means with 95% CI error bars. The dashed
+line shows a non-parameteric [GAM](https://en.wikipedia.org/wiki/Generalized_additive_model)
+fit. The solid line shows a logistic regression of the form
+$\text{logit}(y) = \beta_0 + \beta_1 x + \beta_2 |x|$. This is an adaptation
+of the earlier apples/oranges version of our model.
+
+
+## Stats
+
+Chisquare test on proportion considered outcomes above 0
+```{r}
+df %>% 
+    filter(considered) %>% 
+    mutate(good=evaluation > 0) %>% 
+    chisq_test(good ~ control) %>% kable(digits=3)
+```
+
+t-test on value of considered outcomes
+```{r}
+df %>% 
+    filter(considered) %>% 
+    group_by(control) %>% 
+    t_test(evaluation ~ control, order=c("high", "low")) %>% kable(digits=3)
+```
+
+Mixed-effects logistic regression
+```{r, fig.height=2, cache=T, dependson=load_data}
+consideration_model = df %>% 
+    mutate(accessibility = zscore(accessibility), evaluation = zscore(evaluation)) %>% 
+    glmer(considered ~ accessibility + control * (evaluation + abs(evaluation)) + 
+        (accessibility + evaluation + abs(evaluation) | wid),
+     family=binomial, data=.)
+
+plot_coefs(consideration_model, omit.coefs=c("controlhigh", "(Intercept)"), colors="black") #plot
+summ(consideration_model)
+```
+
+## By scenario 
+
+We have eight scenarios, two for each category.
+
+- **sports (season)**: Pick a professional sport and you'll get a free pair of front-row tickets every week for one season. You have to go every week (and you can't sell them!)
+- **sports (silence)**: Pick a professional sport and you'll never see or hear about it again in your life.
+- **animals (intimate)**: Pick a zoo animal and you'll spend 20 minutes in a cage with it.
+- **animals (bubble)**: Pick a zoo animal and you'll get to watch it in its natural habitat from a magical floating bubble for a few hours.
+- **subjects (school)**: Pick an academic subject and you'll have to pass the entry level course in that subject at a community college.
+- **subjects (magic)**: Pick an academic subject and you'll instantly gain the knowledge of a typical PhD in that subject.
+- **vehicles (commute)**: Pick a mode of transportation and you'll have to take it to work for the next year (it'll be free!)
+- **vehicles (veto)**: Pick a mode of transportation and you won't be allowed to use it for the next year.
+
+Here is the "check plot" for each:
+
+```{r, fig.width=7.5, fig.height=5}
+
+wrap_scenario = list(
+    facet_wrap(~scenario, dir="v", ncol=4),
+    theme(strip.text.x = element_text(size=12), legend.position="top")
+)
+
+df %>% 
+    ggplot(aes(evaluation, as.numeric(considered) - accessibility, color=control)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
+                     position=position_dodge(width=.5)) +
+    geom_smooth(se=F, method=lm, 
+        formula=y ~ x + abs(x - 0),
+        method.args = list(family = "binomial"),
+        alpha=0.1) +
+    ylab("relative consideration probability") +
+    control_colors + wrap_scenario
+```
+
+These look pretty darn bad.
+
+
+# Value distributions
+
+To better understand the effect of scenario, we need to look at the underlying
+distributions of outcome values. Here we are plotting the distribution of all
+outcome values in gray (weighted by accessibility) and the distribution of
+considered outcomes in blue and yellow.
+
+```{r, fig.width=7.5, fig.height=4.5, cache=T}
+baselines = df %>%
+    group_by(scenario, evaluation) %>% 
+    summarise(acc=sum(accessibility))  %>% 
+    group_by(scenario) %>% 
+    mutate(prop=acc/sum(acc))
+
+df %>% 
+    filter(considered) %>% 
+    count(control, scenario, evaluation) %>% 
+    group_by(control, scenario) %>% 
+    mutate(prop=n/sum(n)) %>% 
+    ggplot(aes(evaluation, prop)) + 
+        geom_bar(data=baselines, stat="identity", alpha=1, fill="gray50", position="identity") +
+        geom_bar(aes(fill=control), stat="identity", alpha=0.7, position="identity") +
+        control_colors + wrap_scenario + 
+        labs(fill="considered by", y="proportion")
+```
+
+Collapsing across scenarios.
+
+```{r}
+baselines = df %>%
+    group_by(evaluation) %>% 
+    summarise(acc=sum(accessibility))  %>% 
+    mutate(prop=acc/sum(acc))
+
+df %>% 
+    filter(considered) %>% 
+    count(control, evaluation) %>% 
+    group_by(control) %>% 
+    mutate(prop=n/sum(n)) %>% 
+    ggplot(aes(evaluation, prop)) + 
+        geom_bar(data=baselines, stat="identity", alpha=1, fill="gray50", position="identity") +
+        geom_bar(aes(fill=control), stat="identity", alpha=0.7, position="identity") +
+        control_colors +
+        labs(fill="considered by", y="proportion")
+
+# full_scenarios %>% filter(scenario != "practice") %>%  filter(considered=="UNK")
+```
+
