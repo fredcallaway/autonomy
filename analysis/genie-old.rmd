@@ -134,6 +134,10 @@ depend on its value (measured by post-decision rating)?
 ```{r, fig.width=8, fig.height=4, cache=T, cache=T, dependson=load_data}
 # BASELINE = mean(df$evaluation)
 
+relu = function(x) {
+    if_else(x < 0, 0, x)
+}
+
 p1 = df %>% 
     ggplot(aes(evaluation, as.numeric(considered), color=control)) +
     stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
@@ -141,7 +145,7 @@ p1 = df %>%
     stat_smooth(geom="line", size=0.8, linetype = "dotted", alpha=0.5) +
     # geom_smooth(se=F, method=lm, formula=y ~ x + abs(x), alpha=0.1) +
     geom_smooth(se=F, method=glm, 
-        formula=y ~ x + abs(x),
+        formula=y ~ relu(x) + abs(x),
         method.args = list(family = "binomial"),
         alpha=0.1) +
     ylab("consideration probability") +
@@ -152,7 +156,7 @@ p2 = df %>%
     stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
                      position=position_dodge(width=.5)) +
     stat_smooth(geom="line", size=0.8, linetype = "dotted", alpha=0.5) +
-    geom_smooth(se=F, method=lm, formula=y ~ x + abs(x), alpha=0.1) +
+    geom_smooth(se=F, method=lm, formula=y ~ relu(x) + abs(x), alpha=0.1) +
     # geom_smooth(se=F, method=lm, formula=y ~ exp(0.2*x) + abs(x), alpha=0.1) +
     ylab("relative consideration probability") +
     control_colors
@@ -189,9 +193,16 @@ df %>%
 Mixed-effects logistic regression
 ```{r, fig.height=2, cache=T, dependson=load_data}
 consideration_model = df %>% 
-    mutate(accessibility = zscore(accessibility), evaluation = zscore(evaluation)) %>% 
-    glmer(considered ~ accessibility + control * (evaluation + abs(evaluation)) + 
-        (accessibility + evaluation + abs(evaluation) | wid),
+    mutate(
+        accessibility = zscore(accessibility), 
+        evaluation = zscore(evaluation),
+        control_high = 1*(control == "high"),
+        control_low = 1*(control == "low"),
+
+    ) %>% 
+    glmer(considered ~ accessibility + relu(evaluation) + abs(evaluation) +
+        control_low : abs(evaluation) + control_high : relu(evaluation) +
+        (accessibility + relu(evaluation) + abs(evaluation) | wid),
      family=binomial, data=.)
 
 plot_coefs(consideration_model, omit.coefs=c("controlhigh", "(Intercept)"), colors="black") #plot
