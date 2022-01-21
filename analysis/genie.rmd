@@ -126,25 +126,22 @@ df %>%
 # Proportion of good/bad/neutral
 
 ```{r}
-baselines = df %>% 
+ebins = df %>% 
     group_by(evaluation) %>% 
-    summarise(acc=sum(accessibility))  %>% 
-    mutate(prop=acc/sum(acc))
-
-X = baselines %>% 
+    summarise(acc=sum(accessibility)) %>% 
+    mutate(prop=acc/sum(acc)) %>% 
     mutate(ebin=cut(cumsum(prop), c(0, 1/3, 2/3, 1.01), labels=c("bad", "neutral", "good"))) %>% 
-    select(evaluation, ebin) %>% 
-    right_join(df) %>% 
-    filter(considered) 
+    select(evaluation, ebin) 
 
-X %>% 
+df %>% 
+    left_join(ebins) %>% 
+    filter(considered)  %>% 
     ggplot(aes(ebin, y=..prop.., group=control,fill=control)) + 
     geom_hline(yintercept=1/3, linetype="dashed") +
     geom_bar(position="dodge") +
     control_colors +
     labs(x="value bin", y="proportion of considered outcomes")
 ```
-
 
 ```{r}
 baselines = df %>%
@@ -222,6 +219,8 @@ p1 + p2 + plot_layout(guides = "collect")
 
 # Value distributions
 
+Gray is the accessibility data. Blue and yellow are outcomes considered by each group.
+
 ```{r, fig.width=7.5, fig.height=4.5}
 wrap_scenario = list(
     facet_wrap(~scenario, dir="v", ncol=4),
@@ -261,5 +260,107 @@ df %>%
         geom_bar(data=baselines, stat="identity", alpha=1, fill="gray50", position="identity") +
         geom_bar(aes(fill=control), stat="identity", alpha=0.7, position="identity") +
         control_colors + facet_wrap(~control) +
-        labs(fill="considered by", y="proportion")
+        labs(fill="considered by", y="proportion") + 
+        theme(legend.position="none")
 ```
+
+## Relative proportions
+
+New plot: this is like the above but subtracting out the accessibility value. It
+shows how much more frequent each value among considered outcomes than we would
+expect from accessibility alone.
+
+```{r, fig.width=7.5}
+baselines = df %>%
+    group_by(evaluation) %>% 
+    summarise(acc=sum(accessibility))  %>% 
+    mutate(prop=acc/sum(acc))
+
+df %>% 
+    filter(considered) %>% 
+    count(control, evaluation) %>% 
+    group_by(control) %>% 
+    mutate(prop=n/sum(n)) %>% 
+    left_join(transmute(baselines, evaluation, baseline=prop)) %>% 
+    ggplot(aes(evaluation, prop-baseline)) + 
+        geom_bar(aes(fill=control), stat="identity", alpha=0.7, position="identity") +
+        control_colors +
+        labs(y="relative proportion")
+```
+
+
+# Modeling
+
+## Model comparison
+
+- loo is an estimate of predictive likelihood; it will be close to AIC / -2.
+- d_loo is the difference in loo from the best model
+- dse is the standard error of that difference
+- weight "can be loosely interpreted as the probability of each model
+  (among the compared model) given the data"
+
+```{r}
+read_csv("../model/results/comparison.csv") %>% 
+    select(name, loo, d_loo, dse, weight) %>% 
+    mutate(across(-name, signif, 4)) %>% 
+    kable
+```
+
+Given the amount of data, this is a pretty weak result. I'm not exactly
+sure how to interpret the dse, but the most obvious interpretation to me
+is that it could have easily come out the other direction.
+
+## Difference in β
+
+```{r}
+chain = read_csv('../model/results/chain.csv')
+
+chain %>% 
+    select(β_low, β_high) %>% 
+    pivot_longer(c(β_low, β_high), names_to="param", values_to="value", names_prefix="") %>% 
+    mutate(param = factor(param, levels=c("β_low", "β_high"))) %>% 
+    ggplot(aes(value, fill=param, color=param)) +
+    geom_density(alpha=0.2) + control_colors
+
+p_higher = mean(chain$β_high > chain$β_low)
+```
+
+It looks like they overlap a lot, but this is (likely) because they both
+correlate with the $C_{\text{exp}}$ parameter. If we compare them, 
+$\beta_{\text{high}}$ is higher `r 100*p_higher`% of the time.
+
+## Posterior predictive checks
+
+Here we are recreating plots using simulations from the joint model.
+
+```{r}
+ppc = read_csv("../model/results/ppc.csv") %>% 
+    pivot_longer(c(low, high), names_to="control", values_to="n", names_prefix="") %>% 
+    mutate(control = factor(control, levels=c("low", "high")))
+
+ppc %>% 
+    left_join(ebins) %>% 
+    group_by(control,ebin) %>% 
+    summarise(n=sum(n)) %>% 
+    group_by(control) %>%
+    mutate(prop = n / sum(n)) %>% 
+    ggplot(aes(ebin, y=prop, group=control,fill=control)) + 
+    geom_hline(yintercept=1/3, linetype="dashed") +
+    geom_bar(position="dodge", stat="identity") +
+    control_colors +
+    labs(x="value bin", y="proportion of considered outcomes")
+```
+
+The model is only barely capturing the difference between conditions.
+
+```{r, fig.width=7.5}
+ppc %>% 
+    group_by(control) %>% 
+    mutate(prop=n/sum(n)) %>% 
+    left_join(transmute(baselines, evaluation, baseline=prop)) %>% 
+    ggplot(aes(evaluation, prop-baseline)) + 
+        geom_bar(aes(fill=control), stat="identity", alpha=0.7, position="identity") +
+        control_colors +
+        labs(y="relative proportion")
+```
+
