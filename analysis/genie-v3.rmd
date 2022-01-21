@@ -1,5 +1,5 @@
 ---
-title: Genie Game Results (v1.2)
+title: Genie Game Results — First Considered (v2.0)
 date: "`r Sys.Date()`"
 author: "fredcallaway"
 output:
@@ -15,7 +15,7 @@ library(moments)
 library(scales)
 library(infer)
 
-VERSIONS = c('v1.2B', 'v1.2C')
+VERSIONS = c('v2.0')
 load_data = function(type) {
     VERSIONS %>% 
     map(~ read_csv(glue('../data/{.x}/{type}.csv'), col_types = cols())) %>% 
@@ -33,7 +33,6 @@ control_colors = scale_colour_manual(values=c(
 ), aesthetics=c("fill", "colour"))
 ```
 
-
 # Exclusions
 
 ```{r load_data}
@@ -47,27 +46,34 @@ full_pdf = load_data('participants') %>%
         # ignored_comprehension = obligatory_check == "empty" & is.na(comp_free)
     )
 
-full_df = load_data('outcomes') %>% rename(scenario = prompt_id)
+full_df = load_data('outcomes') %>% 
+    rename(scenario = prompt_id) %>% 
+    mutate(scenario = tolower(scenario))
+
 full_scenarios = load_data('scenarios') %>% 
+    rename(scenario = prompt_id) %>% 
+    mutate(scenario = tolower(scenario))
+
+full_slider = load_data('slider_check')
+
+slider_check = full_slider %>% 
+    mutate(prompt = word(prompt)) %>% 
+    pivot_wider(names_from=prompt, values_from=response) %>% 
     mutate(
-        considered = map(considered, fromJSON),
-        n_considered = lengths(considered)
-    ) %>% rename(scenario = prompt_id)
+        p1 = Breaking < Stubbing,
+        p2 = Stubbing < Finding,
+        p3 = Finding < Winning,
+        pass = p1 & p2 & p3
+    )
 
-
-# full_slider = load_data('slider_check')
-
-# slider = full_slider %>% 
-#     mutate(prompt = word(prompt)) %>% 
-#     pivot_wider(names_from=prompt, values_from=response)
-
-# slider_check %>%
-#     transmute(wid, p1 = Breaking < Stubbing, p2 = Free > Finding, p3=Free>Eating)
-
+slider_check %>% summarise(across(-wid, mean))
+slider_check %>% filter(!p3)
 
 # table(full_pdf$obligatory_check)
 pdf = full_pdf %>% 
     filter(obligatory_check == "correct") %>% 
+    left_join(slider_check) %>% 
+    # filter(pass) %>% 
     mutate(
         subj = row_number(),
         control = factor(control, levels=c("low", "high"))
@@ -75,34 +81,37 @@ pdf = full_pdf %>%
 
 pdf2 = select(pdf, wid, subj, control)
 
-unk_df = full_df %>% 
-    right_join(pdf2) %>%  # also drops excluded participants
-    filter(scenario != "PRACTICE") %>%
-    group_by(wid) %>% 
-    mutate(
-        scenario = tolower(scenario),
-        evaluation_z = zscore(evaluation),
-        abs_eval = abs(evaluation),
-        abs_eval_z = zscore(abs_eval),
-        consideration=if_else(considered, "considered", "unconsidered")
-    ) %>% 
-    ungroup()
-
-df = filter(unk_df, outcome != "UNK")
-n_drop = nrow(full_pdf) - nrow(pdf)
-n_drop_unk = nrow(unk_df) - nrow(df)
-n_trial = nrow(df)
-
 scenarios = full_scenarios %>%
     right_join(pdf2)  %>% 
-    filter(scenario != "PRACTICE") %>%
+    filter(scenario != "practice") %>%
+    filter(considered %nin% c("NONE", "UNK")) %>% 
     group_by(wid) %>% 
     mutate(
-        scenario = tolower(scenario),
         scenario_evaluation_z = zscore(scenario_evaluation),
         trial_number = row_number(),
     ) %>% 
     ungroup()
+    
+df = full_df %>% 
+    filter(raw_outcome != "ape") %>% 
+    right_join(pdf2) %>%  # also drops excluded participants
+    right_join(select(scenarios, wid, scenario, considered, 
+                      scenario_evaluation, scenario_evaluation_z)) %>%  # drops UNK and NONE trials
+    mutate(
+        considered = outcome==considered,
+        consideration = if_else(considered, "considered", "unconsidered")
+    ) %>% 
+    group_by(wid) %>% 
+    mutate(
+        evaluation_z = zscore(evaluation),
+        abs_eval = abs(evaluation),
+        abs_eval_z = zscore(abs_eval),
+    ) %>% 
+    ungroup()
+
+# n_drop = nrow(full_pdf) - nrow(pdf)
+# n_drop_unk = nrow(unk_df) - nrow(df)
+# n_trial = nrow(df)
 
 df = left_join(df, select(scenarios, wid, scenario, scenario_evaluation, scenario_evaluation_z))
 acc = read_csv('../data/acc-v2.0/accessibility.csv', col_types = cols())
@@ -115,17 +124,17 @@ acc %>%
     select(-n) %>% 
     right_join(df) -> df
 
-df %>% filter(!is.na(accessibility)) %>% write_csv("../data/processed-old.csv")
+stopifnot(df %>% group_by(wid, scenario) %>% filter(sum(considered)!=1) %>% nrow == 0)
+stopifnot(df %>% filter(is.na(accessibility)) %>% nrow == 0)
+
+df %>% write_csv("../data/processed.csv")
 ```
 
-We exclude `r n_drop` participant(s) who answered the comprehension check
-incorrecttly (incorrect = saying that you can not take the outcome if you
-don't like it), resulting in `r nrow(pdf)` participants.
+- `r nrow(full_pdf)` participants recruited.
+- `r sum(full_pdf$obligatory_check != "correct")` fail the comprehension check.
+<!-- - `r sum(slider_check$pass == FALSE)` participants fail the slider check -->
+- `r nrow(pdf)` participants remain.
 
-We exclude `r n_drop_unk` outcomes which were considered but not in the
-original set, resulting in `r nrow(df)` observations. This was not my orginal
-plan, but I think this is the correct thing to do. See [Out-of-set outcomes]
-for an explanation.
 
 # Consideration probability by outcome value
 
@@ -157,14 +166,13 @@ p2 = df %>%
     stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
                      position=position_dodge(width=.5)) +
     stat_smooth(geom="line", size=0.8, linetype = "dotted", alpha=0.5) +
-    geom_smooth(se=F, method=lm, formula=y ~ relu(x) + abs(x), alpha=0.1) +
+    geom_smooth(se=F, method=lm, formula=y ~ abs(x) + relu(x), alpha=0.1) +
     # geom_smooth(se=F, method=lm, formula=y ~ exp(0.2*x) + abs(x), alpha=0.1) +
     ylab("relative consideration probability") +
     control_colors
 
 p1 + p2 + plot_layout(guides = "collect")
 ```
-
 
 Reading the plot: points show binned means with 95% CI error bars. The dashed
 line shows a non-parameteric [GAM](https://en.wikipedia.org/wiki/Generalized_additive_model)
@@ -181,36 +189,6 @@ df %>%
     filter(considered) %>% 
     mutate(good=evaluation > 0) %>% 
     chisq_test(good ~ control) %>% kable(digits=3)
-
-
-cut2 = Hmisc::cut2
-df %>% 
-    mutate(ebin=cut2(evaluation, g=3)) %>% 
-    filter(considered) %>% 
-    chisq_test(ebin ~ control) %>% kable(digits=3)
-
-df %>% 
-    mutate(ebin=cut2(evaluation, g=3)) %>% 
-    filter(considered) %>% 
-    count(control, ebin) %>% 
-    group_by(control) %>% 
-    mutate(prop = n/sum(n)) %>% 
-    ggplot(aes(ebin, n, fill=control)) + geom_bar(stat="identity", position='dodge')
-
-
-q1 = df %>% with(quantile(evaluation, 1/3))
-q3 = df %>% with(quantile(evaluation, 2/3))
-df %>% 
-    filter(considered) %>% 
-    mutate(bad=evaluation < q1) %>% 
-    group_by(control) %>% 
-    chisq_test(bad ~ control) %>% kable(digits=3)
-    
-
-df %>% 
-    filter(considered) %>% 
-    mutate(good=evaluation < q1) %>% 
-    chisq_test(good ~ control) %>% kable(digits=3)
 ```
 
 t-test on value of considered outcomes
@@ -221,7 +199,12 @@ df %>%
     t_test(evaluation ~ control, order=c("high", "low")) %>% kable(digits=3)
 ```
 
-Mixed-effects logistic regression
+Mixed-effects logistic regression. Note that I've replaced signed value
+with a relu (that is max(0, value)) in order to prevent the absolute
+value term from being used to flatten out the left side of signed value.
+This is just a reparameritization, but it does affect statistical
+significance.
+
 ```{r, fig.height=2, cache=T, dependson=load_data}
 consideration_model = df %>% 
     mutate(
@@ -267,14 +250,14 @@ df %>%
     stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
                      position=position_dodge(width=.5)) +
     geom_smooth(se=F, method=lm, 
-        formula=y ~ x + abs(x - 0),
+        formula=y ~ abs(x) + relu(x),
         method.args = list(family = "binomial"),
         alpha=0.1) +
     ylab("relative consideration probability") +
     control_colors + wrap_scenario
 ```
 
-These look pretty darn bad.
+These all look terrible.
 
 
 # Value distributions
@@ -303,11 +286,13 @@ df %>%
         labs(fill="considered by", y="proportion")
 ```
 
-Collapsing across scenarios.
+Plotted this way, it actually looks like the effect is somewhat more consistent.
+However, it also just looks really noisy. Looking at this distribution plot
+collapsing across scenarios, we see that the effect is really driven by the
+probability of considering the most extreme-valued outcomes.
 
 ```{r}
 baselines = df %>%
-    filter(!is.na(accessibility)) %>% 
     group_by(evaluation) %>% 
     summarise(acc=sum(accessibility))  %>% 
     mutate(prop=acc/sum(acc))
@@ -318,7 +303,7 @@ df %>%
     group_by(control) %>% 
     mutate(prop=n/sum(n)) %>% 
     ggplot(aes(evaluation, prop)) + 
-    geom_bar(data=baselines, stat="identity", alpha=1, fill="gray50", position="identity") +
+        geom_bar(data=baselines, stat="identity", alpha=1, fill="gray50", position="identity") +
         geom_bar(aes(fill=control), stat="identity", alpha=0.7, position="identity") +
         control_colors +
         labs(fill="considered by", y="proportion")
@@ -326,51 +311,17 @@ df %>%
 # full_scenarios %>% filter(scenario != "practice") %>%  filter(considered=="UNK")
 ```
 
-
-
-```{r}
-
-baselines = df %>%
-    filter(!is.na(accessibility)) %>% 
-    group_by(evaluation) %>% 
-    summarise(acc=sum(accessibility))  %>% 
-    mutate(prop=acc/sum(acc))
-
-X = baselines %>% 
-    mutate(ebin=cut(cumsum(prop), c(0, 1/3, 2/3, 1.01), labels=c("bad", "neutral", "good"))) %>% 
-    select(evaluation, ebin) %>% 
-    right_join(df) %>% 
-    filter(considered) %>% 
-    count(control, ebin) %>% 
-    pivot_wider(names_from=ebin, values_from=n) %>%
-    mutate(total=bad+neutral+good)
-
-low =  X %>% filter(control=="low")
-high = X %>% filter(control=="high")
-
-prop.test(low$good, low$total, 1/3, 'greater')
-prop.test(low$bad, low$total, 1/3, 'greater')
-prop.test(low$neutral, low$total, 1/3, 'less')
-
-prop.test(high$good, high$total, 1/3, 'greater')
-prop.test(high$bad, high$total, 1/3, 'less')
-prop.test(high$neutral, high$total, 1/3, 'less')
-
-prop.test(X$bad, X$total, alternative='greater')
-prop.test(X$good, X$total, alternative='less')
-```
-
-
-
-
-
-
 ```{r}
 X = baselines %>% 
     mutate(ebin=cut(cumsum(prop), c(0, 1/3, 2/3, 1.01), labels=c("bad", "neutral", "good"))) %>% 
     select(evaluation, ebin) %>% 
     right_join(df) %>% 
     filter(considered)
+
+baselines = df %>%
+    group_by(evaluation) %>% 
+    summarise(acc=sum(accessibility))  %>% 
+    mutate(prop=acc/sum(acc))
 
 X %>% 
     filter(control=="low") %>% 
@@ -385,12 +336,4 @@ X %>%
 X %>% 
     mutate(x=ebin=="bad") %>% 
     prop_test(x ~ control, success='TRUE', order=c('low', 'high'), alternative='greater')
-
-X %>% 
-    mutate(x=ebin=="good") %>% 
-    prop_test(x ~ control, success='TRUE')
-
-X %>% 
-    ggplot(aes(ebin, fill=control)) + geom_bar(position="dodge")
-
 ```

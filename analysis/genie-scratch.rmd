@@ -1,3 +1,27 @@
+
+## Proportion by scenario
+
+```{r, fig.width=7.5, fig.height=5}
+baselines = df %>%
+    group_by(scenario, evaluation) %>% 
+    summarise(acc=sum(accessibility))  %>% 
+    group_by(scenario) %>% 
+    mutate(prop=acc/sum(acc))
+
+X = baselines %>% 
+    mutate(ebin=cut(cumsum(prop), c(0, 1/3, 2/3, 1.01), labels=c("bad", "neutral", "good"))) %>% 
+    select(evaluation, ebin) %>% 
+    right_join(df) %>% 
+    filter(considered)
+
+X %>% 
+    ggplot(aes(ebin, y=..prop.., group=control,fill=control)) + 
+    geom_hline(yintercept=1/3, linetype="dashed") +
+    geom_bar(position="dodge") +
+    control_colors + wrap_scenario +
+    labs(x="value bin", y="proportion of considered outcomes")
+```
+
 # Variability of scenario total value
 
 ```{r}
