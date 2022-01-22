@@ -137,8 +137,8 @@ df %>%
     left_join(ebins) %>% 
     filter(considered)  %>% 
     ggplot(aes(ebin, y=..prop.., group=control,fill=control)) + 
-    geom_hline(yintercept=1/3, linetype="dashed") +
-    geom_bar(position="dodge") +
+    geom_bar(position="dodge", alpha=0.7) +
+    geom_hline(yintercept=1/3, linetype="solid") +
     control_colors +
     labs(x="value bin", y="proportion of considered outcomes")
 ```
@@ -158,7 +158,11 @@ X = baselines %>%
     pivot_wider(names_from=ebin, values_from=n) %>%
     mutate(total=bad+neutral+good)
 
+```
 
+## Tests
+
+```{r}
 low =  X %>% filter(control=="low")
 high = X %>% filter(control=="high")
 
@@ -182,7 +186,8 @@ cat(
 )
 ```
 
-# Regression plot
+
+# Regression "check" plot
 
 ```{r, fig.width=8, fig.height=4}
 # BASELINE = mean(df$evaluation)
@@ -283,11 +288,10 @@ df %>%
     mutate(prop=n/sum(n)) %>% 
     left_join(transmute(baselines, evaluation, baseline=prop)) %>% 
     ggplot(aes(evaluation, prop-baseline)) + 
-        geom_bar(aes(fill=control), stat="identity", alpha=0.7, position="identity") +
+        geom_bar(aes(fill=control), stat="identity", alpha=0.7, width=.7, position="dodge") +
         control_colors +
         labs(y="relative proportion")
 ```
-
 
 # Modeling
 
@@ -306,9 +310,9 @@ read_csv("../model/results/comparison.csv") %>%
     kable
 ```
 
-Given the amount of data, this is a pretty weak result. I'm not exactly
-sure how to interpret the dse, but the most obvious interpretation to me
-is that it could have easily come out the other direction.
+I'm not exactly sure how to interpret the dse, but the most obvious
+interpretation to me is that it could have easily come out the other
+direction.
 
 ## Difference in β
 
@@ -345,13 +349,11 @@ ppc %>%
     group_by(control) %>%
     mutate(prop = n / sum(n)) %>% 
     ggplot(aes(ebin, y=prop, group=control,fill=control)) + 
-    geom_hline(yintercept=1/3, linetype="dashed") +
-    geom_bar(position="dodge", stat="identity") +
+    geom_bar(position="dodge", stat="identity", alpha=0.7) +
+    geom_hline(yintercept=1/3, linetype="solid") +
     control_colors +
     labs(x="value bin", y="proportion of considered outcomes")
 ```
-
-The model is only barely capturing the difference between conditions.
 
 ```{r, fig.width=7.5}
 ppc %>% 
@@ -359,7 +361,7 @@ ppc %>%
     mutate(prop=n/sum(n)) %>% 
     left_join(transmute(baselines, evaluation, baseline=prop)) %>% 
     ggplot(aes(evaluation, prop-baseline)) + 
-        geom_bar(aes(fill=control), stat="identity", alpha=0.7, position="identity") +
+        geom_bar(aes(fill=control), stat="identity", alpha=0.7, width=.7, position="dodge") +
         control_colors +
         labs(y="relative proportion")
 ```
