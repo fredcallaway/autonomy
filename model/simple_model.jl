@@ -59,6 +59,18 @@ function score(model::UWS, u)
     @. abs(u - ev) + C
 end
 
+@prior2 @kwdef struct SoftmaxUWS{T,U,V,W} <: SimpleWeighter
+    β::T = missing | Normal(0, 3)
+    C_abs::U= missing | Exponential(10)
+    C_exp::V = missing | Exponential(500)
+    ev::W = 0. | Normal(0, 5)
+end
+
+function score(model::SoftmaxUWS, u, control)
+    (;β, C_abs, C_exp, ev) = model
+    @. (exp(u * β) + C_exp) * (abs(u - ev) + C_abs)
+end
+
 @prior2 @kwdef struct SwitchingSoftmaxUWS{T,U,V,W,X} <: DependentWeighter
     β_low::T = missing | Normal(0, 3)
     β_high::U = missing | Normal(0, 3)
@@ -174,7 +186,8 @@ end
 
 function logp(model::Model, trial::NamedTuple)
     p = likelihood(model, trial)
-    sum(log.(p[trial.considered]))
+    # sum(log.(p[trial.considered]))
+    log(p[trial.considered])
 end
 
 function logp(model::Model, trials::AbstractVector{<:NamedTuple})

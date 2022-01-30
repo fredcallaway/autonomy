@@ -15,30 +15,25 @@ end
 Base.active_repl.options.iocontext[:displaysize] = (20, displaysize(stdout)[2])
 
 # %% --------
-raw_df = CSV.read("../data/processed-old.csv", DataFrame)
-zscore(x) = (x .- mean(x)) ./ std(x)
-
+raw_df = CSV.read("../data/processed.csv", DataFrame)
 wid2pid = Dict(zip(unique(raw_df.wid), 1:10000))
 
 all_trials = @chain raw_df begin
     # groupby(:wid)
     # @transform(:evaluation = zscore(:evaluation))
     groupby([:wid, :scenario])
-    map(collect(_)) do g
+    mapreduce(vcat, collect(_)) do g
         pid = wid2pid[only(unique(g.wid))]
         control = only(unique(g.control))
-        (;pid, control, g.evaluation, g.accessibility, g.considered)
+        evaluation = collect(g.evaluation)
+        accessibility = collect(g.accessibility)
+        map(1:sum(g.considered)) do i
+            trial = (; pid, control, evaluation=copy(evaluation), accessibility=copy(accessibility), considered=1)
+            popfirst!(evaluation); popfirst!(accessibility)
+            trial
+        end
     end
 end
-
-filter!(all_trials) do t
-    sum(t.considered) > 0
-end
-
-split_trials = group(t->t.control, all_trials)
-
-@everywhere all_trials  = $all_trials
-@everywhere split_trials  = $split_trials
 
 # %% --------
 models = map(x->Model(x, ε=0.), (
@@ -49,10 +44,11 @@ models = map(x->Model(x, ε=0.), (
     switch_softmax=SwitchWeighter(Softmax(), Softmax()),
     switch_uws=SwitchWeighter(UWS(), UWS()),
     # multiplicative=Model(SoftmaxUWS()),
-    switch_joint=SwitchWeighter(ProductWeighter(Softmax(), UWS()), ProductWeighter(Softmax(), UWS())),
+    # switch_joint=SwitchWeighter(ProductWeighter(Softmax(), UWS()), ProductWeighter(Softmax(), UWS())),
     # switch_multiplicative=SwitchingSoftmaxUWS(β_low=0.),
-    switch_multiplicative_flex=SwitchingSoftmaxUWS(),
-    mixture=MixtureWeighter(UWS(), Softmax())
+    switching_softmax_uws=SwitchingSoftmaxUWS(),
+    softmax_uws=SoftmaxUWS(),
+    # mixture=MixtureWeighter(UWS(), Softmax())
     # switch_multiplicative2=SwitchingSoftmaxUWS2(),
     # switch_multiplicative_alt=SwitchingSoftmaxUWS(β_low = 0., C_exp=0.),
 ))
@@ -79,85 +75,153 @@ foreach(collect(pairs(aic))) do (k, v)
 end
 
 # %% --------
-t = all_trials[6]
-likelihood(mutate(mle.switch_softmax; β_acc=0), t) |> sort
-
-score(mle.switch_softmax.weighter.high, t.evaluation)  |> sort
-
-weighter = mle.switch_softmax.weighter.high
-
-exp(weighter.β*9) + weighter.C
-t.evaluation |> sort
-
-# %% --------
 @everywhere using Turing
 @everywhere using Turing: @addlogprob!
 @everywhere using ArviZ
-@everywhere Turing.setprogress!(false)
+@everywhere Turing.setprogress!(true)
 
-@everywhere @model turing_model(base_model, trials, ::Type{T} = Float64) where T = begin
+@everywhere @model turing_model(base_model, trials, trial_wise=false, ::Type{T} = Float64) where T = begin
     priors = metaflatten(base_model, prior2, Missing)
     params = Vector{T}(undef, length(priors))
     for i = 1:length(priors)
         params[i] ~ priors[i]
     end
     model = reconstruct(base_model, params, Missing)
-    map(trials) do trial
-        lp = logp(model, trial)
-        @addlogprob! lp
-        lp
+    if trial_wise
+        map(trials) do trial
+            lp = logp(model, trial)
+            @addlogprob! lp
+            lp
+        end
+    else
+        @addlogprob! logp(model, trials)
     end
 end
 
 turing_results = pmap(models) do base_model
-    tm = turing_model(base_model, all_trials)
-    chain = sample(tm, NUTS(), 5000);
-    # chain = sample(tm, NUTS(), MCMCDistributed(), 2000, 4);
-    L = generated_quantities(tm, MCMCChains.get_sections(chain, :parameters));
+    # chain = sample(turing_model(base_model, all_trials), NUTS(), 5000);
+    chain = sample(tm, NUTS(), MCMCDistributed(), 5000, 4);
+    L = generated_quantities(turing_model(base_model, all_trials, true), 
+                             MCMCChains.get_sections(chain, :parameters));
     L = permutedims(combinedims(L), (3, 2, 1))
     idata = from_mcmcchains(chain; log_likelihood=Dict("L" => L))
     (;chain, idata)
 end
+mle.softmax_uws
+mle.switching_softmax_uws
+aic
+comp = compare(Dict(pairs(invert(turing_results).idata)))
 
-compare(Dict(pairs(invert(turing_results).idata)))
-
-turing_results.switch_joint.chain
-fieldnameflatten(models.switch_joint, Missing)
+comp |> CSV.write("results/comparison.csv")
 
 # %% --------
+
+ch = turing_results.switching_softmax_uws.chain
+
+
+
+β_low = ch["params[1]"]
+β_high = ch["params[2]"]
+
+df = DataFrame(ch)[:, Cols(r"params")]
+rename!(df, collect(fieldnameflatten(models.switching_softmax_uws, Missing)))
+df |> CSV.write("results/chain.csv")
+
+
+
+
+(df, )
+
+
+
+std(β_low)
+std(β_high)
+mean(β_high .> β_low)
+
+
+# %% ==================== Posterior predictive checks ====================
+
 using Random
-model = Model(NullWeighter(), β_acc=1.)
+group = SplitApplyCombine.group
 
-fake_trials = map(all_trials) do t
-    idx = randperm(length(t.evaluation))
-    (;t.control, evaluation=t.evaluation[idx], accessibility=t.accessibility[idx])
+function eval_counts(models, trials)
+    X = Dict(
+        "low" => zeros(Int, 21),
+        "high" => zeros(Int, 21)
+    )
+    for model in models
+        for t in trials
+            considered = sample(Weights(likelihood(model, t)))
+            evaluation = t.evaluation[considered]
+            X[t.control][evaluation+11] += 1
+        end
+    end
+    X
 end
 
-trials = split_trials["low"]
-
-map(group(t->t.evaluation[1], trials) |> pairs |> sort |> collect) do (v, trials)
-    length(trials)
+model = :switching_softmax_uws
+P = collect(cat(get(getfield(turing_results, model).chain; section=:parameters).params...; dims=3))
+model_samples = map(eachrow(reshape(P, 5000, 5))) do x
+    reconstruct(base_model, x, Missing)
 end
+
+cc = eval_counts(model_samples, all_trials)
+
+preds = DataFrame(cc)
+preds.evaluation = -10:1:10
+
+preds |> CSV.write("results/ppc.csv")
+
+
 
 # %% --------
-model = mle.mixture
+evaluation_vectors = invert(all_trials).evaluation
 
-fake_trials = map(all_trials) do t
-    idx = randperm(length(t.evaluation))
-    (;t.control, evaluation=t.evaluation[idx], accessibility=t.accessibility[idx])
-end
-
-preds = map(group(t->t.control, fake_trials)) do trials
-    p = map(-10:1:10) do v
-        total = mapreduce(+, trials) do t
-            t.evaluation[1] = v
-            likelihood(model, t)[1]
+function value_curves(model)
+    # model = mle.mixture
+    fake_trials = map(all_trials) do t
+        (;t.control, evaluation=shuffle(t.evaluation), accessibility=ones(length(t.evaluation)))
+    end
+    map(group(t->t.control, fake_trials)) do trials
+        p = map(-10:1:10) do v
+            total = mapreduce(+, trials) do t
+                t.evaluation[1] = v
+                likelihood(model, t)[1]
+            end
+            total / length(trials)
         end
-        total / length(trials)
     end
 end
 
-figure(ylim=(0, 0.3)) do
+
+model = :switching_softmax_uws
+P = collect(cat(get(getfield(turing_results, model).chain; section=:parameters).params...; dims=3))
+
+modl = model_samples[1]
+simulate(modl, all_trials)
+
+base_model = getfield(models, model)
+model_samples = map(eachrow(reshape(P, 5000, 5))) do x
+    reconstruct(base_model, x, Missing)
+end
+
+value_curves(mod)
+
+
+mean_model = reconstruct(models.switching_softmax_uws, collect(DataFrame(mean(ch)).mean), Missing)
+
+figure() do
+    plot!(-10:1:10, value_curves(mle.softmax_uws)["low"], label="shared β", color="#aaaaaa")
+    preds = value_curves(mean_model)
+    plot!(-10:1:10, preds["low"], label="low", color="#31ADF4")
+    plot!(-10:1:10, preds["high"], label="high", color="#F5CE47")
+end
+
+
+# %% --------
+model = mle.switch_softmax
+figure() do
+    preds = value_curves(model)
     plot!(-10:1:10, preds["low"], label="low")
     plot!(-10:1:10, preds["high"], label="high")
 end
@@ -307,6 +371,11 @@ end
 Turing.dic(chain)
 
 # %% --------
+
+split_trials = group(t->t.control, all_trials)
+
+@everywhere all_trials  = $all_trials
+@everywhere split_trials  = $split_trials
 
 switch2 = find_mle(Model(SwitchWeighter(UWS(), Softmax())), all_trials); logp(switch2, all_trials)
 switch2 = find_mle(Model(SwitchWeighter(UWS(), Softmax())), all_trials); logp(switch2, all_trials)
