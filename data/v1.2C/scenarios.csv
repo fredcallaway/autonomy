@@ -1,0 +1,251 @@
+wid,trial_number,prompt_id,scenario_evaluation,any_specific,considered
+w616cc3b,2,PRACTICE,8.0,True,"[""Paris"", ""Madrid""]"
+w616cc3b,3,Sports (silence),-8.0,True,"[""Soccer"", ""Basketball"", ""Hockey""]"
+w616cc3b,4,Animals (bubble),6.0,True,"[""Zebra"", ""Giraffe""]"
+w616cc3b,5,Vehicles (veto),-8.0,True,"[""Car"", ""Bike""]"
+w616cc3b,6,Subjects (magic),7.0,True,"[""Chemistry""]"
+wf04dfee,7,PRACTICE,1.0,False,[]
+wf04dfee,8,Animals (bubble),8.0,True,"[""Zebra"", ""Hippo""]"
+wf04dfee,9,Vehicles (veto),-1.0,False,[]
+wf04dfee,10,Subjects (magic),-3.0,False,[]
+wf04dfee,11,Sports (silence),-2.0,False,[]
+w251ef24,12,PRACTICE,1.0,False,[]
+w251ef24,13,Vehicles (commute),1.0,True,"[""Bus"", ""Train"", ""Driver""]"
+w251ef24,14,Subjects (school),-4.0,False,[]
+w251ef24,15,Animals (intimate),4.0,True,"[""lion"", ""ferret"", ""penguin""]"
+w251ef24,16,Sports (season),-2.0,False,[]
+wc5f34d8,17,PRACTICE,3.0,False,[]
+wc5f34d8,18,Vehicles (commute),6.0,True,"[""Car"", ""train"", ""trolly"", ""horse"", ""buggy"", ""electric bike"", ""scooter""]"
+wc5f34d8,19,Subjects (school),10.0,True,"[""programming"", ""math"", ""calculus"", ""discrete math""]"
+wc5f34d8,20,Animals (intimate),-10.0,False,[]
+wc5f34d8,21,Sports (season),0.0,False,[]
+w0c074de,22,PRACTICE,10.0,False,[]
+w0c074de,23,Animals (intimate),-10.0,True,"[""Alligators"", ""Dogs"", ""Lions""]"
+w0c074de,24,Sports (season),-10.0,True,"[""Baseketball""]"
+w0c074de,25,Vehicles (commute),5.0,True,"[""Smart Car""]"
+w0c074de,26,Subjects (school),-10.0,True,"[""Math"", ""Science""]"
+w3e97a1f,27,PRACTICE,8.0,True,"[""Paris"", ""Rome"", ""London""]"
+w3e97a1f,28,Sports (season),-10.0,False,[]
+w3e97a1f,29,Vehicles (commute),1.0,True,"[""Taxi"", ""Uber""]"
+w3e97a1f,30,Subjects (school),5.0,True,"[""Climbing""]"
+w3e97a1f,31,Animals (intimate),-10.0,False,[]
+wd5a2d8f,32,PRACTICE,2.0,True,"[""Paris"", ""London"", ""Venice"", ""Rome "", ""Prague""]"
+wd5a2d8f,33,Subjects (magic),5.0,True,"[""Herbalism""]"
+wd5a2d8f,34,Vehicles (veto),-5.0,True,"[""Train""]"
+wd5a2d8f,35,Sports (silence),3.0,True,"[""American football""]"
+wd5a2d8f,36,Animals (bubble),2.0,True,"[""Emu"", ""Tiger""]"
+w8883c2c,37,PRACTICE,6.0,True,"[""Copenhagen, vienne, Milan, Budafest, Berlin, Oslo, London, Pasris , Rome""]"
+w8883c2c,38,Subjects (school),-6.0,False,[]
+w8883c2c,39,Animals (intimate),1.0,False,[]
+w8883c2c,40,Vehicles (commute),-5.0,False,[]
+w8883c2c,41,Sports (season),-2.0,False,[]
+w2777a8f,42,PRACTICE,8.0,True,"[""London"", ""Berlin"", ""Paris""]"
+w2777a8f,43,Animals (intimate),2.0,False,[]
+w2777a8f,44,Vehicles (commute),10.0,True,"[""car"", ""bus"", ""bike""]"
+w2777a8f,45,Subjects (school),0.0,False,[]
+w2777a8f,46,Sports (season),10.0,True,"[""Soccer"", ""Basketball""]"
+w363e6ac,47,PRACTICE,5.0,False,[]
+w363e6ac,48,Sports (silence),-3.0,True,"[""Football""]"
+w363e6ac,49,Subjects (magic),8.0,True,"[""Math""]"
+w363e6ac,50,Vehicles (veto),-8.0,True,"[""Bicycle"", ""Car"", ""Bus""]"
+w363e6ac,51,Animals (bubble),4.0,True,"[""Giraffe"", ""Elephant""]"
+w4a284b9,52,PRACTICE,5.0,False,[]
+w4a284b9,53,Sports (season),2.0,True,"[""Soccer""]"
+w4a284b9,54,Subjects (school),0.0,False,[]
+w4a284b9,55,Animals (intimate),-7.0,False,[]
+w4a284b9,56,Vehicles (commute),-8.0,False,[]
+w0663715,57,PRACTICE,6.0,True,"[""Lisbon"", ""Milan"", ""Paris"", ""London"", ""Barcelona""]"
+w0663715,58,Subjects (magic),9.0,True,"[""English"", ""Political Science"", ""Business"", ""Law"", ""Science""]"
+w0663715,59,Animals (bubble),1.0,False,[]
+w0663715,60,Sports (silence),3.0,True,"[""Football""]"
+w0663715,61,Vehicles (veto),-7.0,True,"[""Train"", ""Car""]"
+w98f1b99,62,PRACTICE,4.0,True,"[""Barcelona"", ""Rome"", ""Paris"", ""London""]"
+w98f1b99,63,Animals (bubble),10.0,True,"[""giraffe"", ""elephant""]"
+w98f1b99,64,Vehicles (veto),5.0,False,[]
+w98f1b99,65,Subjects (magic),10.0,True,"[""psychology"", ""spanish""]"
+w98f1b99,66,Sports (silence),-2.0,False,[]
+w73ed943,67,PRACTICE,7.0,False,[]
+w73ed943,68,Animals (intimate),0.0,False,[]
+w73ed943,69,Subjects (school),5.0,True,"[""english""]"
+w73ed943,70,Vehicles (commute),5.0,False,[]
+w73ed943,71,Sports (season),-7.0,False,[]
+w26c2bef,72,PRACTICE,6.0,False,[]
+w26c2bef,73,Sports (season),1.0,False,[]
+w26c2bef,74,Vehicles (commute),7.0,False,[]
+w26c2bef,75,Subjects (school),-3.0,False,[]
+w26c2bef,76,Animals (intimate),-10.0,True,"[""lion""]"
+w1c3dd8c,77,PRACTICE,4.0,False,[]
+w1c3dd8c,78,Vehicles (veto),-10.0,True,"[""car"", ""truck"", ""bicycle""]"
+w1c3dd8c,79,Subjects (magic),10.0,True,"[""microbiology"", ""math""]"
+w1c3dd8c,80,Animals (bubble),10.0,True,"[""whale shark""]"
+w1c3dd8c,81,Sports (silence),-7.0,False,[]
+wc146e19,82,PRACTICE,9.0,True,"[""Rome"", ""Paris"", ""London"", ""Italy"", ""Germany"", ""Florence"", ""Normandy"", ""Switzerland"", ""Ireland""]"
+wc146e19,83,Sports (silence),-10.0,True,"[""Football"", ""Baseball"", ""basketball"", ""soccer""]"
+wc146e19,84,Subjects (magic),10.0,True,"[""Medicine"", ""Engineering"", ""Science"", ""Business"", ""Physics""]"
+wc146e19,85,Vehicles (veto),-10.0,True,"[""car"", ""airplane""]"
+wc146e19,86,Animals (bubble),10.0,True,"[""giraffe"", ""elephant"", ""tiger"", ""cheetah"", ""whale""]"
+webaf5b1,87,PRACTICE,5.0,False,[]
+webaf5b1,88,Sports (silence),2.0,False,[]
+webaf5b1,89,Animals (bubble),5.0,False,[]
+webaf5b1,90,Vehicles (veto),-1.0,False,[]
+webaf5b1,91,Subjects (magic),3.0,True,"[""Math""]"
+wc37a2ec,92,PRACTICE,6.0,True,"[""Berlin"", ""Paris""]"
+wc37a2ec,93,Subjects (magic),9.0,False,[]
+wc37a2ec,94,Sports (silence),-2.0,False,[]
+wc37a2ec,95,Vehicles (veto),-5.0,True,"[""Cars"", ""Buses"", ""Trains""]"
+wc37a2ec,96,Animals (bubble),5.0,True,"[""Tiger"", ""Viscacha""]"
+w2be12ca,97,PRACTICE,10.0,True,"[""Paris""]"
+w2be12ca,98,Vehicles (commute),7.0,True,"[""Train"", ""Bus"", ""Bike"", ""Scooter""]"
+w2be12ca,99,Subjects (school),10.0,True,"[""Math"", ""Science"", ""English""]"
+w2be12ca,100,Sports (season),-4.0,False,[]
+w2be12ca,101,Animals (intimate),10.0,True,"[""tiger"", ""monkey"", ""elephant""]"
+w2baccaf,102,PRACTICE,0.0,False,[]
+w2baccaf,103,Sports (silence),-2.0,True,"[""Tennis""]"
+w2baccaf,104,Vehicles (veto),0.0,False,[]
+w2baccaf,105,Subjects (magic),7.0,False,[]
+w2baccaf,106,Animals (bubble),10.0,False,[]
+w2044ba1,107,PRACTICE,5.0,True,"[""London""]"
+w2044ba1,108,Vehicles (commute),-1.0,False,[]
+w2044ba1,109,Subjects (school),-5.0,False,[]
+w2044ba1,110,Animals (intimate),-8.0,True,"[""Gorilla"", ""Lion"", ""Tiger"", ""Monkey"", ""Chimpanzee"", ""Baboon""]"
+w2044ba1,111,Sports (season),-5.0,True,"[""Formula One""]"
+w31c2904,112,PRACTICE,8.0,True,"[""Prague"", ""London"", ""Bamberg""]"
+w31c2904,113,Sports (season),7.0,True,"[""Baseball""]"
+w31c2904,114,Subjects (school),-8.0,False,[]
+w31c2904,115,Animals (intimate),-3.0,False,[]
+w31c2904,116,Vehicles (commute),7.0,False,[]
+wd61612e,117,PRACTICE,5.0,True,"[""budapest"", ""paris"", ""london"", ""prague"", ""madrid""]"
+wd61612e,118,Subjects (school),1.0,True,"[""history"", ""calculus""]"
+wd61612e,119,Sports (season),-1.0,True,"[""soccer"", ""football"", ""basketball""]"
+wd61612e,120,Vehicles (commute),4.0,True,"[""carpool"", ""train""]"
+wd61612e,121,Animals (intimate),-6.0,True,"[""tiger"", ""lion"", ""bear"", ""mongoose"", ""red panda"", ""panda""]"
+we2a0c38,122,PRACTICE,10.0,True,"[""London"", ""Paris"", ""Amsterdam"", ""Madrid""]"
+we2a0c38,123,Animals (bubble),4.0,True,"[""lion"", ""bear"", ""bird"", ""alligator""]"
+we2a0c38,124,Sports (silence),-7.0,True,"[""football"", ""soccer"", ""baseball"", ""basketball""]"
+we2a0c38,125,Subjects (magic),10.0,True,"[""math"", ""physics""]"
+we2a0c38,126,Vehicles (veto),-4.0,True,"[""bike"", ""car"", ""train"", ""plane""]"
+w6449213,127,PRACTICE,5.0,False,[]
+w6449213,128,Vehicles (veto),-9.0,True,"[""car"", ""bike"", ""train"", ""airplane""]"
+w6449213,129,Animals (bubble),0.0,False,[]
+w6449213,130,Subjects (magic),4.0,False,[]
+w6449213,131,Sports (silence),-1.0,True,"[""football"", ""baseball""]"
+w1c6ef1a,132,PRACTICE,2.0,True,"[""Paris""]"
+w1c6ef1a,133,Vehicles (commute),-5.0,False,[]
+w1c6ef1a,134,Subjects (school),0.0,False,[]
+w1c6ef1a,135,Animals (intimate),-6.0,True,"[""Tigers"", ""Monkeys""]"
+w1c6ef1a,136,Sports (season),1.0,True,"[""Football"", ""Hockey""]"
+w94007a6,137,PRACTICE,6.0,True,"[""Florence"", ""Venice"", ""Dublin"", ""London"", ""Berlin""]"
+w94007a6,138,Animals (bubble),3.0,True,"[""Lion""]"
+w94007a6,139,Vehicles (veto),-9.0,True,"[""Car"", ""Train"", ""Subway"", ""Bike""]"
+w94007a6,140,Subjects (magic),10.0,True,"[""Biology"", ""Computer Science""]"
+w94007a6,141,Sports (silence),-10.0,True,"[""Football"", ""Soccer"", ""Swimming"", ""Skiing""]"
+wbb75636,142,PRACTICE,10.0,False,[]
+wbb75636,143,Vehicles (commute),-5.0,True,"[""Hoverboard""]"
+wbb75636,144,Subjects (school),2.0,True,"[""Math""]"
+wbb75636,145,Animals (intimate),3.0,True,"[""Tiger"", ""Monkey"", ""Lion""]"
+wbb75636,146,Sports (season),1.0,True,"[""Hockey"", ""Baseball""]"
+w92bf5b9,147,PRACTICE,10.0,True,"[""Venice, Italy"", ""Barcelone, Spain"", ""Paris, France"", ""Abruzzi, Italy""]"
+w92bf5b9,148,Subjects (school),-10.0,True,"[""Math"", ""Science"", ""Chemistry"", ""Geography"", ""Physics""]"
+w92bf5b9,149,Sports (season),10.0,False,[]
+w92bf5b9,150,Animals (intimate),2.0,True,"[""Lion"", ""Elephant"", ""Bear"", ""Monkey"", ""Snake""]"
+w92bf5b9,151,Vehicles (commute),-5.0,True,"[""Bike"", ""Subway"", ""Scooter"", ""Metro"", ""Bus""]"
+wd49ddf4,152,PRACTICE,3.0,False,[]
+wd49ddf4,153,Vehicles (veto),0.0,False,[]
+wd49ddf4,154,Subjects (magic),0.0,False,[]
+wd49ddf4,155,Sports (silence),0.0,False,[]
+wd49ddf4,156,Animals (bubble),0.0,False,[]
+wf83a6b1,157,PRACTICE,5.0,True,"[""Paris"", ""Venice"", ""Madrid"", ""Brussels"", ""Amsterdam""]"
+wf83a6b1,158,Vehicles (veto),-5.0,True,"[""car"", ""bus"", ""train"", ""boat"", ""bike""]"
+wf83a6b1,159,Subjects (magic),5.0,False,[]
+wf83a6b1,160,Sports (silence),2.0,True,"[""Soccer"", ""Baseball""]"
+wf83a6b1,161,Animals (bubble),2.0,True,"[""Panda"", ""Monkey"", ""Lion""]"
+w97a1598,162,PRACTICE,2.0,False,[]
+w97a1598,163,Subjects (magic),0.0,False,[]
+w97a1598,164,Animals (bubble),5.0,False,[]
+w97a1598,165,Sports (silence),-4.0,False,[]
+w97a1598,166,Vehicles (veto),0.0,False,[]
+wce17a9e,167,PRACTICE,6.0,True,"[""London"", ""Paris""]"
+wce17a9e,168,Vehicles (veto),-3.0,False,[]
+wce17a9e,169,Sports (silence),0.0,False,[]
+wce17a9e,170,Animals (bubble),2.0,True,"[""Panda""]"
+wce17a9e,171,Subjects (magic),10.0,True,"[""Medicine""]"
+w742e695,172,PRACTICE,6.0,False,[]
+w742e695,173,Vehicles (veto),-9.0,False,[]
+w742e695,174,Subjects (magic),9.0,False,[]
+w742e695,175,Sports (silence),-7.0,False,[]
+w742e695,176,Animals (bubble),8.0,False,[]
+wea21aec,177,PRACTICE,7.0,False,[]
+wea21aec,178,Vehicles (commute),6.0,False,[]
+wea21aec,179,Subjects (school),-4.0,False,[]
+wea21aec,180,Animals (intimate),3.0,False,[]
+wea21aec,181,Sports (season),4.0,False,[]
+w8d45e65,182,PRACTICE,3.0,False,[]
+w8d45e65,183,Subjects (school),-10.0,True,"[""Math, history, Science""]"
+w8d45e65,184,Vehicles (commute),7.0,False,[]
+w8d45e65,185,Animals (intimate),-7.0,True,"[""Lions"", ""Tigers"", ""Bears"", ""Wolves""]"
+w8d45e65,186,Sports (season),0.0,False,[]
+w92c8d42,187,PRACTICE,6.0,True,"[""Rome"", ""Athens"", ""Paris"", ""London"", ""Barcelona""]"
+w92c8d42,188,Vehicles (commute),2.0,True,"[""Telsa"", ""Mercedes"", ""BMW"", ""Range Rover""]"
+w92c8d42,189,Animals (intimate),-5.0,True,"[""lion"", ""tiger"", ""monkey""]"
+w92c8d42,190,Subjects (school),9.0,True,"[""Economics"", ""Art History"", ""Pottery""]"
+w92c8d42,191,Sports (season),8.0,True,"[""sports tickets"", ""amusement park""]"
+w23a7e68,192,PRACTICE,8.0,True,"[""Paris""]"
+w23a7e68,193,Sports (silence),0.0,True,"[""Football""]"
+w23a7e68,194,Animals (bubble),7.0,False,[]
+w23a7e68,195,Subjects (magic),8.0,False,[]
+w23a7e68,196,Vehicles (veto),-3.0,True,"[""Car""]"
+w82f7259,197,PRACTICE,8.0,True,"[""Prague"", ""Amsterdam"", ""Paris"", ""London"", ""Berlin"", ""Stockholm"", ""Vienna""]"
+w82f7259,198,Sports (silence),5.0,True,"[""Basketball""]"
+w82f7259,199,Subjects (magic),5.0,True,"[""Theatre""]"
+w82f7259,200,Animals (bubble),2.0,True,"[""Elephant""]"
+w82f7259,201,Vehicles (veto),-3.0,True,"[""Car""]"
+w1989f41,202,PRACTICE,8.0,False,[]
+w1989f41,203,Sports (season),0.0,True,"[""Basketball""]"
+w1989f41,204,Subjects (school),0.0,True,"[""Reading""]"
+w1989f41,205,Vehicles (commute),3.0,False,[]
+w1989f41,206,Animals (intimate),-2.0,False,[]
+wa0d5d63,207,PRACTICE,10.0,True,"[""Germany"", ""Paris""]"
+wa0d5d63,208,Vehicles (commute),5.0,True,"[""Bus""]"
+wa0d5d63,209,Sports (season),10.0,True,"[""Hockey""]"
+wa0d5d63,210,Animals (intimate),-9.0,True,"[""Tiger"", ""Monkey""]"
+wa0d5d63,211,Subjects (school),2.0,False,[]
+w1a640b0,212,PRACTICE,5.0,False,[]
+w1a640b0,213,Vehicles (veto),1.0,False,[]
+w1a640b0,214,Sports (silence),6.0,True,"[""Baseball"", ""Tennis""]"
+w1a640b0,215,Animals (bubble),10.0,True,"[""Whale"", ""Dolphin"", ""Lion"", ""Bear""]"
+w1a640b0,216,Subjects (magic),2.0,True,"[""Invisibility""]"
+w7bb6604,217,PRACTICE,10.0,True,"[""Helsinki"", ""Rome"", ""Athens"", ""Madrid"", ""Ljubljana"", ""London"", ""Paris""]"
+w7bb6604,218,Subjects (school),3.0,True,"[""Web design"", ""Graphic design"", ""Accounting"", ""Art"", ""History"", ""Zoology""]"
+w7bb6604,219,Vehicles (commute),0.0,True,"[""Bus"", ""Train"", ""Rideshare"", ""Kayak"", ""Bicycle""]"
+w7bb6604,220,Sports (season),1.0,True,"[""Baseball"", ""Hockey"", ""Soccer""]"
+w7bb6604,221,Animals (intimate),4.0,True,"[""Elephant"", ""Orangutan"", ""Giraffe"", ""Gorilla"", ""Koala"", ""Sloth""]"
+w4127897,222,PRACTICE,7.0,False,[]
+w4127897,223,Vehicles (veto),-9.0,False,[]
+w4127897,224,Sports (silence),-7.0,False,[]
+w4127897,225,Subjects (magic),-2.0,False,[]
+w4127897,226,Animals (bubble),5.0,False,[]
+wdfcc87f,227,PRACTICE,4.0,True,"[""Paris"", ""Sicily""]"
+wdfcc87f,228,Animals (bubble),8.0,True,"[""lion"", ""dogs"", ""cats"", ""horses"", ""panther""]"
+wdfcc87f,229,Vehicles (veto),1.0,True,"[""airplane"", ""train"", ""bus""]"
+wdfcc87f,230,Subjects (magic),10.0,True,"[""psychology"", ""sociology"", ""literature"", ""biology""]"
+wdfcc87f,231,Sports (silence),1.0,True,"[""soccer"", ""pole vaulting"", ""ice hockey"", ""Jai lai "", ""ski""]"
+w4d34db1,232,PRACTICE,3.0,False,[]
+w4d34db1,233,Animals (intimate),-10.0,True,"[""Lion, tiger""]"
+w4d34db1,234,Subjects (school),-5.0,False,[]
+w4d34db1,235,Vehicles (commute),0.0,False,[]
+w4d34db1,236,Sports (season),-10.0,False,[]
+w3df2237,237,PRACTICE,9.0,False,[]
+w3df2237,238,Vehicles (commute),8.0,False,[]
+w3df2237,239,Sports (season),10.0,False,[]
+w3df2237,240,Animals (intimate),8.0,False,[]
+w3df2237,241,Subjects (school),4.0,False,[]
+w534084f,242,PRACTICE,6.0,True,"[""Munich, Germany"", ""Paris, France"", ""Rome, Italy"", ""Florence, Italy"", ""Venice, Italy"", ""London, England"", ""Barcelona, Spain"", ""Oslo, Norway"", ""Prague""]"
+w534084f,243,Animals (bubble),5.0,True,"[""Lion""]"
+w534084f,244,Sports (silence),-6.0,True,"[""Baseball"", ""Football"", ""Soccer""]"
+w534084f,245,Vehicles (veto),-8.0,True,"[""Car"", ""Plane"", ""Bus""]"
+w534084f,246,Subjects (magic),10.0,False,[]
+w422cd45,247,PRACTICE,5.0,True,"[""London"", ""Prague"", ""Paris""]"
+w422cd45,248,Animals (intimate),-10.0,True,"[""Lion"", ""Tiger"", ""Bear""]"
+w422cd45,249,Sports (season),-6.0,True,"[""Washington Football Team"", ""Ravens"", ""Nationals""]"
+w422cd45,250,Subjects (school),5.0,True,"[""History"", ""Math"", ""Psychology""]"
+w422cd45,251,Vehicles (commute),0.0,True,"[""Car"", ""Bus"", ""Motorcycle""]"

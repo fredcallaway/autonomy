@@ -1,0 +1,8 @@
+wid,control,consideration_time,reflection_time,n_considered,n_unconsidered,comp_free,comp_radio,completed,bonus,version
+w0371993,low,8,10,100,100,,,,,v1.2B
+wa2ac3e8,high,8,10,100,100,,,,,v1.2B
+w8318954,high,8,10,100,100,I choose one of the following cities on the board.,False,True,0.0,v1.2B
+w1e31a72,low,8,10,100,100,Spinning of the wheel and whatever city it lands on.,False,True,0.0,v1.2B
+w0b34d6e,low,8,10,100,100,The genie will spin the wheel and I will have to visit whichever city it lands on.,False,True,0.0,v1.2B
+w76890f1,high,8,10,100,100,I will have to choose it from a multiple choice board,False,True,0.0,v1.2B
+w5e62b40,low,8,10,100,100,It'll be spun randomly on a wheel.,False,True,0.0,v1.2B

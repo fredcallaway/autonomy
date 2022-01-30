@@ -1,0 +1,47 @@
+wid,prompt_id,raw_outcome,outcome
+w6068561,Fruit (ripe),one,UNK
+w6068561,Fruit (ripe),two,UNK
+w6068561,Fruit (ripe),three,UNK
+w6068561,Subjects (school),Biology,biology
+w6068561,Animals (intimate),Tigers,UNK
+w6068561,Animals (intimate),Polar Bears,UNK
+w784e727,Fruit (daily),Banana,banana
+w784e727,Fruit (daily),Kiwi,UNK
+w784e727,Fruit (daily),Grapes,UNK
+w784e727,Fruit (daily),Apple,UNK
+w784e727,Sports (silence),Laccrose,lacrosse
+w784e727,Animals (bubble),Zebra,zebra
+w784e727,Animals (bubble),Elephant,elephant
+w784e727,Vehicles (veto),Taxi,UNK
+w784e727,Subjects (magic),Math,UNK
+w9c17360,Fruit (ripe),durian,UNK
+w9c17360,Fruit (ripe),peach,peach
+w9c17360,Fruit (ripe),plum,UNK
+w9c17360,Fruit (ripe),banana,banana
+w9c17360,Vehicles (commute),car,car
+w9c17360,Vehicles (commute),train,train
+w9c17360,Animals (intimate),baboon,UNK
+w9c17360,Animals (intimate),crocodile,UNK
+w9c17360,Animals (intimate),polar bear,UNK
+w9c17360,Animals (intimate),lion,lion
+w9c17360,Subjects (school),math,UNK
+w9c17360,Subjects (school),english,english
+w9c17360,Subjects (school),arabic,UNK
+w9c17360,Subjects (school),french,french
+w9c17360,Subjects (school),spanish,spanish
+w9c17360,Cities (vacation),france,UNK
+w9c17360,Sports (season),basketball,basketball
+w9c17360,Sports (season),hockey,UNK
+w9c17360,Sports (season),softball,UNK
+w9c17360,Sports (season),baseball,baseball
+w9c17360,Sports (season),water polo,UNK
+waabf87a,Sports (silence),one,UNK
+waabf87a,Sports (silence),two,UNK
+waabf87a,Sports (silence),three,UNK
+waabf87a,Cities (moving),London,london
+waabf87a,Fruit (daily),Cantaloupe,cantaloupe
+waabf87a,Fruit (daily),Watermelon,watermelon
+waabf87a,Fruit (daily),Lime,UNK
+waabf87a,Subjects (magic),Classics,UNK
+waabf87a,Subjects (magic),Culinary sciences,UNK
+waabf87a,Subjects (magic),Economics,UNK

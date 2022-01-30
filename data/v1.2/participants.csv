@@ -1,0 +1,6 @@
+wid,control,consideration_time,reflection_time,n_considered,n_unconsidered,comp_free,comp_radio,completed,bonus,version
+w8a97578,high,8,10,100,100,You get to pick which city you want to go to.,False,True,0.0,v1.2
+w0b01e65,high,8,10,100,100,by multiple choice,False,True,0.0,v1.2
+w7fdaa32,low,8,10,100,100,The city will be chosen by spinning a wheel. No matter what city I get I have to go on vacation.,False,True,0.0,v1.2
+w461dcc1,low,8,10,100,100,from spinning the wheel,False,True,0.0,v1.2
+wc225bf4,high,8,10,100,100,"There will be a category, in this case a continent, and a list of cities we can pick, like multiple choice.",False,True,0.0,v1.2

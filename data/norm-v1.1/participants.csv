@@ -1,0 +1,5 @@
+wid,target,consideration_time,reflection_time,n_considered,n_unconsidered,completed,bonus,version
+w6068561,best,8,10,100,100,True,0.0,norm-v1.1
+w784e727,best,8,10,100,100,True,0.0,norm-v1.1
+w9c17360,worst,8,10,100,100,True,0.0,norm-v1.1
+waabf87a,worst,8,10,100,100,True,0.0,norm-v1.1

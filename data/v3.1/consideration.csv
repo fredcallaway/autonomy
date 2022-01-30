@@ -1,0 +1,3114 @@
+wid,prompt_id,raw_outcome,outcome
+w30e4d79,PRACTICE,,NONE
+w30e4d79,Subjects (school),,NONE
+w30e4d79,Sports (season),,NONE
+w30e4d79,Vehicles (commute),,NONE
+w30e4d79,Animals (intimate),polar bear,polar bear
+w48a91d2,PRACTICE,Rome,UNK
+w48a91d2,PRACTICE,Sydney,UNK
+w48a91d2,PRACTICE,Lisbon,UNK
+w48a91d2,PRACTICE,Las Vegas,UNK
+w48a91d2,PRACTICE,Barcelona,UNK
+w48a91d2,Animals (intimate),Lion,lion
+w48a91d2,Animals (intimate),Elephant,elephant
+w48a91d2,Animals (intimate),Tiger,tiger
+w48a91d2,Animals (intimate),Dolphin,dolphin
+w48a91d2,Sports (season),,NONE
+w48a91d2,Vehicles (commute),,NONE
+w48a91d2,Subjects (school),,NONE
+we233074,PRACTICE,Paris,UNK
+we233074,Sports (season),,NONE
+we233074,Subjects (school),,NONE
+we233074,Animals (intimate),,NONE
+we233074,Vehicles (commute),,NONE
+w48d5501,PRACTICE,Rome,UNK
+w48d5501,PRACTICE,Berlin,UNK
+w48d5501,Animals (intimate),Lion,lion
+w48d5501,Subjects (school),,NONE
+w48d5501,Sports (season),Football,football
+w48d5501,Vehicles (commute),Public bus,UNK
+w2604590,PRACTICE,Paris,UNK
+w2604590,PRACTICE,London,UNK
+w2604590,PRACTICE,Amsterdam,UNK
+w2604590,PRACTICE,Vienna,UNK
+w2604590,Sports (silence),Soccer,soccer
+w2604590,Subjects (magic),English,english
+w2604590,Subjects (magic),Writing,UNK
+w2604590,Animals (bubble),Lion,lion
+w2604590,Animals (bubble),Tiger,tiger
+w2604590,Animals (bubble),Giraffe,giraffe
+w2604590,Animals (bubble),Elephant,elephant
+w2604590,Vehicles (veto),Car,car
+w2604590,Vehicles (veto),Bicycle,bicycle
+w1457384,PRACTICE,,NONE
+w1457384,Subjects (school),algebra,algebra
+w1457384,Sports (season),,NONE
+w1457384,Vehicles (commute),,NONE
+w1457384,Animals (intimate),,NONE
+w5583b8c,PRACTICE,London,UNK
+w5583b8c,PRACTICE,Paris,UNK
+w5583b8c,PRACTICE,Venice,UNK
+w5583b8c,Animals (bubble),panda ,panda
+w5583b8c,Animals (bubble),rhinoceros,rhinoceros
+w5583b8c,Sports (silence),basketball,basketball
+w5583b8c,Sports (silence),baseball,baseball
+w5583b8c,Sports (silence),hockey,hockey
+w5583b8c,Vehicles (veto),car,car
+w5583b8c,Vehicles (veto),bicycle,bicycle
+w5583b8c,Vehicles (veto),train,train
+w5583b8c,Vehicles (veto),airplane,airplane
+w5583b8c,Subjects (magic),psychology,psychology
+w5583b8c,Subjects (magic),international development,UNK
+w5583b8c,Subjects (magic),math,math
+w2d683b3,PRACTICE,Rome,UNK
+w2d683b3,PRACTICE,Paris,UNK
+w2d683b3,Animals (bubble),Tiger,tiger
+w2d683b3,Animals (bubble),Bear,bear
+w2d683b3,Animals (bubble),Lion,lion
+w2d683b3,Animals (bubble),Dog,UNK
+w2d683b3,Animals (bubble),Cat,UNK
+w2d683b3,Animals (bubble),,NONE
+w2d683b3,Sports (silence),baseball,baseball
+w2d683b3,Sports (silence),football,football
+w2d683b3,Sports (silence),soccer,soccer
+w2d683b3,Vehicles (veto),,NONE
+w2d683b3,Subjects (magic),,NONE
+w249af6e,PRACTICE,Paris,UNK
+w249af6e,PRACTICE,Venice,UNK
+w249af6e,PRACTICE,Florence,UNK
+w249af6e,Animals (bubble),Lion,lion
+w249af6e,Animals (bubble),Gorilla,gorilla
+w249af6e,Sports (silence),Football,football
+w249af6e,Sports (silence),Baseball,baseball
+w249af6e,Subjects (magic),Immunology,UNK
+w249af6e,Subjects (magic),Psychology,psychology
+w249af6e,Vehicles (veto),car,car
+w249af6e,Vehicles (veto),bicycle,bicycle
+wc4421c1,PRACTICE,London,UNK
+wc4421c1,PRACTICE,Paris,UNK
+wc4421c1,PRACTICE,Madrid,UNK
+wc4421c1,PRACTICE,Barcelona,UNK
+wc4421c1,PRACTICE,Frankfurt,UNK
+wc4421c1,PRACTICE,Milan,UNK
+wc4421c1,PRACTICE,Athens,UNK
+wc4421c1,PRACTICE,kiev,UNK
+wc4421c1,Sports (silence),,NONE
+wc4421c1,Animals (bubble),Dog,UNK
+wc4421c1,Animals (bubble),Cat,UNK
+wc4421c1,Animals (bubble),Lion,lion
+wc4421c1,Animals (bubble),Tiger,tiger
+wc4421c1,Subjects (magic),,NONE
+wc4421c1,Vehicles (veto),Sea,UNK
+wc4421c1,Vehicles (veto),road,UNK
+wc4421c1,Vehicles (veto),rail,UNK
+w10b0762,PRACTICE,Paris ,UNK
+w10b0762,PRACTICE,Madrid ,UNK
+w10b0762,PRACTICE,Amsterdam ,UNK
+w10b0762,PRACTICE,Barcelona ,UNK
+w10b0762,Sports (silence),Tennis ,tennis
+w10b0762,Sports (silence),Golf ,golf
+w10b0762,Sports (silence),Swimming ,swimming
+w10b0762,Sports (silence),Basketball,basketball
+w10b0762,Subjects (magic),French,french
+w10b0762,Subjects (magic),African American Studies,UNK
+w10b0762,Subjects (magic),Spanish ,spanish
+w10b0762,Subjects (magic),Swahili ,UNK
+w10b0762,Subjects (magic),Sign Language ,UNK
+w10b0762,Subjects (magic),Nutrition ,UNK
+w10b0762,Vehicles (veto),,NONE
+w10b0762,Animals (bubble),,NONE
+wc60255e,PRACTICE,Rome,UNK
+wc60255e,PRACTICE,Paris,UNK
+wc60255e,Subjects (school),Algebra,algebra
+wc60255e,Vehicles (commute),Bus,bus
+wc60255e,Animals (intimate),Elephants,elephant
+wc60255e,Sports (season),Hockey,hockey
+wc60255e,Sports (season),Soccer,soccer
+w05d7827,PRACTICE,,NONE
+w05d7827,Animals (bubble),Butterfly,UNK
+w05d7827,Animals (bubble),Zebra,zebra
+w05d7827,Animals (bubble),Panda,panda
+w05d7827,Vehicles (veto),Golf Cart ,UNK
+w05d7827,Sports (silence),Football,football
+w05d7827,Sports (silence),Basketball,basketball
+w05d7827,Sports (silence),Baseball,baseball
+w05d7827,Sports (silence),Tennis,tennis
+w05d7827,Sports (silence),Soccer ,soccer
+w05d7827,Sports (silence),,NONE
+w05d7827,Subjects (magic),,NONE
+w742b609,PRACTICE,Rome,UNK
+w742b609,PRACTICE,Paris,UNK
+w742b609,Vehicles (commute),Walking,walking
+w742b609,Vehicles (commute),biking,UNK
+w742b609,Vehicles (commute),sports car,UNK
+w742b609,Vehicles (commute),train,train
+w742b609,Vehicles (commute),subway,subway
+w742b609,Subjects (school),math,math
+w742b609,Subjects (school),biology,biology
+w742b609,Subjects (school),spanish,spanish
+w742b609,Subjects (school),history,history
+w742b609,Animals (intimate),lion,lion
+w742b609,Animals (intimate),tiger,tiger
+w742b609,Animals (intimate),bear,bear
+w742b609,Animals (intimate),penguin,penguin
+w742b609,Animals (intimate),dolphin,dolphin
+w742b609,Sports (season),baseball,baseball
+w742b609,Sports (season),football,football
+w742b609,Sports (season),basketball,basketball
+w4adeb35,PRACTICE,London,UNK
+w4adeb35,PRACTICE,Paris,UNK
+w4adeb35,PRACTICE,Dublin,UNK
+w4adeb35,PRACTICE,Manchester,UNK
+w4adeb35,PRACTICE,Rome,UNK
+w4adeb35,PRACTICE,Barcelona,UNK
+w4adeb35,Animals (bubble),monkey,monkey
+w4adeb35,Animals (bubble),elephant,elephant
+w4adeb35,Sports (silence),soccer,soccer
+w4adeb35,Sports (silence),football,football
+w4adeb35,Subjects (magic),,NONE
+w4adeb35,Vehicles (veto),,NONE
+we2cb1a7,PRACTICE,Rome,UNK
+we2cb1a7,PRACTICE,Venice,UNK
+we2cb1a7,PRACTICE,Paris,UNK
+we2cb1a7,PRACTICE,,NONE
+we2cb1a7,Animals (bubble),,NONE
+we2cb1a7,Subjects (magic),,NONE
+we2cb1a7,Sports (silence),,NONE
+we2cb1a7,Vehicles (veto),,NONE
+w6064204,PRACTICE,Rome,UNK
+w6064204,PRACTICE,Paris,UNK
+w6064204,PRACTICE,,NONE
+w6064204,Subjects (magic),Math,math
+w6064204,Vehicles (veto),Car,car
+w6064204,Animals (bubble),Lion,lion
+w6064204,Sports (silence),American football,UNK
+w3b24acf,PRACTICE,Paris,UNK
+w3b24acf,PRACTICE,Rome,UNK
+w3b24acf,PRACTICE,London,UNK
+w3b24acf,Subjects (school),Math,math
+w3b24acf,Subjects (school),English,english
+w3b24acf,Animals (intimate),Penguin,penguin
+w3b24acf,Sports (season),Football,football
+w3b24acf,Vehicles (commute),Car,car
+w3b24acf,Vehicles (commute),Bus,bus
+w3b24acf,Vehicles (commute),Bike,bicycle
+w5c211bd,PRACTICE,,NONE
+w5c211bd,Vehicles (commute),walking,walking
+w5c211bd,Vehicles (commute),bike,bicycle
+w5c211bd,Vehicles (commute),scooter,scooter
+w5c211bd,Subjects (school),math,math
+w5c211bd,Animals (intimate),,NONE
+w5c211bd,Sports (season),,NONE
+w929f666,PRACTICE,Paris,UNK
+w929f666,PRACTICE,Rome,UNK
+w929f666,PRACTICE,Prague,UNK
+w929f666,Sports (season),soccer,soccer
+w929f666,Vehicles (commute),Bus,bus
+w929f666,Vehicles (commute),Car,car
+w929f666,Animals (intimate),Lions,lion
+w929f666,Subjects (school),,NONE
+we35b20b,PRACTICE,,NONE
+we35b20b,Subjects (magic),Anatomy,UNK
+we35b20b,Subjects (magic),Math,math
+we35b20b,Subjects (magic),Chemistry,chemistry
+we35b20b,Subjects (magic),Psychology,psychology
+we35b20b,Subjects (magic),Deviant Behavior,UNK
+we35b20b,Vehicles (veto),Car,car
+we35b20b,Vehicles (veto),Bike,bicycle
+we35b20b,Vehicles (veto),Bus,bus
+we35b20b,Vehicles (veto),Scooter,scooter
+we35b20b,Vehicles (veto),Skateboard,skateboard
+we35b20b,Vehicles (veto),Airplane,airplane
+we35b20b,Vehicles (veto),Train,train
+we35b20b,Vehicles (veto),Subway,subway
+we35b20b,Sports (silence),Basketball,basketball
+we35b20b,Sports (silence),Tennis,tennis
+we35b20b,Sports (silence),Baseball,baseball
+we35b20b,Sports (silence),Hockey,hockey
+we35b20b,Sports (silence),Football,football
+we35b20b,Animals (bubble),Tiger,tiger
+we35b20b,Animals (bubble),Hippo,hippo
+we35b20b,Animals (bubble),Elephant,elephant
+we35b20b,Animals (bubble),Giraffe,giraffe
+we35b20b,Animals (bubble),Lion,lion
+we35b20b,Animals (bubble),Monkey,monkey
+w746a5a4,PRACTICE,Athens,UNK
+w746a5a4,PRACTICE,Pompeii,UNK
+w746a5a4,Subjects (magic),Foreign Languages,UNK
+w746a5a4,Subjects (magic),European History,UNK
+w746a5a4,Subjects (magic),Geography,geography
+w746a5a4,Vehicles (veto),,NONE
+w746a5a4,Sports (silence),golf,golf
+w746a5a4,Animals (bubble),wolf,wolf
+w746a5a4,Animals (bubble),elephant,elephant
+w746a5a4,Animals (bubble),giraffe,giraffe
+w5a2fc5c,PRACTICE,Rome,UNK
+w5a2fc5c,PRACTICE,London,UNK
+w5a2fc5c,Vehicles (veto),Car,car
+w5a2fc5c,Subjects (magic),,NONE
+w5a2fc5c,Animals (bubble),Bear,bear
+w5a2fc5c,Sports (silence),,NONE
+w5db6967,PRACTICE,Rome,UNK
+w5db6967,PRACTICE,London,UNK
+w5db6967,PRACTICE,Paris,UNK
+w5db6967,Subjects (school),Math,math
+w5db6967,Subjects (school),Science,science
+w5db6967,Subjects (school),Theatre,UNK
+w5db6967,Sports (season),,NONE
+w5db6967,Vehicles (commute),Public transport,UNK
+w5db6967,Vehicles (commute),Car,car
+w5db6967,Animals (intimate),,NONE
+w586fb99,PRACTICE,,NONE
+w586fb99,Subjects (school),English,english
+w586fb99,Subjects (school),Calculus,calculus
+w586fb99,Subjects (school),Geography,geography
+w586fb99,Sports (season),soccer ,soccer
+w586fb99,Sports (season),baseball,baseball
+w586fb99,Sports (season),golf,golf
+w586fb99,Vehicles (commute),subway,subway
+w586fb99,Vehicles (commute),car,car
+w586fb99,Vehicles (commute),train,train
+w586fb99,Vehicles (commute),bike,bicycle
+w586fb99,Animals (intimate),monkey,monkey
+w586fb99,Animals (intimate),hippo,hippo
+w586fb99,Animals (intimate),tiger,tiger
+w0a1a42b,PRACTICE,Prague,UNK
+w0a1a42b,PRACTICE,Sicily,UNK
+w0a1a42b,PRACTICE,Rome,UNK
+w0a1a42b,PRACTICE,Grenoble,UNK
+w0a1a42b,PRACTICE,Paris,UNK
+w0a1a42b,Animals (intimate),Elephant,elephant
+w0a1a42b,Subjects (school),,NONE
+w0a1a42b,Vehicles (commute),,NONE
+w0a1a42b,Sports (season),,NONE
+wdec960e,PRACTICE,Paris,UNK
+wdec960e,PRACTICE,London,UNK
+wdec960e,PRACTICE,Berlin,UNK
+wdec960e,Sports (silence),Football,football
+wdec960e,Sports (silence),Basketball,basketball
+wdec960e,Sports (silence),Baseball,baseball
+wdec960e,Animals (bubble),Lions,lion
+wdec960e,Vehicles (veto),Car,car
+wdec960e,Subjects (magic),,NONE
+weaed102,PRACTICE,,NONE
+weaed102,Subjects (magic),Science ,science
+weaed102,Subjects (magic),Mathematics,math
+weaed102,Sports (silence),,NONE
+weaed102,Vehicles (veto),Airplane,airplane
+weaed102,Vehicles (veto),Car,car
+weaed102,Animals (bubble),,NONE
+wee34aac,PRACTICE,Madrid,UNK
+wee34aac,PRACTICE,Paris,UNK
+wee34aac,PRACTICE,prague,UNK
+wee34aac,PRACTICE,London,UNK
+wee34aac,Vehicles (veto),train,train
+wee34aac,Vehicles (veto),car,car
+wee34aac,Vehicles (veto),airplane,airplane
+wee34aac,Vehicles (veto),motorcycle,motorcycle
+wee34aac,Vehicles (veto),boat,boat
+wee34aac,Animals (bubble),giraffe,giraffe
+wee34aac,Animals (bubble),lion,lion
+wee34aac,Animals (bubble),tiger,tiger
+wee34aac,Animals (bubble),monkey,monkey
+wee34aac,Subjects (magic),political science,political science
+wee34aac,Subjects (magic),Medical professional,UNK
+wee34aac,Subjects (magic),Law,UNK
+wee34aac,Subjects (magic),Philosophy,philosophy
+wee34aac,Sports (silence),baseball,baseball
+wee34aac,Sports (silence),basketball,basketball
+wee34aac,Sports (silence),soccer,soccer
+wee34aac,Sports (silence),,NONE
+w6671f48,PRACTICE,Venice,UNK
+w6671f48,Vehicles (veto),,NONE
+w6671f48,Animals (bubble),,NONE
+w6671f48,Subjects (magic),Botany,UNK
+w6671f48,Subjects (magic),Astrology,UNK
+w6671f48,Subjects (magic),English,english
+w6671f48,Sports (silence),football,football
+wa60c627,PRACTICE,Rome,UNK
+wa60c627,PRACTICE,Paris,UNK
+wa60c627,PRACTICE,Barcelona,UNK
+wa60c627,PRACTICE,,NONE
+wa60c627,Animals (bubble),dolphin,dolphin
+wa60c627,Animals (bubble),whale,UNK
+wa60c627,Animals (bubble),jaguar,UNK
+wa60c627,Animals (bubble),Tycoon,UNK
+wa60c627,Animals (bubble),Elephant,elephant
+wa60c627,Animals (bubble),Tiger,tiger
+wa60c627,Animals (bubble),Lion,lion
+wa60c627,Animals (bubble),Orca,UNK
+wa60c627,Animals (bubble),Zebra,zebra
+wa60c627,Animals (bubble),Polar Bear,polar bear
+wa60c627,Animals (bubble),Seal,seal
+wa60c627,Animals (bubble),Walrus,UNK
+wa60c627,Animals (bubble),Jelly fish,UNK
+wa60c627,Animals (bubble),Sea horse,UNK
+wa60c627,Animals (bubble),,NONE
+wa60c627,Animals (bubble),,NONE
+wa60c627,Subjects (magic),Science,science
+wa60c627,Subjects (magic),Biology,biology
+wa60c627,Subjects (magic),Algebra,algebra
+wa60c627,Subjects (magic),,NONE
+wa60c627,Vehicles (veto),car,car
+wa60c627,Vehicles (veto),bus,bus
+wa60c627,Vehicles (veto),plane,airplane
+wa60c627,Vehicles (veto),train,train
+wa60c627,Vehicles (veto),,NONE
+wa60c627,Sports (silence),football,football
+wa60c627,Sports (silence),baseball,baseball
+wa60c627,Sports (silence),soccer,soccer
+wa60c627,Sports (silence),basketball,basketball
+wa60c627,Sports (silence),hockey,hockey
+wa60c627,Sports (silence),,NONE
+wcf9ea93,PRACTICE,,NONE
+wcf9ea93,Animals (intimate),"Lion, Cheetah, Bear, Hippo, Gorilla, Rhino, Elephant, Shark.",UNK
+wcf9ea93,Vehicles (commute),"Train, Unicycle, Skateboard, Bike, and maybe a new car",UNK
+wcf9ea93,Subjects (school),"Earth science, Biology, English, Theology",UNK
+wcf9ea93,Sports (season),"Soccer, US Football, Hockey, Motocross",UNK
+w90e83d9,PRACTICE,,NONE
+w90e83d9,Subjects (school),,NONE
+w90e83d9,Animals (intimate),Wolf,wolf
+w90e83d9,Animals (intimate),Toucan,UNK
+w90e83d9,Animals (intimate),Capybara,UNK
+w90e83d9,Vehicles (commute),,NONE
+w90e83d9,Sports (season),,NONE
+wcdf423f,PRACTICE,Venice,UNK
+wcdf423f,PRACTICE,Paris,UNK
+wcdf423f,PRACTICE,London,UNK
+wcdf423f,PRACTICE,Amsterdam,UNK
+wcdf423f,Subjects (magic),,NONE
+wcdf423f,Vehicles (veto),,NONE
+wcdf423f,Animals (bubble),elephant,elephant
+wcdf423f,Animals (bubble),lion,lion
+wcdf423f,Sports (silence),football,football
+wbd652ae,PRACTICE,,NONE
+wbd652ae,Vehicles (commute),donkey,UNK
+wbd652ae,Vehicles (commute),bus,bus
+wbd652ae,Animals (intimate),,NONE
+wbd652ae,Sports (season),,NONE
+wbd652ae,Subjects (school),,NONE
+wdb2eb84,PRACTICE,London,UNK
+wdb2eb84,PRACTICE,Prague,UNK
+wdb2eb84,PRACTICE,Paris,UNK
+wdb2eb84,PRACTICE,Berlin,UNK
+wdb2eb84,PRACTICE,,NONE
+wdb2eb84,Sports (season),Formula 1,UNK
+wdb2eb84,Sports (season),Indycar,UNK
+wdb2eb84,Sports (season),Football (american),UNK
+wdb2eb84,Sports (season),Baseball,baseball
+wdb2eb84,Sports (season),,NONE
+wdb2eb84,Vehicles (commute),Bus,bus
+wdb2eb84,Vehicles (commute),Train,train
+wdb2eb84,Subjects (school),,NONE
+wdb2eb84,Animals (intimate),,NONE
+w0bfdae2,PRACTICE,Rome,UNK
+w0bfdae2,PRACTICE,Paris,UNK
+w0bfdae2,Subjects (magic),Herbology ,UNK
+w0bfdae2,Subjects (magic),Study of mythological creatures,UNK
+w0bfdae2,Subjects (magic),Potions,UNK
+w0bfdae2,Vehicles (veto),Bus ,bus
+w0bfdae2,Vehicles (veto),Train,train
+w0bfdae2,Vehicles (veto),Car,car
+w0bfdae2,Sports (silence),Football ,football
+w0bfdae2,Sports (silence),Soccer,soccer
+w0bfdae2,Animals (bubble),Tiger,tiger
+wbcbd794,PRACTICE,Athens,UNK
+wbcbd794,PRACTICE,Rome,UNK
+wbcbd794,PRACTICE,Dublin,UNK
+wbcbd794,PRACTICE,Paris,UNK
+wbcbd794,Animals (bubble),Black Bear,UNK
+wbcbd794,Animals (bubble),Orca Whale,UNK
+wbcbd794,Animals (bubble),Snakes,snake
+wbcbd794,Sports (silence),Football,football
+wbcbd794,Sports (silence),Hockey,hockey
+wbcbd794,Subjects (magic),,NONE
+wbcbd794,Vehicles (veto),Airplane,airplane
+w2b2aadf,PRACTICE,London,UNK
+w2b2aadf,PRACTICE,Paris,UNK
+w2b2aadf,PRACTICE,Berlin,UNK
+w2b2aadf,PRACTICE,Rome,UNK
+w2b2aadf,PRACTICE,Milan,UNK
+w2b2aadf,PRACTICE,Florence,UNK
+w2b2aadf,PRACTICE,Munich,UNK
+w2b2aadf,PRACTICE,Amsterdam,UNK
+w2b2aadf,PRACTICE,Stockholm,UNK
+w2b2aadf,PRACTICE,Brussels,UNK
+w2b2aadf,Animals (intimate),Zebras,zebra
+w2b2aadf,Animals (intimate),Elephants,elephant
+w2b2aadf,Animals (intimate),Polar Bears,polar bear
+w2b2aadf,Animals (intimate),Penguins,penguin
+w2b2aadf,Subjects (school),Math,math
+w2b2aadf,Subjects (school),Science,science
+w2b2aadf,Vehicles (commute),Car,car
+w2b2aadf,Vehicles (commute),Bike,bicycle
+w2b2aadf,Vehicles (commute),Bus,bus
+w2b2aadf,Vehicles (commute),Trolley,trolley
+w2b2aadf,Sports (season),Hockey,hockey
+we4167b8,PRACTICE,,NONE
+we4167b8,Sports (season),,NONE
+we4167b8,Vehicles (commute),"Car, Scooter, Bus, Bike",UNK
+we4167b8,Animals (intimate),"ducks, gorilla, meerkats, zebra",UNK
+we4167b8,Subjects (school),,NONE
+w1753057,PRACTICE,Barcelona,UNK
+w1753057,PRACTICE,Rome,UNK
+w1753057,PRACTICE,Paris,UNK
+w1753057,PRACTICE,Oslo,UNK
+w1753057,PRACTICE,London,UNK
+w1753057,PRACTICE,Athens,UNK
+w1753057,PRACTICE,Madrid,UNK
+w1753057,Vehicles (veto),Automobile,car
+w1753057,Vehicles (veto),Airplane,airplane
+w1753057,Vehicles (veto),Bus,bus
+w1753057,Vehicles (veto),Train,train
+w1753057,Subjects (magic),Physics,physics
+w1753057,Subjects (magic),Chemistry,chemistry
+w1753057,Subjects (magic),Biology,biology
+w1753057,Animals (bubble),Lions,lion
+w1753057,Animals (bubble),Tigers,tiger
+w1753057,Animals (bubble),Jaguars,UNK
+w1753057,Animals (bubble),Giraffe,giraffe
+w1753057,Animals (bubble),,NONE
+w1753057,Sports (silence),,NONE
+w0efa1aa,PRACTICE,Paris,UNK
+w0efa1aa,PRACTICE,Mumbai,UNK
+w0efa1aa,Sports (silence),Football,football
+w0efa1aa,Animals (bubble),,NONE
+w0efa1aa,Vehicles (veto),,NONE
+w0efa1aa,Subjects (magic),Music,music
+wa415fe1,PRACTICE,"Kiev, Lisbon, Berlin",UNK
+wa415fe1,Sports (season),"football, soccer",UNK
+wa415fe1,Subjects (school),,NONE
+wa415fe1,Vehicles (commute),"bike, train, cab",UNK
+wa415fe1,Animals (intimate),,NONE
+w08039ca,PRACTICE,Rome,UNK
+w08039ca,PRACTICE,Paris,UNK
+w08039ca,PRACTICE,London,UNK
+w08039ca,PRACTICE,Madrid,UNK
+w08039ca,PRACTICE,,NONE
+w08039ca,Animals (intimate),Panda,panda
+w08039ca,Animals (intimate),Lion,lion
+w08039ca,Animals (intimate),Tiger,tiger
+w08039ca,Animals (intimate),Elephant,elephant
+w08039ca,Subjects (school),Math,math
+w08039ca,Subjects (school),Physics,physics
+w08039ca,Subjects (school),English,english
+w08039ca,Sports (season),Hockey,hockey
+w08039ca,Sports (season),Basketball,basketball
+w08039ca,Sports (season),Football,football
+w08039ca,Sports (season),,NONE
+w08039ca,Vehicles (commute),Car,car
+w08039ca,Vehicles (commute),Bus,bus
+w08039ca,Vehicles (commute),taxi,taxi
+w08039ca,Vehicles (commute),uber,uber
+w08039ca,Vehicles (commute),,NONE
+w84e122a,PRACTICE,Berlin,UNK
+w84e122a,PRACTICE,Prague,UNK
+w84e122a,PRACTICE,Paris,UNK
+w84e122a,PRACTICE,Geneva,UNK
+w84e122a,Animals (bubble),zebra,zebra
+w84e122a,Animals (bubble),blue whale,UNK
+w84e122a,Sports (silence),boxing,boxing
+w84e122a,Sports (silence),nascar,UNK
+w84e122a,Sports (silence),football/soccer,UNK
+w84e122a,Vehicles (veto),car,car
+w84e122a,Vehicles (veto),bike,bicycle
+w84e122a,Vehicles (veto),skateboard,skateboard
+w84e122a,Subjects (magic),history,history
+w84e122a,Subjects (magic),chemistry,chemistry
+w84e122a,Subjects (magic),biology,biology
+w84e122a,Subjects (magic),psychology,psychology
+wc9ca823,PRACTICE,Copenhagen,UNK
+wc9ca823,PRACTICE,Edinburgh,UNK
+wc9ca823,PRACTICE,London,UNK
+wc9ca823,PRACTICE,Vienna,UNK
+wc9ca823,Sports (silence),,NONE
+wc9ca823,Vehicles (veto),,NONE
+wc9ca823,Animals (bubble),,NONE
+wc9ca823,Subjects (magic),,NONE
+web6f087,PRACTICE,Paris,UNK
+web6f087,Animals (intimate),tigers,tiger
+web6f087,Animals (intimate),lions,lion
+web6f087,Sports (season),Basketball,basketball
+web6f087,Subjects (school),Math,math
+web6f087,Vehicles (commute),,NONE
+w9af81d7,PRACTICE,,NONE
+w9af81d7,Sports (season),basketball,basketball
+w9af81d7,Sports (season),football,football
+w9af81d7,Sports (season),hockey,hockey
+w9af81d7,Sports (season),baseball,baseball
+w9af81d7,Animals (intimate),koala,koala
+w9af81d7,Animals (intimate),sloth,UNK
+w9af81d7,Animals (intimate),monkey,monkey
+w9af81d7,Animals (intimate),panda,panda
+w9af81d7,Animals (intimate),zebra,zebra
+w9af81d7,Vehicles (commute),,NONE
+w9af81d7,Subjects (school),math,math
+w9af81d7,Subjects (school),english,english
+w9af81d7,Subjects (school),science,science
+w386fa2b,PRACTICE,geneva,UNK
+w386fa2b,PRACTICE,paris,UNK
+w386fa2b,PRACTICE,zagreb,UNK
+w386fa2b,Vehicles (veto),car,car
+w386fa2b,Vehicles (veto),airplane,airplane
+w386fa2b,Vehicles (veto),boat,boat
+w386fa2b,Vehicles (veto),bike,bicycle
+w386fa2b,Animals (bubble),shark,shark
+w386fa2b,Animals (bubble),whale,UNK
+w386fa2b,Subjects (magic),,NONE
+w386fa2b,Sports (silence),golf,golf
+wb0fd71b,PRACTICE,,NONE
+wb0fd71b,Subjects (school),,NONE
+wb0fd71b,Animals (intimate),,NONE
+wb0fd71b,Sports (season),,NONE
+wb0fd71b,Vehicles (commute),plane,airplane
+wb0fd71b,Vehicles (commute),helicoptor,helicopter
+wb0fd71b,Vehicles (commute),bus,bus
+wc44d368,PRACTICE,"Rome, France, germany switzerland",UNK
+wc44d368,Vehicles (commute),,NONE
+wc44d368,Animals (intimate),lion,lion
+wc44d368,Animals (intimate),monkeys,monkey
+wc44d368,Animals (intimate),bears,bear
+wc44d368,Animals (intimate),giraffe,giraffe
+wc44d368,Sports (season),boxing,boxing
+wc44d368,Sports (season),bull riding,UNK
+wc44d368,Sports (season),,NONE
+wc44d368,Subjects (school),math,math
+w89fd051,PRACTICE,Paris,UNK
+w89fd051,PRACTICE,London,UNK
+w89fd051,PRACTICE,Barcelona,UNK
+w89fd051,PRACTICE,Athens,UNK
+w89fd051,PRACTICE,Rome,UNK
+w89fd051,PRACTICE,Lisbon,UNK
+w89fd051,PRACTICE,Brussels,UNK
+w89fd051,PRACTICE,Geneva,UNK
+w89fd051,PRACTICE,Milan,UNK
+w89fd051,PRACTICE,Madrid,UNK
+w89fd051,Vehicles (veto),,NONE
+w89fd051,Sports (silence),,NONE
+w89fd051,Animals (bubble),,NONE
+w89fd051,Subjects (magic),,NONE
+w46e41e7,PRACTICE,"Venice, Italy",UNK
+w46e41e7,PRACTICE,Greece,UNK
+w46e41e7,PRACTICE,Norway,UNK
+w46e41e7,PRACTICE,Paris,UNK
+w46e41e7,PRACTICE,Prague,UNK
+w46e41e7,PRACTICE,Madrid,UNK
+w46e41e7,PRACTICE,London,UNK
+w46e41e7,PRACTICE,Rome,UNK
+w46e41e7,PRACTICE,Amsterdam,UNK
+w46e41e7,PRACTICE,Florence,UNK
+w46e41e7,PRACTICE,Oslo,UNK
+w46e41e7,PRACTICE,,NONE
+w46e41e7,Sports (silence),,NONE
+w46e41e7,Vehicles (veto),,NONE
+w46e41e7,Animals (bubble),,NONE
+w46e41e7,Subjects (magic),Medical Science,UNK
+w46e41e7,Subjects (magic),Biology,biology
+w46e41e7,Subjects (magic),Astronomy,UNK
+w46e41e7,Subjects (magic),Physics Engineering,UNK
+w46e41e7,Subjects (magic),Education,UNK
+w46e41e7,Subjects (magic),Photography,UNK
+w46e41e7,Subjects (magic),Dermatology,UNK
+w46e41e7,Subjects (magic),,NONE
+wd462b2b,PRACTICE,Palermo,UNK
+wd462b2b,PRACTICE,Barcelona,UNK
+wd462b2b,PRACTICE,London,UNK
+wd462b2b,PRACTICE,Munich,UNK
+wd462b2b,Sports (season),Soccer,soccer
+wd462b2b,Sports (season),Rugby,rugby
+wd462b2b,Sports (season),Formula 1,UNK
+wd462b2b,Vehicles (commute),,NONE
+wd462b2b,Animals (intimate),Zebra,zebra
+wd462b2b,Animals (intimate),Lion,lion
+wd462b2b,Subjects (school),,NONE
+wf756e07,PRACTICE,Paris.,UNK
+wf756e07,Vehicles (veto),,NONE
+wf756e07,Subjects (magic),,NONE
+wf756e07,Animals (bubble),hippo,hippo
+wf756e07,Sports (silence),football,football
+wd607ce3,PRACTICE,,NONE
+wd607ce3,Animals (bubble),penguin,penguin
+wd607ce3,Animals (bubble),tiger,tiger
+wd607ce3,Animals (bubble),,NONE
+wd607ce3,Sports (silence),soccer,soccer
+wd607ce3,Subjects (magic),,NONE
+wd607ce3,Vehicles (veto),,NONE
+w18740cf,PRACTICE,,NONE
+w18740cf,Vehicles (commute),car,car
+w18740cf,Sports (season),,NONE
+w18740cf,Animals (intimate),,NONE
+w18740cf,Subjects (school),,NONE
+we14a9b1,PRACTICE,paris,UNK
+we14a9b1,PRACTICE,rome,UNK
+we14a9b1,PRACTICE,prague,UNK
+we14a9b1,PRACTICE,venice,UNK
+we14a9b1,Subjects (school),Chemistry,chemistry
+we14a9b1,Subjects (school),Biology,biology
+we14a9b1,Subjects (school),Dendrology,UNK
+we14a9b1,Subjects (school),Botony,UNK
+we14a9b1,Sports (season),Football,football
+we14a9b1,Sports (season),Basketball,basketball
+we14a9b1,Vehicles (commute),bus,bus
+we14a9b1,Animals (intimate),,NONE
+wb2738b9,PRACTICE,Vatican City,UNK
+wb2738b9,PRACTICE,London,UNK
+wb2738b9,PRACTICE,Berlin,UNK
+wb2738b9,PRACTICE,Paris,UNK
+wb2738b9,PRACTICE,Rome,UNK
+wb2738b9,PRACTICE,Athens,UNK
+wb2738b9,PRACTICE,,NONE
+wb2738b9,Vehicles (commute),Bike,bicycle
+wb2738b9,Vehicles (commute),Car,car
+wb2738b9,Vehicles (commute),Motorcycle,motorcycle
+wb2738b9,Vehicles (commute),Moped,moped
+wb2738b9,Animals (intimate),Lion,lion
+wb2738b9,Animals (intimate),Tiger,tiger
+wb2738b9,Animals (intimate),Bear,bear
+wb2738b9,Animals (intimate),Polar Bear,polar bear
+wb2738b9,Animals (intimate),Penguin,penguin
+wb2738b9,Animals (intimate),Snake,snake
+wb2738b9,Animals (intimate),Gorilla,gorilla
+wb2738b9,Animals (intimate),Elephant,elephant
+wb2738b9,Sports (season),Ice Hockey,hockey
+wb2738b9,Sports (season),Baseball,baseball
+wb2738b9,Sports (season),Football,football
+wb2738b9,Sports (season),Soccer,soccer
+wb2738b9,Sports (season),,NONE
+wb2738b9,Subjects (school),Chemistry,chemistry
+wb2738b9,Subjects (school),Calculus,calculus
+wb2738b9,Subjects (school),Algebra,algebra
+wb2738b9,Subjects (school),English,english
+wb2738b9,Subjects (school),Art,art
+wb2738b9,Subjects (school),History,history
+w316eaf4,PRACTICE,,NONE
+w316eaf4,Animals (bubble),,NONE
+w316eaf4,Subjects (magic),,NONE
+w316eaf4,Sports (silence),,NONE
+w316eaf4,Vehicles (veto),,NONE
+w57c39ac,PRACTICE,"Marktredwitz, Germany",UNK
+w57c39ac,PRACTICE,"London, UK",UNK
+w57c39ac,PRACTICE,"Paris, France",UNK
+w57c39ac,PRACTICE,"Berlin, Germany",UNK
+w57c39ac,PRACTICE,"Bergen, Norway",UNK
+w57c39ac,PRACTICE,"Prague, Czech Republic",UNK
+w57c39ac,PRACTICE,"Sofia, Bulgaria",UNK
+w57c39ac,PRACTICE,"Moscow, Russia",UNK
+w57c39ac,PRACTICE,"Copenhagen, Denmark",UNK
+w57c39ac,Vehicles (commute),train,train
+w57c39ac,Vehicles (commute),subway,subway
+w57c39ac,Vehicles (commute),taxi,taxi
+w57c39ac,Vehicles (commute),bicycle,bicycle
+w57c39ac,Vehicles (commute),walking,walking
+w57c39ac,Vehicles (commute),Uber,uber
+w57c39ac,Vehicles (commute),bus,bus
+w57c39ac,Vehicles (commute),,NONE
+w57c39ac,Subjects (school),Algebra,algebra
+w57c39ac,Subjects (school),English,english
+w57c39ac,Subjects (school),foreign languages,UNK
+w57c39ac,Subjects (school),Social Studies/geography,UNK
+w57c39ac,Sports (season),ice skating,figure skating
+w57c39ac,Sports (season),hockey,hockey
+w57c39ac,Sports (season),wrestling,wrestling
+w57c39ac,Sports (season),baseball,baseball
+w57c39ac,Sports (season),football (American),UNK
+w57c39ac,Sports (season),basketball,basketball
+w57c39ac,Animals (intimate),elephant,elephant
+w57c39ac,Animals (intimate),giraffe,giraffe
+w57c39ac,Animals (intimate),tiger,tiger
+w57c39ac,Animals (intimate),lion,lion
+w57c39ac,Animals (intimate),monkey,monkey
+w57c39ac,Animals (intimate),zebra,zebra
+wc49ddf3,PRACTICE,,NONE
+wc49ddf3,Subjects (magic),Science ,science
+wc49ddf3,Subjects (magic),Medicine,UNK
+wc49ddf3,Sports (silence),,NONE
+wc49ddf3,Vehicles (veto),,NONE
+wc49ddf3,Animals (bubble),,NONE
+w741433e,PRACTICE,Oslo,UNK
+w741433e,PRACTICE,Helsinki,UNK
+w741433e,PRACTICE,San Juan,UNK
+w741433e,Subjects (magic),Computer Science,computer science
+w741433e,Subjects (magic),Economics,economics
+w741433e,Animals (bubble),Snow Leopard,UNK
+w741433e,Animals (bubble),Lynx,UNK
+w741433e,Vehicles (veto),Electric Car,UNK
+w741433e,Sports (silence),Football,football
+w56fdba3,PRACTICE,London,UNK
+w56fdba3,PRACTICE,Rome,UNK
+w56fdba3,PRACTICE,Paris,UNK
+w56fdba3,PRACTICE,Berlin,UNK
+w56fdba3,Animals (intimate),Lion,lion
+w56fdba3,Animals (intimate),Gorilla,gorilla
+w56fdba3,Animals (intimate),Bear,bear
+w56fdba3,Animals (intimate),Tiger,tiger
+w56fdba3,Vehicles (commute),Train,train
+w56fdba3,Vehicles (commute),Helicopter,helicopter
+w56fdba3,Vehicles (commute),Car,car
+w56fdba3,Sports (season),Soccer,soccer
+w56fdba3,Sports (season),Hockey,hockey
+w56fdba3,Sports (season),Baseball,baseball
+w56fdba3,Sports (season),,NONE
+w56fdba3,Subjects (school),,NONE
+w8e21a74,PRACTICE,Prague,UNK
+w8e21a74,PRACTICE,Amsterdam,UNK
+w8e21a74,PRACTICE,London,UNK
+w8e21a74,PRACTICE,Oslo,UNK
+w8e21a74,PRACTICE,Madrid,UNK
+w8e21a74,Animals (bubble),Sloth,UNK
+w8e21a74,Animals (bubble),Jaguar,UNK
+w8e21a74,Animals (bubble),Tiger,tiger
+w8e21a74,Animals (bubble),Penguin,penguin
+w8e21a74,Animals (bubble),Octopus,UNK
+w8e21a74,Sports (silence),,NONE
+w8e21a74,Subjects (magic),psychology,psychology
+w8e21a74,Vehicles (veto),,NONE
+wc4f1c30,PRACTICE,London,UNK
+wc4f1c30,PRACTICE,Paris,UNK
+wc4f1c30,PRACTICE,Madrid,UNK
+wc4f1c30,PRACTICE,Athens,UNK
+wc4f1c30,Vehicles (veto),,NONE
+wc4f1c30,Sports (silence),football,football
+wc4f1c30,Sports (silence),basketball,basketball
+wc4f1c30,Subjects (magic),,NONE
+wc4f1c30,Animals (bubble),,NONE
+w168d4fc,PRACTICE,london,UNK
+w168d4fc,PRACTICE,milan,UNK
+w168d4fc,Animals (intimate),,NONE
+w168d4fc,Sports (season),,NONE
+w168d4fc,Subjects (school),,NONE
+w168d4fc,Vehicles (commute),uber,uber
+w168d4fc,Vehicles (commute),,NONE
+w3a87b80,PRACTICE,Paris,UNK
+w3a87b80,PRACTICE,Vienna,UNK
+w3a87b80,PRACTICE,London,UNK
+w3a87b80,Animals (intimate),monkey,monkey
+w3a87b80,Animals (intimate),lion,lion
+w3a87b80,Animals (intimate),gorilla,gorilla
+w3a87b80,Animals (intimate),snakes,snake
+w3a87b80,Subjects (school),math,math
+w3a87b80,Subjects (school),English ,english
+w3a87b80,Subjects (school),history,history
+w3a87b80,Vehicles (commute),car,car
+w3a87b80,Sports (season),football,football
+wb759dee,PRACTICE,Amsterdam,UNK
+wb759dee,PRACTICE,London,UNK
+wb759dee,PRACTICE,rome,UNK
+wb759dee,PRACTICE,venice,UNK
+wb759dee,PRACTICE,florence,UNK
+wb759dee,PRACTICE,edinburgh,UNK
+wb759dee,Subjects (school),music,music
+wb759dee,Subjects (school),art,art
+wb759dee,Subjects (school),English,english
+wb759dee,Subjects (school),chemistry,chemistry
+wb759dee,Subjects (school),biology,biology
+wb759dee,Sports (season),soccer,soccer
+wb759dee,Sports (season),hockey,hockey
+wb759dee,Sports (season),basketball,basketball
+wb759dee,Vehicles (commute),car,car
+wb759dee,Vehicles (commute),bus,bus
+wb759dee,Vehicles (commute),train,train
+wb759dee,Vehicles (commute),plane,airplane
+wb759dee,Animals (intimate),panda,panda
+wb759dee,Animals (intimate),lion,lion
+wb759dee,Animals (intimate),tiger,tiger
+wb759dee,Animals (intimate),giraffe,giraffe
+w4ae5240,PRACTICE,"Rome, Monte-Carlo, Paris, Amsterdam",UNK
+w4ae5240,Subjects (school),,NONE
+w4ae5240,Animals (intimate),"Elephant, Octopus",UNK
+w4ae5240,Sports (season),"Basketball, Football",UNK
+w4ae5240,Vehicles (commute),"Car, Plane",UNK
+w74a45a0,PRACTICE,Lisbon,UNK
+w74a45a0,PRACTICE,Paris,UNK
+w74a45a0,PRACTICE,London,UNK
+w74a45a0,PRACTICE,Berlin,UNK
+w74a45a0,PRACTICE,,NONE
+w74a45a0,Vehicles (commute),car,car
+w74a45a0,Vehicles (commute),helicopter,helicopter
+w74a45a0,Vehicles (commute),bike,bicycle
+w74a45a0,Animals (intimate),red panda,UNK
+w74a45a0,Animals (intimate),,NONE
+w74a45a0,Sports (season),hockey,hockey
+w74a45a0,Sports (season),tennis ,tennis
+w74a45a0,Sports (season),basketball ,basketball
+w74a45a0,Subjects (school),calculus,calculus
+w74a45a0,Subjects (school),economics,economics
+w74a45a0,Subjects (school),french,french
+wbdcfeec,PRACTICE,,NONE
+wbdcfeec,Sports (silence),,NONE
+wbdcfeec,Vehicles (veto),,NONE
+wbdcfeec,Subjects (magic),,NONE
+wbdcfeec,Animals (bubble),,NONE
+w53d0308,PRACTICE,Paris,UNK
+w53d0308,PRACTICE,London,UNK
+w53d0308,PRACTICE,Dublin,UNK
+w53d0308,Sports (silence),Football,football
+w53d0308,Sports (silence),soccer,soccer
+w53d0308,Sports (silence),baseball,baseball
+w53d0308,Sports (silence),basketball,basketball
+w53d0308,Sports (silence),tennis,tennis
+w53d0308,Vehicles (veto),car,car
+w53d0308,Vehicles (veto),bus,bus
+w53d0308,Vehicles (veto),train,train
+w53d0308,Subjects (magic),,NONE
+w53d0308,Animals (bubble),,NONE
+w48d3b84,PRACTICE,"Dresden/Chemnitz, Germany",UNK
+w48d3b84,PRACTICE,,NONE
+w48d3b84,Subjects (magic),Home Improvement,UNK
+w48d3b84,Animals (bubble),Zorse,horse
+w48d3b84,Animals (bubble),Horse,horse
+w48d3b84,Animals (bubble),Zebra,zebra
+w48d3b84,Animals (bubble),Sabertooth Tiger,UNK
+w48d3b84,Animals (bubble),Wooly Mammoth,UNK
+w48d3b84,Vehicles (veto),Car,car
+w48d3b84,Vehicles (veto),Train,train
+w48d3b84,Sports (silence),,NONE
+w0caf111,PRACTICE,paris,UNK
+w0caf111,Animals (intimate),,NONE
+w0caf111,Subjects (school),math,math
+w0caf111,Vehicles (commute),,NONE
+w0caf111,Sports (season),,NONE
+w109af5a,PRACTICE,"Barcelona, Spain",UNK
+w109af5a,PRACTICE,"Paris, France",UNK
+w109af5a,PRACTICE,Cities from Switzerland,UNK
+w109af5a,PRACTICE,,NONE
+w109af5a,Vehicles (veto),Car,car
+w109af5a,Vehicles (veto),Plane,airplane
+w109af5a,Sports (silence),Soccer,soccer
+w109af5a,Sports (silence),Basketball,basketball
+w109af5a,Sports (silence),Football,football
+w109af5a,Subjects (magic),Computer science,computer science
+w109af5a,Subjects (magic),Math,math
+w109af5a,Subjects (magic),Physics,physics
+w109af5a,Animals (bubble),,NONE
+w259d3ee,PRACTICE,Amsterdam,UNK
+w259d3ee,PRACTICE,Paris,UNK
+w259d3ee,PRACTICE,London,UNK
+w259d3ee,PRACTICE,Barcelona,UNK
+w259d3ee,Sports (season),,NONE
+w259d3ee,Vehicles (commute),train,train
+w259d3ee,Vehicles (commute),car,car
+w259d3ee,Subjects (school),philosophy,philosophy
+w259d3ee,Subjects (school),history,history
+w259d3ee,Animals (intimate),zebra,zebra
+w259d3ee,Animals (intimate),lion,lion
+w259d3ee,Animals (intimate),tiger,tiger
+wbd249b0,PRACTICE,England,UNK
+wbd249b0,PRACTICE,Paris,UNK
+wbd249b0,PRACTICE,Venice,UNK
+wbd249b0,PRACTICE,,NONE
+wbd249b0,Subjects (magic),,NONE
+wbd249b0,Vehicles (veto),,NONE
+wbd249b0,Sports (silence),Baseball,baseball
+wbd249b0,Sports (silence),football,football
+wbd249b0,Animals (bubble),Elephant ,elephant
+w1ed134a,PRACTICE,,NONE
+w1ed134a,Sports (season),"NFL, NBA",UNK
+w1ed134a,Subjects (school),,NONE
+w1ed134a,Vehicles (commute),,NONE
+w1ed134a,Animals (intimate),,NONE
+w584ca53,PRACTICE,,NONE
+w584ca53,Sports (silence),"Snowboarding, basketball, football",UNK
+w584ca53,Vehicles (veto),"car, bicycle",UNK
+w584ca53,Animals (bubble),,NONE
+w584ca53,Subjects (magic),,NONE
+w1981ad1,PRACTICE,Italy,UNK
+w1981ad1,PRACTICE,France,UNK
+w1981ad1,Subjects (school),Geography,geography
+w1981ad1,Subjects (school),Algerbra,algebra
+w1981ad1,Subjects (school),Calculus,calculus
+w1981ad1,Sports (season),football,football
+w1981ad1,Animals (intimate),panda bear,UNK
+w1981ad1,Animals (intimate),koala,koala
+w1981ad1,Vehicles (commute),moped,moped
+w1981ad1,Vehicles (commute),car,car
+w34c76a5,PRACTICE,Venice,UNK
+w34c76a5,PRACTICE,Florence,UNK
+w34c76a5,PRACTICE,Rome,UNK
+w34c76a5,PRACTICE,Paris,UNK
+w34c76a5,Vehicles (veto),car,car
+w34c76a5,Vehicles (veto),subway,subway
+w34c76a5,Vehicles (veto),train,train
+w34c76a5,Subjects (magic),,NONE
+w34c76a5,Animals (bubble),elephants,elephant
+w34c76a5,Animals (bubble),zebras,zebra
+w34c76a5,Animals (bubble),monkeys,monkey
+w34c76a5,Animals (bubble),,NONE
+w34c76a5,Sports (silence),football,football
+w34c76a5,Sports (silence),baseball,baseball
+w34c76a5,Sports (silence),,NONE
+w178a25d,PRACTICE,Athens,UNK
+w178a25d,PRACTICE,Paris,UNK
+w178a25d,PRACTICE,Venice,UNK
+w178a25d,PRACTICE,Berlin,UNK
+w178a25d,PRACTICE,Amsterdam,UNK
+w178a25d,PRACTICE,London,UNK
+w178a25d,PRACTICE,,NONE
+w178a25d,Subjects (school),Calculus,calculus
+w178a25d,Subjects (school),Organic Chemistry,UNK
+w178a25d,Subjects (school),,NONE
+w178a25d,Sports (season),Football,football
+w178a25d,Sports (season),Baseball,baseball
+w178a25d,Sports (season),Hockey,hockey
+w178a25d,Vehicles (commute),Subway,subway
+w178a25d,Vehicles (commute),Bus,bus
+w178a25d,Vehicles (commute),Taxi,taxi
+w178a25d,Animals (intimate),Seal,seal
+w178a25d,Animals (intimate),Elephant,elephant
+w7ef6db0,PRACTICE,,NONE
+w7ef6db0,Vehicles (veto),walking,walking
+w7ef6db0,Animals (bubble),,NONE
+w7ef6db0,Sports (silence),,NONE
+w7ef6db0,Subjects (magic),science,science
+w78e59ca,PRACTICE,Paris,UNK
+w78e59ca,PRACTICE,Venice,UNK
+w78e59ca,PRACTICE,Amsterdam,UNK
+w78e59ca,PRACTICE,London,UNK
+w78e59ca,PRACTICE,Warsaw,UNK
+w78e59ca,Animals (intimate),Bear,bear
+w78e59ca,Animals (intimate),Lion,lion
+w78e59ca,Animals (intimate),Monkey,monkey
+w78e59ca,Animals (intimate),Leopard,leopard
+w78e59ca,Animals (intimate),Birds,bird
+w78e59ca,Vehicles (commute),train,train
+w78e59ca,Vehicles (commute),car,car
+w78e59ca,Vehicles (commute),bus,bus
+w78e59ca,Vehicles (commute),boat,boat
+w78e59ca,Sports (season),Basketball,basketball
+w78e59ca,Sports (season),Baseball,baseball
+w78e59ca,Sports (season),Football,football
+w78e59ca,Sports (season),Volleyball,volleyball
+w78e59ca,Sports (season),Tennis,tennis
+w78e59ca,Sports (season),Golf,golf
+w78e59ca,Subjects (school),Art,art
+w78e59ca,Subjects (school),English,english
+w78e59ca,Subjects (school),Math,math
+w78e59ca,Subjects (school),Nutrition,UNK
+wd1d26d5,PRACTICE,Paris,UNK
+wd1d26d5,PRACTICE,London,UNK
+wd1d26d5,PRACTICE,,NONE
+wd1d26d5,Vehicles (commute),Car,car
+wd1d26d5,Vehicles (commute),Bus,bus
+wd1d26d5,Vehicles (commute),Train,train
+wd1d26d5,Vehicles (commute),Bike,bicycle
+wd1d26d5,Vehicles (commute),,NONE
+wd1d26d5,Subjects (school),Math,math
+wd1d26d5,Subjects (school),English,english
+wd1d26d5,Subjects (school),Social Studies,UNK
+wd1d26d5,Sports (season),Basketball,basketball
+wd1d26d5,Sports (season),Baseball,baseball
+wd1d26d5,Animals (intimate),lions,lion
+wd1d26d5,Animals (intimate),penguins,penguin
+wcc26397,PRACTICE,London,UNK
+wcc26397,PRACTICE,Paris,UNK
+wcc26397,PRACTICE,,NONE
+wcc26397,Animals (bubble),,NONE
+wcc26397,Sports (silence),,NONE
+wcc26397,Subjects (magic),Science ,science
+wcc26397,Vehicles (veto),,NONE
+wb49e4e2,PRACTICE,Bucharest,UNK
+wb49e4e2,PRACTICE,Berlin,UNK
+wb49e4e2,PRACTICE,London,UNK
+wb49e4e2,Subjects (school),Math,math
+wb49e4e2,Animals (intimate),Penguins,penguin
+wb49e4e2,Animals (intimate),Bears,bear
+wb49e4e2,Vehicles (commute),Walking,walking
+wb49e4e2,Vehicles (commute),Biking,UNK
+wb49e4e2,Vehicles (commute),Bus,bus
+wb49e4e2,Sports (season),,NONE
+w90b82c9,PRACTICE,Only Leeds because that's where my best friend lives.,UNK
+w90b82c9,Sports (silence),,NONE
+w90b82c9,Vehicles (veto),Car,car
+w90b82c9,Animals (bubble),Tiger,tiger
+w90b82c9,Animals (bubble),Owl,UNK
+w90b82c9,Animals (bubble),Monkeys,monkey
+w90b82c9,Animals (bubble),Crocodiles,crocodile
+w90b82c9,Animals (bubble),Alligators ,alligator
+w90b82c9,Subjects (magic),Astronomy,UNK
+w192373b,PRACTICE,Paris,UNK
+w192373b,PRACTICE,Berlin,UNK
+w192373b,Animals (bubble),Tiger,tiger
+w192373b,Animals (bubble),Whale,UNK
+w192373b,Sports (silence),,NONE
+w192373b,Vehicles (veto),,NONE
+w192373b,Subjects (magic),surgeon,UNK
+wa34dc10,PRACTICE,,NONE
+wa34dc10,Vehicles (commute),,NONE
+wa34dc10,Sports (season),,NONE
+wa34dc10,Animals (intimate),,NONE
+wa34dc10,Subjects (school),,NONE
+w87b0c79,PRACTICE,,NONE
+w87b0c79,Sports (season),Baseball,baseball
+w87b0c79,Sports (season),Football,football
+w87b0c79,Sports (season),Soccer,soccer
+w87b0c79,Subjects (school),,NONE
+w87b0c79,Vehicles (commute),bus,bus
+w87b0c79,Animals (intimate),,NONE
+w98430c9,PRACTICE,"England, Paris, Amsterdam, Germany, New Zealand, Ireland. ",UNK
+w98430c9,Animals (intimate),"Monkey, gorilla, lion, tiger, bear, fisih",UNK
+w98430c9,Subjects (school),,NONE
+w98430c9,Vehicles (commute),"Bus, train, truck, car",UNK
+w98430c9,Sports (season),"Hockey, baseball, basketball, swimming, figure skating",UNK
+w247ad9e,PRACTICE,paris,UNK
+w247ad9e,PRACTICE, london,UNK
+w247ad9e,PRACTICE,prague,UNK
+w247ad9e,PRACTICE, lisbon,UNK
+w247ad9e,PRACTICE,madrid,UNK
+w247ad9e,PRACTICE, milan,UNK
+w247ad9e,PRACTICE,rome,UNK
+w247ad9e,PRACTICE,athens,UNK
+w247ad9e,Vehicles (veto),motorcycle,motorcycle
+w247ad9e,Vehicles (veto),car,car
+w247ad9e,Vehicles (veto),,NONE
+w247ad9e,Sports (silence),soccer,soccer
+w247ad9e,Sports (silence),basketball,basketball
+w247ad9e,Sports (silence),skiing,skiing
+w247ad9e,Sports (silence),surfing,UNK
+w247ad9e,Animals (bubble),giraffe,giraffe
+w247ad9e,Animals (bubble),koala,koala
+w247ad9e,Animals (bubble),elephant,elephant
+w247ad9e,Animals (bubble),tiger,tiger
+w247ad9e,Animals (bubble),lion,lion
+w247ad9e,Animals (bubble),bird,bird
+w247ad9e,Subjects (magic),physics,physics
+w247ad9e,Subjects (magic),medicine,UNK
+w247ad9e,Subjects (magic),computer science,computer science
+w80b1be3,PRACTICE,,NONE
+w80b1be3,Vehicles (commute),car driving myself,UNK
+w80b1be3,Vehicles (commute),"public transportation, bus",UNK
+w80b1be3,Vehicles (commute),uber,uber
+w80b1be3,Vehicles (commute),train,train
+w80b1be3,Vehicles (commute),airplaine,airplane
+w80b1be3,Vehicles (commute),motorcycle,motorcycle
+w80b1be3,Vehicles (commute),bike,bicycle
+w80b1be3,Vehicles (commute),moped,moped
+w80b1be3,Vehicles (commute),taxi,taxi
+w80b1be3,Vehicles (commute),,NONE
+w80b1be3,Subjects (school),computer programming,UNK
+w80b1be3,Subjects (school),private investigation,UNK
+w80b1be3,Subjects (school),,NONE
+w80b1be3,Animals (intimate),penquins,penguin
+w80b1be3,Animals (intimate),lion,lion
+w80b1be3,Animals (intimate),bear,bear
+w80b1be3,Animals (intimate),,NONE
+w80b1be3,Sports (season),basketball,basketball
+w80b1be3,Sports (season),football,football
+w80b1be3,Sports (season),swimming,swimming
+w80b1be3,Sports (season),,NONE
+w65d4270,PRACTICE,,NONE
+w65d4270,Sports (silence),football,football
+w65d4270,Sports (silence),soccer,soccer
+w65d4270,Sports (silence),baseball,baseball
+w65d4270,Animals (bubble),,NONE
+w65d4270,Vehicles (veto),,NONE
+w65d4270,Subjects (magic),,NONE
+wbb8eb7f,PRACTICE,,NONE
+wbb8eb7f,Animals (bubble),tiger,tiger
+wbb8eb7f,Animals (bubble),elephant,elephant
+wbb8eb7f,Subjects (magic),,NONE
+wbb8eb7f,Vehicles (veto),bus,bus
+wbb8eb7f,Vehicles (veto),car,car
+wbb8eb7f,Vehicles (veto),train,train
+wbb8eb7f,Sports (silence),golf,golf
+wc2cb089,PRACTICE,"Paris, Chernobyl, London, Barcelona.",UNK
+wc2cb089,Animals (intimate),Tiger,tiger
+wc2cb089,Animals (intimate),Bear,bear
+wc2cb089,Subjects (school),Math,math
+wc2cb089,Subjects (school),History,history
+wc2cb089,Sports (season),Basketball,basketball
+wc2cb089,Sports (season),Football,football
+wc2cb089,Vehicles (commute),Bus,bus
+wc2cb089,Vehicles (commute),Bike,bicycle
+wc2cb089,Vehicles (commute),Rickshaw,UNK
+wc2cb089,Vehicles (commute),Walking,walking
+wa1838b6,PRACTICE,London,UNK
+wa1838b6,PRACTICE,Madrid,UNK
+wa1838b6,PRACTICE,Paris,UNK
+wa1838b6,PRACTICE,Berlin,UNK
+wa1838b6,Animals (intimate),,NONE
+wa1838b6,Sports (season),Soccer,soccer
+wa1838b6,Subjects (school),History,history
+wa1838b6,Vehicles (commute),,NONE
+w357eed1,PRACTICE,,NONE
+w357eed1,Sports (season),basketball and football,UNK
+w357eed1,Subjects (school),,NONE
+w357eed1,Animals (intimate),,NONE
+w357eed1,Vehicles (commute),,NONE
+w22f605c,PRACTICE,Rome,UNK
+w22f605c,PRACTICE,Florence,UNK
+w22f605c,PRACTICE,Istanbul,UNK
+w22f605c,Vehicles (commute),Train,train
+w22f605c,Vehicles (commute),Plane,airplane
+w22f605c,Animals (intimate),Lion,lion
+w22f605c,Sports (season),Baseball,baseball
+w22f605c,Subjects (school),Chemistry,chemistry
+w22f605c,Subjects (school),Calculus,calculus
+wda810b6,PRACTICE,,NONE
+wda810b6,Animals (bubble),,NONE
+wda810b6,Subjects (magic),,NONE
+wda810b6,Vehicles (veto),Car,car
+wda810b6,Sports (silence),,NONE
+wdca52cd,PRACTICE,,NONE
+wdca52cd,Subjects (magic),,NONE
+wdca52cd,Animals (bubble),"Lion, tiger, giraffe",UNK
+wdca52cd,Vehicles (veto),,NONE
+wdca52cd,Sports (silence),,NONE
+w95c2b6e,PRACTICE,Paris,UNK
+w95c2b6e,PRACTICE,London,UNK
+w95c2b6e,PRACTICE,Florence,UNK
+w95c2b6e,PRACTICE,Rome,UNK
+w95c2b6e,PRACTICE,Madrid,UNK
+w95c2b6e,PRACTICE,Berlin,UNK
+w95c2b6e,PRACTICE,Porto,UNK
+w95c2b6e,Subjects (magic),,NONE
+w95c2b6e,Vehicles (veto),,NONE
+w95c2b6e,Animals (bubble),,NONE
+w95c2b6e,Sports (silence),,NONE
+w8669c78,PRACTICE,Amsterdam,UNK
+w8669c78,PRACTICE,Delf,UNK
+w8669c78,PRACTICE,Brusels,UNK
+w8669c78,PRACTICE,Berlin,UNK
+w8669c78,PRACTICE,Munich,UNK
+w8669c78,PRACTICE,Auswichtz,UNK
+w8669c78,PRACTICE,Madrid,UNK
+w8669c78,PRACTICE,Dijon,UNK
+w8669c78,PRACTICE,Paris,UNK
+w8669c78,PRACTICE,Roma,UNK
+w8669c78,PRACTICE,Praga,UNK
+w8669c78,PRACTICE,Milan,UNK
+w8669c78,PRACTICE,Sicilia,UNK
+w8669c78,PRACTICE,Zaragoza,UNK
+w8669c78,PRACTICE,Belgium,UNK
+w8669c78,PRACTICE,,NONE
+w8669c78,Animals (bubble),giraffe,giraffe
+w8669c78,Animals (bubble),penguin,penguin
+w8669c78,Animals (bubble),tiger,tiger
+w8669c78,Animals (bubble),zebra,zebra
+w8669c78,Sports (silence),baseball,baseball
+w8669c78,Sports (silence),american football,UNK
+w8669c78,Sports (silence),soccer,soccer
+w8669c78,Subjects (magic),math,math
+w8669c78,Subjects (magic),science,science
+w8669c78,Subjects (magic),,NONE
+w8669c78,Vehicles (veto),motorcycle,motorcycle
+w8669c78,Vehicles (veto),bus,bus
+w8669c78,Vehicles (veto),car,car
+w8669c78,Vehicles (veto),bicycle,bicycle
+we5bcadc,PRACTICE,London,UNK
+we5bcadc,Sports (season),Football,football
+we5bcadc,Sports (season),Baseball,baseball
+we5bcadc,Sports (season),Basketball,basketball
+we5bcadc,Sports (season),Soccer,soccer
+we5bcadc,Vehicles (commute),Car,car
+we5bcadc,Vehicles (commute),Uber,uber
+we5bcadc,Subjects (school),,NONE
+we5bcadc,Animals (intimate),Lion,lion
+we5bcadc,Animals (intimate),Tiger,tiger
+we5bcadc,Animals (intimate),Zebra,zebra
+we5bcadc,Animals (intimate),Giraffe ,giraffe
+wcea6264,PRACTICE,,NONE
+wcea6264,Animals (bubble),Lion,lion
+wcea6264,Animals (bubble),Zebra,zebra
+wcea6264,Animals (bubble),Anteater,UNK
+wcea6264,Animals (bubble),Elephant ,elephant
+wcea6264,Sports (silence),Football ,football
+wcea6264,Sports (silence),Basketball ,basketball
+wcea6264,Sports (silence),Baseball ,baseball
+wcea6264,Subjects (magic),Math,math
+wcea6264,Subjects (magic),English,english
+wcea6264,Vehicles (veto),Walking ,walking
+wcea6264,Vehicles (veto),Bus,bus
+wcea6264,Vehicles (veto),Train,train
+wcea6264,Vehicles (veto),Car,car
+w0acf137,PRACTICE,Paris,UNK
+w0acf137,PRACTICE,London,UNK
+w0acf137,PRACTICE,City in Switzerland ,UNK
+w0acf137,Subjects (school),Math,math
+w0acf137,Subjects (school),Chemistry/Science,UNK
+w0acf137,Subjects (school),English,english
+w0acf137,Sports (season),Football,football
+w0acf137,Animals (intimate),Tigers,tiger
+w0acf137,Animals (intimate),Koalas,koala
+w0acf137,Animals (intimate),Otters,otter
+w0acf137,Animals (intimate),Bears,bear
+w0acf137,Vehicles (commute),,NONE
+w66d5d22,PRACTICE,Paris,UNK
+w66d5d22,PRACTICE,Barcelona,UNK
+w66d5d22,PRACTICE,Sicily,UNK
+w66d5d22,PRACTICE,London,UNK
+w66d5d22,PRACTICE,,NONE
+w66d5d22,Vehicles (commute),,NONE
+w66d5d22,Animals (intimate),Lion,lion
+w66d5d22,Animals (intimate),Zebra,zebra
+w66d5d22,Animals (intimate),Mountain lion,UNK
+w66d5d22,Animals (intimate),Giraffe,giraffe
+w66d5d22,Animals (intimate),Otter,otter
+w66d5d22,Animals (intimate),Platypus,UNK
+w66d5d22,Sports (season),,NONE
+w66d5d22,Subjects (school),Math,math
+w66d5d22,Subjects (school),Astronomy,UNK
+w66d5d22,Subjects (school),Biology,biology
+wdb4ab59,PRACTICE,,NONE
+wdb4ab59,Subjects (magic),,NONE
+wdb4ab59,Animals (bubble),elephant,elephant
+wdb4ab59,Vehicles (veto),car,car
+wdb4ab59,Sports (silence),football,football
+w47be418,PRACTICE,,NONE
+w47be418,Subjects (school),,NONE
+w47be418,Animals (intimate),,NONE
+w47be418,Sports (season),,NONE
+w47be418,Vehicles (commute),,NONE
+wc8fc090,PRACTICE,Lisbon,UNK
+wc8fc090,PRACTICE,Berlin,UNK
+wc8fc090,PRACTICE,Paris,UNK
+wc8fc090,PRACTICE,London,UNK
+wc8fc090,PRACTICE,Rome,UNK
+wc8fc090,PRACTICE,Florence,UNK
+wc8fc090,PRACTICE,Madrid,UNK
+wc8fc090,PRACTICE,Barcelona,UNK
+wc8fc090,Vehicles (veto),Car,car
+wc8fc090,Vehicles (veto),Train,train
+wc8fc090,Vehicles (veto),Bus,bus
+wc8fc090,Vehicles (veto),Subway,subway
+wc8fc090,Sports (silence),Football,football
+wc8fc090,Sports (silence),Soccer,soccer
+wc8fc090,Sports (silence),Baseball,baseball
+wc8fc090,Sports (silence),Basketball,basketball
+wc8fc090,Subjects (magic),Psychology,psychology
+wc8fc090,Subjects (magic),Biology,biology
+wc8fc090,Subjects (magic),Physics,physics
+wc8fc090,Subjects (magic),Music,music
+wc8fc090,Animals (bubble),Elephant,elephant
+wc8fc090,Animals (bubble),Lion,lion
+wc8fc090,Animals (bubble),Jaguar,UNK
+wc8fc090,Animals (bubble),Red Panda,UNK
+wc8fc090,Animals (bubble),Dolphin,dolphin
+wc8fc090,Animals (bubble),Whale,UNK
+wc8fc090,Animals (bubble),Penguin,penguin
+w84c0f3b,PRACTICE,,NONE
+w84c0f3b,Animals (intimate),Lion,lion
+w84c0f3b,Animals (intimate),Tiger ,tiger
+w84c0f3b,Animals (intimate),Elephant ,elephant
+w84c0f3b,Animals (intimate),Zebra,zebra
+w84c0f3b,Vehicles (commute),Boat,boat
+w84c0f3b,Vehicles (commute),Train,train
+w84c0f3b,Vehicles (commute),Bike,bicycle
+w84c0f3b,Subjects (school),,NONE
+w84c0f3b,Sports (season),,NONE
+w37c0088,PRACTICE,paris,UNK
+w37c0088,PRACTICE,athens,UNK
+w37c0088,PRACTICE,venice,UNK
+w37c0088,PRACTICE,london,UNK
+w37c0088,Vehicles (commute),plane,airplane
+w37c0088,Vehicles (commute),boat,boat
+w37c0088,Sports (season),football,football
+w37c0088,Sports (season),basketball,basketball
+w37c0088,Sports (season),ufc,UNK
+w37c0088,Sports (season),tennis,tennis
+w37c0088,Sports (season),baseball,baseball
+w37c0088,Animals (intimate),,NONE
+w37c0088,Subjects (school),p.e.,UNK
+w37c0088,Subjects (school),history,history
+w37c0088,Subjects (school),english,english
+w37c0088,Subjects (school),math,math
+w37c0088,Subjects (school),science,science
+w37c0088,Subjects (school),,NONE
+w0f5b403,PRACTICE,paris ,UNK
+w0f5b403,PRACTICE,venice,UNK
+w0f5b403,PRACTICE,,NONE
+w0f5b403,Subjects (school),,NONE
+w0f5b403,Vehicles (commute),car,car
+w0f5b403,Sports (season),,NONE
+w0f5b403,Animals (intimate),,NONE
+wd92edf0,PRACTICE,,NONE
+wd92edf0,Sports (season),,NONE
+wd92edf0,Subjects (school),,NONE
+wd92edf0,Animals (intimate),,NONE
+wd92edf0,Vehicles (commute),Utah Public bus and train transit.  ,UNK
+w968ca11,PRACTICE,,NONE
+w968ca11,Subjects (school),Science,science
+w968ca11,Subjects (school),Math,math
+w968ca11,Subjects (school),Psychology,psychology
+w968ca11,Sports (season),hockey,hockey
+w968ca11,Sports (season),football,football
+w968ca11,Vehicles (commute),bike,bicycle
+w968ca11,Vehicles (commute),hot air balloon,UNK
+w968ca11,Vehicles (commute),,NONE
+w968ca11,Animals (intimate),tigers,tiger
+w968ca11,Animals (intimate),,NONE
+wd1ef536,PRACTICE,Venice,UNK
+wd1ef536,PRACTICE,London,UNK
+wd1ef536,PRACTICE,Rome,UNK
+wd1ef536,PRACTICE,Paris,UNK
+wd1ef536,PRACTICE,Prague,UNK
+wd1ef536,PRACTICE,,NONE
+wd1ef536,Sports (season),football,football
+wd1ef536,Sports (season),MMA,mixed martial arts
+wd1ef536,Sports (season),,NONE
+wd1ef536,Vehicles (commute),,NONE
+wd1ef536,Animals (intimate),,NONE
+wd1ef536,Subjects (school),math,math
+wd1ef536,Subjects (school),history,history
+wd1ef536,Subjects (school),,NONE
+w0ed976f,PRACTICE,Rome,UNK
+w0ed976f,PRACTICE,Madrid,UNK
+w0ed976f,PRACTICE,,NONE
+w0ed976f,Sports (silence),basketball,basketball
+w0ed976f,Sports (silence),wrestling,wrestling
+w0ed976f,Sports (silence),car racing,UNK
+w0ed976f,Vehicles (veto),boat,boat
+w0ed976f,Vehicles (veto),bike,bicycle
+w0ed976f,Subjects (magic),Teacher,UNK
+w0ed976f,Subjects (magic),scientist,UNK
+w0ed976f,Subjects (magic),lawyer,UNK
+w0ed976f,Animals (bubble),elephant,elephant
+w0ed976f,Animals (bubble),gorilla,gorilla
+w0ed976f,Animals (bubble),rhino,rhinoceros
+w5b50df7,PRACTICE,rome,UNK
+w5b50df7,PRACTICE,Venice,UNK
+w5b50df7,PRACTICE,amsterdam,UNK
+w5b50df7,PRACTICE,Paris,UNK
+w5b50df7,PRACTICE,mykonos,UNK
+w5b50df7,PRACTICE,Barcelona,UNK
+w5b50df7,Animals (intimate),elephant,elephant
+w5b50df7,Animals (intimate),giraffe,giraffe
+w5b50df7,Animals (intimate),monkey,monkey
+w5b50df7,Animals (intimate),rhino,rhinoceros
+w5b50df7,Animals (intimate),,NONE
+w5b50df7,Vehicles (commute),,NONE
+w5b50df7,Sports (season),baseball,baseball
+w5b50df7,Sports (season),basketball,basketball
+w5b50df7,Sports (season),hockey ,hockey
+w5b50df7,Subjects (school),,NONE
+wdef327e,PRACTICE,,NONE
+wdef327e,Subjects (magic),"Physics, mathematics and aerospace engineering",UNK
+wdef327e,Animals (bubble),Lion,lion
+wdef327e,Animals (bubble),Elephant,elephant
+wdef327e,Sports (silence),Soccer,soccer
+wdef327e,Sports (silence),Chess,UNK
+wdef327e,Sports (silence),Swimming,swimming
+wdef327e,Vehicles (veto),Car,car
+wdef327e,Vehicles (veto),Train,train
+wdef327e,Vehicles (veto),Subway,subway
+wbc7045c,PRACTICE,London,UNK
+wbc7045c,PRACTICE,Vienna,UNK
+wbc7045c,PRACTICE,Rome,UNK
+wbc7045c,PRACTICE,Barcelona,UNK
+wbc7045c,PRACTICE,Dublin,UNK
+wbc7045c,Vehicles (veto),PRT,UNK
+wbc7045c,Vehicles (veto),Bus,bus
+wbc7045c,Subjects (magic),Microbiology,UNK
+wbc7045c,Animals (bubble),lion,lion
+wbc7045c,Sports (silence),football,football
+w7877f41,PRACTICE,Paris,UNK
+w7877f41,PRACTICE,London,UNK
+w7877f41,PRACTICE,Guernsey,UNK
+w7877f41,PRACTICE,Madrid,UNK
+w7877f41,PRACTICE,Barcelona,UNK
+w7877f41,PRACTICE,Rome,UNK
+w7877f41,PRACTICE,Tuscany,UNK
+w7877f41,PRACTICE,Florence,UNK
+w7877f41,PRACTICE,Positano,UNK
+w7877f41,PRACTICE,Edinburgh,UNK
+w7877f41,PRACTICE,,NONE
+w7877f41,Animals (bubble),lion,lion
+w7877f41,Animals (bubble),tiger,tiger
+w7877f41,Animals (bubble),giraffe,giraffe
+w7877f41,Animals (bubble),elephant,elephant
+w7877f41,Animals (bubble),zebra,zebra
+w7877f41,Animals (bubble),cobra,UNK
+w7877f41,Animals (bubble),polar bear,polar bear
+w7877f41,Animals (bubble),sea otter,UNK
+w7877f41,Animals (bubble),panther,UNK
+w7877f41,Animals (bubble),antelope,UNK
+w7877f41,Animals (bubble),owl,UNK
+w7877f41,Animals (bubble),hawk,UNK
+w7877f41,Animals (bubble),,NONE
+w7877f41,Vehicles (veto),car,car
+w7877f41,Vehicles (veto),bike,bicycle
+w7877f41,Vehicles (veto),train,train
+w7877f41,Vehicles (veto),bus,bus
+w7877f41,Vehicles (veto),airplane,airplane
+w7877f41,Vehicles (veto),scooter,scooter
+w7877f41,Vehicles (veto),on foot,walking
+w7877f41,Vehicles (veto),helicopter,helicopter
+w7877f41,Vehicles (veto),truck,truck
+w7877f41,Vehicles (veto),boat,boat
+w7877f41,Vehicles (veto),jet ski,UNK
+w7877f41,Vehicles (veto),,NONE
+w7877f41,Sports (silence),tennis,tennis
+w7877f41,Sports (silence),golf,golf
+w7877f41,Sports (silence),swimming,swimming
+w7877f41,Sports (silence),gymnastics,gymnastics
+w7877f41,Sports (silence),football,football
+w7877f41,Sports (silence),soccer,soccer
+w7877f41,Sports (silence),baseball,baseball
+w7877f41,Sports (silence),hockey,hockey
+w7877f41,Sports (silence),formula 1,UNK
+w7877f41,Sports (silence),horse racing,UNK
+w7877f41,Sports (silence),ping pong,UNK
+w7877f41,Subjects (magic),math,math
+w7877f41,Subjects (magic),statistics,statistics
+w7877f41,Subjects (magic),biochemistry,UNK
+w7877f41,Subjects (magic),aeronautical engineering,UNK
+w7877f41,Subjects (magic),computer science,computer science
+w7877f41,Subjects (magic),mechanical engineering,UNK
+w7877f41,Subjects (magic),art history,UNK
+w7877f41,Subjects (magic),nursing,UNK
+w7877f41,Subjects (magic),art history,UNK
+w7877f41,Subjects (magic),philosophy,philosophy
+w7877f41,Subjects (magic),,NONE
+wc039dbd,PRACTICE,Dublin,UNK
+wc039dbd,PRACTICE,London,UNK
+wc039dbd,PRACTICE,Amsterdam,UNK
+wc039dbd,PRACTICE,Berlin,UNK
+wc039dbd,PRACTICE,Rotterdam,UNK
+wc039dbd,PRACTICE,Lisbon,UNK
+wc039dbd,PRACTICE,Barcelona,UNK
+wc039dbd,PRACTICE,Paris,UNK
+wc039dbd,PRACTICE,Nice,UNK
+wc039dbd,PRACTICE,Edinburgh,UNK
+wc039dbd,PRACTICE,Minsk,UNK
+wc039dbd,PRACTICE,,NONE
+wc039dbd,Vehicles (commute),Car,car
+wc039dbd,Vehicles (commute),Bike,bicycle
+wc039dbd,Vehicles (commute),Metro,train
+wc039dbd,Vehicles (commute),Walking,walking
+wc039dbd,Sports (season),Hockey,hockey
+wc039dbd,Sports (season),Baseball,baseball
+wc039dbd,Sports (season),Football,football
+wc039dbd,Sports (season),Basketball,basketball
+wc039dbd,Animals (intimate),Giraffe,giraffe
+wc039dbd,Animals (intimate),Snake,snake
+wc039dbd,Animals (intimate),Elephant,elephant
+wc039dbd,Animals (intimate),Rhino,rhinoceros
+wc039dbd,Subjects (school),Math,math
+wc039dbd,Subjects (school),Science,science
+wc039dbd,Subjects (school),Biology,biology
+wc039dbd,Subjects (school),English,english
+wc039dbd,Subjects (school),Political Science,political science
+we3c4461,PRACTICE,,NONE
+we3c4461,Animals (intimate),,NONE
+we3c4461,Sports (season),football,football
+we3c4461,Subjects (school),,NONE
+we3c4461,Vehicles (commute),bus,bus
+we3c4461,Vehicles (commute),bike,bicycle
+we3c4461,Vehicles (commute),shuttle,UNK
+we3c4461,Vehicles (commute),train,train
+w72ad27c,PRACTICE,,NONE
+w72ad27c,Vehicles (veto),,NONE
+w72ad27c,Subjects (magic),,NONE
+w72ad27c,Animals (bubble),,NONE
+w72ad27c,Sports (silence),,NONE
+w0a54d49,PRACTICE,Spain,UNK
+w0a54d49,Vehicles (veto),car,car
+w0a54d49,Subjects (magic),,NONE
+w0a54d49,Animals (bubble),,NONE
+w0a54d49,Sports (silence),,NONE
+wdcdc744,PRACTICE,London,UNK
+wdcdc744,PRACTICE,Paris,UNK
+wdcdc744,PRACTICE,Dublin,UNK
+wdcdc744,PRACTICE,Barcelona,UNK
+wdcdc744,Vehicles (commute),New car,UNK
+wdcdc744,Vehicles (commute),Limousine,UNK
+wdcdc744,Vehicles (commute),Boat,boat
+wdcdc744,Vehicles (commute),Helicopter,helicopter
+wdcdc744,Vehicles (commute),Train,train
+wdcdc744,Sports (season),football,football
+wdcdc744,Sports (season),basketball,basketball
+wdcdc744,Subjects (school),english,english
+wdcdc744,Subjects (school),math,math
+wdcdc744,Subjects (school),science,science
+wdcdc744,Animals (intimate),panda,panda
+wdcdc744,Animals (intimate),tiger,tiger
+wdcdc744,Animals (intimate),gorilla,gorilla
+wdcdc744,Animals (intimate),elephant,elephant
+wdcdc744,Animals (intimate),llama,llama
+w4672af3,PRACTICE,,NONE
+w4672af3,Sports (silence),Football,football
+w4672af3,Subjects (magic),Math,math
+w4672af3,Subjects (magic),Literature,literature
+w4672af3,Vehicles (veto),Cars,car
+w4672af3,Vehicles (veto),Trains,UNK
+w4672af3,Vehicles (veto),Bus,bus
+w4672af3,Animals (bubble),,NONE
+wde747ce,PRACTICE,,NONE
+wde747ce,Vehicles (commute),Bike,bicycle
+wde747ce,Vehicles (commute),Car,car
+wde747ce,Vehicles (commute),,NONE
+wde747ce,Animals (intimate),,NONE
+wde747ce,Subjects (school),,NONE
+wde747ce,Sports (season),,NONE
+w4072c9a,PRACTICE,Berlin,UNK
+w4072c9a,PRACTICE,Venice,UNK
+w4072c9a,PRACTICE,Paris,UNK
+w4072c9a,PRACTICE,Hamburg,UNK
+w4072c9a,PRACTICE,Frankfurt,UNK
+w4072c9a,PRACTICE,Munich,UNK
+w4072c9a,Animals (intimate),Snow leopard,UNK
+w4072c9a,Animals (intimate),Chimpanzee,monkey
+w4072c9a,Animals (intimate),Gorilla,gorilla
+w4072c9a,Animals (intimate),Lemur,lemur
+w4072c9a,Animals (intimate),Lion,lion
+w4072c9a,Animals (intimate),Cheetah,cheetah
+w4072c9a,Animals (intimate),Grizzly Bear,UNK
+w4072c9a,Animals (intimate),Penguin,penguin
+w4072c9a,Animals (intimate),Mountain Goat,UNK
+w4072c9a,Subjects (school),Psychology,psychology
+w4072c9a,Subjects (school),Sociology,sociology
+w4072c9a,Subjects (school),Cardiology,UNK
+w4072c9a,Subjects (school),Physiology,UNK
+w4072c9a,Subjects (school),Geology,geology
+w4072c9a,Subjects (school),Chemistry,chemistry
+w4072c9a,Subjects (school),Physics,physics
+w4072c9a,Subjects (school),History,history
+w4072c9a,Subjects (school),Anthropology,UNK
+w4072c9a,Vehicles (commute),Train,train
+w4072c9a,Vehicles (commute),Subway,subway
+w4072c9a,Vehicles (commute),Lightrail,UNK
+w4072c9a,Vehicles (commute),Bus,bus
+w4072c9a,Sports (season),Soccer,soccer
+w4072c9a,Sports (season),Football,football
+w4072c9a,Sports (season),Cricket,cricket
+w4072c9a,Sports (season),Rugby,rugby
+w4072c9a,Sports (season),Vollyeball,volleyball
+wa9c1be9,PRACTICE,London,UNK
+wa9c1be9,PRACTICE,Amerstdam,UNK
+wa9c1be9,PRACTICE,Barcelona,UNK
+wa9c1be9,Subjects (magic),Mathematics,math
+wa9c1be9,Subjects (magic),Computer Science,computer science
+wa9c1be9,Vehicles (veto),Truck,truck
+wa9c1be9,Vehicles (veto),Motorcycle,motorcycle
+wa9c1be9,Animals (bubble),,NONE
+wa9c1be9,Sports (silence),,NONE
+w7aec282,PRACTICE,,NONE
+w7aec282,Vehicles (veto),,NONE
+w7aec282,Subjects (magic),,NONE
+w7aec282,Animals (bubble),,NONE
+w7aec282,Sports (silence),,NONE
+w35ecdcf,PRACTICE,,NONE
+w35ecdcf,Subjects (magic),,NONE
+w35ecdcf,Sports (silence),Baseball,baseball
+w35ecdcf,Sports (silence),Football,football
+w35ecdcf,Vehicles (veto),Car,car
+w35ecdcf,Vehicles (veto),Bicycle,bicycle
+w35ecdcf,Animals (bubble),,NONE
+w30e7b84,PRACTICE,Rome,UNK
+w30e7b84,PRACTICE,Paris,UNK
+w30e7b84,PRACTICE,London,UNK
+w30e7b84,PRACTICE,Amsterdam,UNK
+w30e7b84,PRACTICE,,NONE
+w30e7b84,Subjects (magic),Chemistry,chemistry
+w30e7b84,Subjects (magic),Physics,physics
+w30e7b84,Subjects (magic),Math,math
+w30e7b84,Subjects (magic),Statistics,statistics
+w30e7b84,Sports (silence),Golf,golf
+w30e7b84,Animals (bubble),giant squid,UNK
+w30e7b84,Animals (bubble),whales,UNK
+w30e7b84,Animals (bubble),sharks,shark
+w30e7b84,Animals (bubble),ants,UNK
+w30e7b84,Animals (bubble),deep sea fish,UNK
+w30e7b84,Vehicles (veto),motorcycle,motorcycle
+w30e7b84,Vehicles (veto),trolley,trolley
+wa5291e7,PRACTICE,,NONE
+wa5291e7,Vehicles (commute),,NONE
+wa5291e7,Sports (season),,NONE
+wa5291e7,Subjects (school),,NONE
+wa5291e7,Animals (intimate),,NONE
+w7877e78,PRACTICE,Paris,UNK
+w7877e78,PRACTICE,Barcelona,UNK
+w7877e78,PRACTICE,Vilnius,UNK
+w7877e78,PRACTICE,Edinburgh,UNK
+w7877e78,PRACTICE,London,UNK
+w7877e78,Animals (intimate),lion,lion
+w7877e78,Animals (intimate),elephant,elephant
+w7877e78,Animals (intimate),gorilla,gorilla
+w7877e78,Animals (intimate),hippo,hippo
+w7877e78,Animals (intimate),chimpanzee,monkey
+w7877e78,Animals (intimate),penguin,penguin
+w7877e78,Animals (intimate),pigs,UNK
+w7877e78,Vehicles (commute),car,car
+w7877e78,Vehicles (commute),bus,bus
+w7877e78,Vehicles (commute),train,train
+w7877e78,Vehicles (commute),plane,airplane
+w7877e78,Vehicles (commute),boat,boat
+w7877e78,Sports (season),football,football
+w7877e78,Sports (season),baseball,baseball
+w7877e78,Sports (season),basketball,basketball
+w7877e78,Sports (season),soccer,soccer
+w7877e78,Sports (season),,NONE
+w7877e78,Subjects (school),biology,biology
+w7877e78,Subjects (school),psychology,psychology
+w7877e78,Subjects (school),computer science,computer science
+w7877e78,Subjects (school),statistics,statistics
+w7877e78,Subjects (school),algebra,algebra
+w7877e78,Subjects (school),history,history
+w7877e78,Subjects (school),literature,literature
+w7877e78,Subjects (school),languages,UNK
+w07c5d07,PRACTICE,Berlin,UNK
+w07c5d07,PRACTICE,Rome,UNK
+w07c5d07,PRACTICE,Amsterdam,UNK
+w07c5d07,Animals (bubble),,NONE
+w07c5d07,Sports (silence),,NONE
+w07c5d07,Vehicles (veto),,NONE
+w07c5d07,Subjects (magic),,NONE
+wf7435ee,PRACTICE,,NONE
+wf7435ee,Sports (silence),,NONE
+wf7435ee,Subjects (magic),,NONE
+wf7435ee,Animals (bubble),Parakeets,UNK
+wf7435ee,Vehicles (veto),,NONE
+wa692bd9,PRACTICE,Munich,UNK
+wa692bd9,PRACTICE,London,UNK
+wa692bd9,PRACTICE,Prague,UNK
+wa692bd9,Vehicles (commute),Bus,bus
+wa692bd9,Vehicles (commute),Walking,walking
+wa692bd9,Vehicles (commute),Car,car
+wa692bd9,Vehicles (commute),Train,train
+wa692bd9,Subjects (school),Psychology,psychology
+wa692bd9,Subjects (school),Calculus,calculus
+wa692bd9,Sports (season),Baseball,baseball
+wa692bd9,Animals (intimate),Lion,lion
+wa692bd9,Animals (intimate),Gorilla,gorilla
+wabcb33f,PRACTICE,Paris,UNK
+wabcb33f,PRACTICE,Rome,UNK
+wabcb33f,PRACTICE,Venice,UNK
+wabcb33f,PRACTICE,Interlaken,UNK
+wabcb33f,PRACTICE,Vienna,UNK
+wabcb33f,PRACTICE,,NONE
+wabcb33f,Subjects (school),,NONE
+wabcb33f,Sports (season),Football,football
+wabcb33f,Sports (season),basketball,basketball
+wabcb33f,Sports (season),baseball,baseball
+wabcb33f,Vehicles (commute),limosine,UNK
+wabcb33f,Vehicles (commute),car,car
+wabcb33f,Vehicles (commute),train,train
+wabcb33f,Animals (intimate),zebra,zebra
+wabcb33f,Animals (intimate),giraffe,giraffe
+wabcb33f,Animals (intimate),elephant,elephant
+wabcb33f,Animals (intimate),money,UNK
+wabcb33f,Animals (intimate),lion,lion
+w2c4b6c3,PRACTICE,"Dublin, London, Edinburgh, Paris",UNK
+w2c4b6c3,Vehicles (commute),"bus, taxi, uber",UNK
+w2c4b6c3,Animals (intimate),"zebra, giraffe, seal, penguin",UNK
+w2c4b6c3,Subjects (school),"geology, ",geology
+w2c4b6c3,Subjects (school),"math, ",math
+w2c4b6c3,Subjects (school),"business, ",UNK
+w2c4b6c3,Sports (season),baseball,baseball
+w2c4b6c3,Sports (season),basketball,basketball
+w2c4b6c3,Sports (season),football,football
+w09e5016,PRACTICE,Rome,UNK
+w09e5016,PRACTICE,Britain,UNK
+w09e5016,PRACTICE,Barcelona ,UNK
+w09e5016,PRACTICE,Paris,UNK
+w09e5016,PRACTICE,Stockholm ,UNK
+w09e5016,PRACTICE,Naples,UNK
+w09e5016,PRACTICE,,NONE
+w09e5016,Subjects (magic),,NONE
+w09e5016,Animals (bubble),Lion,lion
+w09e5016,Animals (bubble),Tiger,tiger
+w09e5016,Animals (bubble),Elephant,elephant
+w09e5016,Animals (bubble),Giraff,giraffe
+w09e5016,Animals (bubble),Hippo,hippo
+w09e5016,Animals (bubble),Wolf,wolf
+w09e5016,Animals (bubble),Zebra,zebra
+w09e5016,Animals (bubble),,NONE
+w09e5016,Sports (silence),,NONE
+w09e5016,Vehicles (veto),,NONE
+w79b24a9,PRACTICE,venice,UNK
+w79b24a9,PRACTICE,munich,UNK
+w79b24a9,PRACTICE,berlin,UNK
+w79b24a9,PRACTICE,paris,UNK
+w79b24a9,Sports (silence),football,football
+w79b24a9,Sports (silence),hockey,hockey
+w79b24a9,Sports (silence),soccer,soccer
+w79b24a9,Subjects (magic),biology,biology
+w79b24a9,Subjects (magic),math,math
+w79b24a9,Subjects (magic),physics,physics
+w79b24a9,Animals (bubble),lion,lion
+w79b24a9,Animals (bubble),fish,fish
+w79b24a9,Animals (bubble),dolphin,dolphin
+w79b24a9,Vehicles (veto),car,car
+w79b24a9,Vehicles (veto),bus,bus
+wd19a423,PRACTICE,London,UNK
+wd19a423,PRACTICE,Rome,UNK
+wd19a423,PRACTICE,Madrid,UNK
+wd19a423,PRACTICE,Barcelona,UNK
+wd19a423,PRACTICE,Positano,UNK
+wd19a423,PRACTICE,Oslo,UNK
+wd19a423,PRACTICE,,NONE
+wd19a423,Vehicles (veto),car,car
+wd19a423,Vehicles (veto),plane,airplane
+wd19a423,Vehicles (veto),subway,subway
+wd19a423,Vehicles (veto),boat,boat
+wd19a423,Subjects (magic),medical,UNK
+wd19a423,Subjects (magic),business,UNK
+wd19a423,Subjects (magic),science,science
+wd19a423,Animals (bubble),blue whale,UNK
+wd19a423,Animals (bubble),elephant,elephant
+wd19a423,Animals (bubble),lion,lion
+wd19a423,Animals (bubble),wolf,wolf
+wd19a423,Animals (bubble),tiger,tiger
+wd19a423,Animals (bubble),rhino,rhinoceros
+wd19a423,Sports (silence),,NONE
+w3ac7814,PRACTICE,Paris,UNK
+w3ac7814,PRACTICE,Rome,UNK
+w3ac7814,PRACTICE,Florence,UNK
+w3ac7814,Vehicles (commute),,NONE
+w3ac7814,Sports (season),Basketball,basketball
+w3ac7814,Sports (season),Football,football
+w3ac7814,Animals (intimate),,NONE
+w3ac7814,Subjects (school),,NONE
+wa50a45e,PRACTICE,"Venice, Paris, Madrid",UNK
+wa50a45e,Sports (silence),Football,football
+wa50a45e,Vehicles (veto),"car, bus, bicycle",UNK
+wa50a45e,Subjects (magic),"Music, literature, science, medicine",UNK
+wa50a45e,Animals (bubble),"jaguar, lion, giraffe, elephant, cheetah",UNK
+w01057a8,PRACTICE,,NONE
+w01057a8,Subjects (school),chemistry,chemistry
+w01057a8,Vehicles (commute),bicycle,bicycle
+w01057a8,Animals (intimate),,NONE
+w01057a8,Sports (season),cricket,cricket
+w01057a8,Sports (season),wrestling,wrestling
+w2960c6c,PRACTICE,Paris,UNK
+w2960c6c,PRACTICE,London,UNK
+w2960c6c,Subjects (magic),,NONE
+w2960c6c,Animals (bubble),,NONE
+w2960c6c,Vehicles (veto),cars,car
+w2960c6c,Sports (silence),football,football
+w2960c6c,Sports (silence),soccer,soccer
+w54c83d7,PRACTICE,,NONE
+w54c83d7,Sports (season),,NONE
+w54c83d7,Subjects (school),English,english
+w54c83d7,Subjects (school),Math,math
+w54c83d7,Animals (intimate),,NONE
+w54c83d7,Vehicles (commute),,NONE
+w3852607,PRACTICE,Amsterdam,UNK
+w3852607,PRACTICE,Vatican City,UNK
+w3852607,PRACTICE,Scicily (sp?),UNK
+w3852607,PRACTICE,,NONE
+w3852607,Animals (bubble),Lion,lion
+w3852607,Animals (bubble),Tiger,tiger
+w3852607,Animals (bubble),Raccoon,UNK
+w3852607,Animals (bubble),Eagle,UNK
+w3852607,Sports (silence),Golf,golf
+w3852607,Sports (silence),Football (American),UNK
+w3852607,Vehicles (veto),Train,train
+w3852607,Vehicles (veto),Plane,airplane
+w3852607,Vehicles (veto),,NONE
+w3852607,Subjects (magic),Medicine,UNK
+w8e5dd0b,PRACTICE,Oslo,UNK
+w8e5dd0b,PRACTICE,London,UNK
+w8e5dd0b,PRACTICE,Glasgow,UNK
+w8e5dd0b,PRACTICE,Mykynos,UNK
+w8e5dd0b,PRACTICE,Lucerne,UNK
+w8e5dd0b,PRACTICE,,NONE
+w8e5dd0b,Animals (bubble),narwhals,UNK
+w8e5dd0b,Animals (bubble),penguins,penguin
+w8e5dd0b,Animals (bubble),sloths,UNK
+w8e5dd0b,Animals (bubble),sea otters,UNK
+w8e5dd0b,Animals (bubble),orcas,UNK
+w8e5dd0b,Animals (bubble),elephants,elephant
+w8e5dd0b,Vehicles (veto),car,car
+w8e5dd0b,Vehicles (veto),ferry,ferry
+w8e5dd0b,Vehicles (veto),plane ,airplane
+w8e5dd0b,Vehicles (veto),train,train
+w8e5dd0b,Subjects (magic),,NONE
+w8e5dd0b,Sports (silence),football,football
+w8e5dd0b,Sports (silence),basketball,basketball
+w8e5dd0b,Sports (silence),baseball,baseball
+w2c734e6,PRACTICE,,NONE
+w2c734e6,Animals (bubble),Gorilla ,gorilla
+w2c734e6,Animals (bubble),Giraffe ,giraffe
+w2c734e6,Animals (bubble),Elephant ,elephant
+w2c734e6,Animals (bubble),Tiger ,tiger
+w2c734e6,Vehicles (veto),,NONE
+w2c734e6,Sports (silence),Tennis ,tennis
+w2c734e6,Subjects (magic),Math,math
+wecd51bc,PRACTICE,Venice,UNK
+wecd51bc,PRACTICE,Barcelona,UNK
+wecd51bc,PRACTICE,Paris,UNK
+wecd51bc,Sports (season),Basketball,basketball
+wecd51bc,Sports (season),,NONE
+wecd51bc,Animals (intimate),Monkeys,monkey
+wecd51bc,Animals (intimate),Tiger,tiger
+wecd51bc,Animals (intimate),Lion,lion
+wecd51bc,Animals (intimate),Flamingos,flamingo
+wecd51bc,Animals (intimate),Panda,panda
+wecd51bc,Vehicles (commute),Bus,bus
+wecd51bc,Vehicles (commute),Subway,subway
+wecd51bc,Vehicles (commute),Car,car
+wecd51bc,Vehicles (commute),Plane,airplane
+wecd51bc,Subjects (school),Chemistry,chemistry
+wecd51bc,Subjects (school),Finance,UNK
+w317ecf3,PRACTICE,Berlin,UNK
+w317ecf3,PRACTICE,Prague,UNK
+w317ecf3,PRACTICE,Warsaw,UNK
+w317ecf3,Subjects (magic),,NONE
+w317ecf3,Vehicles (veto),,NONE
+w317ecf3,Animals (bubble),,NONE
+w317ecf3,Sports (silence),,NONE
+w536c13d,PRACTICE,Rome,UNK
+w536c13d,Sports (season),Volleyball,volleyball
+w536c13d,Sports (season),Football,football
+w536c13d,Sports (season),Basketball,basketball
+w536c13d,Subjects (school),,NONE
+w536c13d,Vehicles (commute),Personal car/vehicle,UNK
+w536c13d,Vehicles (commute),Bus,bus
+w536c13d,Vehicles (commute),Plane,airplane
+w536c13d,Vehicles (commute),,NONE
+w536c13d,Animals (intimate),Tiger,tiger
+w536c13d,Animals (intimate),Monkey,monkey
+w536c13d,Animals (intimate),Bird,bird
+wfd84326,PRACTICE,,NONE
+wfd84326,Animals (intimate),,NONE
+wfd84326,Sports (season),,NONE
+wfd84326,Subjects (school),,NONE
+wfd84326,Vehicles (commute),,NONE
+w89d5e6d,PRACTICE,,NONE
+w89d5e6d,Animals (intimate),,NONE
+w89d5e6d,Sports (season),,NONE
+w89d5e6d,Vehicles (commute),,NONE
+w89d5e6d,Subjects (school),,NONE
+wc941dce,PRACTICE,,NONE
+wc941dce,Vehicles (commute),Bus,bus
+wc941dce,Vehicles (commute),Car,car
+wc941dce,Vehicles (commute),Bike,bicycle
+wc941dce,Sports (season),Football,football
+wc941dce,Subjects (school),,NONE
+wc941dce,Animals (intimate),Rhino,rhinoceros
+wc941dce,Animals (intimate),Elephant,elephant
+wc941dce,Animals (intimate),Sloth,UNK
+wcfd96e8,PRACTICE,London,UNK
+wcfd96e8,PRACTICE,Paris,UNK
+wcfd96e8,PRACTICE,Belarus,UNK
+wcfd96e8,PRACTICE,Amsterdam,UNK
+wcfd96e8,PRACTICE,Arnhem,UNK
+wcfd96e8,PRACTICE,Madrid,UNK
+wcfd96e8,PRACTICE,Barcelona,UNK
+wcfd96e8,Sports (silence),Football,football
+wcfd96e8,Sports (silence),Golf,golf
+wcfd96e8,Sports (silence),Basketball,basketball
+wcfd96e8,Sports (silence),Curling,UNK
+wcfd96e8,Sports (silence),Skiing,skiing
+wcfd96e8,Sports (silence),,NONE
+wcfd96e8,Animals (bubble),Polar Bear,polar bear
+wcfd96e8,Animals (bubble),Tiger,tiger
+wcfd96e8,Animals (bubble),Hippo,hippo
+wcfd96e8,Animals (bubble),Lion,lion
+wcfd96e8,Animals (bubble),Meerkat,meerkat
+wcfd96e8,Animals (bubble),Penguins,penguin
+wcfd96e8,Animals (bubble),Otters,otter
+wcfd96e8,Subjects (magic),Physics,physics
+wcfd96e8,Subjects (magic),Psychology,psychology
+wcfd96e8,Subjects (magic),Math,math
+wcfd96e8,Subjects (magic),English,english
+wcfd96e8,Subjects (magic),,NONE
+wcfd96e8,Vehicles (veto),Cruise ship,UNK
+wcfd96e8,Vehicles (veto),airplane,airplane
+wcfd96e8,Vehicles (veto),,NONE
+w60b2050,PRACTICE,Amsterdam,UNK
+w60b2050,PRACTICE,Venice,UNK
+w60b2050,PRACTICE,Berlin,UNK
+w60b2050,Vehicles (commute),Train,train
+w60b2050,Vehicles (commute),Subway,subway
+w60b2050,Vehicles (commute),Bus,bus
+w60b2050,Animals (intimate),,NONE
+w60b2050,Subjects (school),,NONE
+w60b2050,Sports (season),,NONE
+w9a79f23,PRACTICE,,NONE
+w9a79f23,Subjects (magic),,NONE
+w9a79f23,Vehicles (veto),Plane,airplane
+w9a79f23,Vehicles (veto),Car,car
+w9a79f23,Vehicles (veto),Bike,bicycle
+w9a79f23,Animals (bubble),Giraffe,giraffe
+w9a79f23,Sports (silence),hockey,hockey
+w9a79f23,Sports (silence),basketball,basketball
+wba28dcb,PRACTICE,Rome,UNK
+wba28dcb,PRACTICE,London,UNK
+wba28dcb,PRACTICE,Paris,UNK
+wba28dcb,PRACTICE,Amsterdam,UNK
+wba28dcb,PRACTICE,Vienna,UNK
+wba28dcb,PRACTICE,,NONE
+wba28dcb,Vehicles (commute),Car,car
+wba28dcb,Vehicles (commute),Bike,bicycle
+wba28dcb,Vehicles (commute),Bus,bus
+wba28dcb,Vehicles (commute),Train,train
+wba28dcb,Vehicles (commute),Ride share,UNK
+wba28dcb,Vehicles (commute),Walking,walking
+wba28dcb,Vehicles (commute),Taxi,taxi
+wba28dcb,Vehicles (commute),,NONE
+wba28dcb,Animals (intimate),Giraffe,giraffe
+wba28dcb,Animals (intimate),Zebra,zebra
+wba28dcb,Animals (intimate),Elephant,elephant
+wba28dcb,Animals (intimate),Monkey,monkey
+wba28dcb,Animals (intimate),Koala,koala
+wba28dcb,Animals (intimate),Penguin,penguin
+wba28dcb,Animals (intimate),Meerkat,meerkat
+wba28dcb,Animals (intimate),,NONE
+wba28dcb,Sports (season),Hockey,hockey
+wba28dcb,Sports (season),Basketball,basketball
+wba28dcb,Sports (season),Baseball,baseball
+wba28dcb,Sports (season),Football,football
+wba28dcb,Sports (season),Soccer,soccer
+wba28dcb,Sports (season),Tennis,tennis
+wba28dcb,Sports (season),Golf,golf
+wba28dcb,Subjects (school),Art,art
+wba28dcb,Subjects (school),English,english
+wba28dcb,Subjects (school),Science,science
+wba28dcb,Subjects (school),History,history
+wba28dcb,Subjects (school),Photography,UNK
+wba28dcb,Subjects (school),Geography,geography
+wba28dcb,Subjects (school),Math,math
+wba28dcb,Subjects (school),Physics,physics
+w75ab4a1,PRACTICE,London,UNK
+w75ab4a1,PRACTICE,Paris,UNK
+w75ab4a1,PRACTICE,Berlin,UNK
+w75ab4a1,Vehicles (commute),Car,car
+w75ab4a1,Vehicles (commute),Plane,airplane
+w75ab4a1,Vehicles (commute),Bus,bus
+w75ab4a1,Vehicles (commute),Bike,bicycle
+w75ab4a1,Subjects (school),,NONE
+w75ab4a1,Animals (intimate),Tiger,tiger
+w75ab4a1,Animals (intimate),Bear,bear
+w75ab4a1,Animals (intimate),Elephant,elephant
+w75ab4a1,Animals (intimate),Snake,snake
+w75ab4a1,Animals (intimate),Lion,lion
+w75ab4a1,Sports (season),basketball,basketball
+w75ab4a1,Sports (season),football,football
+w75ab4a1,Sports (season),golf,golf
+w75ab4a1,Sports (season),swimming,swimming
+w75ab4a1,Sports (season),track,track
+wd4cdd25,PRACTICE,Athens,UNK
+wd4cdd25,PRACTICE,Vienna,UNK
+wd4cdd25,PRACTICE,"Anywhere in Serbia, Croatia, Bosnia... Kosovo?",UNK
+wd4cdd25,PRACTICE,Munich,UNK
+wd4cdd25,PRACTICE,Minsk,UNK
+wd4cdd25,Animals (intimate),Tiger,tiger
+wd4cdd25,Animals (intimate),Viper,UNK
+wd4cdd25,Animals (intimate),Zebra,zebra
+wd4cdd25,Animals (intimate),Hippo,hippo
+wd4cdd25,Animals (intimate),Chimpanzee,monkey
+wd4cdd25,Animals (intimate),Gorilla,gorilla
+wd4cdd25,Sports (season),Basketball,basketball
+wd4cdd25,Sports (season),Hockey,hockey
+wd4cdd25,Sports (season),Baseball,baseball
+wd4cdd25,Vehicles (commute),Bicycle,bicycle
+wd4cdd25,Vehicles (commute),Motorcycle,motorcycle
+wd4cdd25,Vehicles (commute),Bus,bus
+wd4cdd25,Vehicles (commute),Limousine,UNK
+wd4cdd25,Subjects (school),Automechanics,UNK
+wd4cdd25,Subjects (school),Economics,economics
+wd4cdd25,Subjects (school),Math,math
+wd4cdd25,Subjects (school),Writing,UNK
+w2cd6f85,PRACTICE,Milan ,UNK
+w2cd6f85,PRACTICE,Venice,UNK
+w2cd6f85,PRACTICE,London,UNK
+w2cd6f85,PRACTICE,Glasgow,UNK
+w2cd6f85,PRACTICE,Edinboro,UNK
+w2cd6f85,PRACTICE,,NONE
+w2cd6f85,PRACTICE,,NONE
+w2cd6f85,Subjects (school),,NONE
+w2cd6f85,Sports (season),,NONE
+w2cd6f85,Vehicles (commute),,NONE
+w2cd6f85,Animals (intimate),,NONE
+w2fbfbd4,PRACTICE,Budapest,UNK
+w2fbfbd4,PRACTICE,London,UNK
+w2fbfbd4,PRACTICE,Paris,UNK
+w2fbfbd4,PRACTICE,Madrid,UNK
+w2fbfbd4,PRACTICE,Berlin,UNK
+w2fbfbd4,Sports (season),Basketball,basketball
+w2fbfbd4,Animals (intimate),,NONE
+w2fbfbd4,Subjects (school),,NONE
+w2fbfbd4,Vehicles (commute),Car,car
+w2fbfbd4,Vehicles (commute),Bus,bus
+w2fbfbd4,Vehicles (commute),Plane,airplane
+wbfe5a00,PRACTICE,Paris,UNK
+wbfe5a00,PRACTICE,Stockholm,UNK
+wbfe5a00,PRACTICE,London,UNK
+wbfe5a00,Vehicles (veto),bus,bus
+wbfe5a00,Vehicles (veto),car,car
+wbfe5a00,Sports (silence),Tennis,tennis
+wbfe5a00,Subjects (magic),English,english
+wbfe5a00,Subjects (magic),Psychology,psychology
+wbfe5a00,Subjects (magic),Biology,biology
+wbfe5a00,Subjects (magic),Finance,UNK
+wbfe5a00,Animals (bubble),monkey,monkey
+wbfe5a00,Animals (bubble),giraffe,giraffe
+wbfe5a00,Animals (bubble),lion,lion
+wbf3a03b,PRACTICE,,NONE
+wbf3a03b,Vehicles (commute),Bike,bicycle
+wbf3a03b,Vehicles (commute),Fancy car,UNK
+wbf3a03b,Animals (intimate),Lions,lion
+wbf3a03b,Animals (intimate),Tigers,tiger
+wbf3a03b,Animals (intimate),Otters,otter
+wbf3a03b,Sports (season),Basketball,basketball
+wbf3a03b,Subjects (school),,NONE
+w3e04097,PRACTICE,Rome,UNK
+w3e04097,PRACTICE,Paris,UNK
+w3e04097,PRACTICE,Prague,UNK
+w3e04097,PRACTICE,Moscow,UNK
+w3e04097,PRACTICE,London,UNK
+w3e04097,Subjects (school),history,history
+w3e04097,Subjects (school),geography,geography
+w3e04097,Subjects (school),,NONE
+w3e04097,Animals (intimate),Monkey,monkey
+w3e04097,Animals (intimate),Lion,lion
+w3e04097,Animals (intimate),Penguin,penguin
+w3e04097,Animals (intimate),,NONE
+w3e04097,Vehicles (commute),,NONE
+w3e04097,Sports (season),,NONE
+w9db3a6b,PRACTICE,"London, Moscow",UNK
+w9db3a6b,Animals (bubble),"zebra, monkey",UNK
+w9db3a6b,Sports (silence),basketball,basketball
+w9db3a6b,Vehicles (veto),"my car, jet ski (?)",UNK
+w9db3a6b,Subjects (magic),psychology,psychology
+w64d49f6,PRACTICE,Rome,UNK
+w64d49f6,PRACTICE,Paris,UNK
+w64d49f6,PRACTICE,London,UNK
+w64d49f6,Subjects (magic),,NONE
+w64d49f6,Sports (silence),,NONE
+w64d49f6,Animals (bubble),,NONE
+w64d49f6,Vehicles (veto),,NONE
+wfaf1665,PRACTICE,Rome,UNK
+wfaf1665,PRACTICE,Paris,UNK
+wfaf1665,PRACTICE,Prague,UNK
+wfaf1665,PRACTICE,Berlin,UNK
+wfaf1665,PRACTICE,Barcelona,UNK
+wfaf1665,PRACTICE,London,UNK
+wfaf1665,PRACTICE,Amsterdam,UNK
+wfaf1665,PRACTICE,Athens,UNK
+wfaf1665,PRACTICE,Budapest,UNK
+wfaf1665,PRACTICE,Venice,UNK
+wfaf1665,PRACTICE,Dublin,UNK
+wfaf1665,PRACTICE,,NONE
+wfaf1665,Subjects (magic),Education,UNK
+wfaf1665,Subjects (magic),Neuroscience,UNK
+wfaf1665,Subjects (magic),Psychology,psychology
+wfaf1665,Subjects (magic),Math,math
+wfaf1665,Subjects (magic),Spanish,spanish
+wfaf1665,Vehicles (veto),Train,train
+wfaf1665,Vehicles (veto),Plane,airplane
+wfaf1665,Vehicles (veto),Automobile,car
+wfaf1665,Vehicles (veto),Boat,boat
+wfaf1665,Animals (bubble),Monkey,monkey
+wfaf1665,Animals (bubble),Tiger,tiger
+wfaf1665,Animals (bubble),Lion,lion
+wfaf1665,Animals (bubble),Giraffe,giraffe
+wfaf1665,Animals (bubble),Deer,UNK
+wfaf1665,Animals (bubble),Rabbit,UNK
+wfaf1665,Sports (silence),Basketball,basketball
+wfaf1665,Sports (silence),Football,football
+wfaf1665,Sports (silence),Baseball,baseball
+wfaf1665,Sports (silence),Curling,UNK
+wfaf1665,Sports (silence),Skiing,skiing
+wfaf1665,Sports (silence),Golf,golf
+wfaf1665,Sports (silence),Hockey,hockey
+wfaf1665,Sports (silence),Volleyball,volleyball
+w04fecf9,PRACTICE,paris,UNK
+w04fecf9,PRACTICE,london,UNK
+w04fecf9,PRACTICE,,NONE
+w04fecf9,Subjects (school),english,english
+w04fecf9,Subjects (school),math,math
+w04fecf9,Subjects (school),science,science
+w04fecf9,Subjects (school),history,history
+w04fecf9,Animals (intimate),,NONE
+w04fecf9,Sports (season),,NONE
+w04fecf9,Vehicles (commute),,NONE
+w5e12ad1,PRACTICE,"England, Paris, Rome",UNK
+w5e12ad1,Subjects (magic),,NONE
+w5e12ad1,Sports (silence),"football, soccer",UNK
+w5e12ad1,Animals (bubble),,NONE
+w5e12ad1,Vehicles (veto),car,car
+wf5c119a,PRACTICE,,NONE
+wf5c119a,Sports (silence),golf,golf
+wf5c119a,Sports (silence),,NONE
+wf5c119a,Subjects (magic),,NONE
+wf5c119a,Vehicles (veto),bus,bus
+wf5c119a,Vehicles (veto),train,train
+wf5c119a,Animals (bubble),large mammels,UNK
+wf5c119a,Animals (bubble),tigers,tiger
+wf5c119a,Animals (bubble),lions,lion
+wf5c119a,Animals (bubble),giraffes,giraffe
+wf5c119a,Animals (bubble),elephants,elephant
+w5a10bef,PRACTICE,Paris,UNK
+w5a10bef,PRACTICE,Amsterdam,UNK
+w5a10bef,PRACTICE,London,UNK
+w5a10bef,Vehicles (commute),Bus,bus
+w5a10bef,Vehicles (commute),Train,train
+w5a10bef,Vehicles (commute),Taxi,taxi
+w5a10bef,Sports (season),Soccer,soccer
+w5a10bef,Sports (season),Baseball,baseball
+w5a10bef,Sports (season),Football,football
+w5a10bef,Subjects (school),Math,math
+w5a10bef,Animals (intimate),Giraffes,giraffe
+w5a10bef,Animals (intimate),Lions,lion
+w9e78153,PRACTICE,,NONE
+w9e78153,Sports (season),Hockey,hockey
+w9e78153,Sports (season),Football,football
+w9e78153,Sports (season),Soccer,soccer
+w9e78153,Animals (intimate),Elephant,elephant
+w9e78153,Animals (intimate),Tiger,tiger
+w9e78153,Animals (intimate),Fish,fish
+w9e78153,Animals (intimate),Monkey,monkey
+w9e78153,Vehicles (commute),,NONE
+w9e78153,Subjects (school),Math,math
+w61b0ebd,PRACTICE,Paris ,UNK
+w61b0ebd,PRACTICE,Greece ,UNK
+w61b0ebd,PRACTICE,Rome ,UNK
+w61b0ebd,PRACTICE,,NONE
+w61b0ebd,Sports (season),,NONE
+w61b0ebd,Subjects (school),English,english
+w61b0ebd,Vehicles (commute),car,car
+w61b0ebd,Animals (intimate),penguin ,penguin
+w61b0ebd,Animals (intimate),giraffe ,giraffe
+w824ec09,PRACTICE,Mykonos,UNK
+w824ec09,PRACTICE,Anywhere in Portugal,UNK
+w824ec09,PRACTICE,Toledo,UNK
+w824ec09,PRACTICE,Siena,UNK
+w824ec09,PRACTICE,Florence,UNK
+w824ec09,PRACTICE,Rome,UNK
+w824ec09,PRACTICE,Berlin,UNK
+w824ec09,PRACTICE,Paris,UNK
+w824ec09,PRACTICE,,NONE
+w824ec09,Subjects (magic),,NONE
+w824ec09,Sports (silence),soccer,soccer
+w824ec09,Sports (silence),rugby,rugby
+w824ec09,Sports (silence),football,football
+w824ec09,Sports (silence),dance,UNK
+w824ec09,Animals (bubble),lizard,lizard
+w824ec09,Animals (bubble),iguana,UNK
+w824ec09,Animals (bubble),rabbit,UNK
+w824ec09,Vehicles (veto),car,car
+w824ec09,Vehicles (veto),bus ,bus
+w824ec09,Vehicles (veto),plane,airplane
+w824ec09,Vehicles (veto),jet,airplane
+w824ec09,Vehicles (veto),bike,bicycle
+wf67f913,PRACTICE,,NONE
+wf67f913,Sports (silence),,NONE
+wf67f913,Vehicles (veto),,NONE
+wf67f913,Subjects (magic),Cosmology,UNK
+wf67f913,Subjects (magic),Astrophysics,UNK
+wf67f913,Subjects (magic),Rocketry,UNK
+wf67f913,Animals (bubble),,NONE
+w4ef1101,PRACTICE,london,UNK
+w4ef1101,PRACTICE,paris,UNK
+w4ef1101,PRACTICE,,NONE
+w4ef1101,Animals (bubble),rhino,rhinoceros
+w4ef1101,Animals (bubble),lion,lion
+w4ef1101,Animals (bubble),meerkat,meerkat
+w4ef1101,Animals (bubble),bear,bear
+w4ef1101,Subjects (magic),,NONE
+w4ef1101,Vehicles (veto),car,car
+w4ef1101,Vehicles (veto),bike,bicycle
+w4ef1101,Vehicles (veto),train,train
+w4ef1101,Vehicles (veto),bus ,bus
+w4ef1101,Vehicles (veto),plane,airplane
+w4ef1101,Sports (silence),basketball,basketball
+w4ef1101,Sports (silence),golf,golf
+w4ef1101,Sports (silence),baseball,baseball
+weccfc3c,PRACTICE,Paris,UNK
+weccfc3c,PRACTICE,Amsterdam,UNK
+weccfc3c,PRACTICE,Naples,UNK
+weccfc3c,Subjects (magic),,NONE
+weccfc3c,Vehicles (veto),walking,walking
+weccfc3c,Vehicles (veto),biking,UNK
+weccfc3c,Vehicles (veto),driving,UNK
+weccfc3c,Animals (bubble),,NONE
+weccfc3c,Sports (silence),football,football
+weccfc3c,Sports (silence),hockey,hockey
+weccfc3c,Sports (silence),baseball,baseball
+w3b58c5d,PRACTICE,London,UNK
+w3b58c5d,PRACTICE,Paris,UNK
+w3b58c5d,PRACTICE,Vienna,UNK
+w3b58c5d,PRACTICE,Florence,UNK
+w3b58c5d,Subjects (magic),,NONE
+w3b58c5d,Animals (bubble),Lion,lion
+w3b58c5d,Animals (bubble),Penguin,penguin
+w3b58c5d,Sports (silence),,NONE
+w3b58c5d,Vehicles (veto),Car,car
+waaa0bb5,PRACTICE,London,UNK
+waaa0bb5,PRACTICE,Rome,UNK
+waaa0bb5,PRACTICE,Vienna,UNK
+waaa0bb5,Subjects (school),Design,UNK
+waaa0bb5,Subjects (school),IT,UNK
+waaa0bb5,Animals (intimate),Lion,lion
+waaa0bb5,Vehicles (commute),eScouter,UNK
+waaa0bb5,Vehicles (commute),Bike,bicycle
+waaa0bb5,Vehicles (commute),Motorcikle,motorcycle
+waaa0bb5,Vehicles (commute),Car,car
+waaa0bb5,Vehicles (commute),Bur,UNK
+waaa0bb5,Vehicles (commute),Train,train
+waaa0bb5,Sports (season),Football (NFL) not soccer,UNK
+w4e690e8,PRACTICE,Paris,UNK
+w4e690e8,PRACTICE,London,UNK
+w4e690e8,PRACTICE,Vienna,UNK
+w4e690e8,PRACTICE,Rome,UNK
+w4e690e8,PRACTICE,Amsterdam,UNK
+w4e690e8,PRACTICE,Madrid,UNK
+w4e690e8,PRACTICE,Dublin,UNK
+w4e690e8,Vehicles (veto),Plane,airplane
+w4e690e8,Vehicles (veto),Car,car
+w4e690e8,Vehicles (veto),Bus,bus
+w4e690e8,Vehicles (veto),Train,train
+w4e690e8,Sports (silence),,NONE
+w4e690e8,Animals (bubble),,NONE
+w4e690e8,Subjects (magic),,NONE
+w320daee,PRACTICE,Berlin,UNK
+w320daee,PRACTICE,Paris,UNK
+w320daee,PRACTICE,Rome,UNK
+w320daee,Subjects (magic),Biology,biology
+w320daee,Subjects (magic),Astronomy,UNK
+w320daee,Subjects (magic),Engineering,engineering
+w320daee,Animals (bubble),lions,lion
+w320daee,Animals (bubble),elephants,elephant
+w320daee,Animals (bubble),praying mantis,UNK
+w320daee,Animals (bubble),humpback whale,UNK
+w320daee,Vehicles (veto),bus,bus
+w320daee,Vehicles (veto),car,car
+w320daee,Vehicles (veto),train,train
+w320daee,Vehicles (veto),airplane,airplane
+w320daee,Sports (silence),Football,football
+w320daee,Sports (silence),Basketball,basketball
+wfa94e0a,PRACTICE,London,UNK
+wfa94e0a,PRACTICE,Paris,UNK
+wfa94e0a,PRACTICE,Amsterdam,UNK
+wfa94e0a,PRACTICE,,NONE
+wfa94e0a,Animals (intimate),Lion,lion
+wfa94e0a,Animals (intimate),Bear,bear
+wfa94e0a,Animals (intimate),Peacock,UNK
+wfa94e0a,Animals (intimate),Fox,UNK
+wfa94e0a,Sports (season),,NONE
+wfa94e0a,Vehicles (commute),private self driving car,UNK
+wfa94e0a,Subjects (school),English,english
+wfa94e0a,Subjects (school),math,math
+w0ae46be,PRACTICE,,NONE
+w0ae46be,Vehicles (commute),Motorcycle,motorcycle
+w0ae46be,Animals (intimate),,NONE
+w0ae46be,Sports (season),,NONE
+w0ae46be,Subjects (school),,NONE
+wa3ad3e5,PRACTICE,Sweden,UNK
+wa3ad3e5,PRACTICE,Netherlands,UNK
+wa3ad3e5,Animals (intimate),Elephant,elephant
+wa3ad3e5,Animals (intimate),Monkey,monkey
+wa3ad3e5,Subjects (school),,NONE
+wa3ad3e5,Sports (season),,NONE
+wa3ad3e5,Vehicles (commute),Bus,bus
+wa3ad3e5,Vehicles (commute),Car,car
+w6728ceb,PRACTICE,paris,UNK
+w6728ceb,PRACTICE,florence,UNK
+w6728ceb,PRACTICE,rome,UNK
+w6728ceb,Sports (season),football,football
+w6728ceb,Sports (season),basketball,basketball
+w6728ceb,Sports (season),volleyball,volleyball
+w6728ceb,Animals (intimate),lion,lion
+w6728ceb,Animals (intimate),tiger,tiger
+w6728ceb,Animals (intimate),bear,bear
+w6728ceb,Animals (intimate),gorilla,gorilla
+w6728ceb,Subjects (school),science,science
+w6728ceb,Subjects (school),math,math
+w6728ceb,Subjects (school),history,history
+w6728ceb,Vehicles (commute),car,car
+w6728ceb,Vehicles (commute),train,train
+w6728ceb,Vehicles (commute),uber,uber
+w6728ceb,Vehicles (commute),walking ,walking
+w6728ceb,Vehicles (commute),biking,UNK
+w70394ea,PRACTICE,Florence,UNK
+w70394ea,PRACTICE,Venice,UNK
+w70394ea,PRACTICE,London,UNK
+w70394ea,Sports (silence),Hockey ,hockey
+w70394ea,Vehicles (veto),Moped,moped
+w70394ea,Vehicles (veto),Motorcycle,motorcycle
+w70394ea,Vehicles (veto),Bicycle,bicycle
+w70394ea,Vehicles (veto),,NONE
+w70394ea,Animals (bubble),whale,UNK
+w70394ea,Animals (bubble),dolphin,dolphin
+w70394ea,Animals (bubble),lion,lion
+w70394ea,Animals (bubble),elephant,elephant
+w70394ea,Animals (bubble),turtle,turtle
+w70394ea,Subjects (magic),history,history
+w70394ea,Subjects (magic),philosophy,philosophy
+w70394ea,Subjects (magic),theology,UNK
+w70394ea,Subjects (magic),literature,literature
+we24617c,PRACTICE,,NONE
+we24617c,Vehicles (commute),driving,UNK
+we24617c,Vehicles (commute),riding a train,UNK
+we24617c,Vehicles (commute),walking,walking
+we24617c,Vehicles (commute),cycling,UNK
+we24617c,Vehicles (commute),jogging,UNK
+we24617c,Animals (intimate),tiger,tiger
+we24617c,Animals (intimate),monkey,monkey
+we24617c,Animals (intimate),dolphin,dolphin
+we24617c,Animals (intimate),birds,bird
+we24617c,Subjects (school),,NONE
+we24617c,Sports (season),football,football
+we24617c,Sports (season),soccer,soccer
+w5697380,PRACTICE,Paris,UNK
+w5697380,PRACTICE,Barcelona,UNK
+w5697380,PRACTICE,Prague,UNK
+w5697380,Subjects (magic),psychology,psychology
+w5697380,Animals (bubble),penguins,penguin
+w5697380,Sports (silence),,NONE
+w5697380,Vehicles (veto),,NONE
+w691f30f,PRACTICE,Paris,UNK
+w691f30f,PRACTICE,Rome,UNK
+w691f30f,PRACTICE,Madrid,UNK
+w691f30f,PRACTICE,Barcelona,UNK
+w691f30f,PRACTICE,Nice,UNK
+w691f30f,PRACTICE,,NONE
+w691f30f,Sports (silence),golf,golf
+w691f30f,Sports (silence),soccer,soccer
+w691f30f,Sports (silence),baseball,baseball
+w691f30f,Subjects (magic),medicine,UNK
+w691f30f,Subjects (magic),languages,UNK
+w691f30f,Vehicles (veto),car,car
+w691f30f,Animals (bubble),elephants,elephant
+w691f30f,Animals (bubble),giraffes,giraffe
+w691f30f,Animals (bubble),lions,lion
+wdd522dd,PRACTICE,,NONE
+wdd522dd,Sports (season),Basketball,basketball
+wdd522dd,Sports (season),Football,football
+wdd522dd,Sports (season),Baseball,baseball
+wdd522dd,Sports (season),Soccer,soccer
+wdd522dd,Vehicles (commute),Bus,bus
+wdd522dd,Vehicles (commute),Train,train
+wdd522dd,Vehicles (commute),Car,car
+wdd522dd,Animals (intimate),Tiger,tiger
+wdd522dd,Animals (intimate),Hippo,hippo
+wdd522dd,Animals (intimate),Elephant,elephant
+wdd522dd,Animals (intimate),Gorilla,gorilla
+wdd522dd,Subjects (school),Math,math
+wdd522dd,Subjects (school),Science,science
+wdd522dd,Subjects (school),Social Studies,UNK
+wdd522dd,Subjects (school),Literature,literature
+w1504726,PRACTICE,Paris,UNK
+w1504726,PRACTICE,Rome,UNK
+w1504726,PRACTICE,London,UNK
+w1504726,PRACTICE,Venice,UNK
+w1504726,PRACTICE,Dublin,UNK
+w1504726,PRACTICE,Berlin,UNK
+w1504726,Subjects (school),Math,math
+w1504726,Sports (season),,NONE
+w1504726,Vehicles (commute),,NONE
+w1504726,Animals (intimate),Lion,lion
+w1504726,Animals (intimate),Tiger,tiger
+w1504726,Animals (intimate),Gorilla,gorilla
+w1504726,Animals (intimate),Elephant,elephant
+w1504726,Animals (intimate),,NONE
+w746a731,PRACTICE,Paris,UNK
+w746a731,PRACTICE,,NONE
+w746a731,Sports (silence),,NONE
+w746a731,Animals (bubble),giraffee,giraffe
+w746a731,Animals (bubble),lion,lion
+w746a731,Vehicles (veto),car,car
+w746a731,Subjects (magic),,NONE
+waaa21e7,PRACTICE,paris,UNK
+waaa21e7,PRACTICE,florence,UNK
+waaa21e7,PRACTICE,budapest,UNK
+waaa21e7,PRACTICE,london,UNK
+waaa21e7,PRACTICE,moscow,UNK
+waaa21e7,Sports (silence),soccer,soccer
+waaa21e7,Sports (silence),football,football
+waaa21e7,Sports (silence),basketball,basketball
+waaa21e7,Sports (silence),baseball,baseball
+waaa21e7,Subjects (magic),,NONE
+waaa21e7,Animals (bubble),,NONE
+waaa21e7,Vehicles (veto),train,train
+waaa21e7,Vehicles (veto),car,car
+waaa21e7,Vehicles (veto),bus,bus
+waaa21e7,Vehicles (veto),,NONE
+w6fafcdc,PRACTICE,,NONE
+w6fafcdc,Subjects (school),Math,math
+w6fafcdc,Subjects (school),Biology,biology
+w6fafcdc,Subjects (school),History,history
+w6fafcdc,Vehicles (commute),Bus,bus
+w6fafcdc,Vehicles (commute),Car,car
+w6fafcdc,Sports (season),Football,football
+w6fafcdc,Animals (intimate),Tiger,tiger
+w855ddee,PRACTICE,LONDON,UNK
+w855ddee,PRACTICE,MOSCOW,UNK
+w855ddee,Animals (bubble),LION,lion
+w855ddee,Sports (silence),FOOTBALL,football
+w855ddee,Vehicles (veto),CAR,car
+w855ddee,Vehicles (veto),BUS,bus
+w855ddee,Subjects (magic),PHYSICS,physics
+wb728a10,PRACTICE,,NONE
+wb728a10,Subjects (school),,NONE
+wb728a10,Animals (intimate),penguin,penguin
+wb728a10,Sports (season),,NONE
+wb728a10,Vehicles (commute),bike,bicycle
+w4539be1,PRACTICE,,NONE
+w4539be1,Subjects (school),"Math, biology, english, chemistry, gym, art, ",UNK
+w4539be1,Sports (season),,NONE
+w4539be1,Vehicles (commute),"train, submarrine, boat, car, helicopter ",UNK
+w4539be1,Animals (intimate),,NONE
+w2f49e42,PRACTICE,Rome ,UNK
+w2f49e42,PRACTICE,Parris,UNK
+w2f49e42,PRACTICE,London,UNK
+w2f49e42,PRACTICE,Berlin,UNK
+w2f49e42,Vehicles (veto),,NONE
+w2f49e42,Sports (silence),,NONE
+w2f49e42,Subjects (magic),,NONE
+w2f49e42,Animals (bubble),,NONE
+wbf44c59,PRACTICE,Rome,UNK
+wbf44c59,PRACTICE,Paris,UNK
+wbf44c59,PRACTICE,Dublin,UNK
+wbf44c59,PRACTICE,Seoul even though it is not in Europe,UNK
+wbf44c59,PRACTICE,Tokyo even though not in Europe,UNK
+wbf44c59,Animals (bubble),,NONE
+wbf44c59,Vehicles (veto),Plane,airplane
+wbf44c59,Vehicles (veto),car/truck,UNK
+wbf44c59,Vehicles (veto),train,train
+wbf44c59,Vehicles (veto),boat,boat
+wbf44c59,Vehicles (veto),,NONE
+wbf44c59,Sports (silence),football,football
+wbf44c59,Sports (silence),hockey,hockey
+wbf44c59,Sports (silence),baseball,baseball
+wbf44c59,Sports (silence),basketball,basketball
+wbf44c59,Subjects (magic),Law,UNK
+wbf44c59,Subjects (magic),Medicine,UNK
+wbf44c59,Subjects (magic),History,history
+wbf44c59,Subjects (magic),Linguistics,UNK
+wbf44c59,Subjects (magic),Psychology,psychology
+w2377959,PRACTICE,,NONE
+w2377959,Subjects (school),,NONE
+w2377959,Vehicles (commute),Car,car
+w2377959,Vehicles (commute),Train,train
+w2377959,Vehicles (commute),Walking,walking
+w2377959,Sports (season),,NONE
+w2377959,Animals (intimate),,NONE
+wa598b5f,PRACTICE,Belgium,UNK
+wa598b5f,PRACTICE,Paris,UNK
+wa598b5f,PRACTICE,Rome,UNK
+wa598b5f,PRACTICE,Athens,UNK
+wa598b5f,Animals (intimate),Zebra,zebra
+wa598b5f,Animals (intimate),Giraffe,giraffe
+wa598b5f,Animals (intimate),Antelope,UNK
+wa598b5f,Animals (intimate),Lion,lion
+wa598b5f,Vehicles (commute),,NONE
+wa598b5f,Sports (season),Soccer,soccer
+wa598b5f,Sports (season),Hockey,hockey
+wa598b5f,Subjects (school),,NONE
+wac5b84a,PRACTICE,,NONE
+wac5b84a,Subjects (magic),,NONE
+wac5b84a,Vehicles (veto),Car,car
+wac5b84a,Sports (silence),football,football
+wac5b84a,Animals (bubble),penguin,penguin
+w57829cc,PRACTICE,,NONE
+w57829cc,Vehicles (veto),,NONE
+w57829cc,Subjects (magic),,NONE
+w57829cc,Sports (silence),,NONE
+w57829cc,Animals (bubble),,NONE
+w99830aa,PRACTICE,,NONE
+w99830aa,Sports (silence),Football,football
+w99830aa,Sports (silence),Soccer,soccer
+w99830aa,Vehicles (veto),car,car
+w99830aa,Vehicles (veto),Walking,walking
+w99830aa,Vehicles (veto),Bus,bus
+w99830aa,Subjects (magic),,NONE
+w99830aa,Animals (bubble),,NONE
+w1f77713,PRACTICE,Rome,UNK
+w1f77713,PRACTICE,Paris,UNK
+w1f77713,PRACTICE,Amsterdam,UNK
+w1f77713,PRACTICE,Venice,UNK
+w1f77713,Sports (silence),Football,football
+w1f77713,Vehicles (veto),car,car
+w1f77713,Vehicles (veto),plane,airplane
+w1f77713,Vehicles (veto),bike,bicycle
+w1f77713,Subjects (magic),,NONE
+w1f77713,Animals (bubble),otters,otter
+w1f77713,Animals (bubble),monkeys/chimps,UNK
+w1f77713,Animals (bubble),dolphins,dolphin
+we1ecb97,PRACTICE,italy. i always wanted to go to italy.,UNK
+we1ecb97,Vehicles (veto),,NONE
+we1ecb97,Subjects (magic),math,math
+we1ecb97,Sports (silence),,NONE
+we1ecb97,Animals (bubble),,NONE
+w2070c3d,PRACTICE,,NONE
+w2070c3d,Subjects (school),Math and history,UNK
+w2070c3d,Animals (intimate),monkeys and lions,UNK
+w2070c3d,Vehicles (commute),,NONE
+w2070c3d,Sports (season),football,football
+w7c99810,PRACTICE,Hamburg,UNK
+w7c99810,PRACTICE,Amsterdam,UNK
+w7c99810,PRACTICE,,NONE
+w7c99810,Vehicles (veto),Car,car
+w7c99810,Vehicles (veto),Bike,bicycle
+w7c99810,Vehicles (veto),Bus,bus
+w7c99810,Subjects (magic),Psychology,psychology
+w7c99810,Sports (silence),Soccer,soccer
+w7c99810,Animals (bubble),Lion,lion
+w7c99810,Animals (bubble),Elephant,elephant
+w4b810e4,PRACTICE,paris,UNK
+w4b810e4,Subjects (magic),,NONE
+w4b810e4,Vehicles (veto),car,car
+w4b810e4,Animals (bubble),lion,lion
+w4b810e4,Sports (silence),football,football
+w77b701f,PRACTICE,,NONE
+w77b701f,Subjects (school),,NONE
+w77b701f,Vehicles (commute),Riding a horse.,UNK
+w77b701f,Sports (season),Football,football
+w77b701f,Animals (intimate),,NONE
+w25c05b2,PRACTICE,Paris and London,UNK
+w25c05b2,Vehicles (veto),Bike,bicycle
+w25c05b2,Animals (bubble),Tiger,tiger
+w25c05b2,Subjects (magic),Psychology,psychology
+w25c05b2,Sports (silence),Soccer,soccer
+w5578705,PRACTICE,,NONE
+w5578705,Subjects (magic),,NONE
+w5578705,Vehicles (veto),,NONE
+w5578705,Sports (silence),,NONE
+w5578705,Animals (bubble),,NONE
+w6f22e10,PRACTICE,Budapest,UNK
+w6f22e10,PRACTICE,London ,UNK
+w6f22e10,PRACTICE,Vienna,UNK
+w6f22e10,PRACTICE,Bratislava,UNK
+w6f22e10,PRACTICE,Granada,UNK
+w6f22e10,Sports (season),pro basketball,UNK
+w6f22e10,Vehicles (commute),electric car,UNK
+w6f22e10,Vehicles (commute),bicycle,bicycle
+w6f22e10,Subjects (school),,NONE
+w6f22e10,Animals (intimate),orangutan,UNK
+w6f22e10,Animals (intimate),chimpanzee,monkey
+w4268df8,PRACTICE,,NONE
+w4268df8,Subjects (school),,NONE
+w4268df8,Animals (intimate),,NONE
+w4268df8,Vehicles (commute),,NONE
+w4268df8,Sports (season),Football,football
+wc05e3d6,PRACTICE,ireland,UNK
+wc05e3d6,PRACTICE,france,UNK
+wc05e3d6,PRACTICE,italy,UNK
+wc05e3d6,Animals (intimate),lion,lion
+wc05e3d6,Animals (intimate),monkey,monkey
+wc05e3d6,Animals (intimate),elephant,elephant
+wc05e3d6,Animals (intimate),panda,panda
+wc05e3d6,Animals (intimate),dolphin,dolphin
+wc05e3d6,Vehicles (commute),plane,airplane
+wc05e3d6,Vehicles (commute),train,train
+wc05e3d6,Vehicles (commute),car,car
+wc05e3d6,Sports (season),football,football
+wc05e3d6,Sports (season),hockey,hockey
+wc05e3d6,Sports (season),basketball,basketball
+wc05e3d6,Subjects (school),math,math
+w4b32594,PRACTICE,London,UNK
+w4b32594,Subjects (magic),,NONE
+w4b32594,Animals (bubble),,NONE
+w4b32594,Sports (silence),baseball,baseball
+w4b32594,Vehicles (veto),,NONE
+wa261df2,PRACTICE,Rome,UNK
+wa261df2,PRACTICE,Paris,UNK
+wa261df2,PRACTICE,Athens,UNK
+wa261df2,PRACTICE,London,UNK
+wa261df2,PRACTICE,Dublin,UNK
+wa261df2,Animals (intimate),Zebra,zebra
+wa261df2,Animals (intimate),Elephant,elephant
+wa261df2,Animals (intimate),Tiger,tiger
+wa261df2,Animals (intimate),Monkey,monkey
+wa261df2,Animals (intimate),Ape,UNK
+wa261df2,Animals (intimate),Giraffe,giraffe
+wa261df2,Vehicles (commute),,NONE
+wa261df2,Sports (season),,NONE
+wa261df2,Subjects (school),Math,math
+wa261df2,Subjects (school),English,english
+wa261df2,Subjects (school),Science,science
+w03aeac6,PRACTICE,,NONE
+w03aeac6,Subjects (school),,NONE
+w03aeac6,Vehicles (commute),car,car
+w03aeac6,Vehicles (commute),bus,bus
+w03aeac6,Animals (intimate),zebra,zebra
+w03aeac6,Animals (intimate),monkey,monkey
+w03aeac6,Sports (season),hockey,hockey
+w03aeac6,Sports (season),football,football
+w22d27b8,PRACTICE,Paris,UNK
+w22d27b8,Subjects (school),,NONE
+w22d27b8,Animals (intimate),,NONE
+w22d27b8,Sports (season),,NONE
+w22d27b8,Vehicles (commute),,NONE
+w6695449,PRACTICE,Prague,UNK
+w6695449,PRACTICE,Paris,UNK
+w6695449,Sports (silence),soccer,soccer
+w6695449,Vehicles (veto),Train,train
+w6695449,Vehicles (veto),Plane,airplane
+w6695449,Vehicles (veto),Scooter,scooter
+w6695449,Subjects (magic),Spanish,spanish
+w6695449,Subjects (magic),Psychology,psychology
+w6695449,Animals (bubble),Sharks,shark
+w6695449,Animals (bubble),Dolphins,dolphin
+w6695449,Animals (bubble),Alligator,alligator
+w6695449,Animals (bubble),Elephant,elephant
+wc9eb28c,PRACTICE,rome,UNK
+wc9eb28c,PRACTICE,milan,UNK
+wc9eb28c,PRACTICE,athens,UNK
+wc9eb28c,PRACTICE,barcelona,UNK
+wc9eb28c,PRACTICE,paris,UNK
+wc9eb28c,Sports (season),basketball,basketball
+wc9eb28c,Sports (season),football,football
+wc9eb28c,Sports (season),baseball,baseball
+wc9eb28c,Subjects (school),english,english
+wc9eb28c,Subjects (school),math,math
+wc9eb28c,Animals (intimate),gorilla,gorilla
+wc9eb28c,Animals (intimate),giraffe,giraffe
+wc9eb28c,Animals (intimate),tiger,tiger
+wc9eb28c,Vehicles (commute),bus,bus
+wc9eb28c,Vehicles (commute),train,train
+w536843c,PRACTICE,London,UNK
+w536843c,PRACTICE,Paris,UNK
+w536843c,PRACTICE,Rome ,UNK
+w536843c,Sports (season),Football,football
+w536843c,Vehicles (commute),train,train
+w536843c,Vehicles (commute),biking,UNK
+w536843c,Vehicles (commute),walking,walking
+w536843c,Vehicles (commute),car,car
+w536843c,Vehicles (commute),boat,boat
+w536843c,Vehicles (commute),plane,airplane
+w536843c,Animals (intimate),snake,snake
+w536843c,Animals (intimate),tiger,tiger
+w536843c,Animals (intimate),birds,bird
+w536843c,Subjects (school),algebra,algebra
+w536843c,Subjects (school),chemistry,chemistry
+w0ce45d9,PRACTICE,Amsterdam,UNK
+w0ce45d9,Vehicles (veto),car,car
+w0ce45d9,Animals (bubble),kangaroo mouse,UNK
+w0ce45d9,Subjects (magic),child psychology,UNK
+w0ce45d9,Sports (silence),American college football,UNK
+w968f840,PRACTICE,Lisbon,UNK
+w968f840,PRACTICE,Zagreb,UNK
+w968f840,PRACTICE,Florence,UNK
+w968f840,PRACTICE,Barcelona,UNK
+w968f840,PRACTICE,Seville,UNK
+w968f840,PRACTICE,Paris,UNK
+w968f840,PRACTICE,Cork,UNK
+w968f840,Sports (silence),hockey,hockey
+w968f840,Sports (silence),tennis,tennis
+w968f840,Sports (silence),football,football
+w968f840,Sports (silence),baseball,baseball
+w968f840,Vehicles (veto),walking,walking
+w968f840,Vehicles (veto),bus,bus
+w968f840,Vehicles (veto),streetcar,UNK
+w968f840,Vehicles (veto),car,car
+w968f840,Vehicles (veto),light rail,UNK
+w968f840,Vehicles (veto),plane,airplane
+w968f840,Vehicles (veto),train,train
+w968f840,Vehicles (veto),bicycle,bicycle
+w968f840,Subjects (magic),public health,UNK
+w968f840,Subjects (magic),public policy,UNK
+w968f840,Subjects (magic),education,UNK
+w968f840,Animals (bubble),hippo,hippo
+w968f840,Animals (bubble),whale,UNK
+w968f840,Animals (bubble),lemurs,lemur
+w968f840,Animals (bubble),sloths,UNK
+w6812375,PRACTICE,,NONE
+w6812375,Subjects (magic),,NONE
+w6812375,Vehicles (veto),plane,airplane
+w6812375,Vehicles (veto),train,train
+w6812375,Vehicles (veto),car,car
+w6812375,Vehicles (veto),skateboard,skateboard
+w6812375,Vehicles (veto),,NONE
+w6812375,Sports (silence),baseball,baseball
+w6812375,Sports (silence),basketball,basketball
+w6812375,Sports (silence),soccer,soccer
+w6812375,Animals (bubble),,NONE
+w8360117,PRACTICE,,NONE
+w8360117,Subjects (magic),,NONE
+w8360117,Vehicles (veto),bus,bus
+w8360117,Vehicles (veto),walking,walking
+w8360117,Vehicles (veto),train,train
+w8360117,Sports (silence),,NONE
+w8360117,Animals (bubble),,NONE
+wb32326d,PRACTICE,Glascow ,UNK
+wb32326d,PRACTICE,Portugal,UNK
+wb32326d,PRACTICE,London,UNK
+wb32326d,PRACTICE,Dublin,UNK
+wb32326d,PRACTICE,,NONE
+wb32326d,PRACTICE,,NONE
+wb32326d,Subjects (school),Math,math
+wb32326d,Subjects (school),History,history
+wb32326d,Vehicles (commute),car,car
+wb32326d,Vehicles (commute),scooter,scooter
+wb32326d,Sports (season),football,football
+wb32326d,Animals (intimate),tiger,tiger
+wb32326d,Animals (intimate),lion,lion
+wb32326d,Animals (intimate),bear,bear
+wb32326d,Animals (intimate),monkey,monkey
+w85b8f93,PRACTICE,I'd love to visit any city in France. ,UNK
+w85b8f93,Vehicles (veto),My automobile is a necessity. I could not just stop using it.,UNK
+w85b8f93,Subjects (magic),Physics. I was never very good at it. Very complex subject. ,UNK
+w85b8f93,Sports (silence),,NONE
+w85b8f93,Animals (bubble),,NONE
+w560f568,PRACTICE,France,UNK
+w560f568,PRACTICE,Spain,UNK
+w560f568,PRACTICE,Portugual,UNK
+w560f568,PRACTICE,Italy,UNK
+w560f568,PRACTICE,Great Britian,UNK
+w560f568,Subjects (magic),Math,math
+w560f568,Subjects (magic),English,english
+w560f568,Subjects (magic),Science,science
+w560f568,Subjects (magic),History,history
+w560f568,Vehicles (veto),Car,car
+w560f568,Vehicles (veto),Motocycle,motorcycle
+w560f568,Vehicles (veto),Train,train
+w560f568,Vehicles (veto),Bike,bicycle
+w560f568,Vehicles (veto),Scooter,scooter
+w560f568,Vehicles (veto),Carpool ,UNK
+w560f568,Vehicles (veto),Bus,bus
+w560f568,Animals (bubble),Dog,UNK
+w560f568,Animals (bubble),Cat,UNK
+w560f568,Animals (bubble),Rabbit,UNK
+w560f568,Animals (bubble),Bird,bird
+w560f568,Animals (bubble),Snake,snake
+w560f568,Animals (bubble),Ostrich,ostrich
+w560f568,Animals (bubble),Meerkat,meerkat
+w560f568,Animals (bubble),Lion,lion
+w560f568,Animals (bubble),Jaguar,UNK
+w560f568,Animals (bubble),Squirrel,UNK
+w560f568,Animals (bubble),Lemur,lemur
+w560f568,Sports (silence),Track and Field,UNK
+w560f568,Sports (silence),Racing,UNK
+w560f568,Sports (silence),Ice Skating,figure skating
+w560f568,Sports (silence),Skateboarding,UNK
+w560f568,Sports (silence),Cross Country,UNK
+w560f568,Sports (silence),Basketball,basketball
+w560f568,Sports (silence),Tennis,tennis
+w560f568,Sports (silence),Ping Pong,UNK
+wf1da202,PRACTICE,Germany,UNK
+wf1da202,PRACTICE,France,UNK
+wf1da202,PRACTICE,ireland,UNK
+wf1da202,PRACTICE,switzerland,UNK
+wf1da202,Sports (season),baseball,baseball
+wf1da202,Sports (season),basketball,basketball
+wf1da202,Vehicles (commute),flight,UNK
+wf1da202,Vehicles (commute),car,car
+wf1da202,Vehicles (commute),train,train
+wf1da202,Animals (intimate),monkey,monkey
+wf1da202,Animals (intimate),lion,lion
+wf1da202,Subjects (school),Spanish,spanish
+wf1da202,Subjects (school),Math,math
+w12249cd,PRACTICE,,NONE
+w12249cd,Animals (bubble),,NONE
+w12249cd,Vehicles (veto),I feared not using my car,UNK
+w12249cd,Subjects (magic),,NONE
+w12249cd,Sports (silence),,NONE
+wec428dc,PRACTICE,,NONE
+wec428dc,Sports (silence),baseball,baseball
+wec428dc,Animals (bubble),sloth,UNK
+wec428dc,Animals (bubble),koala,koala
+wec428dc,Animals (bubble),Giraffe,giraffe
+wec428dc,Subjects (magic),chemistry,chemistry
+wec428dc,Subjects (magic),biology,biology
+wec428dc,Vehicles (veto),,NONE
+w72abaad,PRACTICE,Amsterdam,UNK
+w72abaad,PRACTICE,Oslo,UNK
+w72abaad,PRACTICE,Dublin,UNK
+w72abaad,Sports (season),Basketball,basketball
+w72abaad,Sports (season),Baseball,baseball
+w72abaad,Sports (season),Soccer,soccer
+w72abaad,Subjects (school),,NONE
+w72abaad,Vehicles (commute),Driving in city traffic,UNK
+w72abaad,Vehicles (commute),Bus,bus
+w72abaad,Vehicles (commute),Metro/subway,UNK
+w72abaad,Animals (intimate),,NONE
+wfc3acfa,PRACTICE,"Venice, Italy",UNK
+wfc3acfa,PRACTICE,"Paris, France",UNK
+wfc3acfa,Sports (season),soccer,soccer
+wfc3acfa,Vehicles (commute),new car,UNK
+wfc3acfa,Animals (intimate),monkey,monkey
+wfc3acfa,Animals (intimate),giraffe,giraffe
+wfc3acfa,Animals (intimate),,NONE
+wfc3acfa,Subjects (school),math,math
+wfc3acfa,Subjects (school),english,english
+wfc3acfa,Subjects (school),science ,science
+w7d62cc2,PRACTICE,,NONE
+w7d62cc2,Sports (season),Hockey,hockey
+w7d62cc2,Sports (season),Baseball,baseball
+w7d62cc2,Subjects (school),Math,math
+w7d62cc2,Subjects (school),Literature,literature
+w7d62cc2,Subjects (school),English,english
+w7d62cc2,Vehicles (commute),Bicycle,bicycle
+w7d62cc2,Vehicles (commute),Car,car
+w7d62cc2,Animals (intimate),Lion,lion
+w7d62cc2,Animals (intimate),Monkey,monkey
+w7d62cc2,Animals (intimate),Tiger,tiger
+w7d62cc2,Animals (intimate),Elephant,elephant
+w5e8254f,PRACTICE,,NONE
+w5e8254f,Sports (season),Hockey,hockey
+w5e8254f,Animals (intimate),,NONE
+w5e8254f,Subjects (school),,NONE
+w5e8254f,Vehicles (commute),,NONE
+wf5fd2c9,PRACTICE,London,UNK
+wf5fd2c9,PRACTICE,Paris,UNK
+wf5fd2c9,PRACTICE,Limerick,UNK
+wf5fd2c9,PRACTICE,Wigan,UNK
+wf5fd2c9,Vehicles (veto),Car,car
+wf5fd2c9,Vehicles (veto),Airplane,airplane
+wf5fd2c9,Vehicles (veto),Taxi,taxi
+wf5fd2c9,Animals (bubble),Dolphin,dolphin
+wf5fd2c9,Animals (bubble),Whale,UNK
+wf5fd2c9,Animals (bubble),Shark,shark
+wf5fd2c9,Animals (bubble),Lion,lion
+wf5fd2c9,Animals (bubble),Tiger,tiger
+wf5fd2c9,Animals (bubble),Giraffe,giraffe
+wf5fd2c9,Sports (silence),Gymnastics,gymnastics
+wf5fd2c9,Sports (silence),Swimming,swimming
+wf5fd2c9,Sports (silence),Cheerleading,UNK
+wf5fd2c9,Subjects (magic),Content Marketing,UNK
+wf5fd2c9,Subjects (magic),Graphic Design,UNK
+w7e5eac9,PRACTICE,,NONE
+w7e5eac9,Vehicles (veto),car,car
+w7e5eac9,Vehicles (veto),train,train
+w7e5eac9,Vehicles (veto),bus,bus
+w7e5eac9,Subjects (magic),,NONE
+w7e5eac9,Animals (bubble),elephant,elephant
+w7e5eac9,Sports (silence),football,football
+w7e5eac9,Sports (silence),basketball,basketball
+w7e5eac9,Sports (silence),soccer,soccer
+waf5a872,PRACTICE,Paris,UNK
+waf5a872,PRACTICE,Rome,UNK
+waf5a872,PRACTICE,London,UNK
+waf5a872,Subjects (magic),Science,science
+waf5a872,Animals (bubble),panda,panda
+waf5a872,Animals (bubble),lion,lion
+waf5a872,Animals (bubble),,NONE
+waf5a872,Vehicles (veto),car,car
+waf5a872,Vehicles (veto),subway,subway
+waf5a872,Vehicles (veto),train,train
+waf5a872,Vehicles (veto),airplane,airplane
+waf5a872,Sports (silence),football,football
+waf5a872,Sports (silence),hockey,hockey
+waf5a872,Sports (silence),baseball,baseball
+wa57ed22,PRACTICE,Paris,UNK
+wa57ed22,PRACTICE,Germany,UNK
+wa57ed22,Sports (silence),Football,football
+wa57ed22,Vehicles (veto),car,car
+wa57ed22,Vehicles (veto),train,train
+wa57ed22,Subjects (magic),,NONE
+wa57ed22,Animals (bubble),elephant,elephant
+w133f5e6,PRACTICE,Paris,UNK
+w133f5e6,PRACTICE,Prague,UNK
+w133f5e6,PRACTICE,Rome,UNK
+w133f5e6,Vehicles (veto),Car,car
+w133f5e6,Sports (silence),Soccer,soccer
+w133f5e6,Sports (silence),Football,football
+w133f5e6,Animals (bubble),Gorila,gorilla
+w133f5e6,Animals (bubble),Panda bear,UNK
+w133f5e6,Animals (bubble),Kangaroo,kangaroo
+w133f5e6,Animals (bubble),Jiraffe,giraffe
+w133f5e6,Subjects (magic),Philosophy,philosophy
+w133f5e6,Subjects (magic),Digitl Marketing,UNK
+w711cc87,PRACTICE,Paris,UNK
+w711cc87,PRACTICE,Rome,UNK
+w711cc87,Vehicles (veto),airplane,airplane
+w711cc87,Vehicles (veto),train,train
+w711cc87,Sports (silence),,NONE
+w711cc87,Subjects (magic),Math,math
+w711cc87,Subjects (magic),History,history
+w711cc87,Animals (bubble),,NONE
+we010f6f,PRACTICE,Milan,UNK
+we010f6f,PRACTICE,Paris,UNK
+we010f6f,PRACTICE,Rome,UNK
+we010f6f,PRACTICE,,NONE
+we010f6f,Animals (intimate),Giraffe,giraffe
+we010f6f,Vehicles (commute),Bus,bus
+we010f6f,Vehicles (commute),train,train
+we010f6f,Subjects (school),Science,science
+we010f6f,Sports (season),Hockey,hockey
+w76f4194,PRACTICE,Prague,UNK
+w76f4194,PRACTICE,London,UNK
+w76f4194,PRACTICE,Paris,UNK
+w76f4194,PRACTICE,Dublin,UNK
+w76f4194,Subjects (school),Math,math
+w76f4194,Subjects (school),English,english
+w76f4194,Subjects (school),Physics,physics
+w76f4194,Animals (intimate),Lion,lion
+w76f4194,Animals (intimate),Gorilla,gorilla
+w76f4194,Animals (intimate),Tiger,tiger
+w76f4194,Sports (season),Hockey,hockey
+w76f4194,Sports (season),Baseball,baseball
+w76f4194,Sports (season),Basketball,basketball
+w76f4194,Vehicles (commute),Train,train
+w76f4194,Vehicles (commute),Airplane,airplane
+w76f4194,Vehicles (commute),Car,car
+w4dcff9f,PRACTICE,Paris,UNK
+w4dcff9f,PRACTICE,London,UNK
+w4dcff9f,PRACTICE,Barcelona,UNK
+w4dcff9f,PRACTICE,Geneva,UNK
+w4dcff9f,PRACTICE,Stockholm,UNK
+w4dcff9f,Animals (bubble),Panda,panda
+w4dcff9f,Subjects (magic),Medicine,UNK
+w4dcff9f,Subjects (magic),Philosophy,philosophy
+w4dcff9f,Subjects (magic),Astrophysics,UNK
+w4dcff9f,Vehicles (veto),car,car
+w4dcff9f,Vehicles (veto),train,train
+w4dcff9f,Sports (silence),football,football
+wdb0c43e,PRACTICE,London,UNK
+wdb0c43e,Animals (bubble),,NONE
+wdb0c43e,Sports (silence),,NONE
+wdb0c43e,Vehicles (veto),,NONE
+wdb0c43e,Subjects (magic),,NONE
+w9e546d4,PRACTICE,Paris,UNK
+w9e546d4,PRACTICE,Rome,UNK
+w9e546d4,PRACTICE,London,UNK
+w9e546d4,Sports (season),,NONE
+w9e546d4,Vehicles (commute),bus,bus
+w9e546d4,Vehicles (commute),car,car
+w9e546d4,Vehicles (commute),train,train
+w9e546d4,Subjects (school),,NONE
+w9e546d4,Animals (intimate),,NONE
+w601dd33,PRACTICE,,NONE
+w601dd33,Sports (season),baseball,baseball
+w601dd33,Sports (season),football,football
+w601dd33,Vehicles (commute),car,car
+w601dd33,Vehicles (commute),bus,bus
+w601dd33,Animals (intimate),penguin,penguin
+w601dd33,Subjects (school),,NONE
+w576c2cb,PRACTICE,,NONE
+w576c2cb,Animals (bubble),"Any insect.  I just thought ""I hope its an insect"".  ",UNK
+w576c2cb,Subjects (magic),Math,math
+w576c2cb,Subjects (magic),Biology,biology
+w576c2cb,Subjects (magic),Physics,physics
+w576c2cb,Sports (silence),Football,football
+w576c2cb,Sports (silence),Basketball,basketball
+w576c2cb,Sports (silence),Olympics,UNK
+w576c2cb,Vehicles (veto),Personal car,UNK
+w40fbaf9,PRACTICE,,NONE
+w40fbaf9,Sports (silence),Football,football
+w40fbaf9,Sports (silence),Baseball,baseball
+w40fbaf9,Sports (silence),Hockey,hockey
+w40fbaf9,Vehicles (veto),Cars,car
+w40fbaf9,Vehicles (veto),Trains,UNK
+w40fbaf9,Subjects (magic),Chemistry,chemistry
+w40fbaf9,Subjects (magic),Biology,biology
+w40fbaf9,Animals (bubble),,NONE
+wedf3c53,PRACTICE,Barcelona,UNK
+wedf3c53,PRACTICE,Rome,UNK
+wedf3c53,PRACTICE,Florence,UNK
+wedf3c53,Sports (season),Football,football
+wedf3c53,Sports (season),basketball,basketball
+wedf3c53,Sports (season),hockey,hockey
+wedf3c53,Subjects (school),chemistry,chemistry
+wedf3c53,Subjects (school),business,UNK
+wedf3c53,Subjects (school),biology,biology
+wedf3c53,Vehicles (commute),,NONE
+wedf3c53,Animals (intimate),lion,lion
+wedf3c53,Animals (intimate),tiger,tiger
+wedf3c53,Animals (intimate),alligator,alligator
+w4e9ee51,PRACTICE,Edenborough,UNK
+w4e9ee51,PRACTICE,London,UNK
+w4e9ee51,Subjects (magic),science,science
+w4e9ee51,Subjects (magic),language,UNK
+w4e9ee51,Animals (bubble),panda,panda
+w4e9ee51,Vehicles (veto),,NONE
+w4e9ee51,Sports (silence),,NONE
+w0ec19be,PRACTICE,,NONE
+w0ec19be,Subjects (magic),,NONE
+w0ec19be,Animals (bubble),,NONE
+w0ec19be,Sports (silence),Golf,golf
+w0ec19be,Vehicles (veto),Car,car
+wfacf0ec,PRACTICE,Prague,UNK
+wfacf0ec,Sports (silence),,NONE
+wfacf0ec,Animals (bubble),Elephant,elephant
+wfacf0ec,Subjects (magic),,NONE
+wfacf0ec,Vehicles (veto),,NONE
+w4124bfc,PRACTICE,Glasgow,UNK
+w4124bfc,PRACTICE,London,UNK
+w4124bfc,Subjects (school),English Literature,UNK
+w4124bfc,Subjects (school),Biology,biology
+w4124bfc,Subjects (school),Physics,physics
+w4124bfc,Subjects (school),,NONE
+w4124bfc,Animals (intimate),Bear,bear
+w4124bfc,Animals (intimate),Tiger,tiger
+w4124bfc,Animals (intimate),Monkey,monkey
+w4124bfc,Animals (intimate),Bat,UNK
+w4124bfc,Vehicles (commute),Car,car
+w4124bfc,Vehicles (commute),Walking,walking
+w4124bfc,Vehicles (commute),Bus,bus
+w4124bfc,Vehicles (commute),Bullet Train,UNK
+w4124bfc,Vehicles (commute),Plane,airplane
+w4124bfc,Sports (season),Baseball,baseball
+w4124bfc,Sports (season),Football,football
+wb8e781b,PRACTICE,,NONE
+wb8e781b,Sports (season),,NONE
+wb8e781b,Subjects (school),,NONE
+wb8e781b,Animals (intimate),Zebra,zebra
+wb8e781b,Animals (intimate),Parrot,UNK
+wb8e781b,Animals (intimate),Big Cat,UNK
+wb8e781b,Animals (intimate),Snake,snake
+wb8e781b,Animals (intimate),,NONE
+wb8e781b,Vehicles (commute),,NONE
+w7da44c7,PRACTICE,London,UNK
+w7da44c7,PRACTICE,Madrid,UNK
+w7da44c7,PRACTICE,Paris,UNK
+w7da44c7,PRACTICE,Vienna,UNK
+w7da44c7,PRACTICE,barcelona,UNK
+w7da44c7,Animals (bubble),,NONE
+w7da44c7,Vehicles (veto),,NONE
+w7da44c7,Sports (silence),,NONE
+w7da44c7,Subjects (magic),,NONE
+w09c99c9,PRACTICE,Dublin,UNK
+w09c99c9,PRACTICE,Amsterdam,UNK
+w09c99c9,PRACTICE,Barcelona,UNK
+w09c99c9,PRACTICE,Paris,UNK
+w09c99c9,PRACTICE,London,UNK
+w09c99c9,Subjects (school),History,history
+w09c99c9,Subjects (school),Government,UNK
+w09c99c9,Subjects (school),Math,math
+w09c99c9,Vehicles (commute),Driving my car,UNK
+w09c99c9,Vehicles (commute),Walking,walking
+w09c99c9,Vehicles (commute),Riding the bus,UNK
+w09c99c9,Vehicles (commute),Taking a Lyft,UNK
+w09c99c9,Sports (season),Baseball,baseball
+w09c99c9,Sports (season),Football,football
+w09c99c9,Sports (season),Soccer,soccer
+w09c99c9,Sports (season),Basketball,basketball
+w09c99c9,Sports (season),Hockey,hockey
+w09c99c9,Animals (intimate),Panda,panda
+w09c99c9,Animals (intimate),Polar bear,polar bear
+w09c99c9,Animals (intimate),Giraffe,giraffe
+w2f937a4,PRACTICE,,NONE
+w2f937a4,Vehicles (commute),car,car
+w2f937a4,Vehicles (commute),bicycle,bicycle
+w2f937a4,Vehicles (commute),bus,bus
+w2f937a4,Vehicles (commute),taxi,taxi
+w2f937a4,Animals (intimate),lion,lion
+w2f937a4,Animals (intimate),tiger,tiger
+w2f937a4,Animals (intimate),bear,bear
+w2f937a4,Animals (intimate),hippopotamus,UNK
+w2f937a4,Animals (intimate),giraffe,giraffe
+w2f937a4,Animals (intimate),elephant,elephant
+w2f937a4,Sports (season),baseball,baseball
+w2f937a4,Sports (season),football,football
+w2f937a4,Sports (season),basketball,basketball
+w2f937a4,Sports (season),tennis,tennis
+w2f937a4,Sports (season),hockey,hockey
+w2f937a4,Subjects (school),,NONE
+wd4f8369,PRACTICE,,NONE
+wd4f8369,Subjects (magic),life skills,UNK
+wd4f8369,Sports (silence),,NONE
+wd4f8369,Vehicles (veto),,NONE
+wd4f8369,Animals (bubble),,NONE
+wc0404b3,PRACTICE,Dublin,UNK
+wc0404b3,PRACTICE,Amsterdam,UNK
+wc0404b3,PRACTICE,Rome,UNK
+wc0404b3,Animals (bubble),Monkey,monkey
+wc0404b3,Animals (bubble),Tiger,tiger
+wc0404b3,Animals (bubble),Bear,bear
+wc0404b3,Sports (silence),Football,football
+wc0404b3,Vehicles (veto),Car,car
+wc0404b3,Vehicles (veto),Plane,airplane
+wc0404b3,Subjects (magic),Psychology,psychology
+wb5da2f2,PRACTICE,Venice,UNK
+wb5da2f2,PRACTICE,Vienna,UNK
+wb5da2f2,PRACTICE,Paris,UNK
+wb5da2f2,PRACTICE,Prague,UNK
+wb5da2f2,PRACTICE,London,UNK
+wb5da2f2,Vehicles (commute),Walking,walking
+wb5da2f2,Vehicles (commute),Subway,subway
+wb5da2f2,Vehicles (commute),Helicopter,helicopter
+wb5da2f2,Animals (intimate),Red panda,UNK
+wb5da2f2,Animals (intimate),Bear,bear
+wb5da2f2,Animals (intimate),Lion,lion
+wb5da2f2,Animals (intimate),Tiger,tiger
+wb5da2f2,Subjects (school),Math,math
+wb5da2f2,Subjects (school),Physics,physics
+wb5da2f2,Subjects (school),Engineering,engineering
+wb5da2f2,Subjects (school),Computer science,computer science
+wb5da2f2,Sports (season),Football,football
+wb5da2f2,Sports (season),Basketball,basketball
+wb5da2f2,Sports (season),Tennis,tennis

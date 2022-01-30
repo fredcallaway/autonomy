@@ -1,0 +1,30 @@
+wid,cat_id,outcome
+wc7714d2,SPORTS,baseball
+wc7714d2,SPORTS,basketball
+wc7714d2,SPORTS,football
+wc7714d2,SPORTS,rugby
+wc7714d2,SPORTS,soccer
+wc7714d2,SPORTS,badmitton
+wc7714d2,ANIMALS,zebra
+wc7714d2,ANIMALS,monkey
+wc7714d2,ANIMALS,gorilla
+wc7714d2,ANIMALS,giraffe
+wc7714d2,ANIMALS,lemur
+wc7714d2,ANIMALS,lion
+wc7714d2,ANIMALS,cheetah
+wc7714d2,TRANSPORT,car
+wc7714d2,TRANSPORT,bicycle
+wc7714d2,TRANSPORT,scooter
+wc7714d2,TRANSPORT,vespa
+wc7714d2,TRANSPORT,golf cart
+wc7714d2,TRANSPORT,motorc
+wc7714d2,EUROCITIES,Amsterdam
+wc7714d2,EUROCITIES,Paris
+wc7714d2,EUROCITIES,florence
+wc7714d2,EUROCITIES,venice
+wc7714d2,EUROCITIES,milan
+wc7714d2,SUBJECTS,math
+wc7714d2,SUBJECTS,english
+wc7714d2,SUBJECTS,science
+wc7714d2,SUBJECTS,social studies
+wc7714d2,SUBJECTS,language arts

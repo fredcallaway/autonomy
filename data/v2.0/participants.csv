@@ -1,0 +1,50 @@
+wid,control,consideration_time,reflection_time,n_considered,n_unconsidered,comp_free,comp_radio,completed,bonus,error,version
+wa79b032,high,8,10,100,100,You choose from a multiple choice board,False,True,0.0,,v2.0
+w9fb2440,low,8,10,100,100,,,,,,v2.0
+w2408085,low,8,10,100,100,By the spin of the wheel.,False,True,0.0,,v2.0
+waa2e2d5,low,8,10,100,100,The Genie will spin the wheel.,False,True,0.0,,v2.0
+wb69610f,high,8,10,100,100,I will pick it from a board of cities in Europe,False,True,0.0,,v2.0
+wc0f8186,low,8,10,100,100,The wheel will spin to choose the city to visit.,False,True,0.0,,v2.0
+w6b779b8,high,8,10,100,100,In multiple choice answers.,False,True,0.0,,v2.0
+w62e74fb,high,8,10,100,100,The city will be chosen via multiple choice.,False,True,0.0,,v2.0
+w59dae45,high,8,10,100,100,you will pick off the board,False,True,0.0,,v2.0
+w4e5ac64,low,8,10,100,100,"Spinning a big wheel. I don't get a choice, I have to go where it lands.",False,True,0.0,,v2.0
+w1da4c75,high,8,10,100,100,You'll pick the name of a city from a board with various cities listed on  it.,False,True,0.0,,v2.0
+w2c59cca,low,8,10,100,100,The wheel will be spun and whatever city it lands on is where I will go.,False,True,0.0,,v2.0
+wc495851,high,8,10,100,100,There will be different cities on the board and you have to choose one,False,True,0.0,,v2.0
+w55149e3,low,8,10,100,100,By the spin of a wheel,False,True,0.0,,v2.0
+wac5dd84,low,8,10,100,100,randomly after spinning,False,True,0.0,,v2.0
+w8d67f8d,low,8,10,100,100,spin of the wheel,False,True,0.0,,v2.0
+w46575fe,high,8,10,100,100,I will pick a European vacation and I will have to go on it.,False,True,0.0,,v2.0
+wbc9768e,low,8,10,100,100,The genie will spin the wheel and I will have to go on vacation to the city that falls even if I don't like this city.,False,True,0.0,,v2.0
+wb86fb31,low,8,10,100,100,"There is a reel that will ""decide"" the destination after you spin it.",False,True,0.0,,v2.0
+w70c35b2,low,8,10,100,100,The city will be chosen when the genie spins a wheel with several major European cities.,False,True,0.0,,v2.0
+w99dad79,high,8,10,100,100,,,,,,v2.0
+wd3f4012,high,8,10,100,100,it is a multiple choice and you have to pick one.,False,True,0.0,,v2.0
+w8d504ac,high,8,10,100,100,It will be on a board with multiple answers that I have to choose from,False,True,0.0,,v2.0
+w11922b8,high,8,10,100,100,I will be given a list of cities to choose from.,False,True,0.0,,v2.0
+wc67a831,high,8,10,100,100,multiple choice on an entry board,False,True,0.0,,v2.0
+w2965545,high,8,10,100,100,"I will be given choices in a multiple choice format and will pick one, which means I will have to take the trip no matter what.",False,True,0.0,,v2.0
+wee18d3e,low,8,10,100,100,"The genie will spin the wheel, and I will visit whichever city it lands on.",False,True,0.0,,v2.0
+w7102a2b,high,8,10,100,100,Whether or not I think I would enjoy my trip there,False,True,0.0,,v2.0
+w226838c,high,8,10,100,100,You pick a random panel,False,True,0.0,,v2.0
+w6677efa,high,8,10,100,100,A city pops up in a multiple-choice format and you have to visit the city oicked.,False,True,0.0,,v2.0
+w5a75327,low,8,10,100,100,the wheel chooses,False,True,0.0,,v2.0
+we2eddb5,low,8,10,100,100,I will spin a wheel and it will land on the city I will go to.,False,True,0.0,,v2.0
+w15c6738,low,8,10,100,100,"The genie will spin the wheel and whatever city it lands on, I will have to visit",False,True,0.0,,v2.0
+w6360ebe,low,8,10,100,100,The genie will spin a wheel and the chosen city is whatever city the wheel lands on.,False,True,0.0,,v2.0
+w9aba902,high,8,10,100,100,I will pick from the list,False,True,0.0,,v2.0
+w6d21070,high,8,10,100,100,,,,,"condition_text@https://scenarios-experiment.herokuapp.com/static/js/experiment.js:17:25
+https://scenarios-experiment.herokuapp.com/static/js/experiment.js:64:46
+map@[native code]
+make_instructions@https://scenarios-experiment.herokuapp.com/static/js/experiment.js:61:21
+https://scenarios-experiment.herokuapp.com/static/js/experiment.js:94:35
+asyncFunctionResume@[native code]
+[native code]
+promiseReactionJob@[native code]",v2.0
+wc561ff6,low,8,10,100,100,A giant wheel,False,True,0.0,,v2.0
+wafec8e6,high,8,10,100,100,It will be chosen by the contestant from a list of multiple choice options,False,True,0.0,,v2.0
+wcd1b3f4,high,8,10,100,100,you choose the board of multiple choice options and you have to go,False,True,0.0,,v2.0
+w20f04e4,low,8,10,100,100,A spinning wheel will have a needle indicating which city I go to when the wheel stops.,False,True,0.0,,v2.0
+w901f9e7,high,8,10,100,100,It will be one of four choices of European Cities,False,True,0.0,,v2.0
+wf9fb041,low,8,10,100,100,By the game,False,True,0.0,,v2.0

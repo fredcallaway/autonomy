@@ -1,0 +1,196 @@
+wid,prompt_id,scenario_evaluation,any_specific,raw_considered,considered
+w6b779b8,PRACTICE,7.0,False,,NONE
+w6b779b8,Subjects (magic),9.0,False,,NONE
+w6b779b8,Sports (silence),5.0,False,,NONE
+w6b779b8,Vehicles (veto),5.0,True,tesla,UNK
+w6b779b8,Animals (bubble),0.0,False,,NONE
+w70c35b2,PRACTICE,7.0,False,,NONE
+w70c35b2,Sports (silence),2.0,False,,NONE
+w70c35b2,Animals (bubble),7.0,True,Cheetahs,cheetah
+w70c35b2,Subjects (magic),10.0,True,Linguistics ,UNK
+w70c35b2,Vehicles (veto),-5.0,True,Trains,UNK
+wf9fb041,PRACTICE,-6.0,False,,NONE
+wf9fb041,Subjects (school),-10.0,False,,NONE
+wf9fb041,Vehicles (commute),-7.0,False,,NONE
+wf9fb041,Animals (intimate),10.0,False,,NONE
+wf9fb041,Sports (season),-10.0,False,,NONE
+wb86fb31,PRACTICE,3.0,True,Rome,UNK
+wb86fb31,Animals (intimate),-1.0,True,tiger,tiger
+wb86fb31,Subjects (school),1.0,True,math,math
+wb86fb31,Vehicles (commute),2.0,True,car,car
+wb86fb31,Sports (season),-8.0,False,,NONE
+w226838c,PRACTICE,4.0,True,Prague,UNK
+w226838c,Vehicles (commute),1.0,True,car,car
+w226838c,Sports (season),6.0,True,Snowboarding,snowboarding
+w226838c,Animals (intimate),-8.0,True,monkey,monkey
+w226838c,Subjects (school),-4.0,True,Math,math
+w46575fe,PRACTICE,3.0,True,London,UNK
+w46575fe,Subjects (school),-2.0,True,English,english
+w46575fe,Animals (intimate),9.0,True,Monkey,monkey
+w46575fe,Vehicles (commute),4.0,True,Helicopter,helicopter
+w46575fe,Sports (season),6.0,True,Hockey,hockey
+w15c6738,PRACTICE,-1.0,True,Lisbon,UNK
+w15c6738,Vehicles (veto),-5.0,True,Car,car
+w15c6738,Animals (bubble),8.0,False,,NONE
+w15c6738,Sports (silence),-4.0,False,,NONE
+w15c6738,Subjects (magic),7.0,False,,NONE
+w2965545,PRACTICE,3.0,False,,NONE
+w2965545,Vehicles (veto),0.0,False,,NONE
+w2965545,Subjects (magic),6.0,False,,NONE
+w2965545,Sports (silence),-4.0,False,,NONE
+w2965545,Animals (bubble),5.0,False,,NONE
+waa2e2d5,PRACTICE,6.0,True,Venice,UNK
+waa2e2d5,Vehicles (veto),-5.0,True,Automobile,car
+waa2e2d5,Sports (silence),10.0,True,Football,football
+waa2e2d5,Animals (bubble),10.0,True,Elephants,elephant
+waa2e2d5,Subjects (magic),10.0,True,math,math
+we2eddb5,PRACTICE,2.0,True,Rome,UNK
+we2eddb5,Subjects (school),-2.0,False,,NONE
+we2eddb5,Animals (intimate),4.0,True,monkey,monkey
+we2eddb5,Vehicles (commute),-7.0,True,train,train
+we2eddb5,Sports (season),0.0,False,,NONE
+w8d504ac,PRACTICE,7.0,False,,NONE
+w8d504ac,Sports (season),7.0,True,soccer,soccer
+w8d504ac,Vehicles (commute),-2.0,False,,NONE
+w8d504ac,Subjects (school),-4.0,False,,NONE
+w8d504ac,Animals (intimate),5.0,False,,NONE
+w20f04e4,PRACTICE,2.0,True,Venice,UNK
+w20f04e4,Sports (silence),-10.0,True,Football,football
+w20f04e4,Vehicles (veto),-10.0,False,,NONE
+w20f04e4,Subjects (magic),7.0,True,Astrophysics,UNK
+w20f04e4,Animals (bubble),10.0,False,,NONE
+w901f9e7,PRACTICE,2.0,True,Prague,UNK
+w901f9e7,Subjects (school),-1.0,True,math,math
+w901f9e7,Sports (season),-3.0,True,baseball,baseball
+w901f9e7,Vehicles (commute),5.0,True,car,car
+w901f9e7,Animals (intimate),4.0,True,monkey,monkey
+w1da4c75,PRACTICE,5.0,True,Prague,UNK
+w1da4c75,Animals (bubble),2.0,True,whale,UNK
+w1da4c75,Vehicles (veto),-1.0,True,boat,boat
+w1da4c75,Subjects (magic),9.0,True,neurology,UNK
+w1da4c75,Sports (silence),-1.0,True,soccer,soccer
+w4e5ac64,PRACTICE,2.0,True,Lyon,UNK
+w4e5ac64,Sports (season),-10.0,False,,NONE
+w4e5ac64,Subjects (school),10.0,True,Biology,biology
+w4e5ac64,Vehicles (commute),-4.0,False,,NONE
+w4e5ac64,Animals (intimate),10.0,True,platypus,UNK
+w9aba902,PRACTICE,10.0,True,Paris,UNK
+w9aba902,Vehicles (veto),-4.0,True,car,car
+w9aba902,Animals (bubble),10.0,True,red panda,UNK
+w9aba902,Subjects (magic),10.0,True,Computer Science,computer science
+w9aba902,Sports (silence),10.0,True,baseball,baseball
+wa79b032,PRACTICE,7.0,True,Lisbon,UNK
+wa79b032,Animals (intimate),4.0,True,tiger,tiger
+wa79b032,Sports (season),10.0,True,baseball,baseball
+wa79b032,Subjects (school),7.0,True,psychology,psychology
+wa79b032,Vehicles (commute),10.0,True,cycling,UNK
+w6360ebe,PRACTICE,1.0,True,London,UNK
+w6360ebe,Subjects (magic),3.0,True,History,history
+w6360ebe,Vehicles (veto),-4.0,True,Bus,bus
+w6360ebe,Sports (silence),-2.0,True,soccer,soccer
+w6360ebe,Animals (bubble),2.0,True,lion,lion
+w2c59cca,PRACTICE,10.0,True,Paris ,UNK
+w2c59cca,Vehicles (commute),-10.0,True,bus ,bus
+w2c59cca,Subjects (school),-10.0,True,math,math
+w2c59cca,Animals (intimate),0.0,False,,NONE
+w2c59cca,Sports (season),-10.0,False,,NONE
+w2408085,PRACTICE,8.0,False,,NONE
+w2408085,Subjects (magic),6.0,False,,NONE
+w2408085,Vehicles (veto),1.0,True,airplane,airplane
+w2408085,Animals (bubble),10.0,False,,NONE
+w2408085,Sports (silence),0.0,False,,NONE
+wd3f4012,PRACTICE,8.0,True,Paris,UNK
+wd3f4012,Vehicles (veto),-6.0,True,car,car
+wd3f4012,Subjects (magic),6.0,False,,NONE
+wd3f4012,Sports (silence),-5.0,True,basketball,basketball
+wd3f4012,Animals (bubble),7.0,True,dolphin,dolphin
+wafec8e6,PRACTICE,10.0,False,,NONE
+wafec8e6,Subjects (school),3.0,True,geography,geography
+wafec8e6,Sports (season),1.0,True,rugby,rugby
+wafec8e6,Animals (intimate),0.0,False,,NONE
+wafec8e6,Vehicles (commute),2.0,False,,NONE
+wb69610f,PRACTICE,7.0,False,,NONE
+wb69610f,Animals (intimate),10.0,True,giraffe ,giraffe
+wb69610f,Subjects (school),7.0,False,,NONE
+wb69610f,Sports (season),-7.0,True,soccer,soccer
+wb69610f,Vehicles (commute),0.0,True,bus,bus
+w5a75327,PRACTICE,3.0,True,Amsterdam,UNK
+w5a75327,Vehicles (commute),-3.0,True,Bike,bicycle
+w5a75327,Subjects (school),-1.0,True,science,science
+w5a75327,Animals (intimate),6.0,True,lion,lion
+w5a75327,Sports (season),-7.0,True,football,football
+w8d67f8d,PRACTICE,8.0,False,,NONE
+w8d67f8d,Vehicles (veto),-7.0,True,car,car
+w8d67f8d,Animals (bubble),5.0,False,,NONE
+w8d67f8d,Subjects (magic),10.0,False,,NONE
+w8d67f8d,Sports (silence),10.0,False,,NONE
+wc67a831,PRACTICE,9.0,True,Vienna,UNK
+wc67a831,Subjects (magic),10.0,True,History,history
+wc67a831,Sports (silence),5.0,False,,NONE
+wc67a831,Animals (bubble),6.0,False,,NONE
+wc67a831,Vehicles (veto),-1.0,False,,NONE
+w59dae45,PRACTICE,-3.0,True,Paris,UNK
+w59dae45,Vehicles (commute),0.0,True,bus,bus
+w59dae45,Sports (season),7.0,True,gymnastics,gymnastics
+w59dae45,Subjects (school),8.0,True,theater,UNK
+w59dae45,Animals (intimate),10.0,True,monkey,monkey
+wcd1b3f4,PRACTICE,5.0,False,,NONE
+wcd1b3f4,Animals (bubble),4.0,True,lion,lion
+wcd1b3f4,Vehicles (veto),0.0,False,,NONE
+wcd1b3f4,Subjects (magic),3.0,False,,NONE
+wcd1b3f4,Sports (silence),0.0,False,,NONE
+wee18d3e,PRACTICE,9.0,True,Paris,UNK
+wee18d3e,Sports (silence),5.0,True,Hockey,hockey
+wee18d3e,Vehicles (veto),-8.0,True,Car,car
+wee18d3e,Subjects (magic),8.0,False,,NONE
+wee18d3e,Animals (bubble),8.0,True,Tiger,tiger
+w62e74fb,PRACTICE,-3.0,True,Paris,UNK
+w62e74fb,Sports (silence),5.0,True,soccer,soccer
+w62e74fb,Animals (bubble),1.0,True,tiger,tiger
+w62e74fb,Subjects (magic),10.0,False,,NONE
+w62e74fb,Vehicles (veto),-7.0,True,car,car
+wc495851,PRACTICE,8.0,True,Paris,UNK
+wc495851,Animals (intimate),-4.0,True,Lion,lion
+wc495851,Vehicles (commute),0.0,True,Subway,subway
+wc495851,Sports (season),-9.0,True,football,football
+wc495851,Subjects (school),-10.0,False,,NONE
+w55149e3,PRACTICE,0.0,True,London,UNK
+w55149e3,Vehicles (commute),-3.0,False,,NONE
+w55149e3,Sports (season),-4.0,True,basketball,basketball
+w55149e3,Animals (intimate),8.0,True,elephant,elephant
+w55149e3,Subjects (school),-8.0,True,math,math
+w6677efa,PRACTICE,5.0,True,Paris,UNK
+w6677efa,Sports (season),0.0,True,Basketball,basketball
+w6677efa,Subjects (school),-5.0,True,Science,science
+w6677efa,Animals (intimate),0.0,False,,NONE
+w6677efa,Vehicles (commute),-2.0,False,,NONE
+w7102a2b,PRACTICE,4.0,True,Edinburgh ,UNK
+w7102a2b,Subjects (magic),4.0,False,,NONE
+w7102a2b,Sports (silence),1.0,True,golf,golf
+w7102a2b,Vehicles (veto),3.0,True,bus,bus
+w7102a2b,Animals (bubble),8.0,True,monkey,monkey
+wc561ff6,PRACTICE,6.0,False,,NONE
+wc561ff6,Sports (season),-3.0,True,Football,football
+wc561ff6,Subjects (school),2.0,False,,NONE
+wc561ff6,Animals (intimate),-3.0,True,Snakes,snake
+wc561ff6,Vehicles (commute),-4.0,True,Unicycle,unicycle
+w11922b8,PRACTICE,6.0,True,Paris,UNK
+w11922b8,Subjects (magic),10.0,True,Medicine,UNK
+w11922b8,Animals (bubble),3.0,False,,NONE
+w11922b8,Sports (silence),0.0,False,,NONE
+w11922b8,Vehicles (veto),-2.0,False,,NONE
+wc0f8186,PRACTICE,4.0,False,,NONE
+wc0f8186,Animals (bubble),8.0,False,,NONE
+wc0f8186,Vehicles (veto),-7.0,False,,NONE
+wc0f8186,Subjects (magic),10.0,False,,NONE
+wc0f8186,Sports (silence),-10.0,True,Football,football
+wac5dd84,PRACTICE,3.0,False,,NONE
+wac5dd84,Subjects (school),-4.0,True,math,math
+wac5dd84,Vehicles (commute),-2.0,False,,NONE
+wac5dd84,Sports (season),-10.0,False,,NONE
+wac5dd84,Animals (intimate),-6.0,False,,NONE
+wbc9768e,PRACTICE,10.0,False,,NONE
+wbc9768e,Sports (season),5.0,False,,NONE
+wbc9768e,Subjects (school),-1.0,False,,NONE
+wbc9768e,Animals (intimate),10.0,False,,NONE
+wbc9768e,Vehicles (commute),-1.0,False,,NONE

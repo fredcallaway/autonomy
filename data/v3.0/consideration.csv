@@ -1,0 +1,78 @@
+wid,prompt_id,raw_outcome,outcome
+w6d7538b,PRACTICE,London,UNK
+w6d7538b,PRACTICE,Dublin,UNK
+w6d7538b,PRACTICE,Rome,UNK
+w6d7538b,PRACTICE,Paris,UNK
+w6d7538b,PRACTICE,Madrid,UNK
+w6d7538b,PRACTICE,Amsterdam,UNK
+w6d7538b,PRACTICE,Milan,UNK
+w6d7538b,Animals (bubble),elephant,elephant
+w6d7538b,Animals (bubble),tiger,tiger
+w6d7538b,Animals (bubble),lion,lion
+w6d7538b,Animals (bubble),panda,panda
+w6d7538b,Animals (bubble),polar bear,polar bear
+w6d7538b,Animals (bubble),penguin,penguin
+w6d7538b,Subjects (magic),history,history
+w6d7538b,Subjects (magic),physics,physics
+w6d7538b,Subjects (magic),chemistry,chemistry
+w6d7538b,Subjects (magic),law,UNK
+w6d7538b,Subjects (magic),literature,literature
+w6d7538b,Subjects (magic),,NONE
+w6d7538b,Vehicles (veto),train,train
+w6d7538b,Vehicles (veto),bus,bus
+w6d7538b,Vehicles (veto),subway,subway
+w6d7538b,Vehicles (veto),car,car
+w6d7538b,Vehicles (veto),bicycle,bicycle
+w6d7538b,Vehicles (veto),motorcycle,motorcycle
+w6d7538b,Vehicles (veto),moped,moped
+w6d7538b,Vehicles (veto),walking,walking
+w6d7538b,Sports (silence),hockey,hockey
+w6d7538b,Sports (silence),soccer,soccer
+w6d7538b,Sports (silence),baseball,baseball
+w6d7538b,Sports (silence),football,football
+w6d7538b,Sports (silence),tennis,tennis
+w6d7538b,Sports (silence),golf,golf
+w6d7538b,Sports (silence),basketball,basketball
+w6d7538b,Sports (silence),rugby,rugby
+w6c23a1b,PRACTICE,Berlin,UNK
+w6c23a1b,PRACTICE,Amsterdam,UNK
+w6c23a1b,PRACTICE,Madrid,UNK
+w6c23a1b,PRACTICE,London,UNK
+w6c23a1b,PRACTICE,Vienna,UNK
+w6c23a1b,PRACTICE,Prague,UNK
+w6c23a1b,PRACTICE,Rome,UNK
+w6c23a1b,PRACTICE,,NONE
+w6c23a1b,Subjects (school),math,math
+w6c23a1b,Subjects (school),chemistry,chemistry
+w6c23a1b,Subjects (school),english,english
+w6c23a1b,Subjects (school),computer science,computer science
+w6c23a1b,Subjects (school),biology,biology
+w6c23a1b,Subjects (school),,NONE
+w6c23a1b,Vehicles (commute),bus,bus
+w6c23a1b,Vehicles (commute),plane,airplane
+w6c23a1b,Vehicles (commute),car,car
+w6c23a1b,Vehicles (commute),train,train
+w6c23a1b,Vehicles (commute),subway,subway
+w6c23a1b,Vehicles (commute),scooter,scooter
+w6c23a1b,Vehicles (commute),walking,walking
+w6c23a1b,Vehicles (commute),,NONE
+w6c23a1b,Animals (intimate),zebra,zebra
+w6c23a1b,Animals (intimate),lion,lion
+w6c23a1b,Animals (intimate),monkey,monkey
+w6c23a1b,Animals (intimate),polar bear,polar bear
+w6c23a1b,Animals (intimate),flamingo,flamingo
+w6c23a1b,Animals (intimate),gorilla,gorilla
+w6c23a1b,Animals (intimate),toucan,UNK
+w6c23a1b,Animals (intimate),giraffe,giraffe
+w6c23a1b,Animals (intimate),hyena,UNK
+w6c23a1b,Animals (intimate),tiger,tiger
+w6c23a1b,Animals (intimate),peacock,UNK
+w6c23a1b,Sports (season),football,football
+w6c23a1b,Sports (season),basketball,basketball
+w6c23a1b,Sports (season),swimming,swimming
+w6c23a1b,Sports (season),gymnastics,gymnastics
+w6c23a1b,Sports (season),golf,golf
+w6c23a1b,Sports (season),volleyball,volleyball
+w6c23a1b,Sports (season),skiing,skiing
+w6c23a1b,Sports (season),skating,figure skating
+w6c23a1b,Sports (season),,NONE

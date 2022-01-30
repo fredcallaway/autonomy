@@ -1,0 +1,63 @@
+wid,target,consideration_time,reflection_time,n_considered,n_unconsidered,completed,bonus,error,version
+w664b9b4,worst,8,10,100,100,True,0.0,,norm-v1.2
+w63f8333,worst,8,10,100,100,True,0.0,,norm-v1.2
+w5cc1d5f,worst,8,10,100,100,True,0.0,,norm-v1.2
+wf28644e,worst,8,10,100,100,True,0.0,,norm-v1.2
+w703ac34,best,8,10,100,100,True,0.0,,norm-v1.2
+w298bce8,best,8,10,100,100,True,0.0,,norm-v1.2
+wc5f11b4,best,8,10,100,100,True,0.0,,norm-v1.2
+w57e2544,worst,8,10,100,100,True,0.0,,norm-v1.2
+wa83490a,best,8,10,100,100,True,0.0,,norm-v1.2
+w623c1c7,best,8,10,100,100,True,0.0,,norm-v1.2
+w4fdf442,best,8,10,100,100,True,0.0,,norm-v1.2
+w7e7e249,worst,8,10,100,100,True,0.0,,norm-v1.2
+w4bb9e50,worst,8,10,100,100,True,0.0,,norm-v1.2
+webe692e,best,8,10,100,100,True,0.0,,norm-v1.2
+w84a9534,best,8,10,100,100,True,0.0,,norm-v1.2
+w1e68f4a,best,8,10,100,100,,,,norm-v1.2
+wa75c289,best,8,10,100,100,True,0.0,,norm-v1.2
+w16d2d31,best,8,10,100,100,True,0.0,,norm-v1.2
+w73a759b,worst,8,10,100,100,True,0.0,,norm-v1.2
+we2c15eb,best,8,10,100,100,True,0.0,,norm-v1.2
+w2c94a85,worst,8,10,100,100,True,0.0,,norm-v1.2
+w84ce833,best,8,10,100,100,True,0.0,,norm-v1.2
+wa54e87c,worst,8,10,100,100,True,0.0,,norm-v1.2
+w0d79620,best,8,10,100,100,,,,norm-v1.2
+w1e58b6f,best,8,10,100,100,True,0.0,,norm-v1.2
+w3166360,worst,8,10,100,100,,,,norm-v1.2
+w41b239a,best,8,10,100,100,True,0.0,,norm-v1.2
+w2b04f7f,worst,8,10,100,100,True,0.0,,norm-v1.2
+wb7732e4,best,8,10,100,100,True,0.0,,norm-v1.2
+w8a6ffe8,worst,8,10,100,100,True,0.0,,norm-v1.2
+w7b66028,worst,8,10,100,100,True,0.0,,norm-v1.2
+w3af064e,worst,8,10,100,100,True,0.0,,norm-v1.2
+w3926020,worst,8,10,100,100,True,0.0,,norm-v1.2
+w00f027f,best,8,10,100,100,,,"condition_text@https://scenarios-experiment.herokuapp.com/static/js/experiment.js:17:25
+https://scenarios-experiment.herokuapp.com/static/js/experiment.js:64:46
+map@[native code]
+make_instructions@https://scenarios-experiment.herokuapp.com/static/js/experiment.js:61:21
+https://scenarios-experiment.herokuapp.com/static/js/experiment.js:96:34
+asyncFunctionResume@[native code]
+initializeExperiment@https://scenarios-experiment.herokuapp.com/static/js/experiment.js:87:37
+https://scenarios-experiment.herokuapp.com/static/js/setup.js:78:36",norm-v1.2
+w7c69ade,worst,8,10,100,100,True,0.0,,norm-v1.2
+w8e96e86,worst,8,10,100,100,True,0.0,,norm-v1.2
+w0814290,best,8,10,100,100,True,0.0,,norm-v1.2
+w8317a27,best,8,10,100,100,True,0.0,,norm-v1.2
+w00ba085,best,8,10,100,100,True,0.0,,norm-v1.2
+wa5a9e95,best,8,10,100,100,True,0.0,,norm-v1.2
+wc59a23b,worst,8,10,100,100,True,0.0,,norm-v1.2
+we14a8c0,worst,8,10,100,100,True,0.0,,norm-v1.2
+wa8370a8,best,8,10,100,100,,,"TypeError: text.replaceAll is not a function
+    at condition_text (https://scenarios-experiment.herokuapp.com/static/js/experiment.js:17:15)
+    at https://scenarios-experiment.herokuapp.com/static/js/experiment.js:64:32
+    at Array.map (<anonymous>)
+    at make_instructions (https://scenarios-experiment.herokuapp.com/static/js/experiment.js:61:18)
+    at initializeExperiment (https://scenarios-experiment.herokuapp.com/static/js/experiment.js:96:17)
+    at https://scenarios-experiment.herokuapp.com/static/js/setup.js:78:16",norm-v1.2
+w12e2746,worst,8,10,100,100,True,0.0,,norm-v1.2
+w8bf2756,worst,8,10,100,100,True,0.0,,norm-v1.2
+w839b90a,worst,8,10,100,100,True,0.0,,norm-v1.2
+w808d687,worst,8,10,100,100,True,0.0,,norm-v1.2
+wbb95693,best,8,10,100,100,True,0.0,,norm-v1.2
+w245ea5b,best,8,10,100,100,True,0.0,,norm-v1.2

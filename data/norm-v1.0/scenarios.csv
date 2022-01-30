@@ -1,0 +1,61 @@
+wid,trial_number,prompt_id,scenario_evaluation,any_specific,considered
+w69e0b53,2,Subjects (magic),,False,[]
+w69e0b53,3,Fruit (daily),,False,[]
+w69e0b53,4,Vehicles (veto),,False,[]
+w69e0b53,5,Animals (bubble),,True,"[""Snake""]"
+w69e0b53,6,Cities (moving),,False,[]
+w69e0b53,7,Sports (silence),,False,[]
+w7844135,8,Cities (vacation),,True,"[""Paris"", ""London""]"
+w7844135,9,Vehicles (commute),,True,"[""Train""]"
+w7844135,10,Subjects (school),,False,[]
+w7844135,11,Sports (season),,True,"[""Basketball""]"
+w7844135,12,Animals (intimate),,False,[]
+w7844135,13,Fruit (ripe),,False,[]
+w721d930,14,Cities (vacation),,True,"[""Florence"", ""Denmark"", ""London""]"
+w721d930,15,Animals (intimate),,True,"[""Lion"", ""Zebra"", ""Panda"", ""Gorilla"", ""Chimpanzee""]"
+w721d930,16,Fruit (ripe),,True,"[""Apple"", ""Banana"", ""Avocado"", ""Nectarine""]"
+w721d930,17,Sports (season),,True,"[""baseball"", ""football"", ""soccer""]"
+w721d930,18,Vehicles (commute),,True,"[""bus"", ""cab"", ""bike"", ""car""]"
+w721d930,19,Subjects (school),,True,"[""English"", ""history"", ""anthropology""]"
+we40e3da,20,Subjects (school),,True,"[""Biology"", ""Philosophy"", ""Critical Thinking"", ""Writing""]"
+we40e3da,21,Animals (intimate),,True,"[""Golden Lion Tamarin"", ""Hermit Crab"", ""Agouti"", ""Squirrel"", ""Sloth"", ""Ferret"", ""Chinchilla"", ""Armadillo"", ""Gorilla"", ""Octopus""]"
+we40e3da,22,Sports (season),,False,[]
+we40e3da,23,Fruit (ripe),,False,[]
+we40e3da,24,Vehicles (commute),,False,[]
+we40e3da,25,Cities (vacation),,True,"[""London"", ""Rome"", ""Brussels""]"
+w3da6289,26,Sports (silence),,True,"[""baseball"", ""basketball"", ""soccer""]"
+w3da6289,27,Cities (moving),,False,[]
+w3da6289,28,Vehicles (veto),,False,[]
+w3da6289,29,Animals (bubble),,True,"[""giraffe"", ""zebra"", ""gorilla""]"
+w3da6289,30,Subjects (magic),,False,[]
+w3da6289,31,Fruit (daily),,False,[]
+wa7e71ea,32,Sports (silence),,True,"[""Basketball"", ""Soccer""]"
+wa7e71ea,33,Animals (bubble),,True,"[""Elephant""]"
+wa7e71ea,34,Fruit (daily),,True,"[""Kiwi""]"
+wa7e71ea,35,Vehicles (veto),,False,[]
+wa7e71ea,36,Subjects (magic),,False,[]
+wa7e71ea,37,Cities (moving),,False,[]
+w2e87b5f,38,Subjects (magic),,False,[]
+w2e87b5f,39,Fruit (daily),,False,[]
+w2e87b5f,40,Animals (bubble),,False,[]
+w2e87b5f,41,Cities (moving),,False,[]
+w2e87b5f,42,Sports (silence),,False,[]
+w2e87b5f,43,Vehicles (veto),,False,[]
+wa63e05b,44,Cities (vacation),,False,[]
+wa63e05b,45,Sports (season),,False,[]
+wa63e05b,46,Fruit (ripe),,False,[]
+wa63e05b,47,Animals (intimate),,True,"[""tigers"", ""bears"", ""hippos""]"
+wa63e05b,48,Subjects (school),,True,"[""history""]"
+wa63e05b,49,Vehicles (commute),,False,[]
+w885d3b1,50,Fruit (ripe),,False,[]
+w885d3b1,51,Cities (vacation),,True,"[""london"", ""spain"", ""lisbon"", ""nice"", ""cannes""]"
+w885d3b1,52,Animals (intimate),,False,[]
+w885d3b1,53,Sports (season),,False,[]
+w885d3b1,54,Vehicles (commute),,False,[]
+w885d3b1,55,Subjects (school),,False,[]
+w7c6b38f,56,Cities (moving),,True,"[""Paris "", ""London"", ""Amsterdam"", ""Berlin""]"
+w7c6b38f,57,Vehicles (veto),,True,"[""Scooter"", ""Roller Blades""]"
+w7c6b38f,58,Fruit (daily),,True,"[""raspberries""]"
+w7c6b38f,59,Sports (silence),,False,[]
+w7c6b38f,60,Animals (bubble),,True,"[""Lion"", ""Bear""]"
+w7c6b38f,61,Subjects (magic),,False,[]

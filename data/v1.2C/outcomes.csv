@@ -1,0 +1,3005 @@
+wid,outcome,considered,evaluation,prompt_id,raw_outcome
+w616cc3b,venice,False,6,PRACTICE,Venice
+w616cc3b,rome,False,6,PRACTICE,Rome
+w616cc3b,paris,True,8,PRACTICE,Paris
+w616cc3b,vienna,False,6,PRACTICE,Vienna
+w616cc3b,amsterdam,False,5,PRACTICE,Amsterdam
+w616cc3b,london,False,7,PRACTICE,London
+w616cc3b,athens,False,5,PRACTICE,Athens
+w616cc3b,madrid,True,6,PRACTICE,Madrid
+w616cc3b,football,False,-4,Sports (silence),football
+w616cc3b,basketball,True,-6,Sports (silence),Basketball
+w616cc3b,volleyball,False,-4,Sports (silence),volleyball
+w616cc3b,soccer,True,-6,Sports (silence),Hockey
+w616cc3b,soccer,True,-9,Sports (silence),Soccer
+w616cc3b,badminton,False,-2,Sports (silence),badminton
+w616cc3b,tennis,False,-6,Sports (silence),tennis
+w616cc3b,rugby,False,-1,Sports (silence),rugby
+w616cc3b,cricket,False,-1,Sports (silence),cricket
+w616cc3b,bowling,False,-1,Sports (silence),bowling
+w616cc3b,boxing,False,0,Sports (silence),boxing
+w616cc3b,golf,False,-5,Sports (silence),golf
+w616cc3b,jaguar,False,6,Animals (bubble),jaguar
+w616cc3b,lemur,False,6,Animals (bubble),lemur
+w616cc3b,zebra,True,7,Animals (bubble),Zebra
+w616cc3b,gorilla,False,7,Animals (bubble),gorilla
+w616cc3b,peacock,False,5,Animals (bubble),peacock
+w616cc3b,kangaroo,False,7,Animals (bubble),kangaroo
+w616cc3b,monkey,False,6,Animals (bubble),monkey
+w616cc3b,koala,False,6,Animals (bubble),koala
+w616cc3b,lion,False,7,Animals (bubble),lion
+w616cc3b,sloth,False,5,Animals (bubble),sloth
+w616cc3b,tiger,False,7,Animals (bubble),tiger
+w616cc3b,giraffe,True,8,Animals (bubble),Giraffe
+w616cc3b,rhinoceros,False,6,Animals (bubble),rhinoceros
+w616cc3b,panda,False,7,Animals (bubble),panda
+w616cc3b,elephant,False,7,Animals (bubble),elephant
+w616cc3b,crocodile,False,3,Animals (bubble),crocodile
+w616cc3b,helicopter,False,-1,Vehicles (veto),helicopter
+w616cc3b,plane,False,-6,Vehicles (veto),plane
+w616cc3b,unicycle,False,-1,Vehicles (veto),unicycle
+w616cc3b,skateboard,False,-2,Vehicles (veto),skateboard
+w616cc3b,train,False,-3,Vehicles (veto),train
+w616cc3b,car,True,-9,Vehicles (veto),Car
+w616cc3b,bus,True,-8,Vehicles (veto),Bike
+w616cc3b,scooter,False,-1,Vehicles (veto),scooter
+w616cc3b,bicycle,False,-8,Vehicles (veto),bicycle
+w616cc3b,limousine,False,-1,Vehicles (veto),limousine
+w616cc3b,calculus,False,8,Subjects (magic),calculus
+w616cc3b,physics,False,7,Subjects (magic),physics
+w616cc3b,english,False,5,Subjects (magic),english
+w616cc3b,spanish,False,7,Subjects (magic),spanish
+w616cc3b,french,False,6,Subjects (magic),french
+w616cc3b,algebra,False,7,Subjects (magic),algebra
+w616cc3b,chemistry,True,7,Subjects (magic),Chemistry
+w616cc3b,geometry,False,6,Subjects (magic),geometry
+w616cc3b,biology,False,8,Subjects (magic),biology
+w616cc3b,history,False,9,Subjects (magic),history
+wf04dfee,london,False,0,PRACTICE,London
+wf04dfee,paris,False,1,PRACTICE,Paris
+wf04dfee,venice,False,3,PRACTICE,Venice
+wf04dfee,amsterdam,False,-2,PRACTICE,Amsterdam
+wf04dfee,madrid,False,6,PRACTICE,Madrid
+wf04dfee,athens,False,2,PRACTICE,Athens
+wf04dfee,rome,False,6,PRACTICE,Rome
+wf04dfee,vienna,False,4,PRACTICE,Vienna
+wf04dfee,lemur,False,2,Animals (bubble),lemur
+wf04dfee,rhinoceros,False,1,Animals (bubble),rhinoceros
+wf04dfee,kangaroo,False,2,Animals (bubble),kangaroo
+wf04dfee,zebra,True,6,Animals (bubble),Zebra
+wf04dfee,tiger,False,6,Animals (bubble),tiger
+wf04dfee,elephant,False,6,Animals (bubble),elephant
+wf04dfee,sloth,False,7,Animals (bubble),sloth
+wf04dfee,peacock,False,1,Animals (bubble),peacock
+wf04dfee,UNK,True,4,Animals (bubble),Hippo
+wf04dfee,gorilla,False,1,Animals (bubble),gorilla
+wf04dfee,koala,False,9,Animals (bubble),koala
+wf04dfee,crocodile,False,9,Animals (bubble),crocodile
+wf04dfee,lion,False,3,Animals (bubble),lion
+wf04dfee,jaguar,False,2,Animals (bubble),jaguar
+wf04dfee,monkey,False,2,Animals (bubble),monkey
+wf04dfee,giraffe,False,9,Animals (bubble),giraffe
+wf04dfee,panda,False,6,Animals (bubble),panda
+wf04dfee,skateboard,False,9,Vehicles (veto),skateboard
+wf04dfee,bus,False,-2,Vehicles (veto),bus
+wf04dfee,helicopter,False,6,Vehicles (veto),helicopter
+wf04dfee,limousine,False,8,Vehicles (veto),limousine
+wf04dfee,unicycle,False,9,Vehicles (veto),unicycle
+wf04dfee,bicycle,False,-6,Vehicles (veto),bicycle
+wf04dfee,boat,False,-3,Vehicles (veto),boat
+wf04dfee,plane,False,-9,Vehicles (veto),plane
+wf04dfee,car,False,-9,Vehicles (veto),car
+wf04dfee,scooter,False,-4,Vehicles (veto),scooter
+wf04dfee,train,False,-1,Vehicles (veto),train
+wf04dfee,physics,False,-2,Subjects (magic),physics
+wf04dfee,chemistry,False,1,Subjects (magic),chemistry
+wf04dfee,biology,False,3,Subjects (magic),biology
+wf04dfee,spanish,False,7,Subjects (magic),spanish
+wf04dfee,geometry,False,2,Subjects (magic),geometry
+wf04dfee,algebra,False,1,Subjects (magic),algebra
+wf04dfee,calculus,False,2,Subjects (magic),calculus
+wf04dfee,history,False,8,Subjects (magic),history
+wf04dfee,english,False,5,Subjects (magic),english
+wf04dfee,french,False,6,Subjects (magic),french
+wf04dfee,rugby,False,-1,Sports (silence),rugby
+wf04dfee,baseball,False,-1,Sports (silence),baseball
+wf04dfee,badminton,False,1,Sports (silence),badminton
+wf04dfee,bowling,False,1,Sports (silence),bowling
+wf04dfee,golf,False,1,Sports (silence),golf
+wf04dfee,boxing,False,-1,Sports (silence),boxing
+wf04dfee,volleyball,False,-1,Sports (silence),volleyball
+wf04dfee,soccer,False,1,Sports (silence),soccer
+wf04dfee,football,False,-1,Sports (silence),football
+wf04dfee,cricket,False,-1,Sports (silence),cricket
+wf04dfee,tennis,False,2,Sports (silence),tennis
+wf04dfee,basketball,False,1,Sports (silence),basketball
+w251ef24,rome,False,4,PRACTICE,Rome
+w251ef24,vienna,False,4,PRACTICE,Vienna
+w251ef24,venice,False,4,PRACTICE,Venice
+w251ef24,amsterdam,False,6,PRACTICE,Amsterdam
+w251ef24,athens,False,4,PRACTICE,Athens
+w251ef24,london,False,1,PRACTICE,London
+w251ef24,paris,False,5,PRACTICE,Paris
+w251ef24,madrid,False,2,PRACTICE,Madrid
+w251ef24,bus,True,2,Vehicles (commute),Bus
+w251ef24,limousine,False,10,Vehicles (commute),limousine
+w251ef24,unicycle,False,-8,Vehicles (commute),unicycle
+w251ef24,bicycle,False,-8,Vehicles (commute),bicycle
+w251ef24,train,True,1,Vehicles (commute),Train
+w251ef24,scooter,False,-8,Vehicles (commute),scooter
+w251ef24,plane,False,-7,Vehicles (commute),plane
+w251ef24,helicopter,False,1,Vehicles (commute),helicopter
+w251ef24,UNK,True,10,Vehicles (commute),Driver
+w251ef24,skateboard,False,-7,Vehicles (commute),skateboard
+w251ef24,chemistry,False,2,Subjects (school),chemistry
+w251ef24,english,False,2,Subjects (school),english
+w251ef24,history,False,-2,Subjects (school),history
+w251ef24,algebra,False,-2,Subjects (school),algebra
+w251ef24,biology,False,1,Subjects (school),biology
+w251ef24,calculus,False,1,Subjects (school),calculus
+w251ef24,geometry,False,3,Subjects (school),geometry
+w251ef24,spanish,False,1,Subjects (school),spanish
+w251ef24,french,False,-2,Subjects (school),french
+w251ef24,physics,False,1,Subjects (school),physics
+w251ef24,lemur,False,3,Animals (intimate),lemur
+w251ef24,rhinoceros,False,1,Animals (intimate),rhinoceros
+w251ef24,panda,False,4,Animals (intimate),panda
+w251ef24,sloth,False,4,Animals (intimate),sloth
+w251ef24,lion,True,1,Animals (intimate),lion
+w251ef24,peacock,False,1,Animals (intimate),peacock
+w251ef24,crocodile,False,-2,Animals (intimate),crocodile
+w251ef24,kangaroo,False,2,Animals (intimate),kangaroo
+w251ef24,monkey,False,1,Animals (intimate),monkey
+w251ef24,gorilla,False,1,Animals (intimate),gorilla
+w251ef24,tiger,False,2,Animals (intimate),tiger
+w251ef24,UNK,True,2,Animals (intimate),ferret
+w251ef24,jaguar,False,3,Animals (intimate),jaguar
+w251ef24,giraffe,False,4,Animals (intimate),giraffe
+w251ef24,UNK,True,7,Animals (intimate),penguin
+w251ef24,deer,False,3,Animals (intimate),deer
+w251ef24,zebra,False,5,Animals (intimate),zebra
+w251ef24,cobra,False,1,Animals (intimate),cobra
+w251ef24,koala,False,4,Animals (intimate),koala
+w251ef24,elephant,False,1,Animals (intimate),elephant
+w251ef24,badminton,False,-2,Sports (season),badminton
+w251ef24,basketball,False,-4,Sports (season),basketball
+w251ef24,football,False,-5,Sports (season),football
+w251ef24,soccer,False,-5,Sports (season),soccer
+w251ef24,bowling,False,0,Sports (season),bowling
+w251ef24,volleyball,False,-2,Sports (season),volleyball
+w251ef24,boxing,False,-4,Sports (season),boxing
+w251ef24,tennis,False,-1,Sports (season),tennis
+w251ef24,baseball,False,-1,Sports (season),baseball
+w251ef24,rugby,False,-4,Sports (season),rugby
+w251ef24,golf,False,-5,Sports (season),golf
+w251ef24,cricket,False,-5,Sports (season),cricket
+wc5f34d8,rome,False,3,PRACTICE,Rome
+wc5f34d8,venice,False,3,PRACTICE,Venice
+wc5f34d8,paris,False,-3,PRACTICE,Paris
+wc5f34d8,london,False,-3,PRACTICE,London
+wc5f34d8,amsterdam,False,5,PRACTICE,Amsterdam
+wc5f34d8,madrid,False,4,PRACTICE,Madrid
+wc5f34d8,vienna,False,4,PRACTICE,Vienna
+wc5f34d8,athens,False,2,PRACTICE,Athens
+wc5f34d8,bus,True,3,Vehicles (commute),buggy
+wc5f34d8,helicopter,False,0,Vehicles (commute),helicopter
+wc5f34d8,car,True,10,Vehicles (commute),Car
+wc5f34d8,limousine,False,-7,Vehicles (commute),limousine
+wc5f34d8,plane,False,-7,Vehicles (commute),plane
+wc5f34d8,UNK,True,4,Vehicles (commute),trolly
+wc5f34d8,train,True,4,Vehicles (commute),train
+wc5f34d8,unicycle,False,-5,Vehicles (commute),unicycle
+wc5f34d8,bicycle,False,4,Vehicles (commute),bicycle
+wc5f34d8,scooter,True,4,Vehicles (commute),scooter
+wc5f34d8,skateboard,False,-10,Vehicles (commute),skateboard
+wc5f34d8,UNK,True,-5,Vehicles (commute),horse
+wc5f34d8,UNK,True,4,Vehicles (commute),electric bike
+wc5f34d8,calculus,True,10,Subjects (school),calculus
+wc5f34d8,UNK,True,10,Subjects (school),programming
+wc5f34d8,UNK,True,10,Subjects (school),discrete math
+wc5f34d8,UNK,True,10,Subjects (school),math
+wc5f34d8,chemistry,False,-10,Subjects (school),chemistry
+wc5f34d8,algebra,False,10,Subjects (school),algebra
+wc5f34d8,history,False,10,Subjects (school),history
+wc5f34d8,physics,False,-10,Subjects (school),physics
+wc5f34d8,english,False,10,Subjects (school),english
+wc5f34d8,biology,False,10,Subjects (school),biology
+wc5f34d8,geometry,False,4,Subjects (school),geometry
+wc5f34d8,french,False,0,Subjects (school),french
+wc5f34d8,spanish,False,0,Subjects (school),spanish
+wc5f34d8,kangaroo,False,-10,Animals (intimate),kangaroo
+wc5f34d8,elephant,False,-10,Animals (intimate),elephant
+wc5f34d8,cobra,False,-10,Animals (intimate),cobra
+wc5f34d8,rhinoceros,False,-10,Animals (intimate),rhinoceros
+wc5f34d8,tiger,False,-10,Animals (intimate),tiger
+wc5f34d8,giraffe,False,-10,Animals (intimate),giraffe
+wc5f34d8,lion,False,-10,Animals (intimate),lion
+wc5f34d8,sloth,False,-10,Animals (intimate),sloth
+wc5f34d8,lemur,False,-10,Animals (intimate),lemur
+wc5f34d8,crocodile,False,-10,Animals (intimate),crocodile
+wc5f34d8,zebra,False,-10,Animals (intimate),zebra
+wc5f34d8,panda,False,-10,Animals (intimate),panda
+wc5f34d8,koala,False,-10,Animals (intimate),koala
+wc5f34d8,peacock,False,-10,Animals (intimate),peacock
+wc5f34d8,jaguar,False,-10,Animals (intimate),jaguar
+wc5f34d8,monkey,False,-10,Animals (intimate),monkey
+wc5f34d8,gorilla,False,-10,Animals (intimate),gorilla
+wc5f34d8,deer,False,-10,Animals (intimate),deer
+wc5f34d8,tennis,False,1,Sports (season),tennis
+wc5f34d8,rugby,False,-2,Sports (season),rugby
+wc5f34d8,boxing,False,-2,Sports (season),boxing
+wc5f34d8,soccer,False,-2,Sports (season),soccer
+wc5f34d8,golf,False,-2,Sports (season),golf
+wc5f34d8,basketball,False,-2,Sports (season),basketball
+wc5f34d8,baseball,False,-2,Sports (season),baseball
+wc5f34d8,football,False,-2,Sports (season),football
+wc5f34d8,volleyball,False,2,Sports (season),volleyball
+wc5f34d8,bowling,False,2,Sports (season),bowling
+wc5f34d8,cricket,False,2,Sports (season),cricket
+wc5f34d8,badminton,False,2,Sports (season),badminton
+w0c074de,paris,False,10,PRACTICE,Paris
+w0c074de,london,False,10,PRACTICE,London
+w0c074de,amsterdam,False,10,PRACTICE,Amsterdam
+w0c074de,athens,False,10,PRACTICE,Athens
+w0c074de,venice,False,10,PRACTICE,Venice
+w0c074de,rome,False,10,PRACTICE,Rome
+w0c074de,madrid,False,0,PRACTICE,Madrid
+w0c074de,vienna,False,0,PRACTICE,Vienna
+w0c074de,elephant,False,3,Animals (intimate),elephant
+w0c074de,cobra,False,-10,Animals (intimate),cobra
+w0c074de,peacock,False,10,Animals (intimate),peacock
+w0c074de,jaguar,False,-10,Animals (intimate),jaguar
+w0c074de,rhinoceros,False,-10,Animals (intimate),rhinoceros
+w0c074de,panda,False,10,Animals (intimate),panda
+w0c074de,tiger,False,-10,Animals (intimate),tiger
+w0c074de,koala,False,10,Animals (intimate),koala
+w0c074de,zebra,False,10,Animals (intimate),zebra
+w0c074de,deer,True,-5,Animals (intimate),Dogs
+w0c074de,lion,True,-10,Animals (intimate),Lions
+w0c074de,UNK,True,-10,Animals (intimate),Alligators
+w0c074de,sloth,False,10,Animals (intimate),sloth
+w0c074de,monkey,False,-10,Animals (intimate),monkey
+w0c074de,giraffe,False,-6,Animals (intimate),giraffe
+w0c074de,gorilla,False,-10,Animals (intimate),gorilla
+w0c074de,crocodile,False,-10,Animals (intimate),crocodile
+w0c074de,lemur,False,5,Animals (intimate),lemur
+w0c074de,kangaroo,False,3,Animals (intimate),kangaroo
+w0c074de,rugby,False,-6,Sports (season),rugby
+w0c074de,badminton,False,5,Sports (season),badminton
+w0c074de,tennis,False,-7,Sports (season),tennis
+w0c074de,basketball,True,-9,Sports (season),Baseketball
+w0c074de,bowling,False,-10,Sports (season),bowling
+w0c074de,boxing,False,7,Sports (season),boxing
+w0c074de,golf,False,-10,Sports (season),golf
+w0c074de,football,False,-8,Sports (season),football
+w0c074de,cricket,False,-5,Sports (season),cricket
+w0c074de,volleyball,False,5,Sports (season),volleyball
+w0c074de,soccer,False,-10,Sports (season),soccer
+w0c074de,train,False,-10,Vehicles (commute),train
+w0c074de,limousine,False,10,Vehicles (commute),limousine
+w0c074de,skateboard,False,-10,Vehicles (commute),skateboard
+w0c074de,unicycle,False,-10,Vehicles (commute),unicycle
+w0c074de,plane,False,5,Vehicles (commute),plane
+w0c074de,boat,False,-10,Vehicles (commute),boat
+w0c074de,bus,False,-10,Vehicles (commute),bus
+w0c074de,UNK,True,10,Vehicles (commute),Smart Car
+w0c074de,bicycle,False,-10,Vehicles (commute),bicycle
+w0c074de,scooter,False,-10,Vehicles (commute),scooter
+w0c074de,car,False,10,Vehicles (commute),car
+w0c074de,helicopter,False,5,Vehicles (commute),helicopter
+w0c074de,physics,False,-10,Subjects (school),physics
+w0c074de,history,False,5,Subjects (school),history
+w0c074de,chemistry,False,-10,Subjects (school),chemistry
+w0c074de,UNK,True,-10,Subjects (school),Science
+w0c074de,calculus,False,-10,Subjects (school),calculus
+w0c074de,english,False,-4,Subjects (school),english
+w0c074de,french,False,3,Subjects (school),french
+w0c074de,UNK,True,-3,Subjects (school),Math
+w0c074de,algebra,False,-10,Subjects (school),algebra
+w0c074de,geometry,False,-5,Subjects (school),geometry
+w0c074de,biology,False,-5,Subjects (school),biology
+w0c074de,spanish,False,2,Subjects (school),spanish
+w3e97a1f,london,True,7,PRACTICE,London
+w3e97a1f,venice,False,8,PRACTICE,Venice
+w3e97a1f,athens,False,3,PRACTICE,Athens
+w3e97a1f,amsterdam,False,3,PRACTICE,Amsterdam
+w3e97a1f,vienna,False,4,PRACTICE,Vienna
+w3e97a1f,rome,True,7,PRACTICE,Rome
+w3e97a1f,paris,True,10,PRACTICE,Paris
+w3e97a1f,rugby,False,-10,Sports (season),rugby
+w3e97a1f,football,False,-10,Sports (season),football
+w3e97a1f,bowling,False,-10,Sports (season),bowling
+w3e97a1f,baseball,False,-10,Sports (season),baseball
+w3e97a1f,soccer,False,-10,Sports (season),soccer
+w3e97a1f,basketball,False,-10,Sports (season),basketball
+w3e97a1f,cricket,False,-10,Sports (season),cricket
+w3e97a1f,badminton,False,-10,Sports (season),badminton
+w3e97a1f,golf,False,-10,Sports (season),golf
+w3e97a1f,volleyball,False,-10,Sports (season),volleyball
+w3e97a1f,boxing,False,-10,Sports (season),boxing
+w3e97a1f,tennis,False,-10,Sports (season),tennis
+w3e97a1f,scooter,False,-10,Vehicles (commute),scooter
+w3e97a1f,unicycle,False,-10,Vehicles (commute),unicycle
+w3e97a1f,car,True,7,Vehicles (commute),Taxi
+w3e97a1f,car,True,7,Vehicles (commute),Uber
+w3e97a1f,boat,False,2,Vehicles (commute),boat
+w3e97a1f,limousine,False,10,Vehicles (commute),limousine
+w3e97a1f,skateboard,False,-10,Vehicles (commute),skateboard
+w3e97a1f,plane,False,-10,Vehicles (commute),plane
+w3e97a1f,helicopter,False,-10,Vehicles (commute),helicopter
+w3e97a1f,bicycle,False,-10,Vehicles (commute),bicycle
+w3e97a1f,chemistry,False,-8,Subjects (school),chemistry
+w3e97a1f,french,False,1,Subjects (school),french
+w3e97a1f,history,False,2,Subjects (school),history
+w3e97a1f,algebra,False,-10,Subjects (school),algebra
+w3e97a1f,biology,False,1,Subjects (school),biology
+w3e97a1f,english,False,-10,Subjects (school),english
+w3e97a1f,calculus,False,-10,Subjects (school),calculus
+w3e97a1f,spanish,False,1,Subjects (school),spanish
+w3e97a1f,UNK,True,10,Subjects (school),Climbing
+w3e97a1f,physics,False,-10,Subjects (school),physics
+w3e97a1f,geometry,False,-10,Subjects (school),geometry
+w3e97a1f,koala,False,1,Animals (intimate),koala
+w3e97a1f,elephant,False,-10,Animals (intimate),elephant
+w3e97a1f,sloth,False,-10,Animals (intimate),sloth
+w3e97a1f,deer,False,1,Animals (intimate),deer
+w3e97a1f,gorilla,False,-10,Animals (intimate),gorilla
+w3e97a1f,zebra,False,-10,Animals (intimate),zebra
+w3e97a1f,panda,False,-10,Animals (intimate),panda
+w3e97a1f,peacock,False,1,Animals (intimate),peacock
+w3e97a1f,rhinoceros,False,-10,Animals (intimate),rhinoceros
+w3e97a1f,lemur,False,-10,Animals (intimate),lemur
+w3e97a1f,crocodile,False,-10,Animals (intimate),crocodile
+w3e97a1f,jaguar,False,-10,Animals (intimate),jaguar
+w3e97a1f,kangaroo,False,1,Animals (intimate),kangaroo
+w3e97a1f,monkey,False,-10,Animals (intimate),monkey
+w3e97a1f,tiger,False,-10,Animals (intimate),tiger
+w3e97a1f,cobra,False,-10,Animals (intimate),cobra
+w3e97a1f,giraffe,False,-10,Animals (intimate),giraffe
+w3e97a1f,lion,False,-10,Animals (intimate),lion
+wd5a2d8f,rome,True,3,PRACTICE,Rome 
+wd5a2d8f,UNK,True,3,PRACTICE,Prague
+wd5a2d8f,athens,False,3,PRACTICE,Athens
+wd5a2d8f,venice,True,3,PRACTICE,Venice
+wd5a2d8f,vienna,False,3,PRACTICE,Vienna
+wd5a2d8f,paris,True,5,PRACTICE,Paris
+wd5a2d8f,amsterdam,False,3,PRACTICE,Amsterdam
+wd5a2d8f,london,True,7,PRACTICE,London
+wd5a2d8f,algebra,False,-1,Subjects (magic),algebra
+wd5a2d8f,biology,False,1,Subjects (magic),biology
+wd5a2d8f,UNK,True,10,Subjects (magic),Herbalism
+wd5a2d8f,french,False,10,Subjects (magic),french
+wd5a2d8f,english,False,1,Subjects (magic),english
+wd5a2d8f,geometry,False,1,Subjects (magic),geometry
+wd5a2d8f,physics,False,1,Subjects (magic),physics
+wd5a2d8f,chemistry,False,1,Subjects (magic),chemistry
+wd5a2d8f,spanish,False,1,Subjects (magic),spanish
+wd5a2d8f,history,False,3,Subjects (magic),history
+wd5a2d8f,calculus,False,1,Subjects (magic),calculus
+wd5a2d8f,skateboard,False,1,Vehicles (veto),skateboard
+wd5a2d8f,boat,False,-1,Vehicles (veto),boat
+wd5a2d8f,helicopter,False,10,Vehicles (veto),helicopter
+wd5a2d8f,unicycle,False,10,Vehicles (veto),unicycle
+wd5a2d8f,plane,False,-1,Vehicles (veto),plane
+wd5a2d8f,bus,False,1,Vehicles (veto),bus
+wd5a2d8f,limousine,False,8,Vehicles (veto),limousine
+wd5a2d8f,scooter,False,7,Vehicles (veto),scooter
+wd5a2d8f,bicycle,False,1,Vehicles (veto),bicycle
+wd5a2d8f,train,True,-2,Vehicles (veto),Train
+wd5a2d8f,car,False,-10,Vehicles (veto),car
+wd5a2d8f,football,False,10,Sports (silence),football
+wd5a2d8f,golf,False,10,Sports (silence),golf
+wd5a2d8f,basketball,False,1,Sports (silence),basketball
+wd5a2d8f,bowling,False,1,Sports (silence),bowling
+wd5a2d8f,boxing,False,10,Sports (silence),boxing
+wd5a2d8f,volleyball,False,1,Sports (silence),volleyball
+wd5a2d8f,UNK,True,10,Sports (silence),American football
+wd5a2d8f,soccer,False,1,Sports (silence),soccer
+wd5a2d8f,baseball,False,1,Sports (silence),baseball
+wd5a2d8f,badminton,False,5,Sports (silence),badminton
+wd5a2d8f,cricket,False,4,Sports (silence),cricket
+wd5a2d8f,rugby,False,2,Sports (silence),rugby
+wd5a2d8f,tennis,False,-1,Sports (silence),tennis
+wd5a2d8f,sloth,False,5,Animals (bubble),sloth
+wd5a2d8f,panda,False,4,Animals (bubble),panda
+wd5a2d8f,monkey,False,-1,Animals (bubble),monkey
+wd5a2d8f,cobra,False,-1,Animals (bubble),cobra
+wd5a2d8f,elephant,False,4,Animals (bubble),elephant
+wd5a2d8f,crocodile,False,2,Animals (bubble),crocodile
+wd5a2d8f,gorilla,False,-1,Animals (bubble),gorilla
+wd5a2d8f,zebra,False,4,Animals (bubble),zebra
+wd5a2d8f,jaguar,False,3,Animals (bubble),jaguar
+wd5a2d8f,koala,False,6,Animals (bubble),koala
+wd5a2d8f,lion,False,10,Animals (bubble),lion
+wd5a2d8f,peacock,False,1,Animals (bubble),peacock
+wd5a2d8f,lemur,True,4,Animals (bubble),Emu
+wd5a2d8f,tiger,True,10,Animals (bubble),Tiger
+wd5a2d8f,kangaroo,False,3,Animals (bubble),kangaroo
+wd5a2d8f,giraffe,False,3,Animals (bubble),giraffe
+wd5a2d8f,rhinoceros,False,1,Animals (bubble),rhinoceros
+w8883c2c,UNK,True,5,PRACTICE,"Copenhagen, vienne, Milan, Budafest, Berlin, Oslo, London, Pasris , Rome"
+w8883c2c,amsterdam,False,1,PRACTICE,Amsterdam
+w8883c2c,paris,False,7,PRACTICE,Paris
+w8883c2c,athens,False,4,PRACTICE,Athens
+w8883c2c,london,False,6,PRACTICE,London
+w8883c2c,rome,False,8,PRACTICE,Rome
+w8883c2c,vienna,False,4,PRACTICE,Vienna
+w8883c2c,madrid,False,6,PRACTICE,Madrid
+w8883c2c,venice,False,4,PRACTICE,Venice
+w8883c2c,algebra,False,0,Subjects (school),algebra
+w8883c2c,chemistry,False,5,Subjects (school),chemistry
+w8883c2c,english,False,1,Subjects (school),english
+w8883c2c,spanish,False,2,Subjects (school),spanish
+w8883c2c,geometry,False,1,Subjects (school),geometry
+w8883c2c,physics,False,1,Subjects (school),physics
+w8883c2c,biology,False,5,Subjects (school),biology
+w8883c2c,history,False,0,Subjects (school),history
+w8883c2c,calculus,False,-1,Subjects (school),calculus
+w8883c2c,french,False,1,Subjects (school),french
+w8883c2c,panda,False,-8,Animals (intimate),panda
+w8883c2c,lion,False,-10,Animals (intimate),lion
+w8883c2c,monkey,False,-7,Animals (intimate),monkey
+w8883c2c,crocodile,False,-10,Animals (intimate),crocodile
+w8883c2c,elephant,False,-8,Animals (intimate),elephant
+w8883c2c,lemur,False,-2,Animals (intimate),lemur
+w8883c2c,zebra,False,-1,Animals (intimate),zebra
+w8883c2c,jaguar,False,-10,Animals (intimate),jaguar
+w8883c2c,sloth,False,-1,Animals (intimate),sloth
+w8883c2c,tiger,False,-10,Animals (intimate),tiger
+w8883c2c,deer,False,5,Animals (intimate),deer
+w8883c2c,cobra,False,-10,Animals (intimate),cobra
+w8883c2c,rhinoceros,False,-8,Animals (intimate),rhinoceros
+w8883c2c,koala,False,3,Animals (intimate),koala
+w8883c2c,giraffe,False,-10,Animals (intimate),giraffe
+w8883c2c,kangaroo,False,0,Animals (intimate),kangaroo
+w8883c2c,peacock,False,-8,Animals (intimate),peacock
+w8883c2c,gorilla,False,-10,Animals (intimate),gorilla
+w8883c2c,bicycle,False,7,Vehicles (commute),bicycle
+w8883c2c,car,False,0,Vehicles (commute),car
+w8883c2c,train,False,4,Vehicles (commute),train
+w8883c2c,skateboard,False,-4,Vehicles (commute),skateboard
+w8883c2c,unicycle,False,-10,Vehicles (commute),unicycle
+w8883c2c,plane,False,0,Vehicles (commute),plane
+w8883c2c,boat,False,0,Vehicles (commute),boat
+w8883c2c,limousine,False,1,Vehicles (commute),limousine
+w8883c2c,scooter,False,0,Vehicles (commute),scooter
+w8883c2c,bus,False,2,Vehicles (commute),bus
+w8883c2c,helicopter,False,-7,Vehicles (commute),helicopter
+w8883c2c,rugby,False,-9,Sports (season),rugby
+w8883c2c,badminton,False,4,Sports (season),badminton
+w8883c2c,golf,False,-9,Sports (season),golf
+w8883c2c,baseball,False,-9,Sports (season),baseball
+w8883c2c,tennis,False,7,Sports (season),tennis
+w8883c2c,cricket,False,-9,Sports (season),cricket
+w8883c2c,boxing,False,-10,Sports (season),boxing
+w8883c2c,football,False,-7,Sports (season),football
+w8883c2c,bowling,False,3,Sports (season),bowling
+w8883c2c,volleyball,False,8,Sports (season),volleyball
+w8883c2c,basketball,False,2,Sports (season),basketball
+w8883c2c,soccer,False,0,Sports (season),soccer
+w2777a8f,rome,False,6,PRACTICE,Rome
+w2777a8f,athens,False,2,PRACTICE,Athens
+w2777a8f,london,True,10,PRACTICE,London
+w2777a8f,UNK,True,10,PRACTICE,Berlin
+w2777a8f,amsterdam,False,10,PRACTICE,Amsterdam
+w2777a8f,venice,False,2,PRACTICE,Venice
+w2777a8f,vienna,False,1,PRACTICE,Vienna
+w2777a8f,paris,True,9,PRACTICE,Paris
+w2777a8f,kangaroo,False,-2,Animals (intimate),kangaroo
+w2777a8f,jaguar,False,-10,Animals (intimate),jaguar
+w2777a8f,rhinoceros,False,-10,Animals (intimate),rhinoceros
+w2777a8f,crocodile,False,-10,Animals (intimate),crocodile
+w2777a8f,panda,False,-8,Animals (intimate),panda
+w2777a8f,elephant,False,1,Animals (intimate),elephant
+w2777a8f,monkey,False,0,Animals (intimate),monkey
+w2777a8f,lemur,False,2,Animals (intimate),lemur
+w2777a8f,cobra,False,-10,Animals (intimate),cobra
+w2777a8f,giraffe,False,2,Animals (intimate),giraffe
+w2777a8f,zebra,False,2,Animals (intimate),zebra
+w2777a8f,lion,False,-10,Animals (intimate),lion
+w2777a8f,koala,False,6,Animals (intimate),koala
+w2777a8f,peacock,False,1,Animals (intimate),peacock
+w2777a8f,tiger,False,-10,Animals (intimate),tiger
+w2777a8f,gorilla,False,-9,Animals (intimate),gorilla
+w2777a8f,sloth,False,7,Animals (intimate),sloth
+w2777a8f,deer,False,-1,Animals (intimate),deer
+w2777a8f,bus,True,10,Vehicles (commute),bike
+w2777a8f,car,True,8,Vehicles (commute),car
+w2777a8f,unicycle,False,-7,Vehicles (commute),unicycle
+w2777a8f,scooter,False,8,Vehicles (commute),scooter
+w2777a8f,bicycle,False,3,Vehicles (commute),bicycle
+w2777a8f,plane,False,-2,Vehicles (commute),plane
+w2777a8f,helicopter,False,10,Vehicles (commute),helicopter
+w2777a8f,train,False,2,Vehicles (commute),train
+w2777a8f,skateboard,False,-4,Vehicles (commute),skateboard
+w2777a8f,bus,True,1,Vehicles (commute),bus
+w2777a8f,limousine,False,10,Vehicles (commute),limousine
+w2777a8f,english,False,2,Subjects (school),english
+w2777a8f,calculus,False,7,Subjects (school),calculus
+w2777a8f,french,False,10,Subjects (school),french
+w2777a8f,geometry,False,2,Subjects (school),geometry
+w2777a8f,spanish,False,4,Subjects (school),spanish
+w2777a8f,history,False,-2,Subjects (school),history
+w2777a8f,chemistry,False,-1,Subjects (school),chemistry
+w2777a8f,biology,False,1,Subjects (school),biology
+w2777a8f,algebra,False,3,Subjects (school),algebra
+w2777a8f,physics,False,8,Subjects (school),physics
+w2777a8f,cricket,False,-1,Sports (season),cricket
+w2777a8f,rugby,False,5,Sports (season),rugby
+w2777a8f,soccer,True,10,Sports (season),Soccer
+w2777a8f,tennis,False,7,Sports (season),tennis
+w2777a8f,bowling,False,-2,Sports (season),bowling
+w2777a8f,boxing,False,1,Sports (season),boxing
+w2777a8f,golf,False,-1,Sports (season),golf
+w2777a8f,badminton,False,0,Sports (season),badminton
+w2777a8f,football,False,4,Sports (season),football
+w2777a8f,basketball,True,8,Sports (season),Basketball
+w2777a8f,volleyball,False,8,Sports (season),volleyball
+w363e6ac,athens,False,6,PRACTICE,Athens
+w363e6ac,madrid,False,6,PRACTICE,Madrid
+w363e6ac,paris,False,8,PRACTICE,Paris
+w363e6ac,amsterdam,False,6,PRACTICE,Amsterdam
+w363e6ac,london,False,8,PRACTICE,London
+w363e6ac,rome,False,5,PRACTICE,Rome
+w363e6ac,vienna,False,5,PRACTICE,Vienna
+w363e6ac,venice,False,5,PRACTICE,Venice
+w363e6ac,basketball,False,-1,Sports (silence),basketball
+w363e6ac,volleyball,False,-1,Sports (silence),volleyball
+w363e6ac,baseball,False,-7,Sports (silence),baseball
+w363e6ac,tennis,False,-2,Sports (silence),tennis
+w363e6ac,badminton,False,-1,Sports (silence),badminton
+w363e6ac,bowling,False,-2,Sports (silence),bowling
+w363e6ac,football,True,-1,Sports (silence),Football
+w363e6ac,cricket,False,0,Sports (silence),cricket
+w363e6ac,golf,False,-2,Sports (silence),golf
+w363e6ac,rugby,False,-1,Sports (silence),rugby
+w363e6ac,boxing,False,1,Sports (silence),boxing
+w363e6ac,soccer,False,-2,Sports (silence),soccer
+w363e6ac,history,False,6,Subjects (magic),history
+w363e6ac,UNK,True,7,Subjects (magic),Math
+w363e6ac,chemistry,False,7,Subjects (magic),chemistry
+w363e6ac,spanish,False,9,Subjects (magic),spanish
+w363e6ac,english,False,10,Subjects (magic),english
+w363e6ac,algebra,False,5,Subjects (magic),algebra
+w363e6ac,physics,False,5,Subjects (magic),physics
+w363e6ac,french,False,10,Subjects (magic),french
+w363e6ac,biology,False,7,Subjects (magic),biology
+w363e6ac,geometry,False,2,Subjects (magic),geometry
+w363e6ac,calculus,False,4,Subjects (magic),calculus
+w363e6ac,bus,True,-5,Vehicles (veto),Bus
+w363e6ac,skateboard,False,-1,Vehicles (veto),skateboard
+w363e6ac,helicopter,False,0,Vehicles (veto),helicopter
+w363e6ac,bicycle,True,-5,Vehicles (veto),Bicycle
+w363e6ac,train,False,-8,Vehicles (veto),train
+w363e6ac,car,True,-10,Vehicles (veto),Car
+w363e6ac,scooter,False,-2,Vehicles (veto),scooter
+w363e6ac,limousine,False,-1,Vehicles (veto),limousine
+w363e6ac,plane,False,-3,Vehicles (veto),plane
+w363e6ac,sloth,False,1,Animals (bubble),sloth
+w363e6ac,cobra,False,3,Animals (bubble),cobra
+w363e6ac,panda,False,7,Animals (bubble),panda
+w363e6ac,kangaroo,False,6,Animals (bubble),kangaroo
+w363e6ac,monkey,False,6,Animals (bubble),monkey
+w363e6ac,koala,False,3,Animals (bubble),koala
+w363e6ac,tiger,False,7,Animals (bubble),tiger
+w363e6ac,jaguar,False,6,Animals (bubble),jaguar
+w363e6ac,elephant,True,6,Animals (bubble),Elephant
+w363e6ac,peacock,False,4,Animals (bubble),peacock
+w363e6ac,lion,False,6,Animals (bubble),lion
+w363e6ac,deer,False,1,Animals (bubble),deer
+w363e6ac,lemur,False,3,Animals (bubble),lemur
+w363e6ac,crocodile,False,3,Animals (bubble),crocodile
+w363e6ac,giraffe,True,5,Animals (bubble),Giraffe
+w363e6ac,zebra,False,5,Animals (bubble),zebra
+w363e6ac,gorilla,False,5,Animals (bubble),gorilla
+w363e6ac,rhinoceros,False,5,Animals (bubble),rhinoceros
+w4a284b9,london,False,5,PRACTICE,London
+w4a284b9,paris,False,5,PRACTICE,Paris
+w4a284b9,vienna,False,5,PRACTICE,Vienna
+w4a284b9,rome,False,5,PRACTICE,Rome
+w4a284b9,athens,False,1,PRACTICE,Athens
+w4a284b9,madrid,False,2,PRACTICE,Madrid
+w4a284b9,amsterdam,False,6,PRACTICE,Amsterdam
+w4a284b9,venice,False,4,PRACTICE,Venice
+w4a284b9,rugby,False,-3,Sports (season),rugby
+w4a284b9,golf,False,5,Sports (season),golf
+w4a284b9,boxing,False,-3,Sports (season),boxing
+w4a284b9,bowling,False,-6,Sports (season),bowling
+w4a284b9,badminton,False,-6,Sports (season),badminton
+w4a284b9,football,False,10,Sports (season),football
+w4a284b9,baseball,False,5,Sports (season),baseball
+w4a284b9,tennis,False,2,Sports (season),tennis
+w4a284b9,volleyball,False,0,Sports (season),volleyball
+w4a284b9,cricket,False,-3,Sports (season),cricket
+w4a284b9,soccer,True,3,Sports (season),Soccer
+w4a284b9,basketball,False,1,Sports (season),basketball
+w4a284b9,history,False,5,Subjects (school),history
+w4a284b9,spanish,False,5,Subjects (school),spanish
+w4a284b9,calculus,False,-8,Subjects (school),calculus
+w4a284b9,english,False,5,Subjects (school),english
+w4a284b9,french,False,-3,Subjects (school),french
+w4a284b9,chemistry,False,2,Subjects (school),chemistry
+w4a284b9,biology,False,5,Subjects (school),biology
+w4a284b9,physics,False,5,Subjects (school),physics
+w4a284b9,algebra,False,2,Subjects (school),algebra
+w4a284b9,geometry,False,-1,Subjects (school),geometry
+w4a284b9,jaguar,False,-10,Animals (intimate),jaguar
+w4a284b9,sloth,False,-4,Animals (intimate),sloth
+w4a284b9,elephant,False,-4,Animals (intimate),elephant
+w4a284b9,deer,False,-4,Animals (intimate),deer
+w4a284b9,zebra,False,-4,Animals (intimate),zebra
+w4a284b9,peacock,False,-4,Animals (intimate),peacock
+w4a284b9,tiger,False,-10,Animals (intimate),tiger
+w4a284b9,rhinoceros,False,-7,Animals (intimate),rhinoceros
+w4a284b9,cobra,False,-10,Animals (intimate),cobra
+w4a284b9,koala,False,-5,Animals (intimate),koala
+w4a284b9,kangaroo,False,-5,Animals (intimate),kangaroo
+w4a284b9,giraffe,False,-5,Animals (intimate),giraffe
+w4a284b9,gorilla,False,-9,Animals (intimate),gorilla
+w4a284b9,crocodile,False,-10,Animals (intimate),crocodile
+w4a284b9,lion,False,-10,Animals (intimate),lion
+w4a284b9,panda,False,-5,Animals (intimate),panda
+w4a284b9,monkey,False,-5,Animals (intimate),monkey
+w4a284b9,lemur,False,-5,Animals (intimate),lemur
+w4a284b9,plane,False,-7,Vehicles (commute),plane
+w4a284b9,skateboard,False,-5,Vehicles (commute),skateboard
+w4a284b9,boat,False,-5,Vehicles (commute),boat
+w4a284b9,scooter,False,-4,Vehicles (commute),scooter
+w4a284b9,helicopter,False,-4,Vehicles (commute),helicopter
+w4a284b9,car,False,10,Vehicles (commute),car
+w4a284b9,train,False,2,Vehicles (commute),train
+w4a284b9,bicycle,False,-3,Vehicles (commute),bicycle
+w4a284b9,bus,False,0,Vehicles (commute),bus
+w4a284b9,limousine,False,10,Vehicles (commute),limousine
+w4a284b9,unicycle,False,-10,Vehicles (commute),unicycle
+w0663715,athens,False,7,PRACTICE,Athens
+w0663715,UNK,True,9,PRACTICE,Barcelona
+w0663715,venice,False,9,PRACTICE,Venice
+w0663715,vienna,False,8,PRACTICE,Vienna
+w0663715,paris,True,8,PRACTICE,Paris
+w0663715,amsterdam,False,8,PRACTICE,Amsterdam
+w0663715,london,True,10,PRACTICE,Lisbon
+w0663715,rome,False,8,PRACTICE,Rome
+w0663715,london,True,8,PRACTICE,London
+w0663715,UNK,True,8,PRACTICE,Milan
+w0663715,chemistry,False,2,Subjects (magic),chemistry
+w0663715,UNK,True,9,Subjects (magic),Science
+w0663715,biology,False,8,Subjects (magic),biology
+w0663715,french,False,9,Subjects (magic),french
+w0663715,spanish,False,10,Subjects (magic),spanish
+w0663715,calculus,False,3,Subjects (magic),calculus
+w0663715,geometry,False,2,Subjects (magic),geometry
+w0663715,UNK,True,10,Subjects (magic),Political Science
+w0663715,UNK,True,6,Subjects (magic),Business
+w0663715,history,False,7,Subjects (magic),history
+w0663715,UNK,True,10,Subjects (magic),Law
+w0663715,english,True,10,Subjects (magic),English
+w0663715,algebra,False,1,Subjects (magic),algebra
+w0663715,physics,False,1,Subjects (magic),physics
+w0663715,giraffe,False,3,Animals (bubble),giraffe
+w0663715,peacock,False,4,Animals (bubble),peacock
+w0663715,elephant,False,5,Animals (bubble),elephant
+w0663715,gorilla,False,2,Animals (bubble),gorilla
+w0663715,rhinoceros,False,3,Animals (bubble),rhinoceros
+w0663715,koala,False,6,Animals (bubble),koala
+w0663715,sloth,False,6,Animals (bubble),sloth
+w0663715,zebra,False,7,Animals (bubble),zebra
+w0663715,deer,False,-1,Animals (bubble),deer
+w0663715,tiger,False,8,Animals (bubble),tiger
+w0663715,jaguar,False,8,Animals (bubble),jaguar
+w0663715,lemur,False,7,Animals (bubble),lemur
+w0663715,panda,False,8,Animals (bubble),panda
+w0663715,crocodile,False,1,Animals (bubble),crocodile
+w0663715,kangaroo,False,6,Animals (bubble),kangaroo
+w0663715,lion,False,8,Animals (bubble),lion
+w0663715,cobra,False,-1,Animals (bubble),cobra
+w0663715,monkey,False,2,Animals (bubble),monkey
+w0663715,soccer,False,-1,Sports (silence),soccer
+w0663715,golf,False,6,Sports (silence),golf
+w0663715,rugby,False,6,Sports (silence),rugby
+w0663715,cricket,False,6,Sports (silence),cricket
+w0663715,volleyball,False,-2,Sports (silence),volleyball
+w0663715,tennis,False,2,Sports (silence),tennis
+w0663715,football,True,9,Sports (silence),Football
+w0663715,basketball,False,-2,Sports (silence),basketball
+w0663715,boxing,False,-5,Sports (silence),boxing
+w0663715,bowling,False,-1,Sports (silence),bowling
+w0663715,badminton,False,3,Sports (silence),badminton
+w0663715,baseball,False,6,Sports (silence),baseball
+w0663715,train,True,-8,Vehicles (veto),Train
+w0663715,car,True,-10,Vehicles (veto),Car
+w0663715,scooter,False,0,Vehicles (veto),scooter
+w0663715,bicycle,False,0,Vehicles (veto),bicycle
+w0663715,limousine,False,0,Vehicles (veto),limousine
+w0663715,skateboard,False,0,Vehicles (veto),skateboard
+w0663715,unicycle,False,0,Vehicles (veto),unicycle
+w0663715,helicopter,False,0,Vehicles (veto),helicopter
+w0663715,plane,False,-9,Vehicles (veto),plane
+w98f1b99,rome,True,7,PRACTICE,Rome
+w98f1b99,london,True,5,PRACTICE,London
+w98f1b99,venice,False,6,PRACTICE,Venice
+w98f1b99,amsterdam,False,0,PRACTICE,Amsterdam
+w98f1b99,UNK,True,10,PRACTICE,Barcelona
+w98f1b99,paris,True,10,PRACTICE,Paris
+w98f1b99,athens,False,8,PRACTICE,Athens
+w98f1b99,vienna,False,2,PRACTICE,Vienna
+w98f1b99,rhinoceros,False,5,Animals (bubble),rhinoceros
+w98f1b99,giraffe,True,10,Animals (bubble),giraffe
+w98f1b99,peacock,False,8,Animals (bubble),peacock
+w98f1b99,tiger,False,10,Animals (bubble),tiger
+w98f1b99,sloth,False,1,Animals (bubble),sloth
+w98f1b99,lemur,False,-1,Animals (bubble),lemur
+w98f1b99,elephant,True,10,Animals (bubble),elephant
+w98f1b99,monkey,False,-3,Animals (bubble),monkey
+w98f1b99,koala,False,1,Animals (bubble),koala
+w98f1b99,lion,False,10,Animals (bubble),lion
+w98f1b99,deer,False,-2,Animals (bubble),deer
+w98f1b99,cobra,False,1,Animals (bubble),cobra
+w98f1b99,jaguar,False,10,Animals (bubble),jaguar
+w98f1b99,panda,False,10,Animals (bubble),panda
+w98f1b99,gorilla,False,1,Animals (bubble),gorilla
+w98f1b99,kangaroo,False,7,Animals (bubble),kangaroo
+w98f1b99,crocodile,False,-2,Animals (bubble),crocodile
+w98f1b99,zebra,False,8,Animals (bubble),zebra
+w98f1b99,car,False,-2,Vehicles (veto),car
+w98f1b99,train,False,5,Vehicles (veto),train
+w98f1b99,bicycle,False,0,Vehicles (veto),bicycle
+w98f1b99,skateboard,False,10,Vehicles (veto),skateboard
+w98f1b99,scooter,False,9,Vehicles (veto),scooter
+w98f1b99,unicycle,False,10,Vehicles (veto),unicycle
+w98f1b99,bus,False,-2,Vehicles (veto),bus
+w98f1b99,helicopter,False,-1,Vehicles (veto),helicopter
+w98f1b99,limousine,False,-3,Vehicles (veto),limousine
+w98f1b99,boat,False,-1,Vehicles (veto),boat
+w98f1b99,plane,False,-6,Vehicles (veto),plane
+w98f1b99,physics,False,-2,Subjects (magic),physics
+w98f1b99,history,False,2,Subjects (magic),history
+w98f1b99,UNK,True,10,Subjects (magic),psychology
+w98f1b99,calculus,False,1,Subjects (magic),calculus
+w98f1b99,spanish,True,10,Subjects (magic),spanish
+w98f1b99,geometry,False,1,Subjects (magic),geometry
+w98f1b99,french,False,8,Subjects (magic),french
+w98f1b99,algebra,False,2,Subjects (magic),algebra
+w98f1b99,english,False,3,Subjects (magic),english
+w98f1b99,biology,False,5,Subjects (magic),biology
+w98f1b99,chemistry,False,5,Subjects (magic),chemistry
+w98f1b99,golf,False,10,Sports (silence),golf
+w98f1b99,badminton,False,-2,Sports (silence),badminton
+w98f1b99,basketball,False,-4,Sports (silence),basketball
+w98f1b99,football,False,-2,Sports (silence),football
+w98f1b99,tennis,False,-10,Sports (silence),tennis
+w98f1b99,cricket,False,2,Sports (silence),cricket
+w98f1b99,baseball,False,10,Sports (silence),baseball
+w98f1b99,bowling,False,10,Sports (silence),bowling
+w98f1b99,boxing,False,0,Sports (silence),boxing
+w98f1b99,soccer,False,-10,Sports (silence),soccer
+w98f1b99,rugby,False,5,Sports (silence),rugby
+w98f1b99,volleyball,False,-3,Sports (silence),volleyball
+w73ed943,madrid,False,9,PRACTICE,Madrid
+w73ed943,rome,False,9,PRACTICE,Rome
+w73ed943,athens,False,9,PRACTICE,Athens
+w73ed943,amsterdam,False,9,PRACTICE,Amsterdam
+w73ed943,paris,False,9,PRACTICE,Paris
+w73ed943,vienna,False,9,PRACTICE,Vienna
+w73ed943,london,False,9,PRACTICE,London
+w73ed943,venice,False,9,PRACTICE,Venice
+w73ed943,rhinoceros,False,-6,Animals (intimate),rhinoceros
+w73ed943,lion,False,-9,Animals (intimate),lion
+w73ed943,deer,False,6,Animals (intimate),deer
+w73ed943,monkey,False,3,Animals (intimate),monkey
+w73ed943,gorilla,False,-3,Animals (intimate),gorilla
+w73ed943,tiger,False,-9,Animals (intimate),tiger
+w73ed943,jaguar,False,-9,Animals (intimate),jaguar
+w73ed943,crocodile,False,-9,Animals (intimate),crocodile
+w73ed943,zebra,False,4,Animals (intimate),zebra
+w73ed943,koala,False,7,Animals (intimate),koala
+w73ed943,sloth,False,8,Animals (intimate),sloth
+w73ed943,lemur,False,5,Animals (intimate),lemur
+w73ed943,kangaroo,False,0,Animals (intimate),kangaroo
+w73ed943,giraffe,False,4,Animals (intimate),giraffe
+w73ed943,panda,False,0,Animals (intimate),panda
+w73ed943,peacock,False,0,Animals (intimate),peacock
+w73ed943,cobra,False,-10,Animals (intimate),cobra
+w73ed943,elephant,False,7,Animals (intimate),elephant
+w73ed943,spanish,False,-10,Subjects (school),spanish
+w73ed943,physics,False,0,Subjects (school),physics
+w73ed943,chemistry,False,-5,Subjects (school),chemistry
+w73ed943,history,False,3,Subjects (school),history
+w73ed943,biology,False,5,Subjects (school),biology
+w73ed943,french,False,-9,Subjects (school),french
+w73ed943,english,True,10,Subjects (school),english
+w73ed943,algebra,False,-5,Subjects (school),algebra
+w73ed943,geometry,False,-5,Subjects (school),geometry
+w73ed943,calculus,False,-5,Subjects (school),calculus
+w73ed943,scooter,False,-6,Vehicles (commute),scooter
+w73ed943,plane,False,0,Vehicles (commute),plane
+w73ed943,car,False,9,Vehicles (commute),car
+w73ed943,boat,False,2,Vehicles (commute),boat
+w73ed943,limousine,False,5,Vehicles (commute),limousine
+w73ed943,train,False,2,Vehicles (commute),train
+w73ed943,bicycle,False,-7,Vehicles (commute),bicycle
+w73ed943,unicycle,False,-10,Vehicles (commute),unicycle
+w73ed943,helicopter,False,4,Vehicles (commute),helicopter
+w73ed943,bus,False,0,Vehicles (commute),bus
+w73ed943,skateboard,False,-8,Vehicles (commute),skateboard
+w73ed943,basketball,False,-8,Sports (season),basketball
+w73ed943,bowling,False,2,Sports (season),bowling
+w73ed943,tennis,False,2,Sports (season),tennis
+w73ed943,football,False,-10,Sports (season),football
+w73ed943,boxing,False,-8,Sports (season),boxing
+w73ed943,volleyball,False,5,Sports (season),volleyball
+w73ed943,soccer,False,1,Sports (season),soccer
+w73ed943,badminton,False,-7,Sports (season),badminton
+w73ed943,rugby,False,-6,Sports (season),rugby
+w73ed943,golf,False,-9,Sports (season),golf
+w73ed943,baseball,False,-6,Sports (season),baseball
+w73ed943,cricket,False,-6,Sports (season),cricket
+w26c2bef,amsterdam,False,-2,PRACTICE,Amsterdam
+w26c2bef,london,False,6,PRACTICE,London
+w26c2bef,vienna,False,7,PRACTICE,Vienna
+w26c2bef,athens,False,7,PRACTICE,Athens
+w26c2bef,rome,False,7,PRACTICE,Rome
+w26c2bef,madrid,False,7,PRACTICE,Madrid
+w26c2bef,venice,False,7,PRACTICE,Venice
+w26c2bef,paris,False,3,PRACTICE,Paris
+w26c2bef,rugby,False,0,Sports (season),rugby
+w26c2bef,baseball,False,4,Sports (season),baseball
+w26c2bef,cricket,False,0,Sports (season),cricket
+w26c2bef,bowling,False,-2,Sports (season),bowling
+w26c2bef,football,False,2,Sports (season),football
+w26c2bef,soccer,False,-2,Sports (season),soccer
+w26c2bef,golf,False,0,Sports (season),golf
+w26c2bef,badminton,False,-2,Sports (season),badminton
+w26c2bef,boxing,False,1,Sports (season),boxing
+w26c2bef,tennis,False,3,Sports (season),tennis
+w26c2bef,basketball,False,3,Sports (season),basketball
+w26c2bef,volleyball,False,3,Sports (season),volleyball
+w26c2bef,scooter,False,-10,Vehicles (commute),scooter
+w26c2bef,car,False,10,Vehicles (commute),car
+w26c2bef,plane,False,10,Vehicles (commute),plane
+w26c2bef,bicycle,False,-10,Vehicles (commute),bicycle
+w26c2bef,skateboard,False,-10,Vehicles (commute),skateboard
+w26c2bef,bus,False,-1,Vehicles (commute),bus
+w26c2bef,train,False,3,Vehicles (commute),train
+w26c2bef,helicopter,False,10,Vehicles (commute),helicopter
+w26c2bef,boat,False,2,Vehicles (commute),boat
+w26c2bef,unicycle,False,-10,Vehicles (commute),unicycle
+w26c2bef,limousine,False,10,Vehicles (commute),limousine
+w26c2bef,history,False,-2,Subjects (school),history
+w26c2bef,french,False,-8,Subjects (school),french
+w26c2bef,english,False,10,Subjects (school),english
+w26c2bef,physics,False,-6,Subjects (school),physics
+w26c2bef,chemistry,False,-6,Subjects (school),chemistry
+w26c2bef,spanish,False,-1,Subjects (school),spanish
+w26c2bef,biology,False,-1,Subjects (school),biology
+w26c2bef,geometry,False,4,Subjects (school),geometry
+w26c2bef,algebra,False,4,Subjects (school),algebra
+w26c2bef,calculus,False,0,Subjects (school),calculus
+w26c2bef,deer,False,-3,Animals (intimate),deer
+w26c2bef,panda,False,-4,Animals (intimate),panda
+w26c2bef,zebra,False,-3,Animals (intimate),zebra
+w26c2bef,tiger,False,-10,Animals (intimate),tiger
+w26c2bef,elephant,False,-5,Animals (intimate),elephant
+w26c2bef,cobra,False,-10,Animals (intimate),cobra
+w26c2bef,gorilla,False,0,Animals (intimate),gorilla
+w26c2bef,giraffe,False,-2,Animals (intimate),giraffe
+w26c2bef,kangaroo,False,-4,Animals (intimate),kangaroo
+w26c2bef,sloth,False,10,Animals (intimate),sloth
+w26c2bef,rhinoceros,False,-3,Animals (intimate),rhinoceros
+w26c2bef,koala,False,-2,Animals (intimate),koala
+w26c2bef,jaguar,False,-10,Animals (intimate),jaguar
+w26c2bef,monkey,False,1,Animals (intimate),monkey
+w26c2bef,peacock,False,2,Animals (intimate),peacock
+w26c2bef,lion,True,-10,Animals (intimate),lion
+w26c2bef,lemur,False,1,Animals (intimate),lemur
+w26c2bef,crocodile,False,-10,Animals (intimate),crocodile
+w1c3dd8c,paris,False,9,PRACTICE,Paris
+w1c3dd8c,athens,False,10,PRACTICE,Athens
+w1c3dd8c,vienna,False,10,PRACTICE,Vienna
+w1c3dd8c,madrid,False,10,PRACTICE,Madrid
+w1c3dd8c,rome,False,10,PRACTICE,Rome
+w1c3dd8c,venice,False,10,PRACTICE,Venice
+w1c3dd8c,amsterdam,False,10,PRACTICE,Amsterdam
+w1c3dd8c,london,False,10,PRACTICE,London
+w1c3dd8c,scooter,False,3,Vehicles (veto),scooter
+w1c3dd8c,helicopter,False,5,Vehicles (veto),helicopter
+w1c3dd8c,limousine,False,6,Vehicles (veto),limousine
+w1c3dd8c,bicycle,True,-10,Vehicles (veto),bicycle
+w1c3dd8c,plane,False,-5,Vehicles (veto),plane
+w1c3dd8c,car,True,-10,Vehicles (veto),car
+w1c3dd8c,skateboard,False,10,Vehicles (veto),skateboard
+w1c3dd8c,train,True,-10,Vehicles (veto),truck
+w1c3dd8c,calculus,False,10,Subjects (magic),calculus
+w1c3dd8c,history,False,10,Subjects (magic),history
+w1c3dd8c,spanish,False,10,Subjects (magic),spanish
+w1c3dd8c,english,False,10,Subjects (magic),english
+w1c3dd8c,biology,False,10,Subjects (magic),biology
+w1c3dd8c,chemistry,False,10,Subjects (magic),chemistry
+w1c3dd8c,geometry,False,6,Subjects (magic),geometry
+w1c3dd8c,french,False,10,Subjects (magic),french
+w1c3dd8c,UNK,True,10,Subjects (magic),math
+w1c3dd8c,physics,False,5,Subjects (magic),physics
+w1c3dd8c,algebra,False,10,Subjects (magic),algebra
+w1c3dd8c,UNK,True,10,Subjects (magic),microbiology
+w1c3dd8c,koala,False,10,Animals (bubble),koala
+w1c3dd8c,zebra,False,10,Animals (bubble),zebra
+w1c3dd8c,crocodile,False,5,Animals (bubble),crocodile
+w1c3dd8c,monkey,False,10,Animals (bubble),monkey
+w1c3dd8c,cobra,False,-5,Animals (bubble),cobra
+w1c3dd8c,jaguar,False,10,Animals (bubble),jaguar
+w1c3dd8c,rhinoceros,False,10,Animals (bubble),rhinoceros
+w1c3dd8c,lion,False,10,Animals (bubble),lion
+w1c3dd8c,sloth,False,10,Animals (bubble),sloth
+w1c3dd8c,kangaroo,False,10,Animals (bubble),kangaroo
+w1c3dd8c,elephant,False,10,Animals (bubble),elephant
+w1c3dd8c,peacock,False,10,Animals (bubble),peacock
+w1c3dd8c,gorilla,False,10,Animals (bubble),gorilla
+w1c3dd8c,UNK,True,10,Animals (bubble),whale shark
+w1c3dd8c,deer,False,10,Animals (bubble),deer
+w1c3dd8c,panda,False,10,Animals (bubble),panda
+w1c3dd8c,giraffe,False,10,Animals (bubble),giraffe
+w1c3dd8c,tiger,False,10,Animals (bubble),tiger
+w1c3dd8c,lemur,False,10,Animals (bubble),lemur
+w1c3dd8c,basketball,False,4,Sports (silence),basketball
+w1c3dd8c,badminton,False,-8,Sports (silence),badminton
+w1c3dd8c,tennis,False,-10,Sports (silence),tennis
+w1c3dd8c,baseball,False,-10,Sports (silence),baseball
+w1c3dd8c,football,False,-10,Sports (silence),football
+w1c3dd8c,bowling,False,-5,Sports (silence),bowling
+w1c3dd8c,volleyball,False,-4,Sports (silence),volleyball
+w1c3dd8c,rugby,False,0,Sports (silence),rugby
+w1c3dd8c,golf,False,-4,Sports (silence),golf
+w1c3dd8c,boxing,False,4,Sports (silence),boxing
+w1c3dd8c,cricket,False,4,Sports (silence),cricket
+w1c3dd8c,soccer,False,-10,Sports (silence),soccer
+wc146e19,UNK,True,5,PRACTICE,Normandy
+wc146e19,paris,True,10,PRACTICE,Paris
+wc146e19,london,True,10,PRACTICE,London
+wc146e19,UNK,True,9,PRACTICE,Germany
+wc146e19,UNK,True,8,PRACTICE,Ireland
+wc146e19,venice,False,10,PRACTICE,Venice
+wc146e19,UNK,True,9,PRACTICE,Florence
+wc146e19,rome,True,10,PRACTICE,Rome
+wc146e19,UNK,True,10,PRACTICE,Italy
+wc146e19,athens,False,10,PRACTICE,Athens
+wc146e19,UNK,True,9,PRACTICE,Switzerland
+wc146e19,vienna,False,8,PRACTICE,Vienna
+wc146e19,amsterdam,False,8,PRACTICE,Amsterdam
+wc146e19,football,True,-10,Sports (silence),Football
+wc146e19,cricket,False,8,Sports (silence),cricket
+wc146e19,baseball,True,-10,Sports (silence),Baseball
+wc146e19,volleyball,False,0,Sports (silence),volleyball
+wc146e19,tennis,False,0,Sports (silence),tennis
+wc146e19,boxing,False,-5,Sports (silence),boxing
+wc146e19,soccer,True,-1,Sports (silence),soccer
+wc146e19,rugby,False,8,Sports (silence),rugby
+wc146e19,golf,False,0,Sports (silence),golf
+wc146e19,basketball,True,-3,Sports (silence),basketball
+wc146e19,badminton,False,8,Sports (silence),badminton
+wc146e19,bowling,False,-7,Sports (silence),bowling
+wc146e19,spanish,False,6,Subjects (magic),spanish
+wc146e19,english,False,0,Subjects (magic),english
+wc146e19,french,False,5,Subjects (magic),french
+wc146e19,history,False,0,Subjects (magic),history
+wc146e19,UNK,True,10,Subjects (magic),Engineering
+wc146e19,biology,False,4,Subjects (magic),biology
+wc146e19,physics,True,10,Subjects (magic),Physics
+wc146e19,calculus,False,10,Subjects (magic),calculus
+wc146e19,chemistry,False,10,Subjects (magic),chemistry
+wc146e19,UNK,True,8,Subjects (magic),Business
+wc146e19,UNK,True,8,Subjects (magic),Science
+wc146e19,algebra,False,8,Subjects (magic),algebra
+wc146e19,geometry,False,8,Subjects (magic),geometry
+wc146e19,UNK,True,10,Subjects (magic),Medicine
+wc146e19,limousine,False,0,Vehicles (veto),limousine
+wc146e19,scooter,False,0,Vehicles (veto),scooter
+wc146e19,helicopter,False,0,Vehicles (veto),helicopter
+wc146e19,unicycle,False,0,Vehicles (veto),unicycle
+wc146e19,plane,True,-8,Vehicles (veto),airplane
+wc146e19,skateboard,False,0,Vehicles (veto),skateboard
+wc146e19,car,True,-10,Vehicles (veto),car
+wc146e19,train,False,0,Vehicles (veto),train
+wc146e19,bicycle,False,0,Vehicles (veto),bicycle
+wc146e19,gorilla,False,2,Animals (bubble),gorilla
+wc146e19,peacock,False,-1,Animals (bubble),peacock
+wc146e19,sloth,False,-1,Animals (bubble),sloth
+wc146e19,elephant,True,9,Animals (bubble),elephant
+wc146e19,lion,False,10,Animals (bubble),lion
+wc146e19,monkey,False,0,Animals (bubble),monkey
+wc146e19,panda,False,1,Animals (bubble),panda
+wc146e19,UNK,True,10,Animals (bubble),cheetah
+wc146e19,kangaroo,False,2,Animals (bubble),kangaroo
+wc146e19,jaguar,False,10,Animals (bubble),jaguar
+wc146e19,cobra,False,-6,Animals (bubble),cobra
+wc146e19,giraffe,True,10,Animals (bubble),giraffe
+wc146e19,tiger,True,10,Animals (bubble),tiger
+wc146e19,rhinoceros,False,5,Animals (bubble),rhinoceros
+wc146e19,lemur,False,-3,Animals (bubble),lemur
+wc146e19,zebra,False,0,Animals (bubble),zebra
+wc146e19,crocodile,False,2,Animals (bubble),crocodile
+wc146e19,koala,True,10,Animals (bubble),whale
+webaf5b1,amsterdam,False,4,PRACTICE,Amsterdam
+webaf5b1,london,False,2,PRACTICE,London
+webaf5b1,paris,False,5,PRACTICE,Paris
+webaf5b1,vienna,False,5,PRACTICE,Vienna
+webaf5b1,madrid,False,-1,PRACTICE,Madrid
+webaf5b1,venice,False,5,PRACTICE,Venice
+webaf5b1,athens,False,1,PRACTICE,Athens
+webaf5b1,rome,False,-3,PRACTICE,Rome
+webaf5b1,baseball,False,-1,Sports (silence),baseball
+webaf5b1,boxing,False,1,Sports (silence),boxing
+webaf5b1,volleyball,False,-1,Sports (silence),volleyball
+webaf5b1,soccer,False,1,Sports (silence),soccer
+webaf5b1,rugby,False,-3,Sports (silence),rugby
+webaf5b1,football,False,10,Sports (silence),football
+webaf5b1,basketball,False,3,Sports (silence),basketball
+webaf5b1,golf,False,0,Sports (silence),golf
+webaf5b1,tennis,False,-3,Sports (silence),tennis
+webaf5b1,cricket,False,0,Sports (silence),cricket
+webaf5b1,badminton,False,-2,Sports (silence),badminton
+webaf5b1,bowling,False,-2,Sports (silence),bowling
+webaf5b1,panda,False,10,Animals (bubble),panda
+webaf5b1,kangaroo,False,-2,Animals (bubble),kangaroo
+webaf5b1,sloth,False,8,Animals (bubble),sloth
+webaf5b1,tiger,False,-9,Animals (bubble),tiger
+webaf5b1,deer,False,0,Animals (bubble),deer
+webaf5b1,peacock,False,4,Animals (bubble),peacock
+webaf5b1,jaguar,False,-3,Animals (bubble),jaguar
+webaf5b1,monkey,False,-2,Animals (bubble),monkey
+webaf5b1,cobra,False,-4,Animals (bubble),cobra
+webaf5b1,gorilla,False,-6,Animals (bubble),gorilla
+webaf5b1,rhinoceros,False,-3,Animals (bubble),rhinoceros
+webaf5b1,koala,False,10,Animals (bubble),koala
+webaf5b1,elephant,False,1,Animals (bubble),elephant
+webaf5b1,crocodile,False,-7,Animals (bubble),crocodile
+webaf5b1,zebra,False,1,Animals (bubble),zebra
+webaf5b1,lemur,False,-2,Animals (bubble),lemur
+webaf5b1,lion,False,-5,Animals (bubble),lion
+webaf5b1,giraffe,False,-4,Animals (bubble),giraffe
+webaf5b1,limousine,False,0,Vehicles (veto),limousine
+webaf5b1,boat,False,5,Vehicles (veto),boat
+webaf5b1,helicopter,False,1,Vehicles (veto),helicopter
+webaf5b1,plane,False,-2,Vehicles (veto),plane
+webaf5b1,car,False,-7,Vehicles (veto),car
+webaf5b1,scooter,False,0,Vehicles (veto),scooter
+webaf5b1,bicycle,False,4,Vehicles (veto),bicycle
+webaf5b1,unicycle,False,6,Vehicles (veto),unicycle
+webaf5b1,skateboard,False,1,Vehicles (veto),skateboard
+webaf5b1,bus,False,-2,Vehicles (veto),bus
+webaf5b1,train,False,-2,Vehicles (veto),train
+webaf5b1,history,False,3,Subjects (magic),history
+webaf5b1,algebra,False,5,Subjects (magic),algebra
+webaf5b1,geometry,False,7,Subjects (magic),geometry
+webaf5b1,french,False,10,Subjects (magic),french
+webaf5b1,physics,False,8,Subjects (magic),physics
+webaf5b1,chemistry,False,6,Subjects (magic),chemistry
+webaf5b1,biology,False,6,Subjects (magic),biology
+webaf5b1,calculus,False,6,Subjects (magic),calculus
+webaf5b1,english,False,10,Subjects (magic),english
+webaf5b1,UNK,True,10,Subjects (magic),Math
+webaf5b1,spanish,False,10,Subjects (magic),spanish
+wc37a2ec,rome,False,5,PRACTICE,Rome
+wc37a2ec,vienna,False,5,PRACTICE,Vienna
+wc37a2ec,athens,False,5,PRACTICE,Athens
+wc37a2ec,UNK,True,5,PRACTICE,Berlin
+wc37a2ec,venice,False,5,PRACTICE,Venice
+wc37a2ec,amsterdam,False,5,PRACTICE,Amsterdam
+wc37a2ec,paris,True,5,PRACTICE,Paris
+wc37a2ec,london,False,4,PRACTICE,London
+wc37a2ec,geometry,False,6,Subjects (magic),geometry
+wc37a2ec,english,False,7,Subjects (magic),english
+wc37a2ec,physics,False,6,Subjects (magic),physics
+wc37a2ec,french,False,3,Subjects (magic),french
+wc37a2ec,biology,False,7,Subjects (magic),biology
+wc37a2ec,calculus,False,6,Subjects (magic),calculus
+wc37a2ec,history,False,6,Subjects (magic),history
+wc37a2ec,algebra,False,6,Subjects (magic),algebra
+wc37a2ec,chemistry,False,4,Subjects (magic),chemistry
+wc37a2ec,spanish,False,6,Subjects (magic),spanish
+wc37a2ec,baseball,False,3,Sports (silence),baseball
+wc37a2ec,rugby,False,0,Sports (silence),rugby
+wc37a2ec,golf,False,1,Sports (silence),golf
+wc37a2ec,soccer,False,-4,Sports (silence),soccer
+wc37a2ec,cricket,False,0,Sports (silence),cricket
+wc37a2ec,bowling,False,-1,Sports (silence),bowling
+wc37a2ec,badminton,False,0,Sports (silence),badminton
+wc37a2ec,football,False,-6,Sports (silence),football
+wc37a2ec,tennis,False,-1,Sports (silence),tennis
+wc37a2ec,basketball,False,-2,Sports (silence),basketball
+wc37a2ec,volleyball,False,0,Sports (silence),volleyball
+wc37a2ec,boxing,False,3,Sports (silence),boxing
+wc37a2ec,unicycle,False,3,Vehicles (veto),unicycle
+wc37a2ec,boat,False,0,Vehicles (veto),boat
+wc37a2ec,helicopter,False,0,Vehicles (veto),helicopter
+wc37a2ec,skateboard,False,-2,Vehicles (veto),skateboard
+wc37a2ec,limousine,False,0,Vehicles (veto),limousine
+wc37a2ec,car,True,-5,Vehicles (veto),Cars
+wc37a2ec,bus,True,-7,Vehicles (veto),Buses
+wc37a2ec,bicycle,False,-2,Vehicles (veto),bicycle
+wc37a2ec,scooter,False,-1,Vehicles (veto),scooter
+wc37a2ec,train,True,-7,Vehicles (veto),Trains
+wc37a2ec,plane,False,-7,Vehicles (veto),plane
+wc37a2ec,koala,False,5,Animals (bubble),koala
+wc37a2ec,lemur,False,6,Animals (bubble),lemur
+wc37a2ec,elephant,False,5,Animals (bubble),elephant
+wc37a2ec,giraffe,False,6,Animals (bubble),giraffe
+wc37a2ec,lion,False,5,Animals (bubble),lion
+wc37a2ec,panda,False,5,Animals (bubble),panda
+wc37a2ec,zebra,False,4,Animals (bubble),zebra
+wc37a2ec,kangaroo,False,7,Animals (bubble),kangaroo
+wc37a2ec,cobra,False,7,Animals (bubble),cobra
+wc37a2ec,gorilla,False,7,Animals (bubble),gorilla
+wc37a2ec,rhinoceros,False,6,Animals (bubble),rhinoceros
+wc37a2ec,peacock,False,5,Animals (bubble),peacock
+wc37a2ec,UNK,True,9,Animals (bubble),Viscacha
+wc37a2ec,monkey,False,5,Animals (bubble),monkey
+wc37a2ec,crocodile,False,6,Animals (bubble),crocodile
+wc37a2ec,jaguar,False,7,Animals (bubble),jaguar
+wc37a2ec,tiger,True,7,Animals (bubble),Tiger
+wc37a2ec,sloth,False,3,Animals (bubble),sloth
+w2be12ca,vienna,False,3,PRACTICE,Vienna
+w2be12ca,amsterdam,False,10,PRACTICE,Amsterdam
+w2be12ca,athens,False,10,PRACTICE,Athens
+w2be12ca,venice,False,6,PRACTICE,Venice
+w2be12ca,paris,True,7,PRACTICE,Paris
+w2be12ca,london,False,8,PRACTICE,London
+w2be12ca,rome,False,8,PRACTICE,Rome
+w2be12ca,bus,True,-3,Vehicles (commute),Bike
+w2be12ca,plane,False,1,Vehicles (commute),plane
+w2be12ca,unicycle,False,-6,Vehicles (commute),unicycle
+w2be12ca,bus,True,5,Vehicles (commute),Bus
+w2be12ca,scooter,True,-1,Vehicles (commute),Scooter
+w2be12ca,bicycle,False,-2,Vehicles (commute),bicycle
+w2be12ca,skateboard,False,-3,Vehicles (commute),skateboard
+w2be12ca,limousine,False,10,Vehicles (commute),limousine
+w2be12ca,train,True,9,Vehicles (commute),Train
+w2be12ca,helicopter,False,4,Vehicles (commute),helicopter
+w2be12ca,calculus,False,-10,Subjects (school),calculus
+w2be12ca,UNK,True,10,Subjects (school),Math
+w2be12ca,biology,False,5,Subjects (school),biology
+w2be12ca,spanish,False,7,Subjects (school),spanish
+w2be12ca,chemistry,False,-2,Subjects (school),chemistry
+w2be12ca,geometry,False,4,Subjects (school),geometry
+w2be12ca,english,True,10,Subjects (school),English
+w2be12ca,history,False,10,Subjects (school),history
+w2be12ca,physics,False,-5,Subjects (school),physics
+w2be12ca,algebra,False,9,Subjects (school),algebra
+w2be12ca,french,False,-10,Subjects (school),french
+w2be12ca,UNK,True,10,Subjects (school),Science
+w2be12ca,cricket,False,-10,Sports (season),cricket
+w2be12ca,rugby,False,-10,Sports (season),rugby
+w2be12ca,tennis,False,-7,Sports (season),tennis
+w2be12ca,badminton,False,-10,Sports (season),badminton
+w2be12ca,boxing,False,-3,Sports (season),boxing
+w2be12ca,basketball,False,-5,Sports (season),basketball
+w2be12ca,bowling,False,-3,Sports (season),bowling
+w2be12ca,golf,False,-10,Sports (season),golf
+w2be12ca,soccer,False,-10,Sports (season),soccer
+w2be12ca,baseball,False,-10,Sports (season),baseball
+w2be12ca,volleyball,False,-5,Sports (season),volleyball
+w2be12ca,football,False,-6,Sports (season),football
+w2be12ca,panda,False,10,Animals (intimate),panda
+w2be12ca,cobra,False,1,Animals (intimate),cobra
+w2be12ca,crocodile,False,1,Animals (intimate),crocodile
+w2be12ca,lemur,False,10,Animals (intimate),lemur
+w2be12ca,peacock,False,2,Animals (intimate),peacock
+w2be12ca,tiger,True,10,Animals (intimate),tiger
+w2be12ca,lion,False,3,Animals (intimate),lion
+w2be12ca,sloth,False,10,Animals (intimate),sloth
+w2be12ca,jaguar,False,2,Animals (intimate),jaguar
+w2be12ca,kangaroo,False,10,Animals (intimate),kangaroo
+w2be12ca,koala,False,2,Animals (intimate),koala
+w2be12ca,monkey,True,10,Animals (intimate),monkey
+w2be12ca,elephant,True,6,Animals (intimate),elephant
+w2be12ca,rhinoceros,False,3,Animals (intimate),rhinoceros
+w2be12ca,zebra,False,5,Animals (intimate),zebra
+w2be12ca,giraffe,False,4,Animals (intimate),giraffe
+w2be12ca,gorilla,False,3,Animals (intimate),gorilla
+w2baccaf,venice,False,10,PRACTICE,Venice
+w2baccaf,athens,False,10,PRACTICE,Athens
+w2baccaf,rome,False,10,PRACTICE,Rome
+w2baccaf,vienna,False,10,PRACTICE,Vienna
+w2baccaf,amsterdam,False,10,PRACTICE,Amsterdam
+w2baccaf,london,False,10,PRACTICE,London
+w2baccaf,paris,False,10,PRACTICE,Paris
+w2baccaf,madrid,False,10,PRACTICE,Madrid
+w2baccaf,bowling,False,0,Sports (silence),bowling
+w2baccaf,football,False,0,Sports (silence),football
+w2baccaf,soccer,False,-1,Sports (silence),soccer
+w2baccaf,badminton,False,-3,Sports (silence),badminton
+w2baccaf,boxing,False,0,Sports (silence),boxing
+w2baccaf,volleyball,False,-2,Sports (silence),volleyball
+w2baccaf,baseball,False,-1,Sports (silence),baseball
+w2baccaf,golf,False,-1,Sports (silence),golf
+w2baccaf,basketball,False,-1,Sports (silence),basketball
+w2baccaf,tennis,True,-3,Sports (silence),Tennis
+w2baccaf,cricket,False,0,Sports (silence),cricket
+w2baccaf,rugby,False,0,Sports (silence),rugby
+w2baccaf,plane,False,-10,Vehicles (veto),plane
+w2baccaf,skateboard,False,10,Vehicles (veto),skateboard
+w2baccaf,bicycle,False,0,Vehicles (veto),bicycle
+w2baccaf,limousine,False,10,Vehicles (veto),limousine
+w2baccaf,helicopter,False,0,Vehicles (veto),helicopter
+w2baccaf,train,False,-1,Vehicles (veto),train
+w2baccaf,unicycle,False,0,Vehicles (veto),unicycle
+w2baccaf,bus,False,-3,Vehicles (veto),bus
+w2baccaf,car,False,-10,Vehicles (veto),car
+w2baccaf,scooter,False,0,Vehicles (veto),scooter
+w2baccaf,boat,False,0,Vehicles (veto),boat
+w2baccaf,geometry,False,10,Subjects (magic),geometry
+w2baccaf,chemistry,False,10,Subjects (magic),chemistry
+w2baccaf,french,False,10,Subjects (magic),french
+w2baccaf,algebra,False,0,Subjects (magic),algebra
+w2baccaf,physics,False,10,Subjects (magic),physics
+w2baccaf,biology,False,10,Subjects (magic),biology
+w2baccaf,english,False,0,Subjects (magic),english
+w2baccaf,history,False,10,Subjects (magic),history
+w2baccaf,spanish,False,10,Subjects (magic),spanish
+w2baccaf,calculus,False,10,Subjects (magic),calculus
+w2baccaf,jaguar,False,10,Animals (bubble),jaguar
+w2baccaf,koala,False,10,Animals (bubble),koala
+w2baccaf,elephant,False,10,Animals (bubble),elephant
+w2baccaf,rhinoceros,False,10,Animals (bubble),rhinoceros
+w2baccaf,monkey,False,10,Animals (bubble),monkey
+w2baccaf,deer,False,10,Animals (bubble),deer
+w2baccaf,zebra,False,10,Animals (bubble),zebra
+w2baccaf,panda,False,10,Animals (bubble),panda
+w2baccaf,giraffe,False,10,Animals (bubble),giraffe
+w2baccaf,kangaroo,False,10,Animals (bubble),kangaroo
+w2baccaf,crocodile,False,10,Animals (bubble),crocodile
+w2baccaf,gorilla,False,10,Animals (bubble),gorilla
+w2baccaf,lion,False,10,Animals (bubble),lion
+w2baccaf,lemur,False,10,Animals (bubble),lemur
+w2baccaf,peacock,False,10,Animals (bubble),peacock
+w2baccaf,cobra,False,10,Animals (bubble),cobra
+w2baccaf,tiger,False,10,Animals (bubble),tiger
+w2baccaf,sloth,False,0,Animals (bubble),sloth
+w2044ba1,athens,False,3,PRACTICE,Athens
+w2044ba1,vienna,False,0,PRACTICE,Vienna
+w2044ba1,venice,False,3,PRACTICE,Venice
+w2044ba1,madrid,False,2,PRACTICE,Madrid
+w2044ba1,london,True,4,PRACTICE,London
+w2044ba1,paris,False,-3,PRACTICE,Paris
+w2044ba1,amsterdam,False,3,PRACTICE,Amsterdam
+w2044ba1,rome,False,4,PRACTICE,Rome
+w2044ba1,helicopter,False,-9,Vehicles (commute),helicopter
+w2044ba1,train,False,-7,Vehicles (commute),train
+w2044ba1,bus,False,-8,Vehicles (commute),bus
+w2044ba1,car,False,8,Vehicles (commute),car
+w2044ba1,bicycle,False,-4,Vehicles (commute),bicycle
+w2044ba1,limousine,False,9,Vehicles (commute),limousine
+w2044ba1,plane,False,-5,Vehicles (commute),plane
+w2044ba1,unicycle,False,-8,Vehicles (commute),unicycle
+w2044ba1,scooter,False,-3,Vehicles (commute),scooter
+w2044ba1,skateboard,False,-7,Vehicles (commute),skateboard
+w2044ba1,boat,False,1,Vehicles (commute),boat
+w2044ba1,french,False,-1,Subjects (school),french
+w2044ba1,calculus,False,2,Subjects (school),calculus
+w2044ba1,geometry,False,3,Subjects (school),geometry
+w2044ba1,english,False,3,Subjects (school),english
+w2044ba1,chemistry,False,-4,Subjects (school),chemistry
+w2044ba1,physics,False,-3,Subjects (school),physics
+w2044ba1,algebra,False,8,Subjects (school),algebra
+w2044ba1,history,False,8,Subjects (school),history
+w2044ba1,spanish,False,-2,Subjects (school),spanish
+w2044ba1,biology,False,-1,Subjects (school),biology
+w2044ba1,panda,False,6,Animals (intimate),panda
+w2044ba1,peacock,False,-2,Animals (intimate),peacock
+w2044ba1,UNK,True,-7,Animals (intimate),Chimpanzee
+w2044ba1,koala,False,-2,Animals (intimate),koala
+w2044ba1,gorilla,True,-10,Animals (intimate),Gorilla
+w2044ba1,UNK,True,-9,Animals (intimate),Baboon
+w2044ba1,giraffe,False,3,Animals (intimate),giraffe
+w2044ba1,rhinoceros,False,-10,Animals (intimate),rhinoceros
+w2044ba1,zebra,False,-3,Animals (intimate),zebra
+w2044ba1,lemur,False,-1,Animals (intimate),lemur
+w2044ba1,lion,True,-10,Animals (intimate),Lion
+w2044ba1,monkey,True,-9,Animals (intimate),Monkey
+w2044ba1,sloth,False,4,Animals (intimate),sloth
+w2044ba1,crocodile,False,-10,Animals (intimate),crocodile
+w2044ba1,jaguar,False,-10,Animals (intimate),jaguar
+w2044ba1,cobra,False,-10,Animals (intimate),cobra
+w2044ba1,kangaroo,False,-6,Animals (intimate),kangaroo
+w2044ba1,elephant,False,-2,Animals (intimate),elephant
+w2044ba1,tiger,True,-10,Animals (intimate),Tiger
+w2044ba1,UNK,True,6,Sports (season),Formula One
+w2044ba1,football,False,-8,Sports (season),football
+w2044ba1,cricket,False,-8,Sports (season),cricket
+w2044ba1,rugby,False,-8,Sports (season),rugby
+w2044ba1,bowling,False,-6,Sports (season),bowling
+w2044ba1,tennis,False,-8,Sports (season),tennis
+w2044ba1,badminton,False,-8,Sports (season),badminton
+w2044ba1,soccer,False,-8,Sports (season),soccer
+w2044ba1,baseball,False,-8,Sports (season),baseball
+w2044ba1,golf,False,-8,Sports (season),golf
+w2044ba1,boxing,False,2,Sports (season),boxing
+w2044ba1,basketball,False,-7,Sports (season),basketball
+w2044ba1,volleyball,False,-5,Sports (season),volleyball
+w31c2904,venice,False,10,PRACTICE,Venice
+w31c2904,vienna,False,8,PRACTICE,Vienna
+w31c2904,madrid,False,7,PRACTICE,Madrid
+w31c2904,athens,False,7,PRACTICE,Athens
+w31c2904,paris,False,7,PRACTICE,Paris
+w31c2904,london,True,8,PRACTICE,London
+w31c2904,UNK,True,10,PRACTICE,Bamberg
+w31c2904,rome,False,9,PRACTICE,Rome
+w31c2904,amsterdam,False,6,PRACTICE,Amsterdam
+w31c2904,UNK,True,9,PRACTICE,Prague
+w31c2904,volleyball,False,-6,Sports (season),volleyball
+w31c2904,cricket,False,-5,Sports (season),cricket
+w31c2904,badminton,False,-5,Sports (season),badminton
+w31c2904,soccer,False,1,Sports (season),soccer
+w31c2904,tennis,False,-7,Sports (season),tennis
+w31c2904,football,False,3,Sports (season),football
+w31c2904,rugby,False,3,Sports (season),rugby
+w31c2904,boxing,False,1,Sports (season),boxing
+w31c2904,baseball,True,9,Sports (season),Baseball
+w31c2904,golf,False,1,Sports (season),golf
+w31c2904,bowling,False,2,Sports (season),bowling
+w31c2904,algebra,False,1,Subjects (school),algebra
+w31c2904,english,False,-1,Subjects (school),english
+w31c2904,french,False,-7,Subjects (school),french
+w31c2904,chemistry,False,-3,Subjects (school),chemistry
+w31c2904,history,False,2,Subjects (school),history
+w31c2904,calculus,False,-1,Subjects (school),calculus
+w31c2904,spanish,False,0,Subjects (school),spanish
+w31c2904,biology,False,0,Subjects (school),biology
+w31c2904,geometry,False,1,Subjects (school),geometry
+w31c2904,physics,False,-1,Subjects (school),physics
+w31c2904,rhinoceros,False,-10,Animals (intimate),rhinoceros
+w31c2904,elephant,False,-8,Animals (intimate),elephant
+w31c2904,deer,False,-3,Animals (intimate),deer
+w31c2904,monkey,False,-1,Animals (intimate),monkey
+w31c2904,sloth,False,1,Animals (intimate),sloth
+w31c2904,giraffe,False,1,Animals (intimate),giraffe
+w31c2904,jaguar,False,-10,Animals (intimate),jaguar
+w31c2904,koala,False,1,Animals (intimate),koala
+w31c2904,peacock,False,1,Animals (intimate),peacock
+w31c2904,cobra,False,-10,Animals (intimate),cobra
+w31c2904,kangaroo,False,-2,Animals (intimate),kangaroo
+w31c2904,panda,False,1,Animals (intimate),panda
+w31c2904,lion,False,-10,Animals (intimate),lion
+w31c2904,crocodile,False,-10,Animals (intimate),crocodile
+w31c2904,gorilla,False,-10,Animals (intimate),gorilla
+w31c2904,zebra,False,-2,Animals (intimate),zebra
+w31c2904,lemur,False,1,Animals (intimate),lemur
+w31c2904,tiger,False,-10,Animals (intimate),tiger
+w31c2904,limousine,False,7,Vehicles (commute),limousine
+w31c2904,bicycle,False,-7,Vehicles (commute),bicycle
+w31c2904,train,False,3,Vehicles (commute),train
+w31c2904,boat,False,4,Vehicles (commute),boat
+w31c2904,scooter,False,-2,Vehicles (commute),scooter
+w31c2904,bus,False,-5,Vehicles (commute),bus
+w31c2904,car,False,3,Vehicles (commute),car
+w31c2904,skateboard,False,-7,Vehicles (commute),skateboard
+w31c2904,helicopter,False,2,Vehicles (commute),helicopter
+w31c2904,plane,False,2,Vehicles (commute),plane
+w31c2904,unicycle,False,-9,Vehicles (commute),unicycle
+wd61612e,vienna,False,5,PRACTICE,Vienna
+wd61612e,venice,False,5,PRACTICE,Venice
+wd61612e,amsterdam,False,2,PRACTICE,Amsterdam
+wd61612e,rome,False,8,PRACTICE,Rome
+wd61612e,UNK,True,10,PRACTICE,prague
+wd61612e,london,True,10,PRACTICE,london
+wd61612e,madrid,True,10,PRACTICE,madrid
+wd61612e,athens,False,9,PRACTICE,Athens
+wd61612e,paris,True,10,PRACTICE,paris
+wd61612e,UNK,True,10,PRACTICE,budapest
+wd61612e,calculus,True,-2,Subjects (school),calculus
+wd61612e,history,True,4,Subjects (school),history
+wd61612e,physics,False,2,Subjects (school),physics
+wd61612e,french,False,4,Subjects (school),french
+wd61612e,spanish,False,7,Subjects (school),spanish
+wd61612e,biology,False,1,Subjects (school),biology
+wd61612e,geometry,False,-1,Subjects (school),geometry
+wd61612e,english,False,7,Subjects (school),english
+wd61612e,chemistry,False,-3,Subjects (school),chemistry
+wd61612e,algebra,False,2,Subjects (school),algebra
+wd61612e,golf,False,-9,Sports (season),golf
+wd61612e,football,True,-7,Sports (season),football
+wd61612e,rugby,False,-6,Sports (season),rugby
+wd61612e,badminton,False,-9,Sports (season),badminton
+wd61612e,bowling,False,-9,Sports (season),bowling
+wd61612e,basketball,True,2,Sports (season),basketball
+wd61612e,volleyball,False,1,Sports (season),volleyball
+wd61612e,tennis,False,2,Sports (season),tennis
+wd61612e,soccer,True,8,Sports (season),soccer
+wd61612e,boxing,False,-3,Sports (season),boxing
+wd61612e,cricket,False,2,Sports (season),cricket
+wd61612e,bicycle,False,5,Vehicles (commute),bicycle
+wd61612e,boat,False,2,Vehicles (commute),boat
+wd61612e,plane,False,-5,Vehicles (commute),plane
+wd61612e,car,False,1,Vehicles (commute),car
+wd61612e,UNK,True,5,Vehicles (commute),carpool
+wd61612e,train,True,6,Vehicles (commute),train
+wd61612e,unicycle,False,-4,Vehicles (commute),unicycle
+wd61612e,helicopter,False,-5,Vehicles (commute),helicopter
+wd61612e,skateboard,False,-9,Vehicles (commute),skateboard
+wd61612e,bus,False,5,Vehicles (commute),bus
+wd61612e,limousine,False,-3,Vehicles (commute),limousine
+wd61612e,scooter,False,3,Vehicles (commute),scooter
+wd61612e,lion,True,-10,Animals (intimate),lion
+wd61612e,elephant,False,3,Animals (intimate),elephant
+wd61612e,crocodile,False,-9,Animals (intimate),crocodile
+wd61612e,jaguar,False,-10,Animals (intimate),jaguar
+wd61612e,rhinoceros,False,-5,Animals (intimate),rhinoceros
+wd61612e,sloth,False,6,Animals (intimate),sloth
+wd61612e,peacock,False,3,Animals (intimate),peacock
+wd61612e,monkey,False,3,Animals (intimate),monkey
+wd61612e,deer,True,-10,Animals (intimate),bear
+wd61612e,gorilla,False,-10,Animals (intimate),gorilla
+wd61612e,UNK,True,-2,Animals (intimate),mongoose
+wd61612e,tiger,True,-10,Animals (intimate),tiger
+wd61612e,giraffe,False,5,Animals (intimate),giraffe
+wd61612e,UNK,True,4,Animals (intimate),red panda
+wd61612e,kangaroo,False,-5,Animals (intimate),kangaroo
+wd61612e,koala,False,5,Animals (intimate),koala
+wd61612e,cobra,False,-10,Animals (intimate),cobra
+wd61612e,panda,True,1,Animals (intimate),panda
+we2a0c38,rome,False,10,PRACTICE,Rome
+we2a0c38,amsterdam,True,10,PRACTICE,Amsterdam
+we2a0c38,vienna,False,10,PRACTICE,Vienna
+we2a0c38,london,True,10,PRACTICE,London
+we2a0c38,paris,True,10,PRACTICE,Paris
+we2a0c38,madrid,True,10,PRACTICE,Madrid
+we2a0c38,athens,False,10,PRACTICE,Athens
+we2a0c38,venice,False,10,PRACTICE,Venice
+we2a0c38,jaguar,False,3,Animals (bubble),jaguar
+we2a0c38,UNK,True,4,Animals (bubble),alligator
+we2a0c38,deer,True,10,Animals (bubble),bear
+we2a0c38,rhinoceros,False,-1,Animals (bubble),rhinoceros
+we2a0c38,lion,True,4,Animals (bubble),bird
+we2a0c38,lion,True,3,Animals (bubble),lion
+we2a0c38,gorilla,False,-2,Animals (bubble),gorilla
+we2a0c38,kangaroo,False,4,Animals (bubble),kangaroo
+we2a0c38,sloth,False,-2,Animals (bubble),sloth
+we2a0c38,tiger,False,7,Animals (bubble),tiger
+we2a0c38,koala,False,2,Animals (bubble),koala
+we2a0c38,giraffe,False,4,Animals (bubble),giraffe
+we2a0c38,panda,False,-1,Animals (bubble),panda
+we2a0c38,elephant,False,-3,Animals (bubble),elephant
+we2a0c38,cobra,False,6,Animals (bubble),cobra
+we2a0c38,crocodile,False,5,Animals (bubble),crocodile
+we2a0c38,peacock,False,-3,Animals (bubble),peacock
+we2a0c38,monkey,False,-2,Animals (bubble),monkey
+we2a0c38,volleyball,False,-9,Sports (silence),volleyball
+we2a0c38,baseball,True,-9,Sports (silence),baseball
+we2a0c38,badminton,False,0,Sports (silence),badminton
+we2a0c38,golf,False,0,Sports (silence),golf
+we2a0c38,cricket,False,1,Sports (silence),cricket
+we2a0c38,boxing,False,2,Sports (silence),boxing
+we2a0c38,rugby,False,0,Sports (silence),rugby
+we2a0c38,football,True,-9,Sports (silence),football
+we2a0c38,basketball,True,-9,Sports (silence),basketball
+we2a0c38,bowling,False,-7,Sports (silence),bowling
+we2a0c38,soccer,True,-10,Sports (silence),soccer
+we2a0c38,tennis,False,0,Sports (silence),tennis
+we2a0c38,history,False,10,Subjects (magic),history
+we2a0c38,geometry,False,10,Subjects (magic),geometry
+we2a0c38,biology,False,10,Subjects (magic),biology
+we2a0c38,spanish,False,10,Subjects (magic),spanish
+we2a0c38,algebra,False,10,Subjects (magic),algebra
+we2a0c38,physics,True,10,Subjects (magic),physics
+we2a0c38,french,False,10,Subjects (magic),french
+we2a0c38,calculus,False,10,Subjects (magic),calculus
+we2a0c38,chemistry,False,10,Subjects (magic),chemistry
+we2a0c38,english,False,10,Subjects (magic),english
+we2a0c38,UNK,True,10,Subjects (magic),math
+we2a0c38,scooter,False,0,Vehicles (veto),scooter
+we2a0c38,plane,True,-6,Vehicles (veto),plane
+we2a0c38,limousine,False,0,Vehicles (veto),limousine
+we2a0c38,bus,True,-9,Vehicles (veto),bike
+we2a0c38,train,True,-10,Vehicles (veto),train
+we2a0c38,skateboard,False,-9,Vehicles (veto),skateboard
+we2a0c38,bicycle,False,-10,Vehicles (veto),bicycle
+we2a0c38,car,True,-10,Vehicles (veto),car
+we2a0c38,helicopter,False,-3,Vehicles (veto),helicopter
+we2a0c38,unicycle,False,0,Vehicles (veto),unicycle
+w6449213,amsterdam,False,8,PRACTICE,Amsterdam
+w6449213,athens,False,7,PRACTICE,Athens
+w6449213,venice,False,7,PRACTICE,Venice
+w6449213,vienna,False,8,PRACTICE,Vienna
+w6449213,london,False,8,PRACTICE,London
+w6449213,rome,False,7,PRACTICE,Rome
+w6449213,paris,False,6,PRACTICE,Paris
+w6449213,madrid,False,6,PRACTICE,Madrid
+w6449213,skateboard,False,0,Vehicles (veto),skateboard
+w6449213,bicycle,False,-1,Vehicles (veto),bicycle
+w6449213,train,True,-1,Vehicles (veto),train
+w6449213,scooter,False,0,Vehicles (veto),scooter
+w6449213,plane,True,-4,Vehicles (veto),airplane
+w6449213,limousine,False,0,Vehicles (veto),limousine
+w6449213,bus,True,0,Vehicles (veto),bike
+w6449213,helicopter,False,0,Vehicles (veto),helicopter
+w6449213,car,True,-9,Vehicles (veto),car
+w6449213,unicycle,False,0,Vehicles (veto),unicycle
+w6449213,cobra,False,-6,Animals (bubble),cobra
+w6449213,sloth,False,1,Animals (bubble),sloth
+w6449213,zebra,False,1,Animals (bubble),zebra
+w6449213,crocodile,False,-3,Animals (bubble),crocodile
+w6449213,panda,False,4,Animals (bubble),panda
+w6449213,tiger,False,2,Animals (bubble),tiger
+w6449213,peacock,False,2,Animals (bubble),peacock
+w6449213,lion,False,2,Animals (bubble),lion
+w6449213,lemur,False,2,Animals (bubble),lemur
+w6449213,gorilla,False,0,Animals (bubble),gorilla
+w6449213,kangaroo,False,4,Animals (bubble),kangaroo
+w6449213,elephant,False,3,Animals (bubble),elephant
+w6449213,deer,False,2,Animals (bubble),deer
+w6449213,monkey,False,2,Animals (bubble),monkey
+w6449213,giraffe,False,4,Animals (bubble),giraffe
+w6449213,jaguar,False,4,Animals (bubble),jaguar
+w6449213,rhinoceros,False,2,Animals (bubble),rhinoceros
+w6449213,koala,False,5,Animals (bubble),koala
+w6449213,history,False,5,Subjects (magic),history
+w6449213,physics,False,2,Subjects (magic),physics
+w6449213,geometry,False,2,Subjects (magic),geometry
+w6449213,algebra,False,2,Subjects (magic),algebra
+w6449213,calculus,False,2,Subjects (magic),calculus
+w6449213,spanish,False,5,Subjects (magic),spanish
+w6449213,biology,False,3,Subjects (magic),biology
+w6449213,english,False,4,Subjects (magic),english
+w6449213,chemistry,False,3,Subjects (magic),chemistry
+w6449213,french,False,3,Subjects (magic),french
+w6449213,baseball,True,0,Sports (silence),baseball
+w6449213,badminton,False,0,Sports (silence),badminton
+w6449213,tennis,False,0,Sports (silence),tennis
+w6449213,volleyball,False,0,Sports (silence),volleyball
+w6449213,rugby,False,0,Sports (silence),rugby
+w6449213,football,True,5,Sports (silence),football
+w6449213,boxing,False,0,Sports (silence),boxing
+w6449213,golf,False,4,Sports (silence),golf
+w6449213,bowling,False,0,Sports (silence),bowling
+w6449213,cricket,False,0,Sports (silence),cricket
+w6449213,soccer,False,-8,Sports (silence),soccer
+w1c6ef1a,athens,False,4,PRACTICE,Athens
+w1c6ef1a,paris,True,4,PRACTICE,Paris
+w1c6ef1a,rome,False,4,PRACTICE,Rome
+w1c6ef1a,amsterdam,False,4,PRACTICE,Amsterdam
+w1c6ef1a,venice,False,5,PRACTICE,Venice
+w1c6ef1a,london,False,5,PRACTICE,London
+w1c6ef1a,vienna,False,5,PRACTICE,Vienna
+w1c6ef1a,boat,False,-10,Vehicles (commute),boat
+w1c6ef1a,scooter,False,-6,Vehicles (commute),scooter
+w1c6ef1a,train,False,-6,Vehicles (commute),train
+w1c6ef1a,limousine,False,6,Vehicles (commute),limousine
+w1c6ef1a,skateboard,False,-6,Vehicles (commute),skateboard
+w1c6ef1a,plane,False,-6,Vehicles (commute),plane
+w1c6ef1a,bus,False,-6,Vehicles (commute),bus
+w1c6ef1a,car,False,10,Vehicles (commute),car
+w1c6ef1a,bicycle,False,-6,Vehicles (commute),bicycle
+w1c6ef1a,unicycle,False,-10,Vehicles (commute),unicycle
+w1c6ef1a,helicopter,False,-2,Vehicles (commute),helicopter
+w1c6ef1a,spanish,False,8,Subjects (school),spanish
+w1c6ef1a,history,False,0,Subjects (school),history
+w1c6ef1a,chemistry,False,4,Subjects (school),chemistry
+w1c6ef1a,biology,False,6,Subjects (school),biology
+w1c6ef1a,english,False,5,Subjects (school),english
+w1c6ef1a,geometry,False,6,Subjects (school),geometry
+w1c6ef1a,french,False,-9,Subjects (school),french
+w1c6ef1a,physics,False,1,Subjects (school),physics
+w1c6ef1a,algebra,False,9,Subjects (school),algebra
+w1c6ef1a,calculus,False,7,Subjects (school),calculus
+w1c6ef1a,zebra,False,-3,Animals (intimate),zebra
+w1c6ef1a,rhinoceros,False,-10,Animals (intimate),rhinoceros
+w1c6ef1a,cobra,False,-10,Animals (intimate),cobra
+w1c6ef1a,sloth,False,0,Animals (intimate),sloth
+w1c6ef1a,kangaroo,False,-10,Animals (intimate),kangaroo
+w1c6ef1a,peacock,False,-2,Animals (intimate),peacock
+w1c6ef1a,koala,False,2,Animals (intimate),koala
+w1c6ef1a,panda,False,-10,Animals (intimate),panda
+w1c6ef1a,giraffe,False,2,Animals (intimate),giraffe
+w1c6ef1a,lemur,False,2,Animals (intimate),lemur
+w1c6ef1a,gorilla,False,-10,Animals (intimate),gorilla
+w1c6ef1a,monkey,True,-10,Animals (intimate),Monkeys
+w1c6ef1a,elephant,False,-10,Animals (intimate),elephant
+w1c6ef1a,tiger,True,-10,Animals (intimate),Tigers
+w1c6ef1a,deer,False,4,Animals (intimate),deer
+w1c6ef1a,crocodile,False,-10,Animals (intimate),crocodile
+w1c6ef1a,lion,False,-10,Animals (intimate),lion
+w1c6ef1a,jaguar,False,-10,Animals (intimate),jaguar
+w1c6ef1a,football,True,10,Sports (season),Football
+w1c6ef1a,soccer,True,5,Sports (season),Hockey
+w1c6ef1a,golf,False,-10,Sports (season),golf
+w1c6ef1a,baseball,False,4,Sports (season),baseball
+w1c6ef1a,basketball,False,2,Sports (season),basketball
+w1c6ef1a,bowling,False,-2,Sports (season),bowling
+w1c6ef1a,rugby,False,3,Sports (season),rugby
+w1c6ef1a,tennis,False,-4,Sports (season),tennis
+w1c6ef1a,cricket,False,-5,Sports (season),cricket
+w1c6ef1a,badminton,False,-3,Sports (season),badminton
+w1c6ef1a,boxing,False,6,Sports (season),boxing
+w1c6ef1a,volleyball,False,-4,Sports (season),volleyball
+w94007a6,rome,False,7,PRACTICE,Rome
+w94007a6,UNK,True,9,PRACTICE,Dublin
+w94007a6,amsterdam,False,-2,PRACTICE,Amsterdam
+w94007a6,paris,False,2,PRACTICE,Paris
+w94007a6,athens,False,3,PRACTICE,Athens
+w94007a6,vienna,False,2,PRACTICE,Vienna
+w94007a6,venice,True,2,PRACTICE,Venice
+w94007a6,UNK,True,2,PRACTICE,Florence
+w94007a6,UNK,True,4,PRACTICE,Berlin
+w94007a6,madrid,False,5,PRACTICE,Madrid
+w94007a6,london,True,9,PRACTICE,London
+w94007a6,lemur,False,3,Animals (bubble),lemur
+w94007a6,koala,False,2,Animals (bubble),koala
+w94007a6,gorilla,False,5,Animals (bubble),gorilla
+w94007a6,elephant,False,5,Animals (bubble),elephant
+w94007a6,monkey,False,7,Animals (bubble),monkey
+w94007a6,lion,True,7,Animals (bubble),Lion
+w94007a6,sloth,False,5,Animals (bubble),sloth
+w94007a6,panda,False,9,Animals (bubble),panda
+w94007a6,deer,False,1,Animals (bubble),deer
+w94007a6,jaguar,False,8,Animals (bubble),jaguar
+w94007a6,crocodile,False,8,Animals (bubble),crocodile
+w94007a6,rhinoceros,False,6,Animals (bubble),rhinoceros
+w94007a6,peacock,False,0,Animals (bubble),peacock
+w94007a6,giraffe,False,4,Animals (bubble),giraffe
+w94007a6,zebra,False,3,Animals (bubble),zebra
+w94007a6,tiger,False,9,Animals (bubble),tiger
+w94007a6,kangaroo,False,8,Animals (bubble),kangaroo
+w94007a6,cobra,False,2,Animals (bubble),cobra
+w94007a6,skateboard,False,2,Vehicles (veto),skateboard
+w94007a6,train,True,-5,Vehicles (veto),Train
+w94007a6,unicycle,False,2,Vehicles (veto),unicycle
+w94007a6,scooter,False,2,Vehicles (veto),scooter
+w94007a6,plane,False,-9,Vehicles (veto),plane
+w94007a6,helicopter,False,3,Vehicles (veto),helicopter
+w94007a6,limousine,False,1,Vehicles (veto),limousine
+w94007a6,bicycle,False,-8,Vehicles (veto),bicycle
+w94007a6,UNK,True,-8,Vehicles (veto),Subway
+w94007a6,car,True,-10,Vehicles (veto),Car
+w94007a6,bus,True,-8,Vehicles (veto),Bike
+w94007a6,calculus,False,9,Subjects (magic),calculus
+w94007a6,algebra,False,9,Subjects (magic),algebra
+w94007a6,UNK,True,10,Subjects (magic),Computer Science
+w94007a6,history,False,10,Subjects (magic),history
+w94007a6,chemistry,False,8,Subjects (magic),chemistry
+w94007a6,spanish,False,10,Subjects (magic),spanish
+w94007a6,physics,False,8,Subjects (magic),physics
+w94007a6,english,False,9,Subjects (magic),english
+w94007a6,french,False,10,Subjects (magic),french
+w94007a6,geometry,False,8,Subjects (magic),geometry
+w94007a6,biology,True,9,Subjects (magic),Biology
+w94007a6,basketball,False,-1,Sports (silence),basketball
+w94007a6,football,True,-8,Sports (silence),Football
+w94007a6,bowling,False,2,Sports (silence),bowling
+w94007a6,tennis,False,0,Sports (silence),tennis
+w94007a6,baseball,False,-3,Sports (silence),baseball
+w94007a6,soccer,True,-7,Sports (silence),Soccer
+w94007a6,rugby,False,-5,Sports (silence),rugby
+w94007a6,badminton,False,0,Sports (silence),badminton
+w94007a6,cricket,False,0,Sports (silence),cricket
+w94007a6,golf,False,-7,Sports (silence),golf
+w94007a6,boxing,True,-7,Sports (silence),Skiing
+w94007a6,volleyball,False,-4,Sports (silence),volleyball
+w94007a6,UNK,True,-10,Sports (silence),Swimming
+wbb75636,amsterdam,False,7,PRACTICE,Amsterdam
+wbb75636,london,False,6,PRACTICE,London
+wbb75636,paris,False,10,PRACTICE,Paris
+wbb75636,athens,False,10,PRACTICE,Athens
+wbb75636,vienna,False,1,PRACTICE,Vienna
+wbb75636,rome,False,7,PRACTICE,Rome
+wbb75636,madrid,False,8,PRACTICE,Madrid
+wbb75636,venice,False,3,PRACTICE,Venice
+wbb75636,train,False,-7,Vehicles (commute),train
+wbb75636,plane,False,-5,Vehicles (commute),plane
+wbb75636,bus,False,-9,Vehicles (commute),bus
+wbb75636,boat,False,-9,Vehicles (commute),boat
+wbb75636,bicycle,False,-10,Vehicles (commute),bicycle
+wbb75636,skateboard,False,-10,Vehicles (commute),skateboard
+wbb75636,car,False,10,Vehicles (commute),car
+wbb75636,scooter,False,-7,Vehicles (commute),scooter
+wbb75636,limousine,False,6,Vehicles (commute),limousine
+wbb75636,unicycle,False,-10,Vehicles (commute),unicycle
+wbb75636,UNK,True,-10,Vehicles (commute),Hoverboard
+wbb75636,helicopter,False,1,Vehicles (commute),helicopter
+wbb75636,spanish,False,2,Subjects (school),spanish
+wbb75636,french,False,-1,Subjects (school),french
+wbb75636,calculus,False,-8,Subjects (school),calculus
+wbb75636,chemistry,False,-4,Subjects (school),chemistry
+wbb75636,history,False,10,Subjects (school),history
+wbb75636,algebra,False,5,Subjects (school),algebra
+wbb75636,geometry,False,3,Subjects (school),geometry
+wbb75636,english,False,8,Subjects (school),english
+wbb75636,biology,False,4,Subjects (school),biology
+wbb75636,physics,False,-7,Subjects (school),physics
+wbb75636,UNK,True,1,Subjects (school),Math
+wbb75636,panda,False,6,Animals (intimate),panda
+wbb75636,sloth,False,10,Animals (intimate),sloth
+wbb75636,rhinoceros,False,-7,Animals (intimate),rhinoceros
+wbb75636,kangaroo,False,2,Animals (intimate),kangaroo
+wbb75636,koala,False,3,Animals (intimate),koala
+wbb75636,giraffe,False,3,Animals (intimate),giraffe
+wbb75636,cobra,False,-10,Animals (intimate),cobra
+wbb75636,crocodile,False,-10,Animals (intimate),crocodile
+wbb75636,gorilla,False,1,Animals (intimate),gorilla
+wbb75636,zebra,False,2,Animals (intimate),zebra
+wbb75636,peacock,False,9,Animals (intimate),peacock
+wbb75636,elephant,False,4,Animals (intimate),elephant
+wbb75636,jaguar,False,-10,Animals (intimate),jaguar
+wbb75636,lion,True,-10,Animals (intimate),Lion
+wbb75636,lemur,False,10,Animals (intimate),lemur
+wbb75636,monkey,True,9,Animals (intimate),Monkey
+wbb75636,tiger,True,-10,Animals (intimate),Tiger
+wbb75636,cricket,False,-3,Sports (season),cricket
+wbb75636,volleyball,False,-2,Sports (season),volleyball
+wbb75636,badminton,False,-2,Sports (season),badminton
+wbb75636,bowling,False,-2,Sports (season),bowling
+wbb75636,baseball,True,1,Sports (season),Baseball
+wbb75636,golf,False,-4,Sports (season),golf
+wbb75636,soccer,True,3,Sports (season),Hockey
+wbb75636,rugby,False,-1,Sports (season),rugby
+wbb75636,football,False,1,Sports (season),football
+wbb75636,boxing,False,-6,Sports (season),boxing
+wbb75636,tennis,False,1,Sports (season),tennis
+w92bf5b9,madrid,False,2,PRACTICE,Madrid
+w92bf5b9,UNK,True,4,PRACTICE,"Barcelone, Spain"
+w92bf5b9,venice,False,10,PRACTICE,Venice
+w92bf5b9,UNK,True,10,PRACTICE,"Venice, Italy"
+w92bf5b9,paris,False,4,PRACTICE,Paris
+w92bf5b9,amsterdam,False,7,PRACTICE,Amsterdam
+w92bf5b9,athens,False,4,PRACTICE,Athens
+w92bf5b9,vienna,False,6,PRACTICE,Vienna
+w92bf5b9,rome,False,4,PRACTICE,Rome
+w92bf5b9,UNK,True,10,PRACTICE,"Abruzzi, Italy"
+w92bf5b9,london,False,3,PRACTICE,London
+w92bf5b9,UNK,True,4,PRACTICE,"Paris, France"
+w92bf5b9,biology,False,-10,Subjects (school),biology
+w92bf5b9,french,False,-10,Subjects (school),french
+w92bf5b9,geometry,False,-10,Subjects (school),geometry
+w92bf5b9,UNK,True,-10,Subjects (school),Math
+w92bf5b9,physics,True,-10,Subjects (school),Physics
+w92bf5b9,UNK,True,-10,Subjects (school),Science
+w92bf5b9,spanish,False,-6,Subjects (school),spanish
+w92bf5b9,UNK,True,-10,Subjects (school),Geography
+w92bf5b9,english,False,10,Subjects (school),english
+w92bf5b9,calculus,False,-10,Subjects (school),calculus
+w92bf5b9,algebra,False,-10,Subjects (school),algebra
+w92bf5b9,history,False,5,Subjects (school),history
+w92bf5b9,chemistry,True,-10,Subjects (school),Chemistry
+w92bf5b9,bowling,False,-3,Sports (season),bowling
+w92bf5b9,golf,False,-3,Sports (season),golf
+w92bf5b9,basketball,False,3,Sports (season),basketball
+w92bf5b9,volleyball,False,5,Sports (season),volleyball
+w92bf5b9,baseball,False,10,Sports (season),baseball
+w92bf5b9,tennis,False,10,Sports (season),tennis
+w92bf5b9,cricket,False,-4,Sports (season),cricket
+w92bf5b9,boxing,False,5,Sports (season),boxing
+w92bf5b9,soccer,False,-4,Sports (season),soccer
+w92bf5b9,football,False,10,Sports (season),football
+w92bf5b9,rugby,False,-4,Sports (season),rugby
+w92bf5b9,badminton,False,4,Sports (season),badminton
+w92bf5b9,cobra,False,-4,Animals (intimate),cobra
+w92bf5b9,panda,False,10,Animals (intimate),panda
+w92bf5b9,tiger,False,4,Animals (intimate),tiger
+w92bf5b9,koala,False,6,Animals (intimate),koala
+w92bf5b9,crocodile,False,-10,Animals (intimate),crocodile
+w92bf5b9,lion,True,3,Animals (intimate),Lion
+w92bf5b9,giraffe,False,10,Animals (intimate),giraffe
+w92bf5b9,rhinoceros,False,3,Animals (intimate),rhinoceros
+w92bf5b9,kangaroo,False,-4,Animals (intimate),kangaroo
+w92bf5b9,deer,True,0,Animals (intimate),Bear
+w92bf5b9,elephant,True,10,Animals (intimate),Elephant
+w92bf5b9,sloth,False,10,Animals (intimate),sloth
+w92bf5b9,UNK,True,-4,Animals (intimate),Snake
+w92bf5b9,monkey,True,10,Animals (intimate),Monkey
+w92bf5b9,jaguar,False,-4,Animals (intimate),jaguar
+w92bf5b9,peacock,False,6,Animals (intimate),peacock
+w92bf5b9,gorilla,False,0,Animals (intimate),gorilla
+w92bf5b9,plane,False,-10,Vehicles (commute),plane
+w92bf5b9,limousine,False,10,Vehicles (commute),limousine
+w92bf5b9,helicopter,False,0,Vehicles (commute),helicopter
+w92bf5b9,bus,True,-10,Vehicles (commute),Bus
+w92bf5b9,UNK,True,0,Vehicles (commute),Subway
+w92bf5b9,bicycle,False,-10,Vehicles (commute),bicycle
+w92bf5b9,unicycle,False,-10,Vehicles (commute),unicycle
+w92bf5b9,scooter,True,-10,Vehicles (commute),Scooter
+w92bf5b9,skateboard,False,-10,Vehicles (commute),skateboard
+w92bf5b9,bus,True,-10,Vehicles (commute),Bike
+w92bf5b9,train,False,0,Vehicles (commute),train
+w92bf5b9,UNK,True,0,Vehicles (commute),Metro
+wd49ddf4,amsterdam,False,0,PRACTICE,Amsterdam
+wd49ddf4,madrid,False,2,PRACTICE,Madrid
+wd49ddf4,london,False,5,PRACTICE,London
+wd49ddf4,athens,False,0,PRACTICE,Athens
+wd49ddf4,paris,False,0,PRACTICE,Paris
+wd49ddf4,vienna,False,0,PRACTICE,Vienna
+wd49ddf4,rome,False,4,PRACTICE,Rome
+wd49ddf4,venice,False,0,PRACTICE,Venice
+wd49ddf4,boat,False,8,Vehicles (veto),boat
+wd49ddf4,bus,False,0,Vehicles (veto),bus
+wd49ddf4,plane,False,-6,Vehicles (veto),plane
+wd49ddf4,train,False,-3,Vehicles (veto),train
+wd49ddf4,car,False,-8,Vehicles (veto),car
+wd49ddf4,helicopter,False,9,Vehicles (veto),helicopter
+wd49ddf4,unicycle,False,10,Vehicles (veto),unicycle
+wd49ddf4,scooter,False,5,Vehicles (veto),scooter
+wd49ddf4,bicycle,False,-2,Vehicles (veto),bicycle
+wd49ddf4,skateboard,False,10,Vehicles (veto),skateboard
+wd49ddf4,limousine,False,0,Vehicles (veto),limousine
+wd49ddf4,spanish,False,10,Subjects (magic),spanish
+wd49ddf4,physics,False,-6,Subjects (magic),physics
+wd49ddf4,calculus,False,-10,Subjects (magic),calculus
+wd49ddf4,history,False,-5,Subjects (magic),history
+wd49ddf4,biology,False,2,Subjects (magic),biology
+wd49ddf4,geometry,False,-7,Subjects (magic),geometry
+wd49ddf4,english,False,10,Subjects (magic),english
+wd49ddf4,chemistry,False,-2,Subjects (magic),chemistry
+wd49ddf4,algebra,False,-2,Subjects (magic),algebra
+wd49ddf4,french,False,-5,Subjects (magic),french
+wd49ddf4,bowling,False,-7,Sports (silence),bowling
+wd49ddf4,volleyball,False,3,Sports (silence),volleyball
+wd49ddf4,rugby,False,10,Sports (silence),rugby
+wd49ddf4,tennis,False,-3,Sports (silence),tennis
+wd49ddf4,badminton,False,-8,Sports (silence),badminton
+wd49ddf4,basketball,False,-8,Sports (silence),basketball
+wd49ddf4,football,False,0,Sports (silence),football
+wd49ddf4,golf,False,3,Sports (silence),golf
+wd49ddf4,boxing,False,10,Sports (silence),boxing
+wd49ddf4,soccer,False,-1,Sports (silence),soccer
+wd49ddf4,cricket,False,7,Sports (silence),cricket
+wd49ddf4,baseball,False,0,Sports (silence),baseball
+wd49ddf4,monkey,False,4,Animals (bubble),monkey
+wd49ddf4,elephant,False,0,Animals (bubble),elephant
+wd49ddf4,panda,False,4,Animals (bubble),panda
+wd49ddf4,kangaroo,False,2,Animals (bubble),kangaroo
+wd49ddf4,zebra,False,-3,Animals (bubble),zebra
+wd49ddf4,deer,False,0,Animals (bubble),deer
+wd49ddf4,lemur,False,-7,Animals (bubble),lemur
+wd49ddf4,cobra,False,-10,Animals (bubble),cobra
+wd49ddf4,lion,False,-10,Animals (bubble),lion
+wd49ddf4,jaguar,False,-5,Animals (bubble),jaguar
+wd49ddf4,crocodile,False,-5,Animals (bubble),crocodile
+wd49ddf4,tiger,False,-5,Animals (bubble),tiger
+wd49ddf4,giraffe,False,1,Animals (bubble),giraffe
+wd49ddf4,peacock,False,8,Animals (bubble),peacock
+wd49ddf4,rhinoceros,False,-3,Animals (bubble),rhinoceros
+wd49ddf4,koala,False,7,Animals (bubble),koala
+wd49ddf4,gorilla,False,-6,Animals (bubble),gorilla
+wd49ddf4,sloth,False,7,Animals (bubble),sloth
+wf83a6b1,rome,False,4,PRACTICE,Rome
+wf83a6b1,vienna,False,3,PRACTICE,Vienna
+wf83a6b1,venice,True,5,PRACTICE,Venice
+wf83a6b1,paris,True,4,PRACTICE,Paris
+wf83a6b1,athens,False,4,PRACTICE,Athens
+wf83a6b1,amsterdam,True,-4,PRACTICE,Amsterdam
+wf83a6b1,UNK,True,-4,PRACTICE,Brussels
+wf83a6b1,madrid,True,7,PRACTICE,Madrid
+wf83a6b1,london,False,0,PRACTICE,London
+wf83a6b1,train,True,0,Vehicles (veto),train
+wf83a6b1,bicycle,False,-7,Vehicles (veto),bicycle
+wf83a6b1,limousine,False,0,Vehicles (veto),limousine
+wf83a6b1,plane,False,-2,Vehicles (veto),plane
+wf83a6b1,scooter,False,0,Vehicles (veto),scooter
+wf83a6b1,bus,True,-6,Vehicles (veto),bike
+wf83a6b1,boat,True,0,Vehicles (veto),boat
+wf83a6b1,car,True,-10,Vehicles (veto),car
+wf83a6b1,bus,True,-4,Vehicles (veto),bus
+wf83a6b1,skateboard,False,0,Vehicles (veto),skateboard
+wf83a6b1,helicopter,False,0,Vehicles (veto),helicopter
+wf83a6b1,unicycle,False,0,Vehicles (veto),unicycle
+wf83a6b1,french,False,1,Subjects (magic),french
+wf83a6b1,chemistry,False,4,Subjects (magic),chemistry
+wf83a6b1,english,False,3,Subjects (magic),english
+wf83a6b1,spanish,False,7,Subjects (magic),spanish
+wf83a6b1,calculus,False,0,Subjects (magic),calculus
+wf83a6b1,physics,False,0,Subjects (magic),physics
+wf83a6b1,biology,False,6,Subjects (magic),biology
+wf83a6b1,history,False,0,Subjects (magic),history
+wf83a6b1,geometry,False,0,Subjects (magic),geometry
+wf83a6b1,algebra,False,-1,Subjects (magic),algebra
+wf83a6b1,tennis,False,0,Sports (silence),tennis
+wf83a6b1,bowling,False,0,Sports (silence),bowling
+wf83a6b1,cricket,False,0,Sports (silence),cricket
+wf83a6b1,football,False,2,Sports (silence),football
+wf83a6b1,baseball,True,0,Sports (silence),Baseball
+wf83a6b1,rugby,False,0,Sports (silence),rugby
+wf83a6b1,soccer,True,2,Sports (silence),Soccer
+wf83a6b1,volleyball,False,0,Sports (silence),volleyball
+wf83a6b1,badminton,False,0,Sports (silence),badminton
+wf83a6b1,golf,False,2,Sports (silence),golf
+wf83a6b1,boxing,False,0,Sports (silence),boxing
+wf83a6b1,cobra,False,1,Animals (bubble),cobra
+wf83a6b1,jaguar,False,3,Animals (bubble),jaguar
+wf83a6b1,deer,False,1,Animals (bubble),deer
+wf83a6b1,giraffe,False,0,Animals (bubble),giraffe
+wf83a6b1,gorilla,False,-1,Animals (bubble),gorilla
+wf83a6b1,elephant,False,0,Animals (bubble),elephant
+wf83a6b1,crocodile,False,0,Animals (bubble),crocodile
+wf83a6b1,peacock,False,0,Animals (bubble),peacock
+wf83a6b1,rhinoceros,False,0,Animals (bubble),rhinoceros
+wf83a6b1,kangaroo,False,0,Animals (bubble),kangaroo
+wf83a6b1,lion,True,1,Animals (bubble),Lion
+wf83a6b1,koala,False,3,Animals (bubble),koala
+wf83a6b1,lemur,False,1,Animals (bubble),lemur
+wf83a6b1,panda,True,5,Animals (bubble),Panda
+wf83a6b1,zebra,False,0,Animals (bubble),zebra
+wf83a6b1,monkey,True,-3,Animals (bubble),Monkey
+wf83a6b1,tiger,False,2,Animals (bubble),tiger
+wf83a6b1,sloth,False,5,Animals (bubble),sloth
+w97a1598,athens,False,-2,PRACTICE,Athens
+w97a1598,madrid,False,4,PRACTICE,Madrid
+w97a1598,paris,False,5,PRACTICE,Paris
+w97a1598,rome,False,7,PRACTICE,Rome
+w97a1598,venice,False,6,PRACTICE,Venice
+w97a1598,london,False,3,PRACTICE,London
+w97a1598,vienna,False,6,PRACTICE,Vienna
+w97a1598,amsterdam,False,4,PRACTICE,Amsterdam
+w97a1598,geometry,False,-2,Subjects (magic),geometry
+w97a1598,chemistry,False,-2,Subjects (magic),chemistry
+w97a1598,spanish,False,4,Subjects (magic),spanish
+w97a1598,calculus,False,-3,Subjects (magic),calculus
+w97a1598,french,False,5,Subjects (magic),french
+w97a1598,algebra,False,-4,Subjects (magic),algebra
+w97a1598,biology,False,4,Subjects (magic),biology
+w97a1598,english,False,4,Subjects (magic),english
+w97a1598,physics,False,3,Subjects (magic),physics
+w97a1598,history,False,7,Subjects (magic),history
+w97a1598,peacock,False,-1,Animals (bubble),peacock
+w97a1598,sloth,False,-5,Animals (bubble),sloth
+w97a1598,cobra,False,-7,Animals (bubble),cobra
+w97a1598,deer,False,3,Animals (bubble),deer
+w97a1598,lion,False,6,Animals (bubble),lion
+w97a1598,gorilla,False,4,Animals (bubble),gorilla
+w97a1598,jaguar,False,5,Animals (bubble),jaguar
+w97a1598,panda,False,4,Animals (bubble),panda
+w97a1598,zebra,False,2,Animals (bubble),zebra
+w97a1598,crocodile,False,-2,Animals (bubble),crocodile
+w97a1598,giraffe,False,2,Animals (bubble),giraffe
+w97a1598,lemur,False,3,Animals (bubble),lemur
+w97a1598,tiger,False,7,Animals (bubble),tiger
+w97a1598,koala,False,6,Animals (bubble),koala
+w97a1598,elephant,False,5,Animals (bubble),elephant
+w97a1598,kangaroo,False,5,Animals (bubble),kangaroo
+w97a1598,monkey,False,5,Animals (bubble),monkey
+w97a1598,rhinoceros,False,1,Animals (bubble),rhinoceros
+w97a1598,basketball,False,-10,Sports (silence),basketball
+w97a1598,golf,False,-3,Sports (silence),golf
+w97a1598,cricket,False,4,Sports (silence),cricket
+w97a1598,tennis,False,-4,Sports (silence),tennis
+w97a1598,badminton,False,8,Sports (silence),badminton
+w97a1598,football,False,-10,Sports (silence),football
+w97a1598,boxing,False,-3,Sports (silence),boxing
+w97a1598,volleyball,False,2,Sports (silence),volleyball
+w97a1598,baseball,False,-10,Sports (silence),baseball
+w97a1598,rugby,False,-4,Sports (silence),rugby
+w97a1598,bowling,False,-2,Sports (silence),bowling
+w97a1598,soccer,False,-10,Sports (silence),soccer
+w97a1598,skateboard,False,4,Vehicles (veto),skateboard
+w97a1598,limousine,False,2,Vehicles (veto),limousine
+w97a1598,bicycle,False,5,Vehicles (veto),bicycle
+w97a1598,scooter,False,4,Vehicles (veto),scooter
+w97a1598,boat,False,5,Vehicles (veto),boat
+w97a1598,bus,False,3,Vehicles (veto),bus
+w97a1598,train,False,3,Vehicles (veto),train
+w97a1598,car,False,-5,Vehicles (veto),car
+w97a1598,plane,False,3,Vehicles (veto),plane
+w97a1598,unicycle,False,8,Vehicles (veto),unicycle
+w97a1598,helicopter,False,5,Vehicles (veto),helicopter
+wce17a9e,amsterdam,False,9,PRACTICE,Amsterdam
+wce17a9e,athens,False,6,PRACTICE,Athens
+wce17a9e,paris,True,8,PRACTICE,Paris
+wce17a9e,london,True,8,PRACTICE,London
+wce17a9e,rome,False,8,PRACTICE,Rome
+wce17a9e,vienna,False,8,PRACTICE,Vienna
+wce17a9e,venice,False,8,PRACTICE,Venice
+wce17a9e,skateboard,False,10,Vehicles (veto),skateboard
+wce17a9e,scooter,False,8,Vehicles (veto),scooter
+wce17a9e,train,False,-2,Vehicles (veto),train
+wce17a9e,boat,False,-2,Vehicles (veto),boat
+wce17a9e,plane,False,-4,Vehicles (veto),plane
+wce17a9e,limousine,False,1,Vehicles (veto),limousine
+wce17a9e,bicycle,False,-7,Vehicles (veto),bicycle
+wce17a9e,unicycle,False,9,Vehicles (veto),unicycle
+wce17a9e,car,False,-9,Vehicles (veto),car
+wce17a9e,bus,False,-7,Vehicles (veto),bus
+wce17a9e,helicopter,False,-3,Vehicles (veto),helicopter
+wce17a9e,football,False,-10,Sports (silence),football
+wce17a9e,rugby,False,0,Sports (silence),rugby
+wce17a9e,baseball,False,-10,Sports (silence),baseball
+wce17a9e,basketball,False,3,Sports (silence),basketball
+wce17a9e,tennis,False,6,Sports (silence),tennis
+wce17a9e,soccer,False,-3,Sports (silence),soccer
+wce17a9e,volleyball,False,2,Sports (silence),volleyball
+wce17a9e,cricket,False,3,Sports (silence),cricket
+wce17a9e,badminton,False,3,Sports (silence),badminton
+wce17a9e,golf,False,7,Sports (silence),golf
+wce17a9e,boxing,False,7,Sports (silence),boxing
+wce17a9e,bowling,False,-4,Sports (silence),bowling
+wce17a9e,zebra,False,2,Animals (bubble),zebra
+wce17a9e,tiger,False,5,Animals (bubble),tiger
+wce17a9e,giraffe,False,4,Animals (bubble),giraffe
+wce17a9e,lion,False,5,Animals (bubble),lion
+wce17a9e,rhinoceros,False,1,Animals (bubble),rhinoceros
+wce17a9e,koala,False,8,Animals (bubble),koala
+wce17a9e,jaguar,False,5,Animals (bubble),jaguar
+wce17a9e,lemur,False,7,Animals (bubble),lemur
+wce17a9e,elephant,False,4,Animals (bubble),elephant
+wce17a9e,deer,False,4,Animals (bubble),deer
+wce17a9e,panda,True,10,Animals (bubble),Panda
+wce17a9e,cobra,False,4,Animals (bubble),cobra
+wce17a9e,monkey,False,6,Animals (bubble),monkey
+wce17a9e,peacock,False,5,Animals (bubble),peacock
+wce17a9e,sloth,False,5,Animals (bubble),sloth
+wce17a9e,kangaroo,False,6,Animals (bubble),kangaroo
+wce17a9e,gorilla,False,5,Animals (bubble),gorilla
+wce17a9e,crocodile,False,3,Animals (bubble),crocodile
+wce17a9e,UNK,True,10,Subjects (magic),Medicine
+wce17a9e,spanish,False,6,Subjects (magic),spanish
+wce17a9e,english,False,5,Subjects (magic),english
+wce17a9e,physics,False,-3,Subjects (magic),physics
+wce17a9e,calculus,False,-8,Subjects (magic),calculus
+wce17a9e,geometry,False,-7,Subjects (magic),geometry
+wce17a9e,history,False,7,Subjects (magic),history
+wce17a9e,chemistry,False,-3,Subjects (magic),chemistry
+wce17a9e,biology,False,6,Subjects (magic),biology
+wce17a9e,algebra,False,-7,Subjects (magic),algebra
+wce17a9e,french,False,-3,Subjects (magic),french
+w742e695,london,False,8,PRACTICE,London
+w742e695,madrid,False,6,PRACTICE,Madrid
+w742e695,vienna,False,6,PRACTICE,Vienna
+w742e695,athens,False,8,PRACTICE,Athens
+w742e695,rome,False,6,PRACTICE,Rome
+w742e695,venice,False,3,PRACTICE,Venice
+w742e695,paris,False,10,PRACTICE,Paris
+w742e695,amsterdam,False,2,PRACTICE,Amsterdam
+w742e695,helicopter,False,5,Vehicles (veto),helicopter
+w742e695,car,False,-10,Vehicles (veto),car
+w742e695,plane,False,-5,Vehicles (veto),plane
+w742e695,bicycle,False,1,Vehicles (veto),bicycle
+w742e695,unicycle,False,2,Vehicles (veto),unicycle
+w742e695,scooter,False,-1,Vehicles (veto),scooter
+w742e695,boat,False,-3,Vehicles (veto),boat
+w742e695,limousine,False,-4,Vehicles (veto),limousine
+w742e695,train,False,1,Vehicles (veto),train
+w742e695,skateboard,False,-1,Vehicles (veto),skateboard
+w742e695,bus,False,-5,Vehicles (veto),bus
+w742e695,french,False,10,Subjects (magic),french
+w742e695,biology,False,6,Subjects (magic),biology
+w742e695,chemistry,False,8,Subjects (magic),chemistry
+w742e695,algebra,False,7,Subjects (magic),algebra
+w742e695,spanish,False,9,Subjects (magic),spanish
+w742e695,geometry,False,3,Subjects (magic),geometry
+w742e695,english,False,2,Subjects (magic),english
+w742e695,history,False,3,Subjects (magic),history
+w742e695,physics,False,7,Subjects (magic),physics
+w742e695,calculus,False,9,Subjects (magic),calculus
+w742e695,badminton,False,1,Sports (silence),badminton
+w742e695,golf,False,1,Sports (silence),golf
+w742e695,football,False,-2,Sports (silence),football
+w742e695,basketball,False,-3,Sports (silence),basketball
+w742e695,volleyball,False,1,Sports (silence),volleyball
+w742e695,baseball,False,2,Sports (silence),baseball
+w742e695,bowling,False,3,Sports (silence),bowling
+w742e695,boxing,False,-2,Sports (silence),boxing
+w742e695,rugby,False,1,Sports (silence),rugby
+w742e695,soccer,False,-8,Sports (silence),soccer
+w742e695,cricket,False,1,Sports (silence),cricket
+w742e695,tennis,False,-1,Sports (silence),tennis
+w742e695,monkey,False,7,Animals (bubble),monkey
+w742e695,koala,False,5,Animals (bubble),koala
+w742e695,elephant,False,3,Animals (bubble),elephant
+w742e695,zebra,False,2,Animals (bubble),zebra
+w742e695,lemur,False,2,Animals (bubble),lemur
+w742e695,jaguar,False,5,Animals (bubble),jaguar
+w742e695,sloth,False,2,Animals (bubble),sloth
+w742e695,rhinoceros,False,5,Animals (bubble),rhinoceros
+w742e695,gorilla,False,7,Animals (bubble),gorilla
+w742e695,crocodile,False,7,Animals (bubble),crocodile
+w742e695,tiger,False,6,Animals (bubble),tiger
+w742e695,deer,False,4,Animals (bubble),deer
+w742e695,kangaroo,False,7,Animals (bubble),kangaroo
+w742e695,lion,False,4,Animals (bubble),lion
+w742e695,giraffe,False,4,Animals (bubble),giraffe
+w742e695,cobra,False,5,Animals (bubble),cobra
+w742e695,peacock,False,2,Animals (bubble),peacock
+w742e695,panda,False,5,Animals (bubble),panda
+wea21aec,athens,False,7,PRACTICE,Athens
+wea21aec,venice,False,7,PRACTICE,Venice
+wea21aec,madrid,False,0,PRACTICE,Madrid
+wea21aec,london,False,7,PRACTICE,London
+wea21aec,vienna,False,5,PRACTICE,Vienna
+wea21aec,paris,False,7,PRACTICE,Paris
+wea21aec,rome,False,7,PRACTICE,Rome
+wea21aec,amsterdam,False,2,PRACTICE,Amsterdam
+wea21aec,skateboard,False,-6,Vehicles (commute),skateboard
+wea21aec,bus,False,-2,Vehicles (commute),bus
+wea21aec,train,False,-2,Vehicles (commute),train
+wea21aec,plane,False,-6,Vehicles (commute),plane
+wea21aec,car,False,3,Vehicles (commute),car
+wea21aec,limousine,False,2,Vehicles (commute),limousine
+wea21aec,helicopter,False,2,Vehicles (commute),helicopter
+wea21aec,unicycle,False,-3,Vehicles (commute),unicycle
+wea21aec,bicycle,False,0,Vehicles (commute),bicycle
+wea21aec,boat,False,-2,Vehicles (commute),boat
+wea21aec,scooter,False,1,Vehicles (commute),scooter
+wea21aec,calculus,False,4,Subjects (school),calculus
+wea21aec,french,False,-5,Subjects (school),french
+wea21aec,chemistry,False,2,Subjects (school),chemistry
+wea21aec,algebra,False,5,Subjects (school),algebra
+wea21aec,history,False,-2,Subjects (school),history
+wea21aec,english,False,-2,Subjects (school),english
+wea21aec,spanish,False,-2,Subjects (school),spanish
+wea21aec,geometry,False,4,Subjects (school),geometry
+wea21aec,biology,False,2,Subjects (school),biology
+wea21aec,physics,False,2,Subjects (school),physics
+wea21aec,jaguar,False,-10,Animals (intimate),jaguar
+wea21aec,zebra,False,5,Animals (intimate),zebra
+wea21aec,gorilla,False,-10,Animals (intimate),gorilla
+wea21aec,deer,False,5,Animals (intimate),deer
+wea21aec,koala,False,5,Animals (intimate),koala
+wea21aec,kangaroo,False,-2,Animals (intimate),kangaroo
+wea21aec,panda,False,5,Animals (intimate),panda
+wea21aec,lemur,False,-2,Animals (intimate),lemur
+wea21aec,sloth,False,5,Animals (intimate),sloth
+wea21aec,lion,False,-10,Animals (intimate),lion
+wea21aec,cobra,False,-10,Animals (intimate),cobra
+wea21aec,tiger,False,-10,Animals (intimate),tiger
+wea21aec,peacock,False,5,Animals (intimate),peacock
+wea21aec,giraffe,False,5,Animals (intimate),giraffe
+wea21aec,crocodile,False,-10,Animals (intimate),crocodile
+wea21aec,elephant,False,2,Animals (intimate),elephant
+wea21aec,rhinoceros,False,-10,Animals (intimate),rhinoceros
+wea21aec,monkey,False,-6,Animals (intimate),monkey
+wea21aec,rugby,False,-7,Sports (season),rugby
+wea21aec,cricket,False,-7,Sports (season),cricket
+wea21aec,soccer,False,4,Sports (season),soccer
+wea21aec,bowling,False,-3,Sports (season),bowling
+wea21aec,badminton,False,3,Sports (season),badminton
+wea21aec,golf,False,-3,Sports (season),golf
+wea21aec,volleyball,False,3,Sports (season),volleyball
+wea21aec,tennis,False,3,Sports (season),tennis
+wea21aec,baseball,False,0,Sports (season),baseball
+wea21aec,basketball,False,0,Sports (season),basketball
+wea21aec,football,False,2,Sports (season),football
+wea21aec,boxing,False,-2,Sports (season),boxing
+w8d45e65,paris,False,7,PRACTICE,Paris
+w8d45e65,madrid,False,5,PRACTICE,Madrid
+w8d45e65,venice,False,5,PRACTICE,Venice
+w8d45e65,vienna,False,7,PRACTICE,Vienna
+w8d45e65,athens,False,2,PRACTICE,Athens
+w8d45e65,amsterdam,False,8,PRACTICE,Amsterdam
+w8d45e65,rome,False,7,PRACTICE,Rome
+w8d45e65,london,False,2,PRACTICE,London
+w8d45e65,physics,False,-8,Subjects (school),physics
+w8d45e65,biology,False,-8,Subjects (school),biology
+w8d45e65,spanish,False,1,Subjects (school),spanish
+w8d45e65,chemistry,False,-6,Subjects (school),chemistry
+w8d45e65,french,False,1,Subjects (school),french
+w8d45e65,UNK,True,-10,Subjects (school),"Math, history, Science"
+w8d45e65,english,False,-1,Subjects (school),english
+w8d45e65,algebra,False,-10,Subjects (school),algebra
+w8d45e65,geometry,False,-8,Subjects (school),geometry
+w8d45e65,calculus,False,-10,Subjects (school),calculus
+w8d45e65,history,False,-3,Subjects (school),history
+w8d45e65,skateboard,False,-10,Vehicles (commute),skateboard
+w8d45e65,bus,False,-10,Vehicles (commute),bus
+w8d45e65,helicopter,False,-7,Vehicles (commute),helicopter
+w8d45e65,scooter,False,-10,Vehicles (commute),scooter
+w8d45e65,train,False,-9,Vehicles (commute),train
+w8d45e65,bicycle,False,-8,Vehicles (commute),bicycle
+w8d45e65,boat,False,-3,Vehicles (commute),boat
+w8d45e65,plane,False,-8,Vehicles (commute),plane
+w8d45e65,limousine,False,1,Vehicles (commute),limousine
+w8d45e65,unicycle,False,-10,Vehicles (commute),unicycle
+w8d45e65,car,False,10,Vehicles (commute),car
+w8d45e65,elephant,False,-10,Animals (intimate),elephant
+w8d45e65,gorilla,False,-10,Animals (intimate),gorilla
+w8d45e65,cobra,False,-10,Animals (intimate),cobra
+w8d45e65,peacock,False,-8,Animals (intimate),peacock
+w8d45e65,lion,True,-10,Animals (intimate),Lions
+w8d45e65,koala,False,1,Animals (intimate),koala
+w8d45e65,UNK,True,-10,Animals (intimate),Wolves
+w8d45e65,giraffe,False,-2,Animals (intimate),giraffe
+w8d45e65,monkey,False,-9,Animals (intimate),monkey
+w8d45e65,rhinoceros,False,-10,Animals (intimate),rhinoceros
+w8d45e65,kangaroo,False,-10,Animals (intimate),kangaroo
+w8d45e65,panda,False,-10,Animals (intimate),panda
+w8d45e65,deer,True,-10,Animals (intimate),Bears
+w8d45e65,jaguar,False,-10,Animals (intimate),jaguar
+w8d45e65,tiger,True,-10,Animals (intimate),Tigers
+w8d45e65,crocodile,False,-10,Animals (intimate),crocodile
+w8d45e65,sloth,False,10,Animals (intimate),sloth
+w8d45e65,lemur,False,2,Animals (intimate),lemur
+w8d45e65,tennis,False,0,Sports (season),tennis
+w8d45e65,boxing,False,-6,Sports (season),boxing
+w8d45e65,baseball,False,1,Sports (season),baseball
+w8d45e65,cricket,False,-10,Sports (season),cricket
+w8d45e65,rugby,False,-8,Sports (season),rugby
+w8d45e65,basketball,False,-4,Sports (season),basketball
+w8d45e65,soccer,False,-9,Sports (season),soccer
+w8d45e65,volleyball,False,10,Sports (season),volleyball
+w8d45e65,bowling,False,-10,Sports (season),bowling
+w8d45e65,golf,False,-10,Sports (season),golf
+w8d45e65,football,False,1,Sports (season),football
+w8d45e65,badminton,False,-10,Sports (season),badminton
+w92c8d42,rome,True,9,PRACTICE,Rome
+w92c8d42,london,True,7,PRACTICE,London
+w92c8d42,UNK,True,8,PRACTICE,Barcelona
+w92c8d42,venice,False,8,PRACTICE,Venice
+w92c8d42,vienna,False,5,PRACTICE,Vienna
+w92c8d42,athens,True,7,PRACTICE,Athens
+w92c8d42,paris,True,10,PRACTICE,Paris
+w92c8d42,amsterdam,False,4,PRACTICE,Amsterdam
+w92c8d42,limousine,False,7,Vehicles (commute),limousine
+w92c8d42,bicycle,False,-5,Vehicles (commute),bicycle
+w92c8d42,train,False,-2,Vehicles (commute),train
+w92c8d42,plane,False,-3,Vehicles (commute),plane
+w92c8d42,helicopter,False,3,Vehicles (commute),helicopter
+w92c8d42,unicycle,False,-10,Vehicles (commute),unicycle
+w92c8d42,bus,True,8,Vehicles (commute),BMW
+w92c8d42,UNK,True,9,Vehicles (commute),Range Rover
+w92c8d42,UNK,True,10,Vehicles (commute),Telsa
+w92c8d42,skateboard,False,-9,Vehicles (commute),skateboard
+w92c8d42,UNK,True,8,Vehicles (commute),Mercedes
+w92c8d42,scooter,False,-7,Vehicles (commute),scooter
+w92c8d42,monkey,True,2,Animals (intimate),monkey
+w92c8d42,zebra,False,-3,Animals (intimate),zebra
+w92c8d42,cobra,False,-8,Animals (intimate),cobra
+w92c8d42,jaguar,False,-9,Animals (intimate),jaguar
+w92c8d42,koala,False,5,Animals (intimate),koala
+w92c8d42,elephant,False,-3,Animals (intimate),elephant
+w92c8d42,lemur,False,8,Animals (intimate),lemur
+w92c8d42,kangaroo,False,-7,Animals (intimate),kangaroo
+w92c8d42,tiger,True,-10,Animals (intimate),tiger
+w92c8d42,giraffe,False,-4,Animals (intimate),giraffe
+w92c8d42,lion,True,-10,Animals (intimate),lion
+w92c8d42,gorilla,False,-10,Animals (intimate),gorilla
+w92c8d42,sloth,False,9,Animals (intimate),sloth
+w92c8d42,peacock,False,3,Animals (intimate),peacock
+w92c8d42,crocodile,False,-8,Animals (intimate),crocodile
+w92c8d42,rhinoceros,False,-10,Animals (intimate),rhinoceros
+w92c8d42,panda,False,7,Animals (intimate),panda
+w92c8d42,calculus,False,-3,Subjects (school),calculus
+w92c8d42,physics,False,-8,Subjects (school),physics
+w92c8d42,UNK,True,-3,Subjects (school),Economics
+w92c8d42,biology,False,3,Subjects (school),biology
+w92c8d42,UNK,True,10,Subjects (school),Art History
+w92c8d42,english,False,6,Subjects (school),english
+w92c8d42,history,False,2,Subjects (school),history
+w92c8d42,algebra,False,3,Subjects (school),algebra
+w92c8d42,geometry,False,3,Subjects (school),geometry
+w92c8d42,chemistry,False,-5,Subjects (school),chemistry
+w92c8d42,spanish,False,5,Subjects (school),spanish
+w92c8d42,french,False,5,Subjects (school),french
+w92c8d42,UNK,True,8,Subjects (school),Pottery
+w92c8d42,volleyball,False,-4,Sports (season),volleyball
+w92c8d42,soccer,False,2,Sports (season),soccer
+w92c8d42,UNK,True,7,Sports (season),sports tickets
+w92c8d42,cricket,False,-3,Sports (season),cricket
+w92c8d42,badminton,False,-3,Sports (season),badminton
+w92c8d42,football,False,4,Sports (season),football
+w92c8d42,tennis,False,2,Sports (season),tennis
+w92c8d42,golf,False,-3,Sports (season),golf
+w92c8d42,boxing,False,1,Sports (season),boxing
+w92c8d42,basketball,False,8,Sports (season),basketball
+w92c8d42,rugby,False,0,Sports (season),rugby
+w92c8d42,UNK,True,6,Sports (season),amusement park
+w92c8d42,baseball,False,4,Sports (season),baseball
+w92c8d42,bowling,False,-5,Sports (season),bowling
+w23a7e68,rome,False,7,PRACTICE,Rome
+w23a7e68,athens,False,6,PRACTICE,Athens
+w23a7e68,vienna,False,6,PRACTICE,Vienna
+w23a7e68,london,False,8,PRACTICE,London
+w23a7e68,paris,True,8,PRACTICE,Paris
+w23a7e68,amsterdam,False,8,PRACTICE,Amsterdam
+w23a7e68,venice,False,9,PRACTICE,Venice
+w23a7e68,soccer,False,2,Sports (silence),soccer
+w23a7e68,boxing,False,2,Sports (silence),boxing
+w23a7e68,baseball,False,4,Sports (silence),baseball
+w23a7e68,football,True,2,Sports (silence),Football
+w23a7e68,golf,False,4,Sports (silence),golf
+w23a7e68,volleyball,False,0,Sports (silence),volleyball
+w23a7e68,badminton,False,0,Sports (silence),badminton
+w23a7e68,basketball,False,2,Sports (silence),basketball
+w23a7e68,bowling,False,-3,Sports (silence),bowling
+w23a7e68,cricket,False,0,Sports (silence),cricket
+w23a7e68,rugby,False,2,Sports (silence),rugby
+w23a7e68,tennis,False,-2,Sports (silence),tennis
+w23a7e68,koala,False,0,Animals (bubble),koala
+w23a7e68,kangaroo,False,4,Animals (bubble),kangaroo
+w23a7e68,rhinoceros,False,4,Animals (bubble),rhinoceros
+w23a7e68,elephant,False,7,Animals (bubble),elephant
+w23a7e68,deer,False,2,Animals (bubble),deer
+w23a7e68,gorilla,False,5,Animals (bubble),gorilla
+w23a7e68,sloth,False,2,Animals (bubble),sloth
+w23a7e68,monkey,False,2,Animals (bubble),monkey
+w23a7e68,tiger,False,4,Animals (bubble),tiger
+w23a7e68,panda,False,5,Animals (bubble),panda
+w23a7e68,zebra,False,2,Animals (bubble),zebra
+w23a7e68,crocodile,False,0,Animals (bubble),crocodile
+w23a7e68,lion,False,4,Animals (bubble),lion
+w23a7e68,peacock,False,0,Animals (bubble),peacock
+w23a7e68,giraffe,False,5,Animals (bubble),giraffe
+w23a7e68,cobra,False,-3,Animals (bubble),cobra
+w23a7e68,jaguar,False,3,Animals (bubble),jaguar
+w23a7e68,lemur,False,5,Animals (bubble),lemur
+w23a7e68,algebra,False,3,Subjects (magic),algebra
+w23a7e68,calculus,False,3,Subjects (magic),calculus
+w23a7e68,spanish,False,9,Subjects (magic),spanish
+w23a7e68,physics,False,6,Subjects (magic),physics
+w23a7e68,biology,False,6,Subjects (magic),biology
+w23a7e68,english,False,2,Subjects (magic),english
+w23a7e68,chemistry,False,2,Subjects (magic),chemistry
+w23a7e68,geometry,False,-2,Subjects (magic),geometry
+w23a7e68,history,False,7,Subjects (magic),history
+w23a7e68,french,False,8,Subjects (magic),french
+w23a7e68,scooter,False,0,Vehicles (veto),scooter
+w23a7e68,skateboard,False,0,Vehicles (veto),skateboard
+w23a7e68,helicopter,False,0,Vehicles (veto),helicopter
+w23a7e68,limousine,False,0,Vehicles (veto),limousine
+w23a7e68,car,True,-9,Vehicles (veto),Car
+w23a7e68,train,False,-1,Vehicles (veto),train
+w23a7e68,bicycle,False,-4,Vehicles (veto),bicycle
+w23a7e68,unicycle,False,0,Vehicles (veto),unicycle
+w23a7e68,plane,False,-2,Vehicles (veto),plane
+w82f7259,london,True,10,PRACTICE,London
+w82f7259,vienna,True,10,PRACTICE,Vienna
+w82f7259,UNK,True,10,PRACTICE,Prague
+w82f7259,UNK,True,10,PRACTICE,Berlin
+w82f7259,athens,False,10,PRACTICE,Athens
+w82f7259,rome,False,10,PRACTICE,Rome
+w82f7259,UNK,True,10,PRACTICE,Stockholm
+w82f7259,amsterdam,True,10,PRACTICE,Amsterdam
+w82f7259,venice,False,10,PRACTICE,Venice
+w82f7259,paris,True,10,PRACTICE,Paris
+w82f7259,tennis,False,0,Sports (silence),tennis
+w82f7259,rugby,False,0,Sports (silence),rugby
+w82f7259,boxing,False,4,Sports (silence),boxing
+w82f7259,cricket,False,0,Sports (silence),cricket
+w82f7259,football,False,7,Sports (silence),football
+w82f7259,badminton,False,-6,Sports (silence),badminton
+w82f7259,soccer,False,-4,Sports (silence),soccer
+w82f7259,bowling,False,-9,Sports (silence),bowling
+w82f7259,volleyball,False,0,Sports (silence),volleyball
+w82f7259,golf,False,0,Sports (silence),golf
+w82f7259,basketball,True,7,Sports (silence),Basketball
+w82f7259,physics,False,3,Subjects (magic),physics
+w82f7259,geometry,False,3,Subjects (magic),geometry
+w82f7259,algebra,False,0,Subjects (magic),algebra
+w82f7259,chemistry,False,5,Subjects (magic),chemistry
+w82f7259,calculus,False,0,Subjects (magic),calculus
+w82f7259,french,False,10,Subjects (magic),french
+w82f7259,UNK,True,10,Subjects (magic),Theatre
+w82f7259,english,False,10,Subjects (magic),english
+w82f7259,history,False,10,Subjects (magic),history
+w82f7259,spanish,False,7,Subjects (magic),spanish
+w82f7259,biology,False,2,Subjects (magic),biology
+w82f7259,lion,False,2,Animals (bubble),lion
+w82f7259,monkey,False,2,Animals (bubble),monkey
+w82f7259,gorilla,False,2,Animals (bubble),gorilla
+w82f7259,jaguar,False,2,Animals (bubble),jaguar
+w82f7259,tiger,False,2,Animals (bubble),tiger
+w82f7259,giraffe,False,4,Animals (bubble),giraffe
+w82f7259,deer,False,0,Animals (bubble),deer
+w82f7259,cobra,False,0,Animals (bubble),cobra
+w82f7259,kangaroo,False,2,Animals (bubble),kangaroo
+w82f7259,lemur,False,2,Animals (bubble),lemur
+w82f7259,rhinoceros,False,4,Animals (bubble),rhinoceros
+w82f7259,sloth,False,0,Animals (bubble),sloth
+w82f7259,crocodile,False,0,Animals (bubble),crocodile
+w82f7259,koala,False,2,Animals (bubble),koala
+w82f7259,elephant,True,6,Animals (bubble),Elephant
+w82f7259,zebra,False,2,Animals (bubble),zebra
+w82f7259,panda,False,6,Animals (bubble),panda
+w82f7259,peacock,False,0,Animals (bubble),peacock
+w82f7259,scooter,False,0,Vehicles (veto),scooter
+w82f7259,car,True,-10,Vehicles (veto),Car
+w82f7259,bicycle,False,0,Vehicles (veto),bicycle
+w82f7259,unicycle,False,0,Vehicles (veto),unicycle
+w82f7259,limousine,False,0,Vehicles (veto),limousine
+w82f7259,plane,False,0,Vehicles (veto),plane
+w82f7259,train,False,-5,Vehicles (veto),train
+w82f7259,skateboard,False,0,Vehicles (veto),skateboard
+w82f7259,helicopter,False,0,Vehicles (veto),helicopter
+w1989f41,rome,False,10,PRACTICE,Rome
+w1989f41,athens,False,10,PRACTICE,Athens
+w1989f41,vienna,False,10,PRACTICE,Vienna
+w1989f41,venice,False,10,PRACTICE,Venice
+w1989f41,london,False,5,PRACTICE,London
+w1989f41,amsterdam,False,4,PRACTICE,Amsterdam
+w1989f41,madrid,False,7,PRACTICE,Madrid
+w1989f41,paris,False,10,PRACTICE,Paris
+w1989f41,rugby,False,-4,Sports (season),rugby
+w1989f41,soccer,False,-6,Sports (season),soccer
+w1989f41,volleyball,False,-4,Sports (season),volleyball
+w1989f41,football,False,0,Sports (season),football
+w1989f41,bowling,False,-4,Sports (season),bowling
+w1989f41,basketball,True,5,Sports (season),Basketball
+w1989f41,tennis,False,3,Sports (season),tennis
+w1989f41,badminton,False,-8,Sports (season),badminton
+w1989f41,golf,False,-10,Sports (season),golf
+w1989f41,cricket,False,0,Sports (season),cricket
+w1989f41,boxing,False,3,Sports (season),boxing
+w1989f41,history,False,-9,Subjects (school),history
+w1989f41,calculus,False,-10,Subjects (school),calculus
+w1989f41,spanish,False,0,Subjects (school),spanish
+w1989f41,algebra,False,0,Subjects (school),algebra
+w1989f41,chemistry,False,-10,Subjects (school),chemistry
+w1989f41,english,False,7,Subjects (school),english
+w1989f41,UNK,True,10,Subjects (school),Reading
+w1989f41,geometry,False,-7,Subjects (school),geometry
+w1989f41,physics,False,-10,Subjects (school),physics
+w1989f41,biology,False,-9,Subjects (school),biology
+w1989f41,french,False,4,Subjects (school),french
+w1989f41,car,False,0,Vehicles (commute),car
+w1989f41,bicycle,False,-4,Vehicles (commute),bicycle
+w1989f41,plane,False,-4,Vehicles (commute),plane
+w1989f41,limousine,False,8,Vehicles (commute),limousine
+w1989f41,train,False,0,Vehicles (commute),train
+w1989f41,scooter,False,0,Vehicles (commute),scooter
+w1989f41,skateboard,False,-6,Vehicles (commute),skateboard
+w1989f41,unicycle,False,-7,Vehicles (commute),unicycle
+w1989f41,boat,False,-6,Vehicles (commute),boat
+w1989f41,helicopter,False,-8,Vehicles (commute),helicopter
+w1989f41,bus,False,0,Vehicles (commute),bus
+w1989f41,zebra,False,0,Animals (intimate),zebra
+w1989f41,koala,False,0,Animals (intimate),koala
+w1989f41,cobra,False,-10,Animals (intimate),cobra
+w1989f41,jaguar,False,-10,Animals (intimate),jaguar
+w1989f41,tiger,False,-10,Animals (intimate),tiger
+w1989f41,deer,False,0,Animals (intimate),deer
+w1989f41,crocodile,False,-10,Animals (intimate),crocodile
+w1989f41,monkey,False,3,Animals (intimate),monkey
+w1989f41,elephant,False,-5,Animals (intimate),elephant
+w1989f41,sloth,False,0,Animals (intimate),sloth
+w1989f41,kangaroo,False,0,Animals (intimate),kangaroo
+w1989f41,rhinoceros,False,-6,Animals (intimate),rhinoceros
+w1989f41,lemur,False,0,Animals (intimate),lemur
+w1989f41,giraffe,False,0,Animals (intimate),giraffe
+w1989f41,peacock,False,0,Animals (intimate),peacock
+w1989f41,lion,False,-10,Animals (intimate),lion
+w1989f41,gorilla,False,-10,Animals (intimate),gorilla
+w1989f41,panda,False,0,Animals (intimate),panda
+wa0d5d63,UNK,True,10,PRACTICE,Germany
+wa0d5d63,rome,False,10,PRACTICE,Rome
+wa0d5d63,paris,True,10,PRACTICE,Paris
+wa0d5d63,athens,False,10,PRACTICE,Athens
+wa0d5d63,venice,False,10,PRACTICE,Venice
+wa0d5d63,london,False,3,PRACTICE,London
+wa0d5d63,vienna,False,8,PRACTICE,Vienna
+wa0d5d63,amsterdam,False,10,PRACTICE,Amsterdam
+wa0d5d63,scooter,False,-6,Vehicles (commute),scooter
+wa0d5d63,limousine,False,9,Vehicles (commute),limousine
+wa0d5d63,bicycle,False,2,Vehicles (commute),bicycle
+wa0d5d63,train,False,4,Vehicles (commute),train
+wa0d5d63,bus,True,-4,Vehicles (commute),Bus
+wa0d5d63,unicycle,False,-1,Vehicles (commute),unicycle
+wa0d5d63,skateboard,False,5,Vehicles (commute),skateboard
+wa0d5d63,plane,False,7,Vehicles (commute),plane
+wa0d5d63,helicopter,False,9,Vehicles (commute),helicopter
+wa0d5d63,basketball,False,6,Sports (season),basketball
+wa0d5d63,boxing,False,6,Sports (season),boxing
+wa0d5d63,golf,False,7,Sports (season),golf
+wa0d5d63,tennis,False,4,Sports (season),tennis
+wa0d5d63,soccer,True,10,Sports (season),Hockey
+wa0d5d63,rugby,False,9,Sports (season),rugby
+wa0d5d63,volleyball,False,7,Sports (season),volleyball
+wa0d5d63,football,False,10,Sports (season),football
+wa0d5d63,baseball,False,10,Sports (season),baseball
+wa0d5d63,badminton,False,2,Sports (season),badminton
+wa0d5d63,bowling,False,1,Sports (season),bowling
+wa0d5d63,cricket,False,-1,Sports (season),cricket
+wa0d5d63,monkey,True,2,Animals (intimate),Monkey
+wa0d5d63,gorilla,False,-5,Animals (intimate),gorilla
+wa0d5d63,zebra,False,-2,Animals (intimate),zebra
+wa0d5d63,elephant,False,2,Animals (intimate),elephant
+wa0d5d63,rhinoceros,False,-6,Animals (intimate),rhinoceros
+wa0d5d63,tiger,True,-7,Animals (intimate),Tiger
+wa0d5d63,cobra,False,-7,Animals (intimate),cobra
+wa0d5d63,sloth,False,2,Animals (intimate),sloth
+wa0d5d63,jaguar,False,-7,Animals (intimate),jaguar
+wa0d5d63,giraffe,False,2,Animals (intimate),giraffe
+wa0d5d63,lion,False,-9,Animals (intimate),lion
+wa0d5d63,koala,False,3,Animals (intimate),koala
+wa0d5d63,peacock,False,1,Animals (intimate),peacock
+wa0d5d63,lemur,False,2,Animals (intimate),lemur
+wa0d5d63,kangaroo,False,-2,Animals (intimate),kangaroo
+wa0d5d63,crocodile,False,-7,Animals (intimate),crocodile
+wa0d5d63,panda,False,-3,Animals (intimate),panda
+wa0d5d63,calculus,False,-1,Subjects (school),calculus
+wa0d5d63,physics,False,-3,Subjects (school),physics
+wa0d5d63,geometry,False,1,Subjects (school),geometry
+wa0d5d63,biology,False,2,Subjects (school),biology
+wa0d5d63,chemistry,False,2,Subjects (school),chemistry
+wa0d5d63,algebra,False,-1,Subjects (school),algebra
+wa0d5d63,history,False,8,Subjects (school),history
+wa0d5d63,french,False,2,Subjects (school),french
+wa0d5d63,spanish,False,5,Subjects (school),spanish
+wa0d5d63,english,False,7,Subjects (school),english
+w1a640b0,vienna,False,2,PRACTICE,Vienna
+w1a640b0,athens,False,0,PRACTICE,Athens
+w1a640b0,amsterdam,False,3,PRACTICE,Amsterdam
+w1a640b0,rome,False,10,PRACTICE,Rome
+w1a640b0,london,False,9,PRACTICE,London
+w1a640b0,madrid,False,2,PRACTICE,Madrid
+w1a640b0,venice,False,4,PRACTICE,Venice
+w1a640b0,paris,False,7,PRACTICE,Paris
+w1a640b0,limousine,False,0,Vehicles (veto),limousine
+w1a640b0,boat,False,2,Vehicles (veto),boat
+w1a640b0,bus,False,-6,Vehicles (veto),bus
+w1a640b0,scooter,False,4,Vehicles (veto),scooter
+w1a640b0,car,False,-9,Vehicles (veto),car
+w1a640b0,train,False,-3,Vehicles (veto),train
+w1a640b0,skateboard,False,9,Vehicles (veto),skateboard
+w1a640b0,unicycle,False,10,Vehicles (veto),unicycle
+w1a640b0,helicopter,False,7,Vehicles (veto),helicopter
+w1a640b0,plane,False,-10,Vehicles (veto),plane
+w1a640b0,bicycle,False,5,Vehicles (veto),bicycle
+w1a640b0,baseball,True,8,Sports (silence),Baseball
+w1a640b0,soccer,False,-9,Sports (silence),soccer
+w1a640b0,volleyball,False,-8,Sports (silence),volleyball
+w1a640b0,tennis,True,1,Sports (silence),Tennis
+w1a640b0,cricket,False,9,Sports (silence),cricket
+w1a640b0,football,False,-2,Sports (silence),football
+w1a640b0,badminton,False,0,Sports (silence),badminton
+w1a640b0,bowling,False,-4,Sports (silence),bowling
+w1a640b0,golf,False,0,Sports (silence),golf
+w1a640b0,boxing,False,10,Sports (silence),boxing
+w1a640b0,rugby,False,2,Sports (silence),rugby
+w1a640b0,crocodile,False,1,Animals (bubble),crocodile
+w1a640b0,sloth,False,3,Animals (bubble),sloth
+w1a640b0,lion,True,2,Animals (bubble),Lion
+w1a640b0,panda,False,7,Animals (bubble),panda
+w1a640b0,elephant,False,3,Animals (bubble),elephant
+w1a640b0,gorilla,False,-8,Animals (bubble),gorilla
+w1a640b0,koala,True,10,Animals (bubble),Whale
+w1a640b0,jaguar,False,0,Animals (bubble),jaguar
+w1a640b0,giraffe,False,-2,Animals (bubble),giraffe
+w1a640b0,deer,True,8,Animals (bubble),Bear
+w1a640b0,kangaroo,False,-4,Animals (bubble),kangaroo
+w1a640b0,UNK,True,9,Animals (bubble),Dolphin
+w1a640b0,peacock,False,-10,Animals (bubble),peacock
+w1a640b0,monkey,False,-6,Animals (bubble),monkey
+w1a640b0,rhinoceros,False,4,Animals (bubble),rhinoceros
+w1a640b0,cobra,False,-3,Animals (bubble),cobra
+w1a640b0,tiger,False,6,Animals (bubble),tiger
+w1a640b0,geometry,False,2,Subjects (magic),geometry
+w1a640b0,english,False,8,Subjects (magic),english
+w1a640b0,history,False,4,Subjects (magic),history
+w1a640b0,UNK,True,10,Subjects (magic),Invisibility
+w1a640b0,physics,False,-4,Subjects (magic),physics
+w1a640b0,french,False,-2,Subjects (magic),french
+w1a640b0,calculus,False,-8,Subjects (magic),calculus
+w1a640b0,chemistry,False,6,Subjects (magic),chemistry
+w1a640b0,spanish,False,0,Subjects (magic),spanish
+w1a640b0,algebra,False,5,Subjects (magic),algebra
+w1a640b0,biology,False,9,Subjects (magic),biology
+w7bb6604,paris,True,10,PRACTICE,Paris
+w7bb6604,rome,True,10,PRACTICE,Rome
+w7bb6604,venice,False,10,PRACTICE,Venice
+w7bb6604,london,True,10,PRACTICE,London
+w7bb6604,UNK,True,10,PRACTICE,Ljubljana
+w7bb6604,vienna,False,10,PRACTICE,Vienna
+w7bb6604,UNK,True,10,PRACTICE,Helsinki
+w7bb6604,madrid,True,10,PRACTICE,Madrid
+w7bb6604,amsterdam,False,10,PRACTICE,Amsterdam
+w7bb6604,athens,True,10,PRACTICE,Athens
+w7bb6604,biology,True,8,Subjects (school),Zoology
+w7bb6604,spanish,False,8,Subjects (school),spanish
+w7bb6604,chemistry,False,5,Subjects (school),chemistry
+w7bb6604,geometry,False,8,Subjects (school),geometry
+w7bb6604,english,False,8,Subjects (school),english
+w7bb6604,physics,False,5,Subjects (school),physics
+w7bb6604,algebra,False,4,Subjects (school),algebra
+w7bb6604,history,True,8,Subjects (school),History
+w7bb6604,UNK,True,10,Subjects (school),Art
+w7bb6604,UNK,True,6,Subjects (school),Accounting
+w7bb6604,UNK,True,10,Subjects (school),Graphic design
+w7bb6604,french,False,5,Subjects (school),french
+w7bb6604,calculus,False,3,Subjects (school),calculus
+w7bb6604,UNK,True,10,Subjects (school),Web design
+w7bb6604,helicopter,False,-3,Vehicles (commute),helicopter
+w7bb6604,plane,False,-5,Vehicles (commute),plane
+w7bb6604,UNK,True,-3,Vehicles (commute),Rideshare
+w7bb6604,UNK,True,4,Vehicles (commute),Kayak
+w7bb6604,bus,True,-1,Vehicles (commute),Bus
+w7bb6604,limousine,False,4,Vehicles (commute),limousine
+w7bb6604,train,True,2,Vehicles (commute),Train
+w7bb6604,bicycle,True,1,Vehicles (commute),Bicycle
+w7bb6604,skateboard,False,-1,Vehicles (commute),skateboard
+w7bb6604,scooter,False,5,Vehicles (commute),scooter
+w7bb6604,football,False,1,Sports (season),football
+w7bb6604,volleyball,False,2,Sports (season),volleyball
+w7bb6604,bowling,False,3,Sports (season),bowling
+w7bb6604,badminton,False,3,Sports (season),badminton
+w7bb6604,soccer,True,2,Sports (season),Soccer
+w7bb6604,baseball,True,2,Sports (season),Baseball
+w7bb6604,soccer,True,2,Sports (season),Hockey
+w7bb6604,tennis,False,2,Sports (season),tennis
+w7bb6604,golf,False,-1,Sports (season),golf
+w7bb6604,boxing,False,3,Sports (season),boxing
+w7bb6604,rugby,False,-2,Sports (season),rugby
+w7bb6604,cricket,False,0,Sports (season),cricket
+w7bb6604,zebra,False,5,Animals (intimate),zebra
+w7bb6604,deer,False,5,Animals (intimate),deer
+w7bb6604,elephant,True,9,Animals (intimate),Elephant
+w7bb6604,peacock,False,5,Animals (intimate),peacock
+w7bb6604,giraffe,True,7,Animals (intimate),Giraffe
+w7bb6604,rhinoceros,False,-2,Animals (intimate),rhinoceros
+w7bb6604,gorilla,True,8,Animals (intimate),Gorilla
+w7bb6604,sloth,True,8,Animals (intimate),Sloth
+w7bb6604,lion,False,-2,Animals (intimate),lion
+w7bb6604,tiger,False,-2,Animals (intimate),tiger
+w7bb6604,kangaroo,False,5,Animals (intimate),kangaroo
+w7bb6604,jaguar,False,-2,Animals (intimate),jaguar
+w7bb6604,crocodile,False,-3,Animals (intimate),crocodile
+w7bb6604,panda,False,8,Animals (intimate),panda
+w7bb6604,UNK,True,8,Animals (intimate),Orangutan
+w7bb6604,koala,True,9,Animals (intimate),Koala
+w7bb6604,monkey,False,8,Animals (intimate),monkey
+w7bb6604,lemur,False,8,Animals (intimate),lemur
+w4127897,vienna,False,10,PRACTICE,Vienna
+w4127897,amsterdam,False,10,PRACTICE,Amsterdam
+w4127897,paris,False,0,PRACTICE,Paris
+w4127897,rome,False,0,PRACTICE,Rome
+w4127897,madrid,False,10,PRACTICE,Madrid
+w4127897,athens,False,10,PRACTICE,Athens
+w4127897,venice,False,2,PRACTICE,Venice
+w4127897,london,False,10,PRACTICE,London
+w4127897,train,False,6,Vehicles (veto),train
+w4127897,plane,False,-8,Vehicles (veto),plane
+w4127897,boat,False,5,Vehicles (veto),boat
+w4127897,helicopter,False,5,Vehicles (veto),helicopter
+w4127897,limousine,False,6,Vehicles (veto),limousine
+w4127897,scooter,False,7,Vehicles (veto),scooter
+w4127897,car,False,-10,Vehicles (veto),car
+w4127897,skateboard,False,9,Vehicles (veto),skateboard
+w4127897,unicycle,False,9,Vehicles (veto),unicycle
+w4127897,bicycle,False,5,Vehicles (veto),bicycle
+w4127897,bus,False,5,Vehicles (veto),bus
+w4127897,boxing,False,-2,Sports (silence),boxing
+w4127897,baseball,False,-2,Sports (silence),baseball
+w4127897,soccer,False,-2,Sports (silence),soccer
+w4127897,tennis,False,-2,Sports (silence),tennis
+w4127897,rugby,False,-2,Sports (silence),rugby
+w4127897,golf,False,-3,Sports (silence),golf
+w4127897,bowling,False,-2,Sports (silence),bowling
+w4127897,basketball,False,-4,Sports (silence),basketball
+w4127897,badminton,False,-1,Sports (silence),badminton
+w4127897,cricket,False,-2,Sports (silence),cricket
+w4127897,football,False,-9,Sports (silence),football
+w4127897,volleyball,False,-1,Sports (silence),volleyball
+w4127897,chemistry,False,-5,Subjects (magic),chemistry
+w4127897,algebra,False,-5,Subjects (magic),algebra
+w4127897,physics,False,-5,Subjects (magic),physics
+w4127897,biology,False,-5,Subjects (magic),biology
+w4127897,english,False,-5,Subjects (magic),english
+w4127897,geometry,False,-5,Subjects (magic),geometry
+w4127897,calculus,False,-7,Subjects (magic),calculus
+w4127897,french,False,3,Subjects (magic),french
+w4127897,spanish,False,4,Subjects (magic),spanish
+w4127897,history,False,-3,Subjects (magic),history
+w4127897,lemur,False,7,Animals (bubble),lemur
+w4127897,sloth,False,-6,Animals (bubble),sloth
+w4127897,kangaroo,False,-2,Animals (bubble),kangaroo
+w4127897,rhinoceros,False,-4,Animals (bubble),rhinoceros
+w4127897,crocodile,False,-4,Animals (bubble),crocodile
+w4127897,lion,False,1,Animals (bubble),lion
+w4127897,panda,False,10,Animals (bubble),panda
+w4127897,koala,False,0,Animals (bubble),koala
+w4127897,tiger,False,-1,Animals (bubble),tiger
+w4127897,monkey,False,10,Animals (bubble),monkey
+w4127897,elephant,False,1,Animals (bubble),elephant
+w4127897,deer,False,-1,Animals (bubble),deer
+w4127897,jaguar,False,-1,Animals (bubble),jaguar
+w4127897,zebra,False,-1,Animals (bubble),zebra
+w4127897,gorilla,False,10,Animals (bubble),gorilla
+w4127897,peacock,False,-2,Animals (bubble),peacock
+w4127897,giraffe,False,-2,Animals (bubble),giraffe
+w4127897,cobra,False,-2,Animals (bubble),cobra
+wdfcc87f,rome,False,5,PRACTICE,Rome
+wdfcc87f,UNK,True,8,PRACTICE,Sicily
+wdfcc87f,athens,False,5,PRACTICE,Athens
+wdfcc87f,vienna,False,6,PRACTICE,Vienna
+wdfcc87f,venice,False,6,PRACTICE,Venice
+wdfcc87f,london,False,-3,PRACTICE,London
+wdfcc87f,amsterdam,False,6,PRACTICE,Amsterdam
+wdfcc87f,paris,True,8,PRACTICE,Paris
+wdfcc87f,crocodile,False,-6,Animals (bubble),crocodile
+wdfcc87f,lion,True,8,Animals (bubble),lion
+wdfcc87f,cobra,False,-8,Animals (bubble),cobra
+wdfcc87f,UNK,True,9,Animals (bubble),horses
+wdfcc87f,gorilla,False,3,Animals (bubble),gorilla
+wdfcc87f,zebra,False,2,Animals (bubble),zebra
+wdfcc87f,jaguar,False,5,Animals (bubble),jaguar
+wdfcc87f,giraffe,False,1,Animals (bubble),giraffe
+wdfcc87f,sloth,False,1,Animals (bubble),sloth
+wdfcc87f,monkey,False,2,Animals (bubble),monkey
+wdfcc87f,koala,False,2,Animals (bubble),koala
+wdfcc87f,elephant,False,4,Animals (bubble),elephant
+wdfcc87f,UNK,True,8,Animals (bubble),cats
+wdfcc87f,lemur,False,2,Animals (bubble),lemur
+wdfcc87f,rhinoceros,False,2,Animals (bubble),rhinoceros
+wdfcc87f,kangaroo,False,1,Animals (bubble),kangaroo
+wdfcc87f,tiger,False,7,Animals (bubble),tiger
+wdfcc87f,UNK,True,9,Animals (bubble),panther
+wdfcc87f,deer,True,10,Animals (bubble),dogs
+wdfcc87f,peacock,False,2,Animals (bubble),peacock
+wdfcc87f,panda,False,2,Animals (bubble),panda
+wdfcc87f,scooter,False,10,Vehicles (veto),scooter
+wdfcc87f,unicycle,False,10,Vehicles (veto),unicycle
+wdfcc87f,bus,True,8,Vehicles (veto),bus
+wdfcc87f,bicycle,False,10,Vehicles (veto),bicycle
+wdfcc87f,train,True,8,Vehicles (veto),train
+wdfcc87f,skateboard,False,10,Vehicles (veto),skateboard
+wdfcc87f,plane,True,10,Vehicles (veto),airplane
+wdfcc87f,helicopter,False,10,Vehicles (veto),helicopter
+wdfcc87f,limousine,False,5,Vehicles (veto),limousine
+wdfcc87f,spanish,False,6,Subjects (magic),spanish
+wdfcc87f,chemistry,False,2,Subjects (magic),chemistry
+wdfcc87f,physics,False,-7,Subjects (magic),physics
+wdfcc87f,algebra,False,-7,Subjects (magic),algebra
+wdfcc87f,biology,True,8,Subjects (magic),biology
+wdfcc87f,UNK,True,8,Subjects (magic),literature
+wdfcc87f,biology,True,9,Subjects (magic),sociology
+wdfcc87f,geometry,False,-5,Subjects (magic),geometry
+wdfcc87f,french,False,-4,Subjects (magic),french
+wdfcc87f,calculus,False,-7,Subjects (magic),calculus
+wdfcc87f,history,False,-2,Subjects (magic),history
+wdfcc87f,english,False,8,Subjects (magic),english
+wdfcc87f,UNK,True,10,Subjects (magic),psychology
+wdfcc87f,baseball,False,3,Sports (silence),baseball
+wdfcc87f,volleyball,False,3,Sports (silence),volleyball
+wdfcc87f,UNK,True,9,Sports (silence),pole vaulting
+wdfcc87f,soccer,True,5,Sports (silence),soccer
+wdfcc87f,cricket,False,6,Sports (silence),cricket
+wdfcc87f,badminton,False,7,Sports (silence),badminton
+wdfcc87f,basketball,False,-5,Sports (silence),basketball
+wdfcc87f,UNK,True,9,Sports (silence),Jai lai 
+wdfcc87f,golf,False,3,Sports (silence),golf
+wdfcc87f,bowling,False,1,Sports (silence),bowling
+wdfcc87f,tennis,False,-4,Sports (silence),tennis
+wdfcc87f,UNK,True,9,Sports (silence),ski
+wdfcc87f,football,False,-5,Sports (silence),football
+wdfcc87f,boxing,False,-6,Sports (silence),boxing
+wdfcc87f,UNK,True,10,Sports (silence),ice hockey
+wdfcc87f,rugby,False,10,Sports (silence),rugby
+w4d34db1,amsterdam,False,8,PRACTICE,Amsterdam
+w4d34db1,vienna,False,10,PRACTICE,Vienna
+w4d34db1,paris,False,1,PRACTICE,Paris
+w4d34db1,london,False,-2,PRACTICE,London
+w4d34db1,madrid,False,1,PRACTICE,Madrid
+w4d34db1,athens,False,10,PRACTICE,Athens
+w4d34db1,rome,False,10,PRACTICE,Rome
+w4d34db1,venice,False,10,PRACTICE,Venice
+w4d34db1,sloth,False,10,Animals (intimate),sloth
+w4d34db1,UNK,True,-10,Animals (intimate),"Lion, tiger"
+w4d34db1,panda,False,-1,Animals (intimate),panda
+w4d34db1,rhinoceros,False,-10,Animals (intimate),rhinoceros
+w4d34db1,elephant,False,1,Animals (intimate),elephant
+w4d34db1,gorilla,False,-10,Animals (intimate),gorilla
+w4d34db1,peacock,False,-10,Animals (intimate),peacock
+w4d34db1,deer,False,0,Animals (intimate),deer
+w4d34db1,cobra,False,-10,Animals (intimate),cobra
+w4d34db1,monkey,False,-10,Animals (intimate),monkey
+w4d34db1,koala,False,10,Animals (intimate),koala
+w4d34db1,kangaroo,False,-10,Animals (intimate),kangaroo
+w4d34db1,tiger,False,-10,Animals (intimate),tiger
+w4d34db1,crocodile,False,-10,Animals (intimate),crocodile
+w4d34db1,lemur,False,0,Animals (intimate),lemur
+w4d34db1,giraffe,False,2,Animals (intimate),giraffe
+w4d34db1,jaguar,False,-10,Animals (intimate),jaguar
+w4d34db1,lion,False,-10,Animals (intimate),lion
+w4d34db1,zebra,False,-10,Animals (intimate),zebra
+w4d34db1,geometry,False,-10,Subjects (school),geometry
+w4d34db1,english,False,-10,Subjects (school),english
+w4d34db1,algebra,False,-10,Subjects (school),algebra
+w4d34db1,history,False,2,Subjects (school),history
+w4d34db1,spanish,False,-10,Subjects (school),spanish
+w4d34db1,chemistry,False,-10,Subjects (school),chemistry
+w4d34db1,french,False,-10,Subjects (school),french
+w4d34db1,calculus,False,-10,Subjects (school),calculus
+w4d34db1,biology,False,-10,Subjects (school),biology
+w4d34db1,physics,False,-10,Subjects (school),physics
+w4d34db1,limousine,False,10,Vehicles (commute),limousine
+w4d34db1,boat,False,0,Vehicles (commute),boat
+w4d34db1,skateboard,False,-10,Vehicles (commute),skateboard
+w4d34db1,train,False,1,Vehicles (commute),train
+w4d34db1,helicopter,False,10,Vehicles (commute),helicopter
+w4d34db1,bus,False,0,Vehicles (commute),bus
+w4d34db1,plane,False,-10,Vehicles (commute),plane
+w4d34db1,unicycle,False,-10,Vehicles (commute),unicycle
+w4d34db1,bicycle,False,-10,Vehicles (commute),bicycle
+w4d34db1,scooter,False,-10,Vehicles (commute),scooter
+w4d34db1,car,False,10,Vehicles (commute),car
+w4d34db1,boxing,False,-10,Sports (season),boxing
+w4d34db1,bowling,False,-10,Sports (season),bowling
+w4d34db1,rugby,False,-10,Sports (season),rugby
+w4d34db1,badminton,False,-10,Sports (season),badminton
+w4d34db1,baseball,False,-10,Sports (season),baseball
+w4d34db1,soccer,False,-10,Sports (season),soccer
+w4d34db1,football,False,-10,Sports (season),football
+w4d34db1,volleyball,False,-10,Sports (season),volleyball
+w4d34db1,basketball,False,-10,Sports (season),basketball
+w4d34db1,tennis,False,-10,Sports (season),tennis
+w4d34db1,golf,False,-10,Sports (season),golf
+w4d34db1,cricket,False,-10,Sports (season),cricket
+w3df2237,london,False,4,PRACTICE,London
+w3df2237,amsterdam,False,6,PRACTICE,Amsterdam
+w3df2237,athens,False,6,PRACTICE,Athens
+w3df2237,rome,False,7,PRACTICE,Rome
+w3df2237,venice,False,6,PRACTICE,Venice
+w3df2237,vienna,False,3,PRACTICE,Vienna
+w3df2237,madrid,False,7,PRACTICE,Madrid
+w3df2237,paris,False,7,PRACTICE,Paris
+w3df2237,bus,False,-6,Vehicles (commute),bus
+w3df2237,unicycle,False,-8,Vehicles (commute),unicycle
+w3df2237,bicycle,False,-3,Vehicles (commute),bicycle
+w3df2237,car,False,7,Vehicles (commute),car
+w3df2237,plane,False,7,Vehicles (commute),plane
+w3df2237,limousine,False,10,Vehicles (commute),limousine
+w3df2237,train,False,5,Vehicles (commute),train
+w3df2237,scooter,False,-1,Vehicles (commute),scooter
+w3df2237,skateboard,False,-2,Vehicles (commute),skateboard
+w3df2237,boat,False,-1,Vehicles (commute),boat
+w3df2237,helicopter,False,-2,Vehicles (commute),helicopter
+w3df2237,bowling,False,-1,Sports (season),bowling
+w3df2237,football,False,9,Sports (season),football
+w3df2237,golf,False,1,Sports (season),golf
+w3df2237,basketball,False,10,Sports (season),basketball
+w3df2237,badminton,False,-3,Sports (season),badminton
+w3df2237,cricket,False,-8,Sports (season),cricket
+w3df2237,volleyball,False,1,Sports (season),volleyball
+w3df2237,rugby,False,-1,Sports (season),rugby
+w3df2237,tennis,False,1,Sports (season),tennis
+w3df2237,boxing,False,10,Sports (season),boxing
+w3df2237,soccer,False,1,Sports (season),soccer
+w3df2237,baseball,False,3,Sports (season),baseball
+w3df2237,gorilla,False,-3,Animals (intimate),gorilla
+w3df2237,tiger,False,-7,Animals (intimate),tiger
+w3df2237,lion,False,-7,Animals (intimate),lion
+w3df2237,elephant,False,-3,Animals (intimate),elephant
+w3df2237,kangaroo,False,-3,Animals (intimate),kangaroo
+w3df2237,crocodile,False,-4,Animals (intimate),crocodile
+w3df2237,jaguar,False,-6,Animals (intimate),jaguar
+w3df2237,lemur,False,-5,Animals (intimate),lemur
+w3df2237,koala,False,-1,Animals (intimate),koala
+w3df2237,peacock,False,-2,Animals (intimate),peacock
+w3df2237,sloth,False,-3,Animals (intimate),sloth
+w3df2237,giraffe,False,-1,Animals (intimate),giraffe
+w3df2237,deer,False,-1,Animals (intimate),deer
+w3df2237,panda,False,-2,Animals (intimate),panda
+w3df2237,rhinoceros,False,-5,Animals (intimate),rhinoceros
+w3df2237,cobra,False,-7,Animals (intimate),cobra
+w3df2237,monkey,False,3,Animals (intimate),monkey
+w3df2237,zebra,False,-2,Animals (intimate),zebra
+w3df2237,spanish,False,-9,Subjects (school),spanish
+w3df2237,history,False,-1,Subjects (school),history
+w3df2237,algebra,False,-5,Subjects (school),algebra
+w3df2237,geometry,False,-6,Subjects (school),geometry
+w3df2237,physics,False,-6,Subjects (school),physics
+w3df2237,biology,False,-4,Subjects (school),biology
+w3df2237,calculus,False,-8,Subjects (school),calculus
+w3df2237,english,False,4,Subjects (school),english
+w3df2237,chemistry,False,-1,Subjects (school),chemistry
+w3df2237,french,False,-10,Subjects (school),french
+w534084f,UNK,True,4,PRACTICE,"Rome, Italy"
+w534084f,UNK,True,10,PRACTICE,"Munich, Germany"
+w534084f,amsterdam,False,8,PRACTICE,Amsterdam
+w534084f,UNK,True,9,PRACTICE,"London, England"
+w534084f,rome,False,4,PRACTICE,Rome
+w534084f,london,False,9,PRACTICE,London
+w534084f,athens,False,7,PRACTICE,Athens
+w534084f,UNK,True,7,PRACTICE,"Venice, Italy"
+w534084f,UNK,True,7,PRACTICE,"Oslo, Norway"
+w534084f,UNK,True,4,PRACTICE,"Florence, Italy"
+w534084f,UNK,True,8,PRACTICE,Prague
+w534084f,madrid,False,8,PRACTICE,Madrid
+w534084f,vienna,False,3,PRACTICE,Vienna
+w534084f,paris,False,10,PRACTICE,Paris
+w534084f,venice,False,8,PRACTICE,Venice
+w534084f,UNK,True,10,PRACTICE,"Paris, France"
+w534084f,UNK,True,10,PRACTICE,"Barcelona, Spain"
+w534084f,crocodile,False,0,Animals (bubble),crocodile
+w534084f,peacock,False,-3,Animals (bubble),peacock
+w534084f,jaguar,False,7,Animals (bubble),jaguar
+w534084f,cobra,False,-5,Animals (bubble),cobra
+w534084f,tiger,False,8,Animals (bubble),tiger
+w534084f,panda,False,6,Animals (bubble),panda
+w534084f,giraffe,False,9,Animals (bubble),giraffe
+w534084f,elephant,False,8,Animals (bubble),elephant
+w534084f,koala,False,0,Animals (bubble),koala
+w534084f,monkey,False,-3,Animals (bubble),monkey
+w534084f,kangaroo,False,6,Animals (bubble),kangaroo
+w534084f,sloth,False,-4,Animals (bubble),sloth
+w534084f,lemur,False,-6,Animals (bubble),lemur
+w534084f,gorilla,False,1,Animals (bubble),gorilla
+w534084f,rhinoceros,False,2,Animals (bubble),rhinoceros
+w534084f,zebra,False,2,Animals (bubble),zebra
+w534084f,deer,False,-6,Animals (bubble),deer
+w534084f,lion,True,8,Animals (bubble),Lion
+w534084f,bowling,False,9,Sports (silence),bowling
+w534084f,cricket,False,10,Sports (silence),cricket
+w534084f,rugby,False,0,Sports (silence),rugby
+w534084f,football,True,-8,Sports (silence),Football
+w534084f,soccer,True,-10,Sports (silence),Soccer
+w534084f,volleyball,False,-2,Sports (silence),volleyball
+w534084f,golf,False,10,Sports (silence),golf
+w534084f,boxing,False,0,Sports (silence),boxing
+w534084f,badminton,False,5,Sports (silence),badminton
+w534084f,baseball,True,0,Sports (silence),Baseball
+w534084f,tennis,False,0,Sports (silence),tennis
+w534084f,car,True,-10,Vehicles (veto),Car
+w534084f,limousine,False,0,Vehicles (veto),limousine
+w534084f,helicopter,False,0,Vehicles (veto),helicopter
+w534084f,unicycle,False,0,Vehicles (veto),unicycle
+w534084f,train,False,-3,Vehicles (veto),train
+w534084f,skateboard,False,-8,Vehicles (veto),skateboard
+w534084f,bus,True,-2,Vehicles (veto),Bus
+w534084f,bicycle,False,-10,Vehicles (veto),bicycle
+w534084f,scooter,False,7,Vehicles (veto),scooter
+w534084f,plane,True,-8,Vehicles (veto),Plane
+w534084f,physics,False,10,Subjects (magic),physics
+w534084f,algebra,False,6,Subjects (magic),algebra
+w534084f,history,False,1,Subjects (magic),history
+w534084f,french,False,8,Subjects (magic),french
+w534084f,geometry,False,0,Subjects (magic),geometry
+w534084f,biology,False,10,Subjects (magic),biology
+w534084f,chemistry,False,10,Subjects (magic),chemistry
+w534084f,calculus,False,10,Subjects (magic),calculus
+w534084f,spanish,False,10,Subjects (magic),spanish
+w534084f,english,False,-3,Subjects (magic),english
+w422cd45,amsterdam,False,6,PRACTICE,Amsterdam
+w422cd45,athens,False,6,PRACTICE,Athens
+w422cd45,rome,False,5,PRACTICE,Rome
+w422cd45,london,True,10,PRACTICE,London
+w422cd45,venice,False,5,PRACTICE,Venice
+w422cd45,paris,True,5,PRACTICE,Paris
+w422cd45,UNK,True,10,PRACTICE,Prague
+w422cd45,vienna,False,5,PRACTICE,Vienna
+w422cd45,cobra,False,-10,Animals (intimate),cobra
+w422cd45,gorilla,False,-10,Animals (intimate),gorilla
+w422cd45,koala,False,5,Animals (intimate),koala
+w422cd45,peacock,False,5,Animals (intimate),peacock
+w422cd45,deer,True,-10,Animals (intimate),Bear
+w422cd45,jaguar,False,-10,Animals (intimate),jaguar
+w422cd45,panda,False,0,Animals (intimate),panda
+w422cd45,kangaroo,False,-4,Animals (intimate),kangaroo
+w422cd45,tiger,True,-10,Animals (intimate),Tiger
+w422cd45,monkey,False,-10,Animals (intimate),monkey
+w422cd45,lion,True,-10,Animals (intimate),Lion
+w422cd45,rhinoceros,False,-10,Animals (intimate),rhinoceros
+w422cd45,crocodile,False,-10,Animals (intimate),crocodile
+w422cd45,elephant,False,4,Animals (intimate),elephant
+w422cd45,giraffe,False,4,Animals (intimate),giraffe
+w422cd45,sloth,False,4,Animals (intimate),sloth
+w422cd45,boxing,False,-10,Sports (season),boxing
+w422cd45,cricket,False,4,Sports (season),cricket
+w422cd45,basketball,False,-5,Sports (season),basketball
+w422cd45,badminton,False,0,Sports (season),badminton
+w422cd45,soccer,False,3,Sports (season),soccer
+w422cd45,tennis,False,-5,Sports (season),tennis
+w422cd45,UNK,True,0,Sports (season),Ravens
+w422cd45,baseball,False,0,Sports (season),baseball
+w422cd45,bowling,False,-7,Sports (season),bowling
+w422cd45,UNK,True,4,Sports (season),Washington Football Team
+w422cd45,volleyball,False,-5,Sports (season),volleyball
+w422cd45,golf,False,-5,Sports (season),golf
+w422cd45,football,False,0,Sports (season),football
+w422cd45,rugby,False,4,Sports (season),rugby
+w422cd45,UNK,True,4,Sports (season),Nationals
+w422cd45,physics,False,0,Subjects (school),physics
+w422cd45,UNK,True,-10,Subjects (school),Math
+w422cd45,spanish,False,4,Subjects (school),spanish
+w422cd45,geometry,False,4,Subjects (school),geometry
+w422cd45,french,False,0,Subjects (school),french
+w422cd45,UNK,True,5,Subjects (school),Psychology
+w422cd45,biology,False,5,Subjects (school),biology
+w422cd45,chemistry,False,5,Subjects (school),chemistry
+w422cd45,history,True,10,Subjects (school),History
+w422cd45,english,False,10,Subjects (school),english
+w422cd45,calculus,False,-10,Subjects (school),calculus
+w422cd45,algebra,False,-10,Subjects (school),algebra
+w422cd45,scooter,False,5,Vehicles (commute),scooter
+w422cd45,bus,True,0,Vehicles (commute),Bus
+w422cd45,helicopter,False,-5,Vehicles (commute),helicopter
+w422cd45,plane,False,-5,Vehicles (commute),plane
+w422cd45,bicycle,False,10,Vehicles (commute),bicycle
+w422cd45,limousine,False,10,Vehicles (commute),limousine
+w422cd45,UNK,True,-6,Vehicles (commute),Motorcycle
+w422cd45,car,True,10,Vehicles (commute),Car
+w422cd45,skateboard,False,-10,Vehicles (commute),skateboard
+w422cd45,train,False,10,Vehicles (commute),train
+w422cd45,unicycle,False,-10,Vehicles (commute),unicycle

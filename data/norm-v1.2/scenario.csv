@@ -1,0 +1,265 @@
+wid,prompt_id,raw_outcome,outcome
+we14a8c0,Sports (season),Golf,golf
+we14a8c0,Subjects (school),Math,UNK
+we14a8c0,Animals (intimate),Lion,lion
+we14a8c0,Vehicles (commute),Scooter,scooter
+we14a8c0,Fruit (ripe),Strawberry,strawberry
+we14a8c0,Cities (vacation),Istanbul,UNK
+wa75c289,Vehicles (veto),bike,UNK
+wa75c289,Cities (moving),Rome,rome
+wa75c289,Animals (bubble),lion,lion
+wa75c289,Subjects (magic),computer science,UNK
+wa75c289,Sports (silence),badminton,badminton
+wa75c289,Fruit (daily),apple,UNK
+w8317a27,Animals (bubble),lemur,lemur
+w8317a27,Vehicles (veto),bike,UNK
+w8317a27,Fruit (daily),banana,banana
+w8317a27,Subjects (magic),history,history
+w8317a27,Sports (silence),american football,UNK
+w8317a27,Cities (moving),london,london
+w808d687,Sports (silence),Basketball,basketball
+w808d687,Animals (bubble),fish,UNK
+w808d687,Cities (moving),Moscow,UNK
+w808d687,Fruit (daily),jackfruit,UNK
+w808d687,Subjects (magic),Communications,UNK
+w808d687,Vehicles (veto),car,car
+w3926020,Cities (moving),Madrid ,madrid
+w3926020,Fruit (daily),pineapple,pineapple
+w3926020,Vehicles (veto),car,car
+w3926020,Subjects (magic),Criminal Justice,UNK
+w3926020,Sports (silence),Golf,golf
+w3926020,Animals (bubble),Sloths,UNK
+w298bce8,Vehicles (commute),train,train
+w298bce8,Fruit (ripe),avocado,UNK
+w298bce8,Cities (vacation),London,london
+w298bce8,Subjects (school),history,history
+w298bce8,Sports (season),roller derby,UNK
+w298bce8,Animals (intimate),penguin,penguin
+w41b239a,Animals (intimate),sloth,UNK
+w41b239a,Vehicles (commute),car,car
+w41b239a,Sports (season),basketball,basketball
+w41b239a,Fruit (ripe),watermelon,watermelon
+w41b239a,Subjects (school),English,english
+w41b239a,Cities (vacation),Paris,paris
+w84ce833,Subjects (magic),Computer Science,UNK
+w84ce833,Cities (moving),Swansea,UNK
+w84ce833,Fruit (daily),Banana,banana
+w84ce833,Animals (bubble),wolves,UNK
+w84ce833,Sports (silence),basketball,basketball
+w84ce833,Vehicles (veto),public,UNK
+w4fdf442,Sports (season),Football,football
+w4fdf442,Subjects (school),Real Estate,UNK
+w4fdf442,Fruit (ripe),Banana,banana
+w4fdf442,Cities (vacation),London,london
+w4fdf442,Vehicles (commute),Airplane,UNK
+w4fdf442,Animals (intimate),Koala,koala
+w7b66028,Sports (silence),American Football,UNK
+w7b66028,Cities (moving),Paris,paris
+w7b66028,Vehicles (veto),bus,bus
+w7b66028,Animals (bubble),monkey,monkey
+w7b66028,Fruit (daily),grapefruit,UNK
+w7b66028,Subjects (magic),climate science,UNK
+w2c94a85,Animals (intimate),lion,lion
+w2c94a85,Cities (vacation),Moscow,UNK
+w2c94a85,Vehicles (commute),scooter,scooter
+w2c94a85,Sports (season),golf,golf
+w2c94a85,Subjects (school),Calculus,calculus
+w2c94a85,Fruit (ripe),cherries,UNK
+w703ac34,Cities (moving),Athens,athens
+w703ac34,Animals (bubble),monkey,monkey
+w703ac34,Subjects (magic),Mechanical Engineering,UNK
+w703ac34,Fruit (daily),pear,UNK
+w703ac34,Sports (silence),Cricket,cricket
+w703ac34,Vehicles (veto),helicopter,helicopter
+w16d2d31,Vehicles (commute),Car,car
+w16d2d31,Animals (intimate),Otter,UNK
+w16d2d31,Fruit (ripe),Apple,UNK
+w16d2d31,Sports (season),Basketball,basketball
+w16d2d31,Cities (vacation),Paris,paris
+w16d2d31,Subjects (school),Algebra,algebra
+w73a759b,Subjects (school),chemistry,chemistry
+w73a759b,Cities (vacation),malmo,UNK
+w73a759b,Sports (season),bowling,bowling
+w73a759b,Fruit (ripe),banana,banana
+w73a759b,Animals (intimate),lion,lion
+w73a759b,Vehicles (commute),taxi,UNK
+w63f8333,Cities (vacation),Minsk,UNK
+w63f8333,Fruit (ripe),Peach,peach
+w63f8333,Subjects (school),Physics,physics
+w63f8333,Vehicles (commute),Bike,UNK
+w63f8333,Animals (intimate),Lion,lion
+w63f8333,Sports (season),Darts,UNK
+w1e58b6f,Animals (intimate),panda,panda
+w1e58b6f,Subjects (school),College Algebra,UNK
+w1e58b6f,Vehicles (commute),car,car
+w1e58b6f,Sports (season),Formula 1,UNK
+w1e58b6f,Fruit (ripe),banana,banana
+w1e58b6f,Cities (vacation),Luxenberg ,UNK
+w839b90a,Vehicles (veto),the metro,UNK
+w839b90a,Animals (bubble),naked mole rat,UNK
+w839b90a,Subjects (magic),classics,UNK
+w839b90a,Cities (moving),Barcelona,UNK
+w839b90a,Fruit (daily),kiwi,UNK
+w839b90a,Sports (silence),soccer,soccer
+w8e96e86,Sports (season),Golf,golf
+w8e96e86,Animals (intimate),Polar bear,UNK
+w8e96e86,Vehicles (commute),Walking,UNK
+w8e96e86,Fruit (ripe),Durian,UNK
+w8e96e86,Subjects (school),Drama,UNK
+w8e96e86,Cities (vacation),Milan,UNK
+w8a6ffe8,Fruit (ripe),strawberry,strawberry
+w8a6ffe8,Animals (intimate),lion,lion
+w8a6ffe8,Subjects (school),algebra,algebra
+w8a6ffe8,Cities (vacation),Lithuania,UNK
+w8a6ffe8,Vehicles (commute),bike,UNK
+w8a6ffe8,Sports (season),Nascar,UNK
+w3af064e,Subjects (magic),feminist literature ,UNK
+w3af064e,Vehicles (veto),bus,bus
+w3af064e,Sports (silence),football,football
+w3af064e,Animals (bubble),butterfly,UNK
+w3af064e,Cities (moving),italy ,UNK
+w3af064e,Fruit (daily),grapefuit,UNK
+wa5a9e95,Subjects (magic),health issues ,UNK
+wa5a9e95,Cities (moving),European language and culture ,UNK
+wa5a9e95,Animals (bubble),A penguin,penguin
+wa5a9e95,Fruit (daily),An apple,UNK
+wa5a9e95,Sports (silence),Hockey,UNK
+wa5a9e95,Vehicles (veto),Train,train
+wc5f11b4,Sports (silence),Football,football
+wc5f11b4,Vehicles (veto),Train,train
+wc5f11b4,Animals (bubble),Lion,lion
+wc5f11b4,Cities (moving),London,london
+wc5f11b4,Subjects (magic),Psychology,UNK
+wc5f11b4,Fruit (daily),Strawberries,strawberry
+w00ba085,Subjects (school),Art History,UNK
+w00ba085,Fruit (ripe),Mango,mango
+w00ba085,Cities (vacation),London,london
+w00ba085,Sports (season),Football,football
+w00ba085,Animals (intimate),Red Panda,UNK
+w00ba085,Vehicles (commute),Teleportation,UNK
+w245ea5b,Subjects (school),social studies,UNK
+w245ea5b,Fruit (ripe),apple,UNK
+w245ea5b,Animals (intimate),tortoise,UNK
+w245ea5b,Sports (season),gymnastics,UNK
+w245ea5b,Vehicles (commute),car,car
+w245ea5b,Cities (vacation),London,london
+wf28644e,Vehicles (commute),bus,bus
+wf28644e,Cities (vacation),Venice,venice
+wf28644e,Sports (season),baseball,baseball
+wf28644e,Animals (intimate),lion,lion
+wf28644e,Subjects (school),statistics,UNK
+wf28644e,Fruit (ripe),lemon,lemon
+w0814290,Subjects (magic),Special needs,UNK
+w0814290,Cities (moving),The capital,UNK
+w0814290,Fruit (daily),rasberry,raspberry
+w0814290,Vehicles (veto),feet,UNK
+w0814290,Sports (silence),football,football
+w0814290,Animals (bubble),baby egal,UNK
+wbb95693,Animals (bubble),Lion,lion
+wbb95693,Vehicles (veto),Ship,UNK
+wbb95693,Cities (moving),Stockholm,UNK
+wbb95693,Subjects (magic),Economics,UNK
+wbb95693,Fruit (daily),Banana,banana
+wbb95693,Sports (silence),MMA,UNK
+w7e7e249,Sports (silence),gymnastics,UNK
+w7e7e249,Vehicles (veto),car,car
+w7e7e249,Fruit (daily),lemon,lemon
+w7e7e249,Subjects (magic),sports management,UNK
+w7e7e249,Cities (moving),berlin,UNK
+w7e7e249,Animals (bubble),sloth,UNK
+w623c1c7,Sports (season),Portland Trailblazers,UNK
+w623c1c7,Subjects (school),Painting 101,UNK
+w623c1c7,Cities (vacation),Berlin,UNK
+w623c1c7,Fruit (ripe),Tomatoes ,UNK
+w623c1c7,Animals (intimate),Otter,UNK
+w623c1c7,Vehicles (commute),Bus,bus
+wc59a23b,Animals (intimate),tiger,tiger
+wc59a23b,Sports (season),baseball,baseball
+wc59a23b,Vehicles (commute),taxi,UNK
+wc59a23b,Cities (vacation),france,UNK
+wc59a23b,Subjects (school),physics,physics
+wc59a23b,Fruit (ripe),lime,UNK
+w664b9b4,Sports (silence),baseball,baseball
+w664b9b4,Cities (moving),Berlin,UNK
+w664b9b4,Vehicles (veto),car,car
+w664b9b4,Subjects (magic),astronomy,UNK
+w664b9b4,Animals (bubble),snake,UNK
+w664b9b4,Fruit (daily),watermelon,watermelon
+w7c69ade,Animals (intimate),Tiger,tiger
+w7c69ade,Cities (vacation),Berlin,UNK
+w7c69ade,Sports (season),Rugby,rugby
+w7c69ade,Vehicles (commute),Train,train
+w7c69ade,Subjects (school),Chemistry,chemistry
+w7c69ade,Fruit (ripe),Mango,mango
+wb7732e4,Vehicles (commute),car,car
+wb7732e4,Fruit (ripe),papaya,UNK
+wb7732e4,Subjects (school),chemistry,chemistry
+wb7732e4,Cities (vacation),London,london
+wb7732e4,Animals (intimate),birds,UNK
+wb7732e4,Sports (season),swimming,UNK
+wa54e87c,Vehicles (veto),car,car
+wa54e87c,Cities (moving),Bucarest,UNK
+wa54e87c,Subjects (magic),Art,UNK
+wa54e87c,Sports (silence),soccer,soccer
+wa54e87c,Animals (bubble),chimpanzee,UNK
+wa54e87c,Fruit (daily),cherries,UNK
+w8bf2756,Fruit (daily),Banana,banana
+w8bf2756,Animals (bubble),Baboon,UNK
+w8bf2756,Cities (moving),Paris,paris
+w8bf2756,Sports (silence),Hockey,UNK
+w8bf2756,Subjects (magic),Liberal studies,UNK
+w8bf2756,Vehicles (veto),Car,car
+wa83490a,Vehicles (commute),car,car
+wa83490a,Animals (intimate),lemur,lemur
+wa83490a,Subjects (school),french,french
+wa83490a,Sports (season),ice hockey,UNK
+wa83490a,Fruit (ripe),avacado,UNK
+wa83490a,Cities (vacation),berlin,UNK
+w5cc1d5f,Sports (season),Football,football
+w5cc1d5f,Animals (intimate),Chimpanzee,UNK
+w5cc1d5f,Fruit (ripe),Banana,banana
+w5cc1d5f,Subjects (school),Calculus,calculus
+w5cc1d5f,Cities (vacation),France,UNK
+w5cc1d5f,Vehicles (commute),Bike,UNK
+we2c15eb,Subjects (magic),science,UNK
+we2c15eb,Animals (bubble),whales,UNK
+we2c15eb,Sports (silence),golf,golf
+we2c15eb,Vehicles (veto),walking,UNK
+we2c15eb,Fruit (daily),kiwi,UNK
+we2c15eb,Cities (moving),rome,rome
+webe692e,Animals (intimate),capybara,UNK
+webe692e,Cities (vacation),Mikonos,UNK
+webe692e,Fruit (ripe),Mango,mango
+webe692e,Vehicles (commute),Chauffeured car,UNK
+webe692e,Subjects (school),english,english
+webe692e,Sports (season),Basketball,basketball
+w4bb9e50,Subjects (magic),Theater,UNK
+w4bb9e50,Animals (bubble),Beetle,UNK
+w4bb9e50,Vehicles (veto),car,car
+w4bb9e50,Cities (moving),"Vlorë, Albania ",UNK
+w4bb9e50,Fruit (daily),cantaloupe ,cantaloupe
+w4bb9e50,Sports (silence),football,football
+w12e2746,Fruit (daily),The worst type of fruit would be a durian because of its size and apparently of its appalling smell that some people mistake it for a rotten smell or even gasoline.,UNK
+w12e2746,Animals (bubble),A monkey because they terrify me. ,UNK
+w12e2746,Subjects (magic),Poetry,UNK
+w12e2746,Vehicles (veto),Train,train
+w12e2746,Sports (silence),Basketball,basketball
+w12e2746,Cities (moving),Moscow,UNK
+w57e2544,Fruit (daily),pineapple,pineapple
+w57e2544,Sports (silence),golf,golf
+w57e2544,Animals (bubble),snake,UNK
+w57e2544,Cities (moving),naples,UNK
+w57e2544,Subjects (magic),insects,UNK
+w57e2544,Vehicles (veto),segway,UNK
+w2b04f7f,Subjects (school),Algebra,algebra
+w2b04f7f,Animals (intimate),Tiger,tiger
+w2b04f7f,Fruit (ripe),Lemon,lemon
+w2b04f7f,Cities (vacation),Moscow,UNK
+w2b04f7f,Vehicles (commute),bicycle,bicycle
+w2b04f7f,Sports (season),Football,football
+w84a9534,Fruit (daily),Strawberries,strawberry
+w84a9534,Animals (bubble),Giraffe,giraffe
+w84a9534,Cities (moving),Prague,UNK
+w84a9534,Vehicles (veto),Skateboard,skateboard
+w84a9534,Subjects (magic),Diseases,UNK
+w84a9534,Sports (silence),Wrestling,UNK

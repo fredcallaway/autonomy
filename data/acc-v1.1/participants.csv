@@ -1,0 +1,3 @@
+wid,control,consideration_time,reflection_time,n_considered,n_unconsidered,time_limit,completed,bonus,version
+w701dcb4,low,8,10,100,100,15,,,acc-v1.1
+wc7714d2,low,8,10,100,100,15,True,0.0,acc-v1.1

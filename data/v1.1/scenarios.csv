@@ -1,0 +1,147 @@
+wid,trial_number,prompt_id,scenario_evaluation,any_specific,considered
+w3d1bfb4,1,FRUIT,10.0,True,"[""Dragon Fruit"", ""Grapes"", ""Strawberries"", ""Kiwi"", ""Blueberries""]"
+w3d1bfb4,2,ZOO,-10.0,True,"[""Monkey "", ""Tiger"", ""Elephant""]"
+w3d1bfb4,3,VACATION,10.0,True,"[""Prague"", ""Paris"", ""London""]"
+wd34206a,1,FRUIT,2.0,True,"[""Banana"", ""Apple"", ""Peach""]"
+wd34206a,2,ZOO,-7.0,True,"[""Tiger"", ""Gorilla"", ""Monkey""]"
+wd34206a,3,VACATION,10.0,True,"[""Paris"", ""Venice"", ""Vienna""]"
+w0ffd1ae,1,FRUIT,6.0,True,"[""Raspberries"", ""banana"", ""Blueberries"", ""apple"", ""peach"", ""plum"", ""kiwi"", ""strawberry"", ""orange"", ""clementine""]"
+w0ffd1ae,2,VACATION,10.0,True,"[""French Riviera"", ""Paris"", ""Berlin"", ""London""]"
+w0ffd1ae,3,ZOO,10.0,True,"[""Tiger"", ""Elephant"", ""Lion"", ""Chimp"", ""Ape"", ""Snake"", ""Panda"", ""Dolphin""]"
+w8b6ce21,1,FRUIT,1.0,False,[]
+w8b6ce21,2,ZOO,1.0,False,[]
+w8b6ce21,3,VACATION,1.0,False,[]
+w9151baf,1,FRUIT,0.0,False,[]
+w9151baf,2,ZOO,-5.0,True,"[""sheep"", ""lion"", ""tiger"", ""snake"", ""pig""]"
+w9151baf,3,VACATION,6.0,True,"[""London"", ""Amsterdam"", ""Helsinki"", ""Rome"", ""Paris""]"
+wd1f9a61,1,FRUIT,4.0,True,"[""Pear"", ""Apple"", ""Banana""]"
+wd1f9a61,2,ZOO,-3.0,True,"[""Lion""]"
+wd1f9a61,3,VACATION,9.0,False,[]
+w8e87310,1,FRUIT,5.0,False,[]
+w8e87310,2,VACATION,10.0,False,[]
+w8e87310,3,ZOO,2.0,False,[]
+wf964bb8,1,FRUIT,-5.0,True,"[""Strawberry"", ""Watermelon"", ""Orange"", ""Pineapple"", ""Apple"", ""Banana"", ""Grape""]"
+wf964bb8,2,ZOO,-10.0,False,[]
+wf964bb8,3,VACATION,10.0,True,"[""London"", ""Paris"", ""Amsterdam"", ""Viena"", ""Barcelona""]"
+wf2599e5,1,FRUIT,7.0,False,[]
+wf2599e5,2,VACATION,10.0,True,"[""Paris."", ""London."", ""Barcelona.""]"
+wf2599e5,3,ZOO,-3.0,True,"[""Wolf"", ""Tiger"", ""Lion"", ""Ocelot""]"
+w73c3983,1,FRUIT,0.0,False,[]
+w73c3983,2,ZOO,-2.0,True,"[""Dangerous animals like Tigers (which I like but wouldn't want to spend time with in the same enclosure)""]"
+w73c3983,3,VACATION,6.0,False,[]
+wc4cea04,1,FRUIT,3.0,True,"[""apple"", ""strawberry"", ""peach"", ""pineapple""]"
+wc4cea04,2,ZOO,-7.0,True,"[""lion"", ""tiger"", ""bear""]"
+wc4cea04,3,VACATION,5.0,True,"[""Paris""]"
+wf514b4a,1,FRUIT,10.0,True,"[""Pineapple"", ""Guava"", ""Passionfruit"", ""Clementines "", ""Durian""]"
+wf514b4a,2,ZOO,-6.0,True,"[""Lion"", ""monkey"", ""prairie dog""]"
+wf514b4a,3,VACATION,10.0,True,"[""Paris"", ""Berlin"", ""Venice""]"
+w46af21d,1,FRUIT,3.0,True,"[""banana "", ""orange""]"
+w46af21d,2,VACATION,6.0,True,"[""Paris"", ""athens"", ""Madrid""]"
+w46af21d,3,ZOO,10.0,True,"[""elephant"", ""monkey"", ""shark"", ""gorillla"", ""giraffe"", ""zebra"", ""fish"", ""snake"", ""crocodile""]"
+w9e8ae6b,1,FRUIT,0.0,True,"[""Banana""]"
+w9e8ae6b,2,ZOO,4.0,True,"[""Lions"", ""Cabybara""]"
+w9e8ae6b,3,VACATION,10.0,False,[]
+w79e987b,1,FRUIT,5.0,True,"[""Orange"", ""Strawberry""]"
+w79e987b,2,VACATION,9.0,True,"[""Rome"", ""Paris""]"
+w79e987b,3,ZOO,-2.0,True,"[""Lion"", ""Tiger"", ""Elephant"", ""Monkey""]"
+wd9c9928,1,FRUIT,0.0,True,"[""Strawberry""]"
+wd9c9928,2,ZOO,0.0,True,"[""Lions""]"
+wd9c9928,3,VACATION,10.0,True,"[""Paris""]"
+wff61e84,1,FRUIT,10.0,True,"[""Watermelon"", ""Apple"", ""Grapes (green kind)"", ""Pineapple"", ""Pear"", ""Peach"", ""Kiwi""]"
+wff61e84,2,ZOO,-10.0,True,"[""Silverback Gorilla"", ""Panda"", ""Lion"", ""Elephant""]"
+wff61e84,3,VACATION,10.0,True,"[""Paris"", ""Venice"", ""Monaco""]"
+wfa60274,1,FRUIT,5.0,True,"[""banana"", ""peach"", ""plum"", ""apple""]"
+wfa60274,2,VACATION,6.0,True,"[""paris"", ""london""]"
+wfa60274,3,ZOO,7.0,False,[]
+w9e4935e,1,FRUIT,8.0,True,"[""Apples"", ""Grapes"", ""Bananas""]"
+w9e4935e,2,VACATION,2.0,False,[]
+w9e4935e,3,ZOO,0.0,False,[]
+w71a93b6,1,FRUIT,10.0,True,"[""Pineapple"", ""Orange"", ""Strawberry"", ""Watermelon"", ""Apple"", ""Pear"", ""Grapes""]"
+w71a93b6,2,ZOO,7.0,True,"[""Gorilla"", ""Giraffe"", ""Horse"", ""Snakes"", ""Turtle"", ""Hamster""]"
+w71a93b6,3,VACATION,10.0,True,"[""Amsterdam"", ""Rome"", ""Paris"", ""London"", ""Berlin""]"
+w41b70d5,1,FRUIT,9.0,False,[]
+w41b70d5,2,ZOO,-3.0,False,[]
+w41b70d5,3,VACATION,6.0,False,[]
+wf53fd58,1,FRUIT,8.0,True,"[""apple, orange and pear.""]"
+w870562f,1,FRUIT,1.0,True,"[""Apple""]"
+w870562f,2,ZOO,0.0,False,[]
+w870562f,3,VACATION,5.0,True,"[""Prague"", ""Madrid"", ""London""]"
+w7c90e86,1,FRUIT,6.0,True,"[""Banana"", ""Orange"", ""Apple"", ""Durian"", ""Grape"", ""Mango""]"
+w7c90e86,2,ZOO,-5.0,True,"[""Zebra"", ""Giraffe"", ""Bear"", ""Snake"", ""Turtle"", ""Shark"", ""Lion"", ""Cheetah""]"
+w7c90e86,3,VACATION,10.0,True,"[""France""]"
+w159596a,1,FRUIT,3.0,False,[]
+w159596a,2,ZOO,6.0,True,"[""Lion""]"
+w159596a,3,VACATION,9.0,False,[]
+wc9a924c,1,FRUIT,4.0,True,"[""Strawberries"", ""Pears"", ""Bananas"", ""Apples"", ""Watermelon"", ""Pineapple"", ""Plums"", ""Blueberries"", ""Blackberries""]"
+wc9a924c,2,ZOO,4.0,True,"[""Penguins"", ""Lions"", ""Tigers"", ""Monkeys""]"
+wc9a924c,3,VACATION,-5.0,False,[]
+w16d94ab,1,FRUIT,0.0,True,"[""Banana"", ""Strawberry"", ""Blueberry""]"
+w16d94ab,2,VACATION,10.0,True,"[""Rome""]"
+w16d94ab,3,ZOO,0.0,True,"[""Lion "", ""Chimpanzee"", ""Rhino""]"
+weca3ebb,1,FRUIT,10.0,True,"[""Banana"", ""Durian"", ""Pineapple""]"
+weca3ebb,2,VACATION,0.0,False,[]
+weca3ebb,3,ZOO,-5.0,True,"[""elephant"", ""snake""]"
+w3913f64,1,FRUIT,10.0,True,"[""Pineapple, apple, watermelon, melon, banana, tangerine.""]"
+w3913f64,2,VACATION,10.0,True,"[""Paris"", ""Lyon""]"
+w3913f64,3,ZOO,5.0,True,"[""Lion"", ""Zebra"", ""Polar bear"", ""Grizzly""]"
+w910cf5b,1,FRUIT,3.0,True,"[""Orange"", ""Apple"", ""Watermelon"", ""Lemon"", ""Lime"", ""Coconut""]"
+w910cf5b,2,VACATION,10.0,True,"[""Athens"", ""Amsterdam"", ""Prague"", ""London"", ""Dublin"", ""Brussels""]"
+w910cf5b,3,ZOO,5.0,True,"[""Tiger"", ""Lion"", ""Monkey"", ""Jaguar"", ""Snake"", ""Chimpanzee"", ""Gorilla"", ""Elephant""]"
+w5b5740c,1,FRUIT,6.0,True,"[""Strawberry"", ""Watermelon"", ""Mango "", ""Starfruit "", ""Passionfruit "", ""Dragonfruit "", ""Orange"", ""Apples"", ""Grapes""]"
+w5b5740c,2,VACATION,5.0,True,"[""Budapest "", ""Paris "", ""Munich "", ""Rome"", ""Lisbon"", ""Barcelona "", ""Madrid"", ""London""]"
+w5b5740c,3,ZOO,0.0,False,[]
+w9efa540,1,FRUIT,6.0,True,"[""Kiwi"", ""Orange "", ""Mango""]"
+w9efa540,2,ZOO,5.0,True,"[""Zebra "", ""Giraffe "", ""Elephant""]"
+w9efa540,3,VACATION,9.0,True,"[""Barcelona "", ""Naples "", ""Nice""]"
+w9a7844c,1,FRUIT,10.0,True,"[""Pear"", ""Apple "", ""Banana""]"
+w9a7844c,2,VACATION,10.0,True,"[""Milan"", ""Paris"", ""London"", ""Florence""]"
+w9a7844c,3,ZOO,10.0,True,"[""Goat"", ""Lion"", ""Elephant""]"
+w26ad0e0,1,FRUIT,10.0,True,"[""pineapple"", ""cherry"", ""mango"", ""strawberry"", ""banana""]"
+w26ad0e0,2,ZOO,-4.0,True,"[""Bear"", ""Tiger"", ""Lion"", ""Zebra"", ""Monkey""]"
+w26ad0e0,3,VACATION,5.0,True,"[""Paris"", ""London"", ""Barcelona"", ""Rome"", ""Venice""]"
+w3f01ce2,1,FRUIT,4.0,True,"[""Pineapple"", ""Banana"", ""Apple""]"
+w3f01ce2,2,ZOO,-2.0,True,"[""Gorilla"", ""Tiger""]"
+w3f01ce2,3,VACATION,-1.0,False,[]
+w16f135b,1,FRUIT,3.0,False,[]
+w16f135b,2,ZOO,-10.0,True,"[""Tiger"", ""Lion"", ""Gorilla""]"
+w16f135b,3,VACATION,9.0,False,[]
+wd62505b,1,FRUIT,-5.0,False,[]
+wd62505b,2,ZOO,5.0,False,[]
+wd62505b,3,VACATION,10.0,True,"[""Amsterdam"", ""Madrid"", ""Paris""]"
+wbc69db2,1,FRUIT,2.0,False,[]
+wbc69db2,2,ZOO,-7.0,True,"[""Tiger"", ""Bear""]"
+wbc69db2,3,VACATION,6.0,False,[]
+wacb979d,1,FRUIT,10.0,True,"[""banana"", ""strawberry"", ""orange"", ""kiwi"", ""grape""]"
+wacb979d,2,VACATION,4.0,True,"[""paris"", ""london"", ""vienna"", ""barcelona"", ""athens""]"
+wacb979d,3,ZOO,10.0,True,"[""spider monkey"", ""gorilla"", ""giraffe"", ""leopard"", ""panther"", ""tiger"", ""lion""]"
+w9211451,1,FRUIT,2.0,True,"[""banana"", ""apple"", ""strawberry"", ""grape"", ""raspberry"", ""blueberries"", ""kiwi"", ""lemon"", ""orange"", ""tanergine""]"
+w9211451,2,VACATION,5.0,True,"[""Paris"", ""London"", ""Berlin"", ""Madrid""]"
+w9211451,3,ZOO,9.0,True,"[""Panda"", ""lion"", ""tiger"", ""monkey"", ""chimp"", ""ape"", ""macaw"", ""elephant"", ""polar bear"", ""grizzly bear""]"
+w2db48d3,1,FRUIT,-5.0,True,"[""apple"", ""banana""]"
+w2db48d3,2,ZOO,-10.0,True,"[""tiger""]"
+w2db48d3,3,VACATION,6.0,False,[]
+w8a2984a,1,FRUIT,0.0,False,[]
+w8a2984a,2,ZOO,-5.0,False,[]
+w8a2984a,3,VACATION,10.0,False,[]
+w7dd5ede,1,FRUIT,0.0,True,"[""peach"", ""apple"", ""banana"", ""orange"", ""pineapple"", ""grapes"", ""strawberry""]"
+w7dd5ede,2,VACATION,9.0,True,"[""venice"", ""lisbon"", ""budapest"", ""london"", ""paris""]"
+w7dd5ede,3,ZOO,-3.0,False,[]
+wb68d6dd,1,FRUIT,8.0,False,[]
+wb68d6dd,2,ZOO,-10.0,True,"[""Lion"", ""Snake"", ""Wolfe"", ""Tiger"", ""Bear"", ""Shark""]"
+wb68d6dd,3,VACATION,9.0,False,[]
+w963f6eb,4,VACATION,0.0,False,[]
+wcfc7005,1,FRUIT,5.0,True,"[""Strawberry"", ""Banana""]"
+wcfc7005,2,ZOO,2.0,True,"[""Gorilla""]"
+wcfc7005,3,VACATION,7.0,True,"[""Paris"", ""Rome""]"
+we97e3d0,1,FRUIT,10.0,True,"[""Bananas"", ""Apples"", ""Strawberries""]"
+we97e3d0,2,VACATION,6.0,False,[]
+we97e3d0,3,ZOO,8.0,False,[]
+w6ced3ce,1,FRUIT,9.0,True,"[""Kiwi"", ""Strawberry"", ""Banana"", ""Pomegranate"", ""Cantaloupe"", ""Grape""]"
+w6ced3ce,2,VACATION,10.0,True,"[""Copenhagen"", ""Madrid"", ""Rotterdam"", ""Venice"", ""Paris""]"
+w6ced3ce,3,ZOO,3.0,True,"[""Lemur"", ""Peacock"", ""Capibara"", ""Giraffe "", ""Zebra""]"
+wc94aa43,1,FRUIT,3.0,True,"[""grapefruit"", ""pear""]"
+wc94aa43,2,ZOO,1.0,True,"[""penguin"", ""parrot"", ""lemur"", ""monkey""]"
+wc94aa43,3,VACATION,10.0,True,"[""Edinburgh"", ""London"", ""Dublin""]"
+w88d629c,1,FRUIT,0.0,True,"[""strawberry""]"
+w88d629c,2,VACATION,3.0,True,"[""london""]"
+w88d629c,3,ZOO,7.0,False,[]

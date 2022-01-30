@@ -1,0 +1,26 @@
+wid,trial_number,prompt_id,scenario_evaluation,any_specific,considered
+w0b34d6e,2,PRACTICE,10.0,True,"[""Florence"", ""Rome"", ""Prague"", ""Barcelona""]"
+w0b34d6e,3,Vehicles (veto),-8.0,True,"[""car"", ""horse"", ""train""]"
+w0b34d6e,4,Subjects (magic),10.0,False,[]
+w0b34d6e,5,Sports (silence),-6.0,True,"[""Horseback Riding (Equestrian)""]"
+w0b34d6e,6,Animals (bubble),10.0,True,"[""gorilla""]"
+w8318954,7,PRACTICE,6.0,True,"[""Paris"", ""Stockholm"", ""Berlin"", ""London""]"
+w8318954,8,Animals (intimate),1.0,True,"[""Lion"", ""Wolf"", ""Panda"", ""Bear"", ""Muskrats""]"
+w8318954,9,Vehicles (commute),3.0,True,"[""Bike"", ""Bus"", ""Car"", ""Airplane""]"
+w8318954,10,Subjects (school),2.0,True,"[""Calculus"", ""Mathematics"", ""Biology"", ""chemistry"", ""Computer Science"", ""Social Studies"", ""Public Speaking""]"
+w8318954,11,Sports (season),5.0,True,"[""Skiing""]"
+w76890f1,12,PRACTICE,5.0,True,"[""London"", ""Paris"", ""Venice"", ""Rome""]"
+w76890f1,13,Sports (silence),7.0,True,"[""Football"", ""Basketball""]"
+w76890f1,14,Vehicles (veto),0.0,True,"[""Car"", ""Plane"", ""Train""]"
+w76890f1,15,Animals (bubble),4.0,True,"[""Lion""]"
+w76890f1,16,Subjects (magic),10.0,True,"[""Classics"", ""Psychology""]"
+w1e31a72,17,PRACTICE,5.0,True,"[""Greece"", ""Italy"", ""Poland""]"
+w1e31a72,18,Sports (silence),1.0,True,"[""Basketball""]"
+w1e31a72,19,Animals (bubble),10.0,True,"[""Polar Bear""]"
+w1e31a72,20,Subjects (magic),10.0,True,"[""medicine""]"
+w1e31a72,21,Vehicles (veto),0.0,True,"[""car""]"
+w5e62b40,22,PRACTICE,3.0,False,[]
+w5e62b40,23,Vehicles (commute),-1.0,False,[]
+w5e62b40,24,Subjects (school),3.0,False,[]
+w5e62b40,25,Sports (season),-7.0,True,"[""Basketball"", ""Football""]"
+w5e62b40,26,Animals (intimate),-5.0,False,[]

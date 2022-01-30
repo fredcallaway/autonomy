@@ -1,0 +1,12 @@
+wid,target,consideration_time,reflection_time,n_considered,n_unconsidered,completed,bonus,version
+w7844135,worst,8,10,100,100,True,0.0,norm-v1.0
+w885d3b1,best,8,10,100,100,True,0.0,norm-v1.0
+w3da6289,best,8,10,100,100,True,0.0,norm-v1.0
+wd456aa6,best,8,10,100,100,,,norm-v1.0
+w721d930,best,8,10,100,100,True,0.0,norm-v1.0
+w7c6b38f,best,8,10,100,100,True,0.0,norm-v1.0
+w69e0b53,worst,8,10,100,100,True,0.0,norm-v1.0
+w2e87b5f,worst,8,10,100,100,True,0.0,norm-v1.0
+wa7e71ea,worst,8,10,100,100,True,0.0,norm-v1.0
+wa63e05b,worst,8,10,100,100,True,0.0,norm-v1.0
+we40e3da,best,8,10,100,100,True,0.0,norm-v1.0

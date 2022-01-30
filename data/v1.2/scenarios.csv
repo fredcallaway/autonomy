@@ -1,0 +1,26 @@
+wid,trial_number,prompt_id,scenario_evaluation,any_specific,considered
+w8a97578,2,VACATION,10.0,True,"[""Edinburgh""]"
+w8a97578,3,ZOO_INTIMATE,-2.0,True,"[""Bear"", ""Tiger"", ""Big cats generally""]"
+w8a97578,4,SCHOOL,1.0,True,"[""English Literature"", ""Math""]"
+w8a97578,5,COMMUTE,3.0,True,"[""Subway"", ""Bicycle""]"
+w8a97578,6,SEASON_PASS,-4.0,False,[]
+w0b01e65,7,VACATION,10.0,True,"[""Rome"", ""Paris"", ""London"", ""Dublin"", ""Prague""]"
+w0b01e65,8,SPORTS_SILENCE,3.0,True,"[""baseball"", ""tennis"", ""football""]"
+w0b01e65,9,VETO,2.0,True,"[""train"", ""car"", ""bus"", ""trolley"", ""plane""]"
+w0b01e65,10,ZOO_BUBBLE,9.0,True,"[""tiger"", ""sloth"", ""chimpanzee"", ""elephant"", ""lemurs"", ""gorilla""]"
+w0b01e65,11,EXPERT,5.0,True,"[""graphic design"", ""zoology"", ""video game design"", ""arts""]"
+w7fdaa32,12,VACATION,3.0,True,"[""Paris"", ""London"", ""Amsterdam""]"
+w7fdaa32,13,VETO,-9.0,True,"[""I was thinking about how bad it would be to not be able to use my car for a year. Also other transportations such as the train, and airplanes. Car would be the worst though because I use it most.""]"
+w7fdaa32,14,EXPERT,9.0,True,"[""Math"", ""English"", ""Writing"", ""Science"", ""Spanish""]"
+w7fdaa32,15,ZOO_BUBBLE,10.0,True,"[""lion"", ""monkey"", ""tiger"", ""rhino"", ""horse"", ""bear"", ""dear"", ""opossum"", ""giraffe""]"
+w7fdaa32,16,SPORTS_SILENCE,-9.0,True,"[""track"", ""cross-country"", ""basketball"", ""football"", ""hocky"", ""tennis"", ""swimming"", ""baseball"", ""softball"", ""swimming""]"
+w461dcc1,17,VACATION,7.0,True,"[""Paris"", ""London"", ""Greece""]"
+w461dcc1,18,ZOO_INTIMATE,0.0,True,"[""Tiger"", ""Gorilla "", ""Alligator""]"
+w461dcc1,19,SCHOOL,0.0,True,"[""Math""]"
+w461dcc1,20,COMMUTE,0.0,False,[]
+w461dcc1,21,SEASON_PASS,10.0,False,[]
+wc225bf4,22,VACATION,10.0,True,"[""Dublin"", ""London"", ""Munich"", ""Paris""]"
+wc225bf4,23,ZOO_BUBBLE,0.0,False,[]
+wc225bf4,24,SPORTS_SILENCE,2.0,True,"[""Box"", ""MMA""]"
+wc225bf4,25,EXPERT,10.0,True,"[""Management"", ""Politics"", ""Tech""]"
+wc225bf4,26,VETO,-3.0,True,"[""car"", ""subway"", ""plane"", ""cruise ship"", ""helicopter""]"

@@ -1,0 +1,52 @@
+wid,prompt_id,raw_outcome,outcome
+w0b34d6e,PRACTICE,Florence,UNK
+w0b34d6e,PRACTICE,Rome,UNK
+w0b34d6e,PRACTICE,Prague,UNK
+w0b34d6e,PRACTICE,Barcelona,UNK
+w0b34d6e,Vehicles (veto),car,car
+w0b34d6e,Vehicles (veto),horse,horse
+w0b34d6e,Vehicles (veto),train,train
+w0b34d6e,Sports (silence),Horseback Riding (Equestrian),UNK
+w0b34d6e,Animals (bubble),gorilla,gorilla
+w8318954,PRACTICE,Paris,UNK
+w8318954,PRACTICE,Stockholm,UNK
+w8318954,PRACTICE,Berlin,UNK
+w8318954,PRACTICE,London,UNK
+w8318954,Animals (intimate),Lion,lion
+w8318954,Animals (intimate),Wolf,wolf
+w8318954,Animals (intimate),Panda,panda
+w8318954,Animals (intimate),Bear,bear
+w8318954,Animals (intimate),Muskrats,UNK
+w8318954,Vehicles (commute),Bike,bicycle
+w8318954,Vehicles (commute),Bus,bus
+w8318954,Vehicles (commute),Car,car
+w8318954,Vehicles (commute),Airplane,airplane
+w8318954,Subjects (school),Calculus,calculus
+w8318954,Subjects (school),Mathematics,math
+w8318954,Subjects (school),Biology,biology
+w8318954,Subjects (school),chemistry,chemistry
+w8318954,Subjects (school),Computer Science,computer science
+w8318954,Subjects (school),Social Studies,UNK
+w8318954,Subjects (school),Public Speaking,UNK
+w8318954,Sports (season),Skiing,skiing
+w76890f1,PRACTICE,London,UNK
+w76890f1,PRACTICE,Paris,UNK
+w76890f1,PRACTICE,Venice,UNK
+w76890f1,PRACTICE,Rome,UNK
+w76890f1,Sports (silence),Football,football
+w76890f1,Sports (silence),Basketball,basketball
+w76890f1,Vehicles (veto),Car,car
+w76890f1,Vehicles (veto),Plane,airplane
+w76890f1,Vehicles (veto),Train,train
+w76890f1,Animals (bubble),Lion,lion
+w76890f1,Subjects (magic),Classics,UNK
+w76890f1,Subjects (magic),Psychology,psychology
+w1e31a72,PRACTICE,Greece,UNK
+w1e31a72,PRACTICE,Italy,UNK
+w1e31a72,PRACTICE,Poland,UNK
+w1e31a72,Sports (silence),Basketball,basketball
+w1e31a72,Animals (bubble),Polar Bear,polar bear
+w1e31a72,Subjects (magic),medicine,UNK
+w1e31a72,Vehicles (veto),car,car
+w5e62b40,Sports (season),Basketball,basketball
+w5e62b40,Sports (season),Football,football
