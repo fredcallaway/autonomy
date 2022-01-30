@@ -217,7 +217,9 @@ t-test on value of considered outcomes
 ```{r}
 df %>% 
     filter(considered) %>% 
-    group_by(control) %>% 
+    mutate(evaluation = evaluation) %>% 
+    group_by(control,wid) %>% 
+    summarise(evaluation = mean(evaluation)) %>% 
     t_test(evaluation ~ control, order=c("high", "low")) %>% kable(digits=3)
 ```
 
@@ -366,12 +368,25 @@ prop.test(X$good, X$total, alternative='less')
 
 
 ```{r}
+
+baselines = df %>%
+    filter(!is.na(accessibility)) %>% 
+    group_by(evaluation) %>% 
+    summarise(acc=sum(accessibility))  %>% 
+    mutate(prop=acc/sum(acc))
+
 X = baselines %>% 
     mutate(ebin=cut(cumsum(prop), c(0, 1/3, 2/3, 1.01), labels=c("bad", "neutral", "good"))) %>% 
     select(evaluation, ebin) %>% 
     right_join(df) %>% 
     filter(considered)
 
+X %>% 
+    ggplot(aes(ebin, fill=control)) + geom_bar(position="dodge") + control_colors
+
+```
+
+```{r}
 X %>% 
     filter(control=="low") %>% 
     mutate(x=ebin=="neutral") %>% 
@@ -390,7 +405,5 @@ X %>%
     mutate(x=ebin=="good") %>% 
     prop_test(x ~ control, success='TRUE')
 
-X %>% 
-    ggplot(aes(ebin, fill=control)) + geom_bar(position="dodge")
 
 ```
