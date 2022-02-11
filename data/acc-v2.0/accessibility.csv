@@ -457,9 +457,9 @@ wb8337af,SUBJECTS,language,UNK
 wbc9d68b,SUBJECTS,Math,math
 wbc9d68b,SUBJECTS,Science,science
 wbc9d68b,SUBJECTS,History,history
-wbc9d68b,SUBJECTS,Health,health
+wbc9d68b,SUBJECTS,Health,UNK
 wbc9d68b,SUBJECTS,PE,UNK
-wbc9d68b,SUBJECTS,Gym,gym
+wbc9d68b,SUBJECTS,Gym,UNK
 wbc9d68b,SUBJECTS,Band,UNK
 wbc9d68b,ANIMALS,Zeebra,zebra
 wbc9d68b,ANIMALS,Horse,horse
@@ -684,7 +684,7 @@ wac510fe,ANIMALS,giraffe,giraffe
 wac510fe,TRANSPORT,bus,bus
 wac510fe,TRANSPORT,train,train
 wac510fe,TRANSPORT,car,car
-wac510fe,TRANSPORT,cab,cab
+wac510fe,TRANSPORT,cab,taxi
 wac510fe,TRANSPORT,bike,bicycle
 w647c8e3,SPORTS,soccer,soccer
 w647c8e3,SPORTS,football,football
@@ -811,7 +811,7 @@ w988391c,SUBJECTS,english,english
 w988391c,SUBJECTS,spanish,spanish
 w988391c,SUBJECTS,math,math
 w988391c,SUBJECTS,social studies,UNK
-w988391c,SUBJECTS,health,health
+w988391c,SUBJECTS,health,UNK
 w988391c,ANIMALS,ape,UNK
 w988391c,ANIMALS,tiger,tiger
 w988391c,ANIMALS,bear,bear
@@ -1390,7 +1390,7 @@ w5f02ad8,TRANSPORT,scooter,scooter
 w5f02ad8,TRANSPORT,lube,UNK
 w5f02ad8,SUBJECTS,math,math
 w5f02ad8,SUBJECTS,history,history
-w5f02ad8,SUBJECTS,gym,gym
+w5f02ad8,SUBJECTS,gym,UNK
 w5f02ad8,SUBJECTS,social sutdies,UNK
 w064d228,ANIMALS,tiger,tiger
 w064d228,ANIMALS,lion,lion
@@ -1438,7 +1438,7 @@ w9945574,SPORTS,golf,golf
 w9945574,SPORTS,hockey,hockey
 w9945574,SPORTS,football,football
 w9945574,SPORTS,soccer,soccer
-w9945574,SPORTS,skating,UNK
+w9945574,SPORTS,skating,figure skating
 w9945574,SPORTS,ice skating,figure skating
 w9945574,SPORTS,basketball,basketball
 w9945574,SUBJECTS,math,math
@@ -1512,7 +1512,7 @@ wf959640,TRANSPORT,car,car
 wf959640,TRANSPORT,plane,airplane
 wf959640,TRANSPORT,train,train
 wf959640,TRANSPORT,helecopter,helicopter
-wf959640,TRANSPORT,cab,cab
+wf959640,TRANSPORT,cab,taxi
 wf959640,TRANSPORT,taxi,taxi
 wf959640,TRANSPORT,bike,bicycle
 wf959640,SPORTS,football,football
@@ -1781,7 +1781,7 @@ w4039eba,SUBJECTS,math,math
 w4039eba,SUBJECTS,science,science
 w4039eba,SUBJECTS,english,english
 w4039eba,SUBJECTS,history,history
-w4039eba,SUBJECTS,gym,gym
+w4039eba,SUBJECTS,gym,UNK
 w4039eba,SUBJECTS,reading,UNK
 w4039eba,ANIMALS,zebra,zebra
 w4039eba,ANIMALS,elephant,elephant
@@ -2076,4 +2076,4 @@ wb7f7e16,TRANSPORT,plane,airplane
 wb7f7e16,TRANSPORT,bike,bicycle
 wb7f7e16,TRANSPORT,train,train
 wb7f7e16,TRANSPORT,metro,train
-wb7f7e16,TRANSPORT,cab,cab
+wb7f7e16,TRANSPORT,cab,taxi
