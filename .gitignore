@@ -10,3 +10,4 @@ model/.fighist/
 model/tmp.bak/
 analysis/*_files/
 analysis/*_cache/
+data/processed.csv
