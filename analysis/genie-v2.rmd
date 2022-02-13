@@ -1,5 +1,5 @@
 ---
-title: Genie Game Results — Followup
+title: Genie Game Results — Final
 date: "`r Sys.Date()`"
 author: "fredcallaway"
 output:
@@ -8,7 +8,6 @@ output:
     self_contained: true
 ---
 
-Here we are showing results with the ...
 
 ```{r setup, include=FALSE}
 source("base.r")
@@ -16,15 +15,10 @@ library(moments)
 library(scales)
 library(infer)
 
-VERSIONS = c('v4.0', 'v4.0B')
-# VERSIONS = c('v3.1')
-
+VERSIONS = c('v2.0')
 load_data = function(type) {
     VERSIONS %>% 
-    map(~ 
-        read_csv(glue('../data/{.x}/{type}.csv'), col_types = cols()) %>% 
-        mutate(version = .x)
-     ) %>% 
+    map(~ read_csv(glue('../data/{.x}/{type}.csv'), col_types = cols())) %>% 
     bind_rows
 }
 
@@ -38,10 +32,6 @@ control_colors = scale_colour_manual(values=c(
     "#F5CE47"
 ), aesthetics=c("fill", "colour"))
 
-wrap_scenario = list(
-    facet_wrap(~scenario, dir="v", ncol=4),
-    theme(strip.text.x = element_text(size=12), legend.position="top")
-)
 ```
 
 # Exclusions
@@ -81,7 +71,7 @@ slider_check = full_slider %>%
 pdf = full_pdf %>% 
     filter(obligatory_check == "correct") %>% 
     left_join(slider_check) %>% 
-    filter(pass) %>%
+    filter(pass) %>% 
     mutate(
         control = factor(control, levels=c("low", "high"))
     )
@@ -91,9 +81,9 @@ pdf2 = select(pdf, wid, control)
 consideration = full_consideration %>%
     right_join(pdf2)  %>% 
     filter(scenario != "practice") %>%
-    filter(outcome %nin% c("NONE", "UNK")) %>%
-    group_by(wid, scenario)  %>% 
-    distinct(outcome) %>%   # EXCLUSION
+    filter(outcome %nin% c("NONE", "UNK")) %>% 
+    select(-raw_outcome) %>% 
+    group_by(wid, scenario) %>% 
     mutate(order = row_number())
 
 df = full_df %>% 
@@ -109,35 +99,25 @@ df = full_df %>%
     ) %>% 
     ungroup()
 
-raw_acc = read_csv('../data/acc-v2.0/accessibility.csv', col_types = cols())
+acc = read_csv('../data/acc-v2.0/accessibility.csv', col_types = cols())
 
-# accessibility is the proportion of participants who listed each outcome
-# when prompted with its category
-accessibility = raw_acc %>% 
+acc %>% 
     filter(cat_id != "EUROCITIES") %>%
     filter(outcome != "UNK") %>%
-    count(cat_id,outcome) %>% 
-    mutate(accessibility = n / length(unique(raw_acc$wid))) %>% 
-    select(-n)
+    count(outcome) %>% 
+    mutate(accessibility = n / length(unique(acc$wid))) %>% 
+    select(-n) %>% 
+    right_join(df) -> df
 
-df = left_join(df, accessibility) %>% 
-    filter(!is.na(accessibility))
-    # replace_na(list(accessibility=0))
+
+df = filter(df, !is.na(accessibility))
+
 # stopifnot(df %>% group_by(wid, scenario) %>% filter(sum(considered)!=1) %>% nrow == 0)
+stopifnot(df %>% filter(is.na(accessibility)) %>% nrow == 0)
 
-stopifnot(
-    full_df %>% 
-    filter(scenario != "practice" & outcome == "UNK") %>% 
-    nrow == 0
-)
-
-df = df %>% 
+df %>% 
     arrange(wid, scenario, order) %>% 
-    group_by(wid, scenario) %>% 
-    mutate(trial_id= cur_group_id()) %>% 
-    ungroup()
-
-df %>% write_csv("../data/processed.csv")
+    write_csv("../data/processed.csv")
 ```
 
 - `r nrow(full_pdf)` participants recruited.
@@ -146,14 +126,6 @@ df %>% write_csv("../data/processed.csv")
 - `r nrow(pdf)` passed both checks and are included in the analysis.
 
 
-```{r}
-old_outcomes = str_split('soccer, basketball, tennis, baseball, golf, volleyball, badminton, boxing, cricket, rugby, football, bowling, elephant, koala, lemur, sloth, giraffe, monkey, rhinoceros, deer, panda, peacock, tiger, lion, jaguar, zebra, gorilla, cobra, crocodile, kangaroo, english, history, french, spanish, physics, chemistry, biology, algebra, geometry, calculus, bicycle, unicycle, scooter, skateboard, car, limousine, helicopter, airplane, train, bus, boat', ', ', simplify=T)
-
-length(old_outcomes)
-# df = df %>% filter(outcome %in% old_outcomes)
-
-full_pdf %>% nrow
-```
 
 # Proportion of good/bad/neutral
 
@@ -164,7 +136,7 @@ ebins = df %>%
     summarise(acc=sum(accessibility)) %>% 
     mutate(prop=acc/sum(acc)) %>% 
     mutate(ebin=cut(cumsum(prop), c(0, 1/3, 2/3, 1.01), labels=c("bad", "neutral", "good"))) %>% 
-    select(evaluation, ebin)
+    select(evaluation, ebin) 
 
 df %>% 
     left_join(ebins) %>% 
@@ -175,13 +147,6 @@ df %>%
     control_colors +
     labs(x="value bin", y="proportion of considered outcomes")
 ```
-
-OK, so we definitely have a much stronger manipulation effect; that's great.
-But the low-control group appears to be selectively considering *bad* outcomes,
-rather than extreme outcomes. This is especially puzzling given the last
-set of results, where people in both conditions selectively considered good outcomes.
-
-This is bizarre.
 
 ## Tests
 
@@ -233,9 +198,9 @@ cat(
 relu = function(x) {
     if_else(x < 0, 0, x)
 }
+
 p1 = df %>% 
-    mutate(considered_first = as.numeric(considered & order==1)) %>% 
-    ggplot(aes(evaluation, considered_first, color=control)) +
+    ggplot(aes(evaluation, as.numeric(considered), color=control)) +
     stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
                      position=position_dodge(width=.5)) +
     stat_smooth(geom="line", size=0.8, linetype = "dotted", alpha=0.5) +
@@ -260,29 +225,15 @@ p2 = df %>%
 p1 + p2 + plot_layout(guides = "collect")
 ```
 
-```{r, fig.height=2, cache=T, dependson=load_data}
-consideration_model = df %>% 
-    mutate(
-        accessibility = zscore(accessibility), 
-        evaluation = zscore(evaluation),
-        control_high = 1*(control == "high"),
-        control_low = 1*(control == "low"),
-
-    ) %>% 
-    glmer(considered ~ accessibility + relu(evaluation) + abs(evaluation) +
-        control_low : abs(evaluation) + control_high : relu(evaluation) +
-        (accessibility + relu(evaluation) + abs(evaluation) | wid),
-     family=binomial, data=.)
-
-plot_coefs(consideration_model, omit.coefs=c("controlhigh", "(Intercept)"), colors="black") #plot
-summ(consideration_model)
-```
-
 # Value distributions
 
 Gray is the accessibility data. Blue and yellow are outcomes considered by each group.
 
 ```{r, fig.width=7.5, fig.height=4.5}
+wrap_scenario = list(
+    facet_wrap(~scenario, dir="v", ncol=4),
+    theme(strip.text.x = element_text(size=12), legend.position="top")
+)
 
 baselines = df %>%
     group_by(scenario, evaluation) %>% 
@@ -345,25 +296,6 @@ df %>%
         labs(y="relative proportion")
 ```
 
-
-```{r, fig.width=7.5}
-baselines = df %>%
-    group_by(scenario,evaluation) %>% 
-    summarise(acc=sum(accessibility))  %>% 
-    mutate(prop=acc/sum(acc))
-
-df %>% 
-    filter(considered) %>% 
-    count(control, scenario, evaluation) %>% 
-    group_by(control,scenario) %>% 
-    mutate(prop=n/sum(n)) %>% 
-    left_join(transmute(baselines, evaluation, baseline=prop)) %>% 
-    ggplot(aes(evaluation, prop-baseline)) + 
-        geom_bar(aes(fill=control), stat="identity", alpha=0.7, width=.7, position="dodge") +
-        control_colors + wrap_scenario +
-        labs(y="relative proportion")
-```
-
 # Modeling
 
 ## Model comparison
@@ -381,8 +313,9 @@ read_csv("../model/results/comparison.csv") %>%
     kable
 ```
 
-It looks like softmax alone (with different temperature by condition) performs best.
-This actually makes sense, given the next plot.
+I'm not exactly sure how to interpret the dse, but the most obvious
+interpretation to me is that it could have easily come out the other
+direction.
 
 ## Difference in β
 
@@ -399,9 +332,9 @@ chain %>%
 p_higher = mean(chain$β_high > chain$β_low)
 ```
 
-The temperature is *negative* in the low control condition. This makes sense
-because behaviorally, we see selective consideration of bad outcomes in that
-condition.
+It looks like they overlap a lot, but this is (likely) because they both
+correlate with the $C_{\text{exp}}$ parameter. If we compare them, 
+$\beta_{\text{high}}$ is higher `r 100*p_higher`% of the time.
 
 ## Posterior predictive checks
 
@@ -425,9 +358,6 @@ ppc %>%
     labs(x="value bin", y="proportion of considered outcomes")
 ```
 
-That looks a lot like the data!
-
-<!-- 
 ```{r, fig.width=7.5}
 ppc %>% 
     group_by(control) %>% 
@@ -438,4 +368,33 @@ ppc %>%
         control_colors +
         labs(y="relative proportion")
 ```
--->
+
+# What went wrong?
+
+
+```{r}
+pdf
+
+full_consideration %>% 
+    filter(scenario != "practice") %>% 
+    group_by(scenario) %>% 
+    summarise(mean(outcome == "UNK"))
+
+full_consideration %>% 
+    filter(scenario != "practice") %>% 
+    filter(outcome == "UNK") %>% print(n=100)
+```
+
+
+```{r}
+read_csv("/Users/fred/Downloads/prolific_export_61cc9e46a7364db7a025cca8.csv") %>% 
+    filter(status == "APPROVED") %>%
+    select(completed_datetiem)
+    summarise(mean(time_taken))
+
+
+read_csv("/Users/fred/Downloads/prolific_export_61e9fb5a18392098af41d698.csv") %>% 
+    filter(status == "AWAITING REVIEW") %>%
+    summarise(mean(time_taken))
+
+```

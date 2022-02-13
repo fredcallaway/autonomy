@@ -1,0 +1,935 @@
+---
+title: Genie Game Results (v1.1)
+date: "`r Sys.Date()`"
+author: "fredcallaway"
+output:
+  rmdformats::robobook:
+    code_folding: hide
+    self_contained: true
+---
+
+
+```{r setup, include=FALSE}
+source("base.r")
+library(moments)
+library(scales)
+
+VERSIONS = c('v1.2B', 'v1.2C')
+load_data = function(type) {
+    VERSIONS %>% 
+    map(~ read_csv(glue('../data/{.x}/{type}.csv'), col_types = cols())) %>% 
+    bind_rows
+}
+
+full_pdf = load_data('participants') %>% 
+    filter(completed) %>% 
+    filter(wid != "w963f6eb")  %>%  # not actually completed, not sure what's going on
+    select(-c(consideration_time, reflection_time, n_considered, n_unconsidered, version, bonus, completed)) %>%
+    mutate(
+        obligatory_check = factor(if_else(comp_radio, 'incorrect', 'correct', 'empty'),
+                                  levels=c('empty', 'incorrect', 'correct')),
+        # ignored_comprehension = obligatory_check == "empty" & is.na(comp_free)
+    )
+
+full_df = load_data('outcomes') %>% rename(scenario = prompt_id)
+full_scenarios = load_data('scenarios') %>% 
+    mutate(
+        considered = map(considered, fromJSON),
+        n_considered = lengths(considered)
+    ) %>% rename(scenario = prompt_id)
+
+
+considered_colors = scale_colour_manual(values=c(
+    "#E7424F",
+    "#535353"
+), aesthetics=c("fill", "colour"), name="")
+
+control_colors = scale_colour_manual(values=c(
+    "#31ADF4",
+    "#F5CE47"
+), aesthetics=c("fill", "colour"), name="control")
+```
+
+# Participants
+
+```{r}
+# table(full_pdf$obligatory_check)
+pdf = full_pdf %>% mutate(
+    subj = row_number(),
+    control = factor(control, levels=c("low", "high"))
+)
+# pdf = full_pdf %>% filter(!ignored_comprehension)
+
+df = full_df %>% right_join(pdf)  # drops excluded participants
+
+# participant_moments = df %>% 
+#     filter(outcome != "UNK") %>% 
+#     group_by(wid) %>% 
+#     summarise(across(evaluation, list(μ=mean, σ=sd, skew=skewness), .names="{fn}"))
+# df = df %>% 
+#     group_by(wid) %>% 
+#     inner_join(participant_moments) %>% 
+#     mutate(evaluation_z = (evaluation - μ) / σ) %>% 
+#     ungroup()
+
+df = df %>% 
+    group_by(wid) %>% 
+    mutate(
+        evaluation_z = zscore(evaluation),
+        abs_eval = abs(evaluation),
+        abs_eval_z = zscore(abs_eval)
+    ) %>% 
+    ungroup()
+
+scenarios = full_scenarios %>%
+    right_join(pdf)  %>% 
+    group_by(wid) %>% 
+    mutate(scenario_evaluation_z = zscore(scenario_evaluation)) %>% 
+    ungroup()
+
+# # should be empty
+# scenarios %>% 
+#     group_by(wid) %>% 
+#     summarise(n=n()) %>% 
+#     filter(n !=3)
+
+
+load_data('slider_check')
+```
+
+- All but two participants correctly stated that they couldn't choose not to eat the fruit. The other two didn't answer the question.
+- A cursory glance at the free response indicates that (almost) everyone gets it. See [Free-response comprehension check].
+- For now we are not excluding anyone.
+- This gives us N = `r nrow(pdf)`.
+
+
+
+# Consideration probability by outcome value
+
+How does the probability of an item being included in the considered set
+depend on its value (measured by post-decision rating)? We predict that it
+will depend on both signed and absolute value.
+
+```{r}
+BASELINE = mean(df$evaluation)
+check_plot = df %>% 
+    ggplot(aes(evaluation, as.numeric(considered), color=control)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.3, 
+                     position=position_dodge(width=.5)) +
+    geom_smooth(se=F, size=0.8, linetype = "dotted", alpha=0.3) +
+    # geom_smooth(se=F, method=lm, formula=y ~ x + abs(x), alpha=0.1) +
+    geom_smooth(se=F, method=glm, 
+        formula=y ~ x + abs(x - 0),
+        method.args = list(family = "binomial"),
+        alpha=0.1) +
+    ylab("consideration probability") +
+    control_colors
+check_plot
+```
+
+Basic prediction: ✅ (never has this emoji been more appropriate)
+
+Reading the plot: points show binned means with 95% CI error bars. The dashed
+line shows a non-parameteric [GAM](https://en.wikipedia.org/wiki/Generalized_additive_model)
+fit. The solid line shows a logistic regression of the form
+$\text{logit}(y) = \beta_0 + \beta_1 x + \beta_2 |x|$. This is an adaptation
+of the earlier apples/oranges version of our model.
+
+It's not exactly what we predict, but this looks like a win. Visually, we see
+effects of both signed and absolute value and we see that the effect of signed
+value is greater in the high-control condition.
+
+Unfortunately, the regression coefficients don't look as good...
+
+```{r, fig.height=2}
+consideration_model = df %>% 
+    glm(considered ~ control * (zscore(evaluation) + zscore(abs(evaluation))), family=binomial, data=.)
+
+plot_coefs(consideration_model, omit.coefs=c("controlhigh", "(Intercept)"), colors="black") #plot
+summ(consideration_model)
+```
+
+The zscoring here is to make the estimates more directly comparable.
+Based on the plot, I was hoping to see an interaction between high control
+and signed value. It's trending in the right direction, but the 
+interaction with absolute value is much stronger. If anything, we would expect
+that the low-control condition would have a stronger effect of absolute
+value (i.e., we predict a negative interaction.)
+
+
+## By scenario 
+
+Breaking things down by scenario, we see that we get the biggest difference in
+the ZOO case. This makes sense because only this scenario has a large number
+of extreme negative outcomes. However, even here, high-control participants
+still think of negative outcomes.
+
+```{r, fig.width=7.5, fig.height=3}
+check_plot + facet_wrap(~scenario)  # plot
+```
+
+Why do people think of negative outcomes when they are impossible to occur?
+This could be due to a weak manipulation. However, it could also be that
+people have a default sampling policy that is sensitive to both signed
+and absolute value (as would be adaptive in cases of moderate control) and
+they have only a limited ability to modulate that policy based on contextual
+factors. The latter hypothesis is consistent with Fiery's previous work.
+[Implications for the model] are discussed below.
+
+
+👉 see [Alternative basic predictions] for analyses that treat consideration
+as the IV (as I originally proposed).
+
+👉 see [Z-scoring] for these analyses with evaluations z-scored within participant.
+(This one is particulary worth checking out).
+
+👉 There is mixed evidence for learning, documented in [Order effects].
+
+
+# Value distributions
+
+To better understand the effect of scenario, we need to look at the underlying
+distributions of outcome values. Here we are plotting the distribution of all
+outcome values in gray and the distribution of considered outcomes in blue and
+yellow.
+
+
+```{r, fig.width=7.5, fig.height=4}
+
+df %>% 
+    ggplot(aes(evaluation, y=..prop..)) + 
+    geom_bar(alpha=0.7, data=df) +
+    geom_bar(aes(fill=control), filter(df, considered), alpha=0.7) +
+    facet_grid(control ~ scenario) + control_colors
+```
+
+Several comments here:
+
+- People are not using the scale in the way we would like. In particular, they
+  seem to really like the end points. As a result, absolute value is not really
+  a good indicator of extremity. For example, there are more +10 responses for
+  eating a fruit than there are -10 responses for being locked in a cage with
+  a semi-wild animal. See [Next steps] for further discussion.
+- "Extreme" high values are more likely to be considered in both conditions.
+- We see our prediction fairly well in the ZOO scenario, although we do still
+  see a lot of -10 responses in the high control condition.
+- The differences in the other scenarios are minimal. However, it's worth noting
+  that the model doesn't predict a strong effect of condition when value and
+  extremity align, as is true in both VACTATION and (surprisingly) FRUIT.
+  There is a hint of more consideration of negative VACATION destinations in
+  the low-control case.
+
+## Individual differences
+
+We hope that most people have similar outcome value distributions for each problem.
+First, we can look at the raw distributions for the first 12 participants.
+
+<!-- For all the analyses in this section, we exclude participant-generated outcomes
+that weren't in the pre-defined list (about 2.5%) -->
+
+```{r, fig.width=7.5, fig.height=5}
+
+pid = "VACATION"
+for (pid in unique(df$scenario)) {
+    df %>% 
+        # filter(outcome != "UNK") %>% 
+        filter(subj <= 12 & scenario == pid) %>% 
+        ggplot(aes(as_factor(evaluation))) +
+            geom_bar() +
+            facet_wrap(~ subj) +
+            theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
+            ggtitle(pid)
+    fig(pid, 7.5, 5)
+}
+```
+
+### Moments
+
+It looks like there is a lot of variability. To get a higher-level
+view, we can take all the outcomes generated in each trial and compute
+the first three moments of that empirical distribution. Each moment
+becomes a dot in this plot:
+
+```{r,fig.width=7.5, fig.height=3.5}
+df %>% 
+    # filter(outcome != "UNK") %>% 
+    group_by(scenario, wid) %>% 
+    summarise(across(evaluation, list(μ=mean, σ=sd, skew=skewness), .names="{fn}"))  %>% 
+    pivot_longer(μ:skew, names_to="moment", values_to="value") %>% 
+    mutate(moment = recode_factor(moment, "μ" = "mean", "σ" = "sd")) %>% 
+    ggplot(aes(scenario, value)) + 
+        # geom_violin() +
+        geom_quasirandom(size=.8) +
+        stat_summary(fun.data=mean_cl_boot, color="red") +
+        facet_wrap(~moment, scales="free") +
+        scale_x_discrete(label=abbreviate, name=NULL)
+```
+
+This suggests to me that we are getting a meaningful manipulation on
+the outcome-value distributions. There's still a lot of variability here,
+but I'm not sure whether that is real individual differences or measurement
+error. 
+
+Here's a version of the above plot, with lines showing participants. This
+shows that people are fairly consistent in how mean and sd vary across the
+scenarios, although there are individual-specific offsets. Skew is pretty
+messy here. It also looks completely different than how I intended (positive
+for VACATION and negative for ZOO). In retrospect, it makes sense that skew
+would go in the opposite direction as mean due to boundary effects on the -10
+to 10 scale.
+
+
+```{r,fig.width=7.5, fig.height=3.5}
+df %>% 
+    # filter(outcome != "UNK") %>% 
+    group_by(scenario, wid) %>% 
+    summarise(across(evaluation, list(μ=mean, σ=sd, skew=skewness), .names="{fn}"))  %>% 
+    pivot_longer(μ:skew, names_to="moment", values_to="value") %>% 
+    mutate(moment = recode_factor(moment, "μ" = "mean", "σ" = "sd")) %>% 
+    ggplot(aes(scenario, value)) + 
+        # geom_violin() +
+        geom_hline(yintercept=0, size=0.5, linetype="dashed") +
+        geom_line(aes(group=wid), alpha=0.5, size=0.5) +
+        stat_summary(fun.data=mean_cl_boot, color="red") +
+        facet_wrap(~moment, scales="free") +
+        scale_x_discrete(label=abbreviate, name=NULL)
+```
+
+# Quality/sanity checks
+
+
+## Higher outcome evaluations in high-control
+
+Perhaps the most obvious and basic prediction one could make is that
+the scenarios should be rated more highly in the high control condition.
+
+```{r, fig.width=6}
+scenarios %>% 
+    ggplot(aes(scenario, scenario_evaluation, color=control)) +
+    stat_summary(fun.data=mean_cl_boot, position=position_dodge(width=.8)) +
+    geom_quasirandom(size=.8, dodge.width=.8, alpha=0.5) + control_colors
+
+```
+```{r, fig.height=2.5}
+scenarios %>% lmer(scenario_evaluation ~ control * scenario + (1|wid), data=.) %>% plot_coefs(colors="black")
+```
+
+Sort of? The fact that we actually see higher ratings for low-control in
+VACATION is puzzling. It might be that participants in the low-control
+condition just happen to have higher individual offsets (i.e., they would 
+be higher in all the scenarios if there wasn't a manipulation).
+
+
+## Outcome evaluations predict scenario evaluations
+
+Evaluations of the full scenario should depend on evaluations of individual
+outcomes of that scenario.
+
+```{r}
+X = df %>% 
+    group_by(control, wid, scenario) %>% 
+    summarise(outcome_evaluation = mean(evaluation)) %>% 
+    left_join(select(scenarios, control, wid, scenario, scenario_evaluation))
+
+X %>% ggplot(aes(outcome_evaluation, scenario_evaluation)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, position=position_dodge(width=1), alpha=0.3) +
+    geom_smooth(method="lm")
+```
+
+🎊 woop dee doo 🎊
+
+What we really want to see is that the outcome evaluations predict scenario evaluations
+_over and above_ the scenario and participant offsets. That is, the outcome evaluations
+should provide some signal about the interaction between participant and scenario.
+
+To test this, we'll use within-participant z-scored evaluations (both outcome
+and scenario) and we'll separate by scenario. Note that the `_z` suffix will
+always indicate within-participant z-scoring. See [Z-scoring] for more information.
+
+```{r, fig.width=7.5, fig.height=4}
+X = df %>% 
+    group_by(wid, scenario, considered) %>% 
+    summarise(outcome_evaluation_z = mean(evaluation_z)) %>% 
+    left_join(select(scenarios, wid, scenario, scenario_evaluation_z)) 
+
+X %>% ggplot(aes(outcome_evaluation_z, scenario_evaluation_z)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, position=position_dodge(width=1), alpha=0.7) +
+    geom_smooth(method="lm", alpha=0.2) +
+    facet_wrap(~scenario)
+    # facet_wrap(~control, labeller=label_glue("{control} control")) + 
+
+X %>% lm(scenario_evaluation_z ~ 0 + outcome_evaluation_z + scenario, data=.) %>% summ
+```
+
+OK that's good...
+
+## Are considered outcomes more important?
+
+...but what we'd _really_ like to see is that the evaluations are specifically sensitive
+to the _considered_ outcomes (vs. the unconsidered outcomes). Unfortunately, this does
+not seem to be the case.
+
+```{r, fig.width=7.5, fig.height=4}
+
+
+X = df %>% 
+    mutate(considered=if_else(considered, "considered", "unconsidered")) %>% 
+    group_by(wid, scenario, considered) %>% 
+    summarise(outcome_evaluation_z = mean(evaluation_z)) %>% 
+    left_join(select(scenarios, wid, scenario, scenario_evaluation_z)) 
+
+X %>% ggplot(aes(outcome_evaluation_z, scenario_evaluation_z, color=considered, fill=considered)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, position=position_dodge(width=1), alpha=0.3) +
+    geom_smooth(method="lm", alpha=0.1) +
+    facet_wrap(~scenario) + 
+    theme(legend.position="top") +
+    considered_colors
+
+X1 = df %>% 
+    group_by(wid, scenario, considered) %>% 
+    summarise(y = mean(evaluation_z)) %>% 
+    mutate(x=if_else(considered, "considered_val", "unconsidered_val")) %>% 
+    select(-considered) %>% 
+    ungroup() %>% 
+    pivot_wider(names_from=x, values_from=y, names_repair="unique") %>% 
+    right_join(scenarios)
+
+X1 %>% lm(scenario_evaluation_z ~ considered_val + unconsidered_val + scenario, data=.) %>% summ
+```
+
+Ouch. It looks like the considered values are selectively _not_
+contributing to the overall scenario evaluation. And yes I did check my
+response coding. 😉
+
+But before we throw up our hands in despair, it's important to note that there
+are many more unconsidered outcomes than considered outcomes, and so the mean
+of the latter is a much noisier measure. If we just look at the relationship
+between individual outcome evaluations and the total scenario evaluation, we
+do see that the considered outcomes have a slightly stronger relationship.
+
+```{r}
+df %>% 
+    inner_join(select(scenarios, -considered)) %>% 
+    group_by(considered) %>% 
+    nest() %>%
+    mutate(result = map(data, function(.) {
+        m = lm(scenario_evaluation_z ~ evaluation_z + scenario, data=.)
+        tibble(
+            slope = m$coef["evaluation_z"],
+            cor = with(., cor(evaluation_z, scenario_evaluation_z, use='complete'))
+        )
+    })) %>% 
+    unnest(result) %>%
+    select(-data) %>% kable
+```
+
+To be honest, I don't fully understand how the slope can be steeper in this
+regression but less steep in the plots. I think it must be because in the
+plotted regressions, we have one observations per trial, whereas in the
+table regression, we have one observation per outcome. I'm not sure which
+is a better test; or perhaps there is a third way.
+
+Even if we trust the second (more positive) set of results, the conclusion is
+not especially optimistic. It seems pretty likely that either (1) the scenario
+evaluations are really based on a gist-like perception of the situation rather
+than aggregations of separate outcome samples, and/or (2) the outcomes
+participants report having considered are not a veridicial measure of what
+they actually thought about.
+
+## Number of options considered
+
+This is pretty self-explanatory. Overall, it seems like we are getting
+pretty decent rates.
+
+```{r}
+scenarios %>% 
+    ggplot(aes(n_considered, y=..prop..)) + geom_bar()
+
+```
+
+### By participant
+```{r,fig.width=7.5, fig.height=3}
+scenarios %>% 
+    group_by(wid) %>% 
+    mutate(nc = mean(n_considered)) %>% 
+    ungroup() %>% 
+    mutate(wid = fct_reorder(wid, desc(nc))) %>% 
+    ggplot(aes(wid, n_considered)) + 
+        stat_summary(geom="line", group=0, color="red", alpha=0.5) +
+        geom_point(alpha=0.5) + 
+        xlab("participant") +
+        scale_y_continuous(breaks= breaks_pretty(6)) +
+        theme(axis.text.x = element_blank())
+```
+
+### Over time
+```{r}
+scenarios %>% 
+    plot_line_range(trial_number, n_considered) + 
+    geom_quasirandom(size=1) +
+    scale_y_continuous(breaks= breaks_pretty(6)) +
+    scale_x_continuous(breaks= breaks_pretty(3))
+
+```
+
+# Discussion
+
+Overall, I think the results are promising enough to warrant further efforts
+with this paradigm.
+
+## Implications for the model
+
+The model being fit to the first set of plots is very similar to our initial
+"apples/oranges" mixture model. The fits are pretty darn good, suggesting
+that a model like the initially proposed model will be able to fit the data well.
+
+In contrast, if we look at the predictions from the 
+[analytic maximum of Gaussians model](http://fredcallaway.com/reports/autonomy/inf_choose_k-21-01-22.html#adding-uws),
+we see that for even moderate $k$, the probability of sampling extreme
+low-value outcomes is very small. Of course, these outcome distributions are
+highly non-Gaussian; accounting for that in the model could change things.
+Specifically, we can construct a sampling distribution based on the empirical
+CDF of values in the scenario or perhaps a parametric approximation such as the
+[skew Normal](https://en.wikipedia.org/wiki/Skew_normal_distribution). Two challenges
+with this approach:
+
+- It's not clear how to account for the value distribution without making unrealistic
+  assumptions about people's pre-sampling knowledge of that distribution. This would be
+  like the issue with presupposing the mean for UWS, but also for higher moments.
+- The model will have less flexibility in how it can capture partial adaptation. We have
+  the $k$ parameter of course, but these results suggest that people are asymetric in their
+  ability to increase positive outcome sampling vs. reduce negative outcome sampling 
+  (in particular, see the ZOO panel in [By scenario]). I think this will be difficult to
+  capture in any model that _composes_ UWS with value-weighted sampling as opposed to having
+  two separate and independently controllable mechansisms.
+
+Here's another approach, using the apples/oranges mixture model as a base:
+
+For each scenario:
+
+1. Identify optimal weights on signed vs absolute value.
+2. Estimate best-fitting weights from human data.
+3. Compare, drawing inferences about people's sensitivity to various components of
+  the distribution and ability to modulate different aspects of their sampling poloicy.
+
+Based on these results, we will hopefully be able to specify structured models of the
+contextual adaptation, allowing us to e.g. predict peoples sampling policies based
+on properties of distribution rather than fitting the weights for each scenario.
+
+I still think the analytic approach is theoretically more interesting and the
+challenges are not necessarily insurmountale. The results with Z-scored evaluations
+also seem to be more consistent with that model. However, the path forward with
+the apples/oranges model is still more clear to me.
+
+## Implications for the paradigm
+
+### Issues with the scale
+
+I think the biggest problem with the current results is that people are
+clearly not using the sliders in a way that maps in any consistent way to an
+underlying utility scale (see [Value distributions]). To address this, I
+propose that we add a phase at the beginning of the experiment that tries to
+teach participants to use the scale in the way we want them to. Something like
+this:
+
+> In this experiment you will be using a scale like the one below to rate many
+> different hypothetical events. Please try to follow these guidelines when
+> using the scale:
+> 
+> - If you would like the event to occur, give a postive number. 
+>   If you would prefer it not to occur, give a negative nubmer. 
+>   Give zero when you have no preference either way.
+> - Use small numbers (e.g. -3 to 3) when you have a slight preference for the
+>   event to (not) occur. Only use large numbers (less than -6 or more than 6)
+>   when you feel very strongly about the event.
+> - Try to be match negative and positive numbers. For example, if you rate event A as -3
+>   and event B as +4, that means you would be willing to have A happen if it meant
+>   that B would also happen (because 4 - 3 is more than zero).
+> - Most importantly, try to be _consisent_ in your ratings. If you rate event A as
+>   +4 and event B as +6, that should mean that you would prefer event B over event A.
+>   Try to be consistent across the entire experiment, not just within sections.
+> 
+> Before we begin the experiment proper, please rate the following events,
+> following the guidelines above. This will help give you a sense of the
+> magnitude of events you might encounter in the experiment.
+> 
+> - Finding a $20 bill on the street
+> - Missing your train and waiting 30 minutes for the next one
+> - Breaking your arm in a car accident
+> - Winning the lottery
+> - ...
+
+
+Another thing we can do is switch to using a Likert scale with fewer options
+that are each given informative names. However, I think having a larger number
+of possible responses might be necessary to capture variation in scenarios like
+FRUIT as well as those like ZOO.
+
+After having written this out, it occurs to me that we can't be the first
+people who want participants to use a scale consistently. Are there standard
+pratices here? My first instinct was to look at social/personality psychology
+methods, but I think our model needs to make much stronger assumptions about
+how people use the scale compared to the models typically employed in those
+areas (e.g. ANOVAs).
+
+### Controling for frequency/typicality
+
+A brief point. If you check out the [Outcome-based analysis], you'll see that
+consideration probaiblity is also highly dependent on something like typicality
+(e.g. jaguar and crocodile are considered much less often than tiger and lion)
+despite having similar value ratings. I think we will probably need to control
+for this down the line. This will require running a norming experiment. I can
+think of two ways to do this:
+
+1. Ask people to list every instance of the group (e.g. list all the zoo animals
+you can think of). 
+2. Ask people to give a single example of the category.
+
+The problem with the former is that we probably need to account for generation
+order somehow and I'm not sure how to do that. The problem with the latter is
+that it won't get coverage on the tails and it will be more expensive because
+it would require lots of participants.
+
+
+# Supporting information
+
+## Order effects
+
+Do participants get better at sampling in a manner consistent with their condition
+over time?
+
+```{r}
+df %>% 
+    # filter(scenario!="FRUIT") %>% 
+    left_join(select(scenarios, wid, scenario, trial_number)) %>% 
+    mutate(last_trial = as.numeric(trial_number==3)) %>% 
+    ggplot(aes(evaluation, as.numeric(considered), color=control)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.3, 
+                     position=position_dodge(width=.5)) +
+    geom_smooth(se=F, size=0.8, linetype = "dotted", alpha=0.3) +
+    # geom_smooth(se=F, method=lm, formula=y ~ x + abs(x), alpha=0.1) +
+    geom_smooth(se=F, method=glm, 
+        formula=y ~ x + abs(x - 0),
+        method.args = list(family = "binomial"),
+        alpha=0.1) +
+    ylab("consideration probability") +
+    facet_grid(scenario ~ trial_number,  labeller = label_glue(
+        cols = "trial {trial_number}",
+        rows = "{scenario}"
+    )) +
+    control_colors
+```
+
+Note that all participants saw FRUIT first. For ZOO, it does look like
+high-control participants do a better job of ignoring low-value outcomes.
+However, VACATION gets a little worse. Given that there are two sets of 
+participants here (one that sees VACATION first and one that sees ZOO first),
+it seems likely to me that this is a coincidental alignment of individual
+differences with order. But...
+
+```{r, fig.height=3}
+consideration_model_time = df %>% 
+    left_join(select(scenarios, wid, scenario, trial_number)) %>% 
+    # mutate(trial = trial_number - 1)
+    # filter(scenario!="FRUIT") %>% 
+    # mutate(last_trial = as.numeric(trial_number==3)) %>% 
+    glm(considered ~ trial_number * control * (zscore(evaluation) + zscore(abs(evaluation))), family=binomial, data=.)
+
+summ(consideration_model_time)
+```
+
+We do see a significant third-order interaction, such that high-control
+participants attend to high- value outcomes more on later trials (second
+to last row). The more model taking into account order has a better AIC:
+`r round(consideration_model_time$aic)` vs `r round(consideration_model$aic)`.
+
+## Alternative basic predictions
+
+In this set of analyses, we treat consideration as an IV and ask how
+signed/absoluate evaluations differ among considered vs. unconsidered
+outcomes. I think these are superseded by the analyses in [Basic predictions]
+but I'm putting them here for completeness.
+
+### High control participants consider higher-value outcomes
+
+We predict that participants in the high-control condition will consider
+higher-valued outcomes than those in the low condition. This should be 
+specific to considered outcomes---there should be no effect, or even a slight
+negative effect of control on the value of _unconsidered_ outcomes. Thus,
+we predict an interaction between consideration and control on evaluations.
+
+```{r, fig.width=5, fig.height=4}
+plot_line_range(df, considered, evaluation, control) + control_colors
+```
+
+```{r, fig.height=2}
+df %>% 
+    mutate(considered = as.numeric(considered)) %>% 
+    lmer(evaluation ~ considered * control + (1|wid), data=.) %>% plot_coefs(colors="black")
+```
+
+(95% CI error bars)
+
+It's not quite significant in the mixed effects regression, but visually, it
+looks like we got it! We also see a very robust main effect, which suggests
+a default policy for sampling good outcomes regardless of context.
+
+
+### Low control participants consider extreme outcomes
+
+Participants in the low-control condition should consider extreme outcomes.
+Unclear what we predict about the high-control condition; it probably depends
+on the outcome distribution...
+
+```{r, fig.width=5, fig.height=4}
+plot_line_range(df, considered, abs(evaluation), control) + control_colors
+```
+
+```{r, fig.height=2}
+df %>% 
+    mutate(considered = as.numeric(considered)) %>% 
+    lmer(abs(evaluation) ~ considered * control + (1|wid), data=.) %>% plot_coefs(colors="black")
+```
+
+Another strong main effect, as lots of previous research would suggest. We
+get an interaction, but it's not in the direction I would have expected.
+
+👉 See [Low control participants consider higher-variance outcomes] for a
+similar analysis that yields oddly different results.
+
+👉 See [Z-scoring] for both of these analyses with z-scored evaluations. The
+results are a little better, but it's maybe questionable to do this with a
+between-participant condition.
+
+### Broken down by scenario
+
+```{r, fig.width=7.5, fig.height=3}
+plot_line_range(df, considered, evaluation, control) + facet_wrap(~ scenario) + control_colors
+plot_line_range(df, considered, abs(evaluation), control) + facet_wrap(~ scenario) + control_colors
+```
+
+
+### Low control participants consider higher-variance outcomes
+
+The variance (or SD) of all considered outcomes should also be an indicator
+of sampling extreme values, especially if there are extreme values on both
+sides of the mean. We do see the predicted main effect, but we don't see
+an interaction with consideration, so I'm not sure what to make of this.
+
+```{r}
+X = df %>% 
+    group_by(control, wid, scenario, considered) %>%
+    summarise(eval_sd = sd(evaluation)) 
+
+X %>% plot_line_range(considered, eval_sd, control) + control_colors
+```
+```{r, fig.height=2}
+X %>% lm(eval_sd ~ considered * control, data=.) %>% plot_coefs(colors="black")
+```
+
+```{r, fig.width=7.5, fig.height=3}
+X %>% plot_line_range(considered, eval_sd, control) + facet_wrap(~scenario) + control_colors
+```
+<!-- 
+## Low control participants consider negative outcomes more
+
+```{r}
+df %>% 
+    plot_line_range(considered, as.numeric(evaluation < 0), control)
+    
+```
+ -->
+
+## Z-scoring
+
+Instead of using mixed effects, we can z-score the evaluations within participant.
+This better accounts for individual differences in using the scale but it also
+seems a little weird to do with a between-participant condition. That being said
+there's no reason to think that control would affect evaluation of individual
+outcomes, so this is probably fine.
+
+<!-- To minimize the effect of condition on this normalization, we are only
+including outcomes on the list of outcomes that everyone evaluated when
+computing the mean and sd. -->
+
+### Consideration probability
+
+```{r}
+check_plot_z = df %>% 
+    # filter(abs(evaluation_z) < 2) %>% 
+    ggplot(aes(evaluation_z, as.numeric(considered), color=control)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.3, 
+                     position=position_dodge(width=.5)) +
+    geom_smooth(se=F, size=0.8, linetype = "dotted", alpha=0.2) +
+    # geom_smooth(se=F, method=lm, formula=y ~ x + abs(x), alpha=0.1) +
+    geom_smooth(se=F, method=glm, 
+        formula=y ~ x + abs(x - 0),
+        method.args = list(family = "binomial"),
+        alpha=0.1) +
+    ylab("consideration probability") +
+    control_colors
+check_plot_z
+```
+
+```{r, fig.width=7.5, fig.height=3}
+check_plot_z + facet_wrap(~scenario)  # plot
+```
+
+It's mysterious to me that these look so different from the non-zscored
+versions. In particular, we now see much less consideration of low-value
+outcomes, except in the low-control zoo.
+
+And the regression:
+
+```{r, fig.height=2}
+consideration_model_z = df %>% 
+    glm(considered ~ control * (zscore(evaluation_z) + zscore(abs(evaluation_z))), family=binomial, data=.)
+
+plot_coefs(consideration_model_z, omit.coefs=c("controlhigh", "(Intercept)"), colors="black")
+```
+
+Overall this is more consistent with our model predictions. In particular, we now
+get both interactions trending in the predicted directions. 
+However the AIC is a lot worse with the z-scored evaluations
+(`r round(consideration_model_z$aic)` vs. `r round(consideration_model$aic)`)
+and I trust the raw values more given that I don't understand why z-scoring makes
+such a big difference. I'm hoping that the divergence can be reduced by
+encouraging people to use the scale more consistently. 🤞
+
+### Alternative basic z-scored
+This is _highly_ supplemental. I encourage skipping it.
+
+#### Control -> value of considered outcomes
+We now get a full cross over pattern and a significant interaction.
+
+```{r}
+plot_line_range(df, considered, evaluation_z, control) + control_colors
+```
+
+```{r, fig.height=2}
+df %>% 
+    mutate(considered = as.numeric(considered)) %>% 
+    lm(evaluation_z ~ considered * control , data=.) %>% plot_coefs(colors="black")
+```
+
+#### Control -> absolute value of considered outcomes
+In this case, the z-scored evaluations might make more sense because extremity
+ought to be evaluated relative to a participant's baseline value. On the other hand,
+it's not clear that the mean outcome evaluation in this experiment is really
+a good measure of that baseline.
+
+Interestingly, it makes a big difference for this analysis....
+
+```{r}
+plot_line_range(df, considered, abs(evaluation_z), control) + control_colors
+```
+
+```{r, fig.height=2}
+df %>% 
+    mutate(considered = as.numeric(considered)) %>% 
+    lmer(abs(evaluation_z) ~ considered * control + (1|wid), data=.) %>% plot_coefs(colors="black")
+```
+
+This might merit further consideration 🤔 
+
+
+## Outcome-based analysis
+
+In the previous analyses we have operationalized outcome value by the participants
+individual rating. We have effectively ignored the identity of outcome itself. What
+if we instead assume that people have consistent preferences and use the average
+evaluation across all participants. We use within-participant z-scored evaluations here.
+
+We also exclude all outcomes not in our original set. These were fairly rare. 
+```{r}
+# unknown rate is low enought that we can ignore
+df %>% 
+    group_by(scenario, control) %>% 
+    summarise(mean(outcome == "UNK")) %>% kable
+```
+
+(Side note: for all the previous analyses I've ignored the fact that the set of
+rated outcomes is not identical for all participants (because of these extra 
+considered outcomes. I'm not sure if that was the right call.)
+
+First let's look at the outcome ratings themselves. The dark error bars show 95% CI
+and the lighter bars show the SD to illustrate variability.
+
+```{r, fig.height=9}
+df %>% 
+    filter(outcome != "UNK") %>% 
+    ggplot(aes(evaluation_z, fct_reorder(outcome, evaluation_z, mean))) +
+        stat_summary(fun.data=mean_sdl, fun.args = list(mult = 1), color="gray") + 
+        stat_summary(fun.data=mean_cl_boot) + 
+        facet_wrap(~ scenario, ncol=1, scales="free_y") + 
+        geom_vline(xintercept=0, linetype="dashed") +
+        no_grid + ylab(NULL)
+
+```
+
+I am truly shocked that pineapple is rated so low...🍍😢
+
+Distribution of considered outcomes, sorted by aggregate value looks
+reasonable, but I think plotting by non-aggregate evaluation is more informative.
+
+```{r, fig.height=9}
+agg_eval = df %>% 
+    filter(outcome != "UNK") %>% 
+    group_by(outcome) %>% 
+    mutate(
+        agg_evaluation = mean(evaluation_z),
+        outcome = fct_reorder(outcome, agg_evaluation)
+    )
+
+agg_eval %>% 
+    filter(considered) %>% 
+    ggplot(aes(x=..count.., y=fct_reorder(outcome, agg_evaluation))) + 
+    geom_bar(aes(fill=control),  alpha=0.3, position="identity") +
+    facet_wrap(~ scenario, ncol=1, scales="free_y") + control_colors + no_grid
+```
+
+Redoing the main analysis with the aggregate evalutions, we get a much noisier
+pattern of results.
+
+```{r}
+agg_eval %>% ggplot(aes(agg_evaluation, as.numeric(considered), color=control)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.3, 
+                     position=position_dodge(width=.1)) +
+    geom_smooth(se=F, size=0.8, linetype = "dotted", alpha=0.3) +
+    # geom_smooth(se=F, method=lm, formula=y ~ x + abs(x), alpha=0.1) +
+    geom_smooth(se=F, method=glm, 
+        formula=y ~ x + abs(x - 0),
+        method.args = list(family = "binomial"),
+        alpha=0.1) +
+    ylab("consideration probability") +
+    control_colors
+
+agg_consideration_model = agg_eval %>% 
+    glm(considered ~ control * (zscore(agg_evaluation) + zscore(abs(agg_evaluation))), family=binomial, data=.)
+
+m = agg_eval %>% 
+    glm(considered ~ control * (zscore(evaluation) + zscore(abs(evaluation))), family=binomial, data=.)
+
+summ(agg_consideration_model)
+# plot_coefs(consideration_model2, omit.coefs=c("controlhigh", "(Intercept)"), colors="black")
+```
+
+The model that predicts consideration probability based on aggregate outcome
+evaluations has a worse AIC: 
+`r round(agg_consideration_model$aic)` vs `r round(m$aic)`.
+
+
+## Free-response comprehension check
+
+"In one brief sentence, explain how the fruit will be chosen"
+```{r}
+full_pdf %>% select(control, comp_free) %>% arrange(control) %>% kable
+```
+
+## True/false comprehension check
+
+"True or false? You don’t have to eat any fruit if you don’t want to."
+(correct: false)
+```{r}
+table(full_pdf$obligatory_check) %>% kable(col.names=c("response type", '# participants'))
+```

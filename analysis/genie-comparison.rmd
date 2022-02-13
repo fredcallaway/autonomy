@@ -1,5 +1,5 @@
 ---
-title: Genie Game Results — Followup
+title: Genie Game Comparison of pilots
 date: "`r Sys.Date()`"
 author: "fredcallaway"
 output:
@@ -8,7 +8,6 @@ output:
     self_contained: true
 ---
 
-Here we are showing results with the ...
 
 ```{r setup, include=FALSE}
 source("base.r")
@@ -16,14 +15,12 @@ library(moments)
 library(scales)
 library(infer)
 
-VERSIONS = c('v4.0', 'v4.0B')
-# VERSIONS = c('v3.1')
-
+VERSIONS = c('v1.2B', 'v1.2C', 'v2.0', 'v3.1', 'v4.0', 'v4.0B')
 load_data = function(type) {
     VERSIONS %>% 
     map(~ 
         read_csv(glue('../data/{.x}/{type}.csv'), col_types = cols()) %>% 
-        mutate(version = .x)
+        mutate(version = substr(.x, 1, 2))
      ) %>% 
     bind_rows
 }
@@ -42,6 +39,10 @@ wrap_scenario = list(
     facet_wrap(~scenario, dir="v", ncol=4),
     theme(strip.text.x = element_text(size=12), legend.position="top")
 )
+
+relu = function(x) {
+    if_else(x < 0, 0, x)
+}
 ```
 
 # Exclusions
@@ -49,7 +50,7 @@ wrap_scenario = list(
 ```{r load_data}
 full_pdf = load_data('participants') %>% 
     filter(completed) %>% 
-    select(-c(consideration_time, reflection_time, n_considered, n_unconsidered, version, bonus, completed)) %>%
+    select(-c(consideration_time, reflection_time, n_considered, n_unconsidered, bonus, completed)) %>%
     mutate(
         obligatory_check = factor(if_else(comp_radio, 'incorrect', 'correct', 'empty'),
                                   levels=c('empty', 'incorrect', 'correct')),
@@ -81,7 +82,7 @@ slider_check = full_slider %>%
 pdf = full_pdf %>% 
     filter(obligatory_check == "correct") %>% 
     left_join(slider_check) %>% 
-    filter(pass) %>%
+    filter((version == "v1") | (version == "v2") | pass) %>% 
     mutate(
         control = factor(control, levels=c("low", "high"))
     )
@@ -92,14 +93,16 @@ consideration = full_consideration %>%
     right_join(pdf2)  %>% 
     filter(scenario != "practice") %>%
     filter(outcome %nin% c("NONE", "UNK")) %>%
-    group_by(wid, scenario)  %>% 
-    distinct(outcome) %>%   # EXCLUSION
-    mutate(order = row_number())
+    group_by(version, wid, scenario) %>%
+    distinct(outcome) %>% # EXCLUSION
+    mutate(order = row_number()) %>% 
+    ungroup()
 
 df = full_df %>% 
     right_join(pdf2) %>% 
     filter(scenario != "practice") %>% 
-    left_join(transmute(consideration, wid, scenario, outcome, order, considered=T)) %>% 
+    select(-considered) %>% 
+    left_join(transmute(consideration, version, wid, scenario, outcome, order, considered=T))  %>% 
     replace_na(list(considered=F)) %>% 
     group_by(wid) %>% 
     mutate(
@@ -108,6 +111,8 @@ df = full_df %>%
         abs_eval_z = zscore(abs_eval),
     ) %>% 
     ungroup()
+
+df %>% filter(considered) %>% count(version)
 
 raw_acc = read_csv('../data/acc-v2.0/accessibility.csv', col_types = cols())
 
@@ -120,16 +125,7 @@ accessibility = raw_acc %>%
     mutate(accessibility = n / length(unique(raw_acc$wid))) %>% 
     select(-n)
 
-df = left_join(df, accessibility) %>% 
-    filter(!is.na(accessibility))
-    # replace_na(list(accessibility=0))
-# stopifnot(df %>% group_by(wid, scenario) %>% filter(sum(considered)!=1) %>% nrow == 0)
-
-stopifnot(
-    full_df %>% 
-    filter(scenario != "practice" & outcome == "UNK") %>% 
-    nrow == 0
-)
+df = left_join(df, accessibility)
 
 df = df %>% 
     arrange(wid, scenario, order) %>% 
@@ -137,51 +133,158 @@ df = df %>%
     mutate(trial_id= cur_group_id()) %>% 
     ungroup()
 
-df %>% write_csv("../data/processed.csv")
+WIDTH=7.5; HEIGHT=2.5
+
+df %>% filter(version == "v2")
 ```
 
-- `r nrow(full_pdf)` participants recruited.
-- `r sum(full_pdf$obligatory_check != "correct")` failed the comprehension check.
-- `r sum(!slider_check$pass)` participants failed the slider check.
-- `r nrow(pdf)` passed both checks and are included in the analysis.
+# Random stuff
+
+## Distribution of evaluations
+
+```{r}
+df %>% 
+    ggplot(aes(version, evaluation)) +
+    geom_violin() +
+    stat_summary(fun.data=mean_cl_normal)
+```
 
 
 ```{r}
-old_outcomes = str_split('soccer, basketball, tennis, baseball, golf, volleyball, badminton, boxing, cricket, rugby, football, bowling, elephant, koala, lemur, sloth, giraffe, monkey, rhinoceros, deer, panda, peacock, tiger, lion, jaguar, zebra, gorilla, cobra, crocodile, kangaroo, english, history, french, spanish, physics, chemistry, biology, algebra, geometry, calculus, bicycle, unicycle, scooter, skateboard, car, limousine, helicopter, airplane, train, bus, boat', ', ', simplify=T)
+df %>% 
+    ggplot(aes(evaluation, ..prop.., group=version)) +
+    geom_bar() +
+    facet_wrap(~version)
+```
 
-length(old_outcomes)
-# df = df %>% filter(outcome %in% old_outcomes)
+```{r}
+baselines = df %>%
+    filter(!is.na(accessibility)) %>% 
+    group_by(version, evaluation) %>% 
+    summarise(acc=sum(accessibility)) %>% 
+    group_by(version) %>% 
+    mutate(prop=acc/sum(acc))
 
-full_pdf %>% nrow
+baselines %>% 
+    ggplot(aes(evaluation, prop)) +
+```
+
+```{r}
+df %>% 
+    filter(considered) %>% 
+    count(control, version, evaluation) %>% 
+    group_by(control, version) %>% 
+    mutate(prop=n/sum(n)) %>% 
+    ggplot(aes(evaluation, prop)) + 
+        geom_bar(data=baselines, stat="identity", alpha=1, fill="gray50", position="identity") +
+        # geom_bar(aes(fill=control), stat="identity", alpha=0.7, position="identity") +
+        # control_colors + 
+        facet_wrap(~version) + 
+        labs(fill="considered by", y="proportion")
+```
+
+## Number of considered options
+
+```{r}
+df %>% 
+    filter(considered) %>% 
+    count(version,control,wid,scenario) %>% 
+    group_by(version,control) %>% 
+    summarise(n_considered=mean(n)) %>% kable(digits=2)
+```
+
+## Accessibility of considered options
+```{r}
+df %>% 
+    filter(considered) %>% 
+    filter(!is.na(accessibility)) %>% 
+    ggplot(aes(version, accessibility)) +
+    geom_violin() +
+    stat_summary(fun.data=mean_cl_normal)
+```
+
+```{r}
+df %>% 
+    filter(!is.na(accessibility)) %>% 
+    ggplot(aes(version, accessibility)) +
+    geom_violin() +
+    stat_summary(fun.data=mean_cl_normal)
+```
+
+
+## Value of considered options
+```{r}
+df %>% 
+    filter(considered) %>% 
+    ggplot(aes(version, evaluation)) +
+    geom_violin() +
+    stat_summary(fun.data=mean_cl_normal)
+```
+
+## Value of all options
+```{r}
+df %>% 
+    ggplot(aes(version, evaluation)) +
+    geom_violin() +
+    stat_summary(fun.data=mean_cl_normal)
+```
+
+```{r}
+df %>% 
+    group_by(version) %>%
+    mutate(abs_eval = abs(evaluation)) %>% 
+    summarise(across(c(evaluation, abs_eval), list(mean=mean, sd=sd)))
+```
+
+## Considering bad difference
+
+```{r}
+model = df %>%
+    filter(control == "low") %>% 
+    mutate(
+        accessibility = zscore(accessibility), 
+        evaluation = zscore(evaluation),
+    ) %>% 
+    glmer(considered ~ accessibility + version*(relu(evaluation) + abs(evaluation)) +
+        (accessibility + relu(evaluation) + abs(evaluation) | wid),
+     family=binomial, data=.)
+
+plot_coefs(model, omit.coefs=c("(Intercept)"), colors="black") #plot
+summ(model)
+
+df %>% distinct(wid, version) %>% count(version)
+```
+
+## Consideration regression interaction
+
+```{r}
+
 ```
 
 # Proportion of good/bad/neutral
 
-```{r}
+```{r,fig.width=WIDTH, fig.height=HEIGHT}
 ebins = df %>% 
-    group_by(evaluation) %>% 
     filter(!is.na(accessibility)) %>% 
+    group_by(version,evaluation) %>% 
     summarise(acc=sum(accessibility)) %>% 
     mutate(prop=acc/sum(acc)) %>% 
     mutate(ebin=cut(cumsum(prop), c(0, 1/3, 2/3, 1.01), labels=c("bad", "neutral", "good"))) %>% 
-    select(evaluation, ebin)
+    select(version, evaluation, ebin) 
+
+ebins %>% 
+    group_by(version,ebin) %>% 
+    summarise(min(evaluation))
 
 df %>% 
     left_join(ebins) %>% 
-    filter(considered)  %>% 
+    filter(considered) %>% 
     ggplot(aes(ebin, y=..prop.., group=control,fill=control)) + 
     geom_bar(position="dodge", alpha=0.7) +
     geom_hline(yintercept=1/3, linetype="solid") +
-    control_colors +
+    control_colors + facet_wrap(~version) +
     labs(x="value bin", y="proportion of considered outcomes")
 ```
-
-OK, so we definitely have a much stronger manipulation effect; that's great.
-But the low-control group appears to be selectively considering *bad* outcomes,
-rather than extreme outcomes. This is especially puzzling given the last
-set of results, where people in both conditions selectively considered good outcomes.
-
-This is bizarre.
 
 ## Tests
 
@@ -230,12 +333,8 @@ cat(
 ```{r, fig.width=8, fig.height=4}
 # BASELINE = mean(df$evaluation)
 
-relu = function(x) {
-    if_else(x < 0, 0, x)
-}
 p1 = df %>% 
-    mutate(considered_first = as.numeric(considered & order==1)) %>% 
-    ggplot(aes(evaluation, considered_first, color=control)) +
+    ggplot(aes(evaluation, as.numeric(considered), color=control)) +
     stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
                      position=position_dodge(width=.5)) +
     stat_smooth(geom="line", size=0.8, linetype = "dotted", alpha=0.5) +
@@ -277,6 +376,28 @@ consideration_model = df %>%
 plot_coefs(consideration_model, omit.coefs=c("controlhigh", "(Intercept)"), colors="black") #plot
 summ(consideration_model)
 ```
+
+
+```{r, fig.height=2, cache=T, dependson=load_data}
+consideration_model_no_acc = df %>% 
+    mutate(
+        accessibility = zscore(accessibility), 
+        evaluation = zscore(evaluation),
+        control_high = 1*(control == "high"),
+        control_low = 1*(control == "low"),
+
+    ) %>% 
+    glmer(considered ~ relu(evaluation) + abs(evaluation) +
+        control_low : abs(evaluation) + control_high : relu(evaluation) +
+        (relu(evaluation) + abs(evaluation) | wid),
+     family=binomial, data=.)
+
+plot_coefs(consideration_model, consideration_model_no_acc, omit.coefs=c("controlhigh", "(Intercept)")) #plot
+summ(consideration_model_no_acc)
+summ(consideration_model)
+```
+
+
 
 # Value distributions
 
@@ -381,8 +502,9 @@ read_csv("../model/results/comparison.csv") %>%
     kable
 ```
 
-It looks like softmax alone (with different temperature by condition) performs best.
-This actually makes sense, given the next plot.
+I'm not exactly sure how to interpret the dse, but the most obvious
+interpretation to me is that it could have easily come out the other
+direction.
 
 ## Difference in β
 
@@ -399,9 +521,9 @@ chain %>%
 p_higher = mean(chain$β_high > chain$β_low)
 ```
 
-The temperature is *negative* in the low control condition. This makes sense
-because behaviorally, we see selective consideration of bad outcomes in that
-condition.
+It looks like they overlap a lot, but this is (likely) because they both
+correlate with the $C_{\text{exp}}$ parameter. If we compare them, 
+$\beta_{\text{high}}$ is higher `r 100*p_higher`% of the time.
 
 ## Posterior predictive checks
 
@@ -425,9 +547,6 @@ ppc %>%
     labs(x="value bin", y="proportion of considered outcomes")
 ```
 
-That looks a lot like the data!
-
-<!-- 
 ```{r, fig.width=7.5}
 ppc %>% 
     group_by(control) %>% 
@@ -438,4 +557,203 @@ ppc %>%
         control_colors +
         labs(y="relative proportion")
 ```
--->
+
+# What went wrong?
+
+
+
+## Accessibility varies by condition
+
+```{r,fig.width=WIDTH, fig.height=HEIGHT}
+df %>%
+    # filter(considered)  %>% 
+    ggplot(aes(evaluation, accessibility, color=control)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
+                     position=position_dodge(width=.5)) +
+    geom_smooth(se=F, method=lm, formula=y ~ abs(x) + relu(x), alpha=0.1) +
+    facet_wrap(~version) +
+    # geom_smooth(se=F, method=lm, formula=y ~ exp(0.2*x) + abs(x), alpha=0.1) +
+    ylab("accessibility") +
+    control_colors
+```
+
+## Likelihood analysis
+
+```{r}
+likes = read_csv("../model/results/mle_likelihoods.csv")
+
+lk = consideration %>% 
+    left_join(distinct(select(df, wid, control, scenario, trial_id))) %>% 
+    left_join(likes) %>% 
+    left_join(select(df, trial_id, order, evaluation)) %>% 
+    mutate(rel_logp=stronger - accessibility)
+
+stopifnot(all(lk$eval_check == lk$evaluation))
+lk = lk %>% select(-c(trial_id, eval_check))
+```
+
+```{r}
+lk %>% 
+    ggplot(aes(accessibility, stronger)) +
+    geom_point() +
+    geom_abline()
+
+lk %>% 
+    filter(rel_logp < -1)
+    
+
+lk %>% 
+    ggplot(aes(rel_logp, color=control)) +
+    geom_density() + control_colors
+```
+
+```{r}
+lk %>% 
+    group_by(control, scenario) %>% 
+    summarise(y=mean(rel_logp)) %>% 
+    pivot_wider(names_from=control, values_from=y)
+```
+
+```{r}
+lk %>% 
+    group_by(control, scenario, outcome) %>% 
+    summarise(
+        eval=mean(evaluation), abs_eval=mean(abs(evaluation)),
+        total=sum(rel_logp), mean=mean(rel_logp), sd=sd(rel_logp)
+    ) %>% 
+    arrange(total)
+```
+
+```{r}
+
+keep = lk %>% 
+    group_by(scenario) %>% 
+    summarise(y=mean(rel_logp)) %>% 
+    filter(y>.1) %>% with(scenario)
+
+ebins = df %>% 
+    # filter(scenario %in% keep) %>% 
+    group_by(evaluation) %>% 
+    filter(!is.na(accessibility)) %>% 
+    summarise(acc=sum(accessibility)) %>% 
+    mutate(prop=acc/sum(acc)) %>% 
+    mutate(ebin=cut(cumsum(prop), c(0, 1/3, 2/3, 1.01), labels=c("bad", "neutral", "good"))) %>% 
+    select(evaluation, ebin) 
+
+df %>% 
+    # filter(scenario %in% keep) %>% 
+    left_join(ebins) %>% 
+    filter(considered)  %>% 
+    ggplot(aes(ebin, y=..prop.., group=control,fill=control)) + 
+    geom_bar(position="dodge", alpha=0.7) +
+    geom_hline(yintercept=1/3, linetype="solid") +
+    control_colors +
+    labs(x="value bin", y="proportion of considered outcomes")
+```
+
+
+```{r}
+df %>% 
+    filter(control == "low") %>% 
+    filter(evaluation < -5) %>% 
+    filter(considered)
+```
+
+## How often was something considered?
+
+```{r}
+
+df %>% 
+    group_by(wid, scenario) %>% 
+    summarise(considered_something=any(considered)) %>%
+    group_by(wid) %>% 
+    summarise(n_trial_considered=sum(considered_something)) %>% 
+    count(n_trial_considered) %>%
+    mutate(n=n/sum(n))
+
+scenarios = consideration %>% with(sort(unique(scenario)))
+consideration %>%
+    mutate(scenario = factor(scenario, levels=scenarios)) %>% 
+    count(wid, scenario, .drop=F) %>%
+    group_by(wid) %>% 
+    summarise(mean(n>0))
+
+df %>%
+    group_by(wid,scenario) %>%
+    filter(sum(considered) > 0) %>% 
+    count(wid)
+```
+
+## Other stuff
+
+```{r}
+df %>% filter(outcome == "walking") %>% 
+    group_by(scenario,control) %>% 
+    summarise(mean(considered))
+```
+
+```{r}
+pdf
+
+full_consideration %>% 
+    filter(scenario != "practice") %>% 
+    group_by(scenario) %>% 
+    summarise(mean(outcome == "UNK"))
+
+full_consideration %>% 
+    filter(scenario != "practice") %>% 
+    filter(outcome == "UNK") %>% print(n=100)
+```
+
+
+```{r}
+read_csv("/Users/fred/Downloads/prolific_export_61cc9e46a7364db7a025cca8.csv") %>% 
+    filter(status == "APPROVED") %>%
+    select(completed_datetiem)
+    summarise(mean(time_taken))
+
+
+read_csv("/Users/fred/Downloads/prolific_export_61e9fb5a18392098af41d698.csv") %>% 
+    filter(status == "AWAITING REVIEW") %>%
+    summarise(mean(time_taken))
+
+```
+
+
+```{r}
+df %>% 
+    ggplot(aes(evaluation, accessibility, color=control)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
+                     position=position_dodge(width=.5)) +
+    stat_smooth(geom="line", size=0.8, linetype = "dotted", alpha=0.5) +
+    geom_smooth(se=F, method=lm, formula=y ~ abs(x) + relu(x), alpha=0.1) +
+    # geom_smooth(se=F, method=lm, formula=y ~ exp(0.2*x) + abs(x), alpha=0.1) +
+    ylab("accessibility") +
+    control_colors
+```
+
+```{r}
+df %>% 
+    ggplot(aes(evaluation, ..prop..)) +
+    geom_bar(aes(fill=control), stat="count", alpha=0.7, width=.7, position="dodge") +
+    control_colors
+```
+
+
+```{r}
+accessibility_model = df %>% 
+    mutate(
+        accessibility = zscore(accessibility), 
+        evaluation = zscore(evaluation),
+        control_high = 1*(control == "high"),
+        control_low = 1*(control == "low"),
+
+    ) %>% 
+    lmer(accessibility ~ relu(evaluation) + abs(evaluation) +
+        control_low : abs(evaluation) + control_high : relu(evaluation) +
+        (relu(evaluation) + abs(evaluation) | wid),
+     data=.)
+
+plot_coefs(accessibility_model, omit.coefs=c("controlhigh", "(Intercept)"), colors="black") #plot
+summ(accessibility_model)
+```

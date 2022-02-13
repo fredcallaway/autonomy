@@ -8,7 +8,31 @@ output:
     self_contained: true
 ---
 
-Here we are showing results with the ...
+
+In [the last set of results](http://fredcallaway.com/reports/autonomy/genie-22-01-21.html),
+we had a very weak manipulation effect. To test whether the weakened effect was due to
+changes we made from earlier (more successful) pilots, we tried reverting the key changes.
+Concretely, the reversions are:
+
+- using hand-selected outcome sets instead of those based on the accessibility norming study
+- not asking participants to report outcomes in consideration order
+- removing text emphasizing that the slider should be used in a consistent way throughout the experiment
+
+For the last point, we currently have
+
+> Breaking character for a bit, we know you've seen a slider before. But it's
+> really important for our research that you use _our_ slider in a consistent way
+> throughout the experiment.
+
+and the last set of results instead had
+
+> Breaking character for a bit, we know you've seen a slider before. But
+> **it's really important for our research that you
+> use the slider in a consistent way throughout the experiment, *even
+> in different rounds.*** So, if you rate situation A in the first
+> round as +3 and situation B in the third round as +4, it means
+> you'd rather be in situation B than situation A.
+
 
 ```{r setup, include=FALSE}
 source("base.r")
@@ -146,15 +170,6 @@ df %>% write_csv("../data/processed.csv")
 - `r nrow(pdf)` passed both checks and are included in the analysis.
 
 
-```{r}
-old_outcomes = str_split('soccer, basketball, tennis, baseball, golf, volleyball, badminton, boxing, cricket, rugby, football, bowling, elephant, koala, lemur, sloth, giraffe, monkey, rhinoceros, deer, panda, peacock, tiger, lion, jaguar, zebra, gorilla, cobra, crocodile, kangaroo, english, history, french, spanish, physics, chemistry, biology, algebra, geometry, calculus, bicycle, unicycle, scooter, skateboard, car, limousine, helicopter, airplane, train, bus, boat', ', ', simplify=T)
-
-length(old_outcomes)
-# df = df %>% filter(outcome %in% old_outcomes)
-
-full_pdf %>% nrow
-```
-
 # Proportion of good/bad/neutral
 
 ```{r}
@@ -175,13 +190,6 @@ df %>%
     control_colors +
     labs(x="value bin", y="proportion of considered outcomes")
 ```
-
-OK, so we definitely have a much stronger manipulation effect; that's great.
-But the low-control group appears to be selectively considering *bad* outcomes,
-rather than extreme outcomes. This is especially puzzling given the last
-set of results, where people in both conditions selectively considered good outcomes.
-
-This is bizarre.
 
 ## Tests
 
@@ -224,6 +232,10 @@ cat(
 )
 ```
 
+OK, so we definitely have a much stronger manipulation effect; that's great.
+But the low-control group appears to be selectively considering *bad* outcomes,
+rather than extreme outcomes. This is especially puzzling given the last
+set of results, where people in both conditions selectively considered good outcomes.
 
 # Regression "check" plot
 
@@ -241,7 +253,7 @@ p1 = df %>%
     stat_smooth(geom="line", size=0.8, linetype = "dotted", alpha=0.5) +
     # geom_smooth(se=F, method=lm, formula=y ~ x + abs(x), alpha=0.1) +
     geom_smooth(se=F, method=glm, 
-        formula=y ~ relu(x) + abs(x),
+        formula=y ~ x + abs(x),
         method.args = list(family = "binomial"),
         alpha=0.1) +
     ylab("consideration probability") +
@@ -252,7 +264,7 @@ p2 = df %>%
     stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
                      position=position_dodge(width=.5)) +
     stat_smooth(geom="line", size=0.8, linetype = "dotted", alpha=0.5) +
-    geom_smooth(se=F, method=lm, formula=y ~ abs(x) + relu(x), alpha=0.1) +
+    geom_smooth(se=F, method=lm, formula=y ~ abs(x) + x, alpha=0.1) +
     # geom_smooth(se=F, method=lm, formula=y ~ exp(0.2*x) + abs(x), alpha=0.1) +
     ylab("relative consideration probability") +
     control_colors
@@ -269,16 +281,23 @@ consideration_model = df %>%
         control_low = 1*(control == "low"),
 
     ) %>% 
-    glmer(considered ~ accessibility + relu(evaluation) + abs(evaluation) +
-        control_low : abs(evaluation) + control_high : relu(evaluation) +
-        (accessibility + relu(evaluation) + abs(evaluation) | wid),
+    glmer(considered ~ accessibility + evaluation + abs(evaluation) +
+        control_low : abs(evaluation) + control_high : evaluation +
+        (accessibility + evaluation + abs(evaluation) | wid),
      family=binomial, data=.)
 
 plot_coefs(consideration_model, omit.coefs=c("controlhigh", "(Intercept)"), colors="black") #plot
 summ(consideration_model)
 ```
 
+This analysis yields somewhat different conclusions because absolute value
+seems to matter in both conditions. Note that I've gone back to using signed
+value as a predictor (rather than relu) because we have a negative effect of
+signed value in the low-control condition.
+
 # Value distributions
+
+This is here for completeness; feel free to skip.
 
 Gray is the accessibility data. Blue and yellow are outcomes considered by each group.
 
@@ -321,11 +340,11 @@ df %>%
         theme(legend.position="none")
 ```
 
-## Relative proportions
+# Relative proportions
 
-New plot: this is like the above but subtracting out the accessibility value. It
-shows how much more frequent each value among considered outcomes than we would
-expect from accessibility alone.
+I think this plot might be the most informative. It shows the frequency of
+each value among considered outcomes, minus the frequency we would expect from
+accessibility alone.
 
 ```{r, fig.width=7.5}
 baselines = df %>%
@@ -345,24 +364,23 @@ df %>%
         labs(y="relative proportion")
 ```
 
+From this, I conclude that
+- high control participants consider fairly good things (+5 and above)
+  and avoid considering the very worst things
+- low control participants consider the very worst things and
+  avoid considering anything positive
 
-```{r, fig.width=7.5}
-baselines = df %>%
-    group_by(scenario,evaluation) %>% 
-    summarise(acc=sum(accessibility))  %>% 
-    mutate(prop=acc/sum(acc))
+These results are actually consistent with our predictions (in particular,
+sampling extreme outcomes under low control), with two additional
+assumptions:
+- overall, the value distribution is skewed negative, such that there are more
+  terrible outcomes than amazing outcomes
+- people are interpreting -10/10 to be something like the .05 and .95 percentiles
+  of value
 
-df %>% 
-    filter(considered) %>% 
-    count(control, scenario, evaluation) %>% 
-    group_by(control,scenario) %>% 
-    mutate(prop=n/sum(n)) %>% 
-    left_join(transmute(baselines, evaluation, baseline=prop)) %>% 
-    ggplot(aes(evaluation, prop-baseline)) + 
-        geom_bar(aes(fill=control), stat="identity", alpha=0.7, width=.7, position="dodge") +
-        control_colors + wrap_scenario +
-        labs(y="relative proportion")
-```
+The consequence of these two assumptions is that -10 outcomes are actually
+more extreme than +10 outcomes. Therefore low-control participants should be
+more likely to sample the -10s.
 
 # Modeling
 
@@ -381,8 +399,10 @@ read_csv("../model/results/comparison.csv") %>%
     kable
 ```
 
-It looks like softmax alone (with different temperature by condition) performs best.
-This actually makes sense, given the next plot.
+Softmax alone (with different temperature by condition) performs just as well
+as the softmax+UWS model. Note: I don't understand how/why "weight" can
+disagree with the difference in LOO. It might depend on which other models
+are in the comparison.
 
 ## Difference in β
 
@@ -399,13 +419,13 @@ chain %>%
 p_higher = mean(chain$β_high > chain$β_low)
 ```
 
-The temperature is *negative* in the low control condition. This makes sense
-because behaviorally, we see selective consideration of bad outcomes in that
-condition.
+Really clear manipulation effect. Note that the temperature is *negative* in
+the low control condition. That corresponds to a traditional softmax over
+negative value (specifically considering bad things).
 
-## Posterior predictive checks
+## Posterior predictive check(s)
 
-Here we are recreating plots using simulations from the joint model.
+Here we are recreating plot(s) using simulations from the joint model.
 
 ```{r}
 ppc = read_csv("../model/results/ppc.csv") %>% 
@@ -425,17 +445,4 @@ ppc %>%
     labs(x="value bin", y="proportion of considered outcomes")
 ```
 
-That looks a lot like the data!
-
-<!-- 
-```{r, fig.width=7.5}
-ppc %>% 
-    group_by(control) %>% 
-    mutate(prop=n/sum(n)) %>% 
-    left_join(transmute(baselines, evaluation, baseline=prop)) %>% 
-    ggplot(aes(evaluation, prop-baseline)) + 
-        geom_bar(aes(fill=control), stat="identity", alpha=0.7, width=.7, position="dodge") +
-        control_colors +
-        labs(y="relative proportion")
-```
--->
+Not bad!

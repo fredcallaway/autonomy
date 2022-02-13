@@ -1,0 +1,186 @@
+# What went wrong?
+
+
+## Likelihood analysis
+
+```{r}
+likes = read_csv("../model/results/mle_likelihoods.csv")
+
+lk = consideration %>% 
+    left_join(distinct(select(df, wid, control, scenario, trial_id))) %>% 
+    left_join(likes) %>% 
+    left_join(select(df, trial_id, order, evaluation)) %>% 
+    mutate(rel_logp=stronger - accessibility)
+
+stopifnot(all(lk$eval_check == lk$evaluation))
+lk = lk %>% select(-c(trial_id, eval_check))
+```
+
+```{r}
+lk %>% 
+    ggplot(aes(accessibility, stronger)) +
+    geom_point() +
+    geom_abline()
+
+lk %>% 
+    filter(rel_logp < -1)
+    
+
+lk %>% 
+    ggplot(aes(rel_logp, color=control)) +
+    geom_density() + control_colors
+```
+
+```{r}
+lk %>% 
+    group_by(control, scenario) %>% 
+    summarise(y=mean(rel_logp)) %>% 
+    pivot_wider(names_from=control, values_from=y)
+```
+
+```{r}
+lk %>% 
+    group_by(control, scenario, outcome) %>% 
+    summarise(
+        eval=mean(evaluation), abs_eval=mean(abs(evaluation)),
+        total=sum(rel_logp), mean=mean(rel_logp), sd=sd(rel_logp)
+    ) %>% 
+    arrange(total)
+```
+
+```{r}
+
+keep = lk %>% 
+    group_by(scenario) %>% 
+    summarise(y=mean(rel_logp)) %>% 
+    filter(y>.1) %>% with(scenario)
+
+ebins = df %>% 
+    # filter(scenario %in% keep) %>% 
+    group_by(evaluation) %>% 
+    filter(!is.na(accessibility)) %>% 
+    summarise(acc=sum(accessibility)) %>% 
+    mutate(prop=acc/sum(acc)) %>% 
+    mutate(ebin=cut(cumsum(prop), c(0, 1/3, 2/3, 1.01), labels=c("bad", "neutral", "good"))) %>% 
+    select(evaluation, ebin) 
+
+df %>% 
+    # filter(scenario %in% keep) %>% 
+    left_join(ebins) %>% 
+    filter(considered)  %>% 
+    ggplot(aes(ebin, y=..prop.., group=control,fill=control)) + 
+    geom_bar(position="dodge", alpha=0.7) +
+    geom_hline(yintercept=1/3, linetype="solid") +
+    control_colors +
+    labs(x="value bin", y="proportion of considered outcomes")
+```
+
+
+```{r}
+df %>% 
+    filter(control == "low") %>% 
+    filter(evaluation < -5) %>% 
+    filter(considered)
+```
+
+## How often was something considered?
+
+```{r}
+
+df %>% 
+    group_by(wid, scenario) %>% 
+    summarise(considered_something=any(considered)) %>%
+    group_by(wid) %>% 
+    summarise(n_trial_considered=sum(considered_something)) %>% 
+    count(n_trial_considered) %>%
+    mutate(n=n/sum(n))
+
+scenarios = consideration %>% with(sort(unique(scenario)))
+consideration %>%
+    mutate(scenario = factor(scenario, levels=scenarios)) %>% 
+    count(wid, scenario, .drop=F) %>%
+    group_by(wid) %>% 
+    summarise(mean(n>0))
+
+df %>%
+    group_by(wid,scenario) %>%
+    filter(sum(considered) > 0) %>% 
+    count(wid)
+```
+
+## Accessibility varies by condition
+
+```{r}
+df %>%
+    # filter(accessibility > .1)  %>% 
+    ggplot(aes(evaluation, accessibility, color=control)) +
+    stat_summary_bin(fun.data=mean_cl_boot, bins=5, alpha=0.5, 
+                     position=position_dodge(width=.5)) +
+    stat_smooth(geom="line", size=0.8, linetype = "dotted", alpha=0.5) +
+    geom_smooth(se=F, method=lm, formula=y ~ abs(x) + relu(x), alpha=0.1) +
+    # geom_smooth(se=F, method=lm, formula=y ~ exp(0.2*x) + abs(x), alpha=0.1) +
+    ylab("accessibility") +
+    control_colors
+```
+
+## Other stuff
+
+```{r}
+df %>% filter(outcome == "walking") %>% 
+    group_by(scenario,control) %>% 
+    summarise(mean(considered))
+```
+
+```{r}
+pdf
+
+full_consideration %>% 
+    filter(scenario != "practice") %>% 
+    group_by(scenario) %>% 
+    summarise(mean(outcome == "UNK"))
+
+full_consideration %>% 
+    filter(scenario != "practice") %>% 
+    filter(outcome == "UNK") %>% print(n=100)
+```
+
+
+```{r}
+read_csv("/Users/fred/Downloads/prolific_export_61cc9e46a7364db7a025cca8.csv") %>% 
+    filter(status == "APPROVED") %>%
+    select(completed_datetiem)
+    summarise(mean(time_taken))
+
+
+read_csv("/Users/fred/Downloads/prolific_export_61e9fb5a18392098af41d698.csv") %>% 
+    filter(status == "AWAITING REVIEW") %>%
+    summarise(mean(time_taken))
+
+```
+
+
+```{r}
+df %>% 
+    ggplot(aes(evaluation, ..prop..)) +
+    geom_bar(aes(fill=control), stat="count", alpha=0.7, width=.7, position="dodge") +
+    control_colors
+```
+
+
+```{r}
+accessibility_model = df %>% 
+    mutate(
+        accessibility = zscore(accessibility), 
+        evaluation = zscore(evaluation),
+        control_high = 1*(control == "high"),
+        control_low = 1*(control == "low"),
+
+    ) %>% 
+    lmer(accessibility ~ relu(evaluation) + abs(evaluation) +
+        control_low : abs(evaluation) + control_high : relu(evaluation) +
+        (relu(evaluation) + abs(evaluation) | wid),
+     data=.)
+
+plot_coefs(accessibility_model, omit.coefs=c("controlhigh", "(Intercept)"), colors="black") #plot
+summ(accessibility_model)
+```
