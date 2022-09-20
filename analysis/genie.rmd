@@ -16,8 +16,8 @@ library(moments)
 library(scales)
 library(infer)
 
-VERSIONS = c('v4.0', 'v4.0B')
-# VERSIONS = c('v3.1')
+# VERSIONS = c('v4.0', 'v4.0B')
+VERSIONS = c('v3.1')
 
 load_data = function(type) {
     VERSIONS %>% 
@@ -155,6 +155,17 @@ length(old_outcomes)
 full_pdf %>% nrow
 ```
 
+
+```{r}
+full_consideration %>% 
+    filter(startsWith(scenario, "subjects")) %>% 
+    with(mean(outcome == "UNK"))
+
+full_consideration %>% 
+    group_by(scenario) %>% 
+    summarise(mean(outcome == "UNK"))
+```
+
 # Proportion of good/bad/neutral
 
 ```{r}
@@ -168,12 +179,16 @@ ebins = df %>%
 
 df %>% 
     left_join(ebins) %>% 
-    filter(considered)  %>% 
+    filter(considered) %>% 
     ggplot(aes(ebin, y=..prop.., group=control,fill=control)) + 
     geom_bar(position="dodge", alpha=0.7) +
     geom_hline(yintercept=1/3, linetype="solid") +
     control_colors +
     labs(x="value bin", y="proportion of considered outcomes")
+```
+
+```{r}
+
 ```
 
 OK, so we definitely have a much stronger manipulation effect; that's great.
@@ -222,6 +237,8 @@ cat(
     "\n\nhigh good > low good:",
     pval(prop.test(X$good, X$total, alternative='less')$p.value)
 )
+
+prop.test(c(low$good, low$bad))
 ```
 
 
@@ -278,11 +295,43 @@ plot_coefs(consideration_model, omit.coefs=c("controlhigh", "(Intercept)"), colo
 summ(consideration_model)
 ```
 
+
+```{r}
+model = df %>% 
+    filter(control == "low") %>% 
+    mutate(
+        accessibility = zscore(accessibility), 
+        evaluation = zscore(evaluation),
+    ) %>% 
+    glmer(considered ~ accessibility + evaluation + abs(evaluation) +
+        (evaluation + abs(evaluation) | wid),
+     family=binomial, data=.)
+
+summ(model)
+```
+
+```{r}
+model = df %>% 
+    filter(control == "low") %>% 
+    mutate(
+        accessibility = zscore(accessibility), 
+        evaluation = zscore(evaluation),
+    ) %>% 
+    lmer(considered-accessibility ~ evaluation + abs(evaluation) +
+        (evaluation + abs(evaluation) | wid),
+    data=.)
+
+summ(model)
+```
+
 # Value distributions
 
 Gray is the accessibility data. Blue and yellow are outcomes considered by each group.
 
 ```{r, fig.width=7.5, fig.height=4.5}
+
+df %>% filter(considered & (control == "low") & (scenario == "animals (bubble)"))
+df %>% filter(considered & (control == "low") & (scenario == "subjects (magic)"))
 
 baselines = df %>%
     group_by(scenario, evaluation) %>% 

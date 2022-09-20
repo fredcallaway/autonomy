@@ -14,7 +14,8 @@
 end
 Base.active_repl.options.iocontext[:displaysize] = (20, displaysize(stdout)[2])
 
-# %% --------
+# %% ==================== Load data ====================
+
 raw_df = CSV.read("../data/processed.csv", DataFrame)
 
 # Each datum corresponds to one considered outcome
@@ -35,16 +36,18 @@ all_data = @chain raw_df begin
     end
 end
 
-# %% ==================== Maximum Likelihood Estimation ====================
-
+# %% ==================== Define models ====================
 
 models = map(x->Model(x, ε=0.), (
     switching_softmax_uws=SwitchingSoftmaxUWS(),
     accessibility=NullWeighter(),
-    # switch_softmax=SwitchWeighter(Softmax(), Softmax()),
-    # switch_uws=SwitchWeighter(UWS(), UWS()),
-    # softmax_uws=SoftmaxUWS(),
+    switch_softmax=SwitchWeighter(Softmax(), Softmax()),
+    switch_uws=SwitchWeighter(UWS(), UWS()),
+    softmax_uws=SoftmaxUWS(),
 ))
+
+# %% ==================== Maximum Likelihood Estimation ====================
+
 
 n_param = map(models) do model
     length(flatten(model, Missing))
@@ -78,24 +81,6 @@ map(all_data) do d
     (;d.trial_id, d.order, x..., chance=log(1/length(d.evaluation)), eval_check=d.evaluation[1])
 end |> CSV.write("results/mle_likelihoods.csv")
 
-# %% --------
-@chain raw_df begin
-    # groupby(:wid)
-    # @transform(:evaluation = zscore(:evaluation))
-    groupby(:trial_id)
-    mapreduce(vcat, collect(_)) do g
-        control = only(unique(g.control))
-        trial_id = only(unique(g.trial_id))
-        evaluation = collect(g.evaluation)
-        accessibility = collect(g.accessibility)
-        map(1:sum(g.considered)) do i
-            trial = (; trial_id, control, evaluation=copy(evaluation), accessibility=copy(accessibility), considered=1)
-            popfirst!(evaluation); popfirst!(accessibility)
-            trial
-        end
-    end
-end
-
 
 
 # %% ==================== Bayesian posterior  ====================
@@ -103,7 +88,7 @@ end
 @everywhere using Turing
 @everywhere using Turing: @addlogprob!
 @everywhere using ArviZ
-@everywhere Turing.setprogress!(true)
+@everywhere Turing.setprogress!(false)
 
 @everywhere @model turing_model(base_model, data, trial_wise=false, ::Type{T} = Float64) where T = begin
     priors = metaflatten(base_model, prior2, Missing)
@@ -124,43 +109,27 @@ end
 end
 
 turing_results = pmap(models) do base_model
-    # chain = sample(turing_model(base_model, all_data), NUTS(), 5000);
-    chain = sample(tm, NUTS(), MCMCDistributed(), 5000, 4);
+    chain = sample(turing_model(base_model, all_data), NUTS(), 5000);
+    # chain = sample(turing_model(base_model, all_data), NUTS(), MCMCDistributed(), 5000, 4);
     L = generated_quantities(turing_model(base_model, all_data, true), 
                              MCMCChains.get_sections(chain, :parameters));
     L = permutedims(combinedims(L), (3, 2, 1))
     idata = from_mcmcchains(chain; log_likelihood=Dict("L" => L))
     (;chain, idata)
 end
-mle.softmax_uws
-mle.switching_softmax_uws
-aic
-comp = compare(Dict(pairs(invert(turing_results).idata)))
 
+comp = compare(Dict(pairs(invert(turing_results).idata)))
 comp |> CSV.write("results/comparison.csv")
 
 # %% --------
 
 ch = turing_results.switching_softmax_uws.chain
-
-
-
 β_low = ch["params[1]"]
 β_high = ch["params[2]"]
 
 df = DataFrame(ch)[:, Cols(r"params")]
 rename!(df, collect(fieldnameflatten(models.switching_softmax_uws, Missing)))
 df |> CSV.write("results/chain.csv")
-
-
-
-
-(df, )
-
-
-
-std(β_low)
-std(β_high)
 mean(β_high .> β_low)
 
 
@@ -185,6 +154,7 @@ function eval_counts(models, data)
 end
 
 model = :switching_softmax_uws
+base_model = getfield(models, model)
 P = collect(cat(get(getfield(turing_results, model).chain; section=:parameters).params...; dims=3))
 model_samples = map(eachrow(reshape(P, 5000, 5))) do x
     reconstruct(base_model, x, Missing)

@@ -40,7 +40,8 @@ library(moments)
 library(scales)
 library(infer)
 
-VERSIONS = c('v4.0', 'v4.0B')
+VERSIONS = c('v4.1')
+# VERSIONS = c('v4.0', 'v4.0B')
 # VERSIONS = c('v3.1')
 
 load_data = function(type) {
@@ -162,6 +163,8 @@ df = df %>%
     ungroup()
 
 df %>% write_csv("../data/processed.csv")
+
+# df = filter(df, accessibility > .05)
 ```
 
 - `r nrow(full_pdf)` participants recruited.
@@ -174,6 +177,7 @@ df %>% write_csv("../data/processed.csv")
 
 ```{r}
 ebins = df %>% 
+    filter(accessibility > .9) %>% 
     group_by(evaluation) %>% 
     filter(!is.na(accessibility)) %>% 
     summarise(acc=sum(accessibility)) %>% 
@@ -182,8 +186,9 @@ ebins = df %>%
     select(evaluation, ebin)
 
 df %>% 
+    filter(accessibility > .9) %>% 
     left_join(ebins) %>% 
-    filter(considered)  %>% 
+    filter(considered) %>% 
     ggplot(aes(ebin, y=..prop.., group=control,fill=control)) + 
     geom_bar(position="dodge", alpha=0.7) +
     geom_hline(yintercept=1/3, linetype="solid") +
@@ -229,6 +234,9 @@ cat(
     pval(prop.test(X$bad, X$total, alternative='greater')$p.value),
     "\n\nhigh good > low good:",
     pval(prop.test(X$good, X$total, alternative='less')$p.value)
+
+prop.test(c(low$bad, low$neutral), c(low$total, low$total))
+prop.test(X$good, X$total, alternative='less')
 )
 ```
 
@@ -338,6 +346,14 @@ df %>%
         control_colors + facet_wrap(~control) +
         labs(fill="considered by", y="proportion") + 
         theme(legend.position="none")
+```
+
+```{r}
+full_consideration %>% 
+    filter(startsWith(scenario, "subjects")) %>% 
+    with(mean(outcome == "UNK"))
+    # filter(outcome == "UNK") %>% 
+    # with(raw_outcome)
 ```
 
 # Relative proportions

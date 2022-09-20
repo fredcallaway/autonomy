@@ -27,15 +27,16 @@ acc %>%
 ```
 
 ```{r}
-
+acc %>% 
+    filter(cat_id == "SUBJECTS" & outcome == "UNK") %>% 
+    with(raw_outcome)
+```
+```{r}
 acc %>% 
     filter(outcome != "UNK") %>% 
     count(cat_id,outcome) %>% 
     filter(outcome %in% c("ape", "gorilla", "chimpanzee", "monkey"))
 ```
-
-
-
 
 1 ANIMALS      
 2 SPORTS       
@@ -59,12 +60,13 @@ acc %>%
 ```
 
 ```{r}
+N = length(unique(acc$wid))
 acc %>% 
     filter(outcome != "UNK") %>% 
     count(cat_id,outcome) %>% 
-    group_by(cat_id) %>%
-    filter(n>=3) %>% 
-    count(cat_id)
+    mutate(prop = n / N) %>% 
+    group_by(cat_id) %>% 
+    summarise(sum(prop>=.05), sum(prop>=.1), sum(n>=2))
 ```
 
 ```{r}

@@ -178,7 +178,7 @@ function likelihood(model::Model, trial::NamedTuple)
     p ./= sum(p)
     p .*= (1 .- ε)
     p .+= ε .* (1/n)
-    p .*= trial.accessibility .^ β_acc
+    p = p .* trial.accessibility .^ β_acc
     p ./= sum(p)
     # end
     p
